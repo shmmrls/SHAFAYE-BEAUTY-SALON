@@ -1,4 +1,6 @@
 ﻿Public Class adminMenu
+
+    ' FOR SHOWING AND HIDING MENUS
     Sub customizeDesign()
         panelAdmin.Visible = False
         panelAdminProf.Visible = False
@@ -72,7 +74,7 @@
         hideSubmenu()
     End Sub
 
-    Private Sub adminAlerts_Click(sender As Object, e As EventArgs) Handles adminAlerts.Click
+    Private Sub reminders_Click(sender As Object, e As EventArgs) Handles reminders.Click
         hideSubmenu()
     End Sub
 
@@ -161,19 +163,96 @@
 
 
 
+
+
     ' INVENTORY
+    Private Sub inventory_Click(sender As Object, e As EventArgs) Handles inventory.Click
+        showSubmenu(panelInventory)
+    End Sub
+
+    Private Sub inventoryList_Click(sender As Object, e As EventArgs) Handles inventoryList.Click
+        hideSubmenu()
+    End Sub
+
+    Private Sub addNewItems_Click(sender As Object, e As EventArgs) Handles addNewItems.Click
+        hideSubmenu()
+    End Sub
+
+    Private Sub updateStockLevels_Click(sender As Object, e As EventArgs) Handles updateStockLevels.Click
+        hideSubmenu()
+    End Sub
+
+    Private Sub usageLogs_Click(sender As Object, e As EventArgs) Handles usageLogs.Click
+        hideSubmenu()
+    End Sub
+
+    Private Sub lowStockAlerts_Click(sender As Object, e As EventArgs) Handles lowStockAlerts.Click
+        hideSubmenu()
+    End Sub
+
+
+
+    'PAYMENTS
+    Private Sub payments_Click(sender As Object, e As EventArgs) Handles payments.Click
+        showSubmenu(panelPayment)
+    End Sub
+
+    Private Sub paymentRecords_Click(sender As Object, e As EventArgs) Handles paymentRecords.Click
+        hideSubmenu()
+    End Sub
+
+    Private Sub updatePaymentStats_Click(sender As Object, e As EventArgs) Handles updatePaymentStats.Click
+        hideSubmenu()
+    End Sub
+
+    Private Sub generateReceipts_Click(sender As Object, e As EventArgs) Handles generateReceipts.Click
+        hideSubmenu()
+    End Sub
+
+    Private Sub transactionHistory_Click(sender As Object, e As EventArgs) Handles transactionHistory.Click
+        hideSubmenu()
+    End Sub
 
 
 
 
 
 
+    'SUPPORT
+    Private Sub support_Click(sender As Object, e As EventArgs) Handles support.Click
+        showSubmenu(panelCustomerSupport)
+    End Sub
+
+    Private Sub customerInquiries_Click(sender As Object, e As EventArgs) Handles customerInquiries.Click
+        hideSubmenu()
+    End Sub
+
+    Private Sub faqManagement_Click(sender As Object, e As EventArgs) Handles faqManagement.Click
+        hideSubmenu()
+    End Sub
+
+    Private Sub reviewMode_Click(sender As Object, e As EventArgs) Handles reviewMode.Click
+        hideSubmenu()
+    End Sub
 
 
 
 
 
-    '
+    'PROFILE AND SETTINGS
+    Private Sub adminProfile_Click(sender As Object, e As EventArgs) Handles adminProfile.Click
+        showSubmenu(panelAdminProf)
+    End Sub
 
+    Private Sub updateAdminProfile_Click(sender As Object, e As EventArgs) Handles updateAdminProfile.Click
+        hideSubmenu()
+    End Sub
 
+    Private Sub systemSettings_Click(sender As Object, e As EventArgs) Handles systemSettings.Click
+        hideSubmenu()
+    End Sub
+
+    Private Sub logout_Click(sender As Object, e As EventArgs) Handles logout.Click
+        hideSubmenu()
+    End Sub
 End Class

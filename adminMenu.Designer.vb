@@ -25,26 +25,25 @@ Partial Class adminMenu
         Me.mainPanel = New System.Windows.Forms.Panel()
         Me.panelMenu = New System.Windows.Forms.Panel()
         Me.panelAdminProf = New System.Windows.Forms.Panel()
-        Me.Button43 = New System.Windows.Forms.Button()
-        Me.Button44 = New System.Windows.Forms.Button()
-        Me.Button45 = New System.Windows.Forms.Button()
+        Me.logout = New System.Windows.Forms.Button()
+        Me.systemSettings = New System.Windows.Forms.Button()
+        Me.updateAdminProfile = New System.Windows.Forms.Button()
         Me.adminProfile = New System.Windows.Forms.Button()
         Me.panelCustomerSupport = New System.Windows.Forms.Panel()
-        Me.Button38 = New System.Windows.Forms.Button()
-        Me.Button39 = New System.Windows.Forms.Button()
-        Me.Button40 = New System.Windows.Forms.Button()
-        Me.Button41 = New System.Windows.Forms.Button()
+        Me.reviewMode = New System.Windows.Forms.Button()
+        Me.faqManagement = New System.Windows.Forms.Button()
+        Me.customerInquiries = New System.Windows.Forms.Button()
+        Me.support = New System.Windows.Forms.Button()
         Me.panelPayment = New System.Windows.Forms.Panel()
-        Me.Button37 = New System.Windows.Forms.Button()
-        Me.Button32 = New System.Windows.Forms.Button()
-        Me.Button33 = New System.Windows.Forms.Button()
-        Me.Button34 = New System.Windows.Forms.Button()
-        Me.Button35 = New System.Windows.Forms.Button()
-        Me.Button36 = New System.Windows.Forms.Button()
+        Me.transactionHistory = New System.Windows.Forms.Button()
+        Me.generateReceipts = New System.Windows.Forms.Button()
+        Me.updatePaymentStats = New System.Windows.Forms.Button()
+        Me.paymentRecords = New System.Windows.Forms.Button()
+        Me.payments = New System.Windows.Forms.Button()
         Me.panelInventory = New System.Windows.Forms.Panel()
-        Me.Button22 = New System.Windows.Forms.Button()
-        Me.Button27 = New System.Windows.Forms.Button()
-        Me.Button28 = New System.Windows.Forms.Button()
+        Me.lowStockAlerts = New System.Windows.Forms.Button()
+        Me.usageLogs = New System.Windows.Forms.Button()
+        Me.updateStockLevels = New System.Windows.Forms.Button()
         Me.addNewItems = New System.Windows.Forms.Button()
         Me.inventoryList = New System.Windows.Forms.Button()
         Me.inventory = New System.Windows.Forms.Button()
@@ -69,7 +68,7 @@ Partial Class adminMenu
         Me.viewAppointments = New System.Windows.Forms.Button()
         Me.appointmentManagement = New System.Windows.Forms.Button()
         Me.panelAdmin = New System.Windows.Forms.Panel()
-        Me.adminAlerts = New System.Windows.Forms.Button()
+        Me.reminders = New System.Windows.Forms.Button()
         Me.quickstats = New System.Windows.Forms.Button()
         Me.dailyOverview = New System.Windows.Forms.Button()
         Me.adminDashboard = New System.Windows.Forms.Button()
@@ -104,9 +103,9 @@ Partial Class adminMenu
         Me.panelMenu.Controls.Add(Me.panelAdminProf)
         Me.panelMenu.Controls.Add(Me.adminProfile)
         Me.panelMenu.Controls.Add(Me.panelCustomerSupport)
-        Me.panelMenu.Controls.Add(Me.Button41)
+        Me.panelMenu.Controls.Add(Me.support)
         Me.panelMenu.Controls.Add(Me.panelPayment)
-        Me.panelMenu.Controls.Add(Me.Button36)
+        Me.panelMenu.Controls.Add(Me.payments)
         Me.panelMenu.Controls.Add(Me.panelInventory)
         Me.panelMenu.Controls.Add(Me.inventory)
         Me.panelMenu.Controls.Add(Me.panelFinancial)
@@ -129,59 +128,59 @@ Partial Class adminMenu
         'panelAdminProf
         '
         Me.panelAdminProf.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.panelAdminProf.Controls.Add(Me.Button43)
-        Me.panelAdminProf.Controls.Add(Me.Button44)
-        Me.panelAdminProf.Controls.Add(Me.Button45)
+        Me.panelAdminProf.Controls.Add(Me.logout)
+        Me.panelAdminProf.Controls.Add(Me.systemSettings)
+        Me.panelAdminProf.Controls.Add(Me.updateAdminProfile)
         Me.panelAdminProf.Dock = System.Windows.Forms.DockStyle.Top
-        Me.panelAdminProf.Location = New System.Drawing.Point(0, 1643)
+        Me.panelAdminProf.Location = New System.Drawing.Point(0, 1604)
         Me.panelAdminProf.Name = "panelAdminProf"
         Me.panelAdminProf.Size = New System.Drawing.Size(233, 126)
         Me.panelAdminProf.TabIndex = 21
         '
-        'Button43
+        'logout
         '
-        Me.Button43.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button43.FlatAppearance.BorderSize = 0
-        Me.Button43.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button43.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button43.Location = New System.Drawing.Point(0, 80)
-        Me.Button43.Name = "Button43"
-        Me.Button43.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button43.Size = New System.Drawing.Size(233, 40)
-        Me.Button43.TabIndex = 3
-        Me.Button43.Text = "Button43"
-        Me.Button43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button43.UseVisualStyleBackColor = True
+        Me.logout.Dock = System.Windows.Forms.DockStyle.Top
+        Me.logout.FlatAppearance.BorderSize = 0
+        Me.logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.logout.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.logout.Location = New System.Drawing.Point(0, 80)
+        Me.logout.Name = "logout"
+        Me.logout.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.logout.Size = New System.Drawing.Size(233, 40)
+        Me.logout.TabIndex = 3
+        Me.logout.Text = "Logout"
+        Me.logout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.logout.UseVisualStyleBackColor = True
         '
-        'Button44
+        'systemSettings
         '
-        Me.Button44.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button44.FlatAppearance.BorderSize = 0
-        Me.Button44.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button44.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button44.Location = New System.Drawing.Point(0, 40)
-        Me.Button44.Name = "Button44"
-        Me.Button44.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button44.Size = New System.Drawing.Size(233, 40)
-        Me.Button44.TabIndex = 2
-        Me.Button44.Text = "Button44"
-        Me.Button44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button44.UseVisualStyleBackColor = True
+        Me.systemSettings.Dock = System.Windows.Forms.DockStyle.Top
+        Me.systemSettings.FlatAppearance.BorderSize = 0
+        Me.systemSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.systemSettings.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.systemSettings.Location = New System.Drawing.Point(0, 40)
+        Me.systemSettings.Name = "systemSettings"
+        Me.systemSettings.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.systemSettings.Size = New System.Drawing.Size(233, 40)
+        Me.systemSettings.TabIndex = 2
+        Me.systemSettings.Text = "System Settings" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.systemSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.systemSettings.UseVisualStyleBackColor = True
         '
-        'Button45
+        'updateAdminProfile
         '
-        Me.Button45.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button45.FlatAppearance.BorderSize = 0
-        Me.Button45.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button45.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button45.Location = New System.Drawing.Point(0, 0)
-        Me.Button45.Name = "Button45"
-        Me.Button45.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button45.Size = New System.Drawing.Size(233, 40)
-        Me.Button45.TabIndex = 1
-        Me.Button45.Text = "Button45"
-        Me.Button45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button45.UseVisualStyleBackColor = True
+        Me.updateAdminProfile.Dock = System.Windows.Forms.DockStyle.Top
+        Me.updateAdminProfile.FlatAppearance.BorderSize = 0
+        Me.updateAdminProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.updateAdminProfile.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.updateAdminProfile.Location = New System.Drawing.Point(0, 0)
+        Me.updateAdminProfile.Name = "updateAdminProfile"
+        Me.updateAdminProfile.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.updateAdminProfile.Size = New System.Drawing.Size(233, 40)
+        Me.updateAdminProfile.TabIndex = 1
+        Me.updateAdminProfile.Text = "Update Admin Profile"
+        Me.updateAdminProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.updateAdminProfile.UseVisualStyleBackColor = True
         '
         'adminProfile
         '
@@ -189,7 +188,7 @@ Partial Class adminMenu
         Me.adminProfile.FlatAppearance.BorderSize = 0
         Me.adminProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.adminProfile.ForeColor = System.Drawing.Color.Gainsboro
-        Me.adminProfile.Location = New System.Drawing.Point(0, 1598)
+        Me.adminProfile.Location = New System.Drawing.Point(0, 1559)
         Me.adminProfile.Name = "adminProfile"
         Me.adminProfile.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
         Me.adminProfile.Size = New System.Drawing.Size(233, 45)
@@ -201,185 +200,169 @@ Partial Class adminMenu
         'panelCustomerSupport
         '
         Me.panelCustomerSupport.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.panelCustomerSupport.Controls.Add(Me.Button38)
-        Me.panelCustomerSupport.Controls.Add(Me.Button39)
-        Me.panelCustomerSupport.Controls.Add(Me.Button40)
+        Me.panelCustomerSupport.Controls.Add(Me.reviewMode)
+        Me.panelCustomerSupport.Controls.Add(Me.faqManagement)
+        Me.panelCustomerSupport.Controls.Add(Me.customerInquiries)
         Me.panelCustomerSupport.Dock = System.Windows.Forms.DockStyle.Top
-        Me.panelCustomerSupport.Location = New System.Drawing.Point(0, 1471)
+        Me.panelCustomerSupport.Location = New System.Drawing.Point(0, 1432)
         Me.panelCustomerSupport.Name = "panelCustomerSupport"
         Me.panelCustomerSupport.Size = New System.Drawing.Size(233, 127)
         Me.panelCustomerSupport.TabIndex = 19
         '
-        'Button38
+        'reviewMode
         '
-        Me.Button38.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button38.FlatAppearance.BorderSize = 0
-        Me.Button38.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button38.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button38.Location = New System.Drawing.Point(0, 80)
-        Me.Button38.Name = "Button38"
-        Me.Button38.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button38.Size = New System.Drawing.Size(233, 40)
-        Me.Button38.TabIndex = 3
-        Me.Button38.Text = "Button38"
-        Me.Button38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button38.UseVisualStyleBackColor = True
+        Me.reviewMode.Dock = System.Windows.Forms.DockStyle.Top
+        Me.reviewMode.FlatAppearance.BorderSize = 0
+        Me.reviewMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.reviewMode.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.reviewMode.Location = New System.Drawing.Point(0, 80)
+        Me.reviewMode.Name = "reviewMode"
+        Me.reviewMode.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.reviewMode.Size = New System.Drawing.Size(233, 40)
+        Me.reviewMode.TabIndex = 3
+        Me.reviewMode.Text = "Review Moderation"
+        Me.reviewMode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.reviewMode.UseVisualStyleBackColor = True
         '
-        'Button39
+        'faqManagement
         '
-        Me.Button39.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button39.FlatAppearance.BorderSize = 0
-        Me.Button39.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button39.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button39.Location = New System.Drawing.Point(0, 40)
-        Me.Button39.Name = "Button39"
-        Me.Button39.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button39.Size = New System.Drawing.Size(233, 40)
-        Me.Button39.TabIndex = 2
-        Me.Button39.Text = "Button39"
-        Me.Button39.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button39.UseVisualStyleBackColor = True
+        Me.faqManagement.Dock = System.Windows.Forms.DockStyle.Top
+        Me.faqManagement.FlatAppearance.BorderSize = 0
+        Me.faqManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.faqManagement.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.faqManagement.Location = New System.Drawing.Point(0, 40)
+        Me.faqManagement.Name = "faqManagement"
+        Me.faqManagement.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.faqManagement.Size = New System.Drawing.Size(233, 40)
+        Me.faqManagement.TabIndex = 2
+        Me.faqManagement.Text = "FAQ Management"
+        Me.faqManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.faqManagement.UseVisualStyleBackColor = True
         '
-        'Button40
+        'customerInquiries
         '
-        Me.Button40.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button40.FlatAppearance.BorderSize = 0
-        Me.Button40.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button40.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button40.Location = New System.Drawing.Point(0, 0)
-        Me.Button40.Name = "Button40"
-        Me.Button40.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button40.Size = New System.Drawing.Size(233, 40)
-        Me.Button40.TabIndex = 1
-        Me.Button40.Text = "Button40"
-        Me.Button40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button40.UseVisualStyleBackColor = True
+        Me.customerInquiries.Dock = System.Windows.Forms.DockStyle.Top
+        Me.customerInquiries.FlatAppearance.BorderSize = 0
+        Me.customerInquiries.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.customerInquiries.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.customerInquiries.Location = New System.Drawing.Point(0, 0)
+        Me.customerInquiries.Name = "customerInquiries"
+        Me.customerInquiries.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.customerInquiries.Size = New System.Drawing.Size(233, 40)
+        Me.customerInquiries.TabIndex = 1
+        Me.customerInquiries.Text = "Customer Inquiries"
+        Me.customerInquiries.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.customerInquiries.UseVisualStyleBackColor = True
         '
-        'Button41
+        'support
         '
-        Me.Button41.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button41.FlatAppearance.BorderSize = 0
-        Me.Button41.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button41.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Button41.Location = New System.Drawing.Point(0, 1426)
-        Me.Button41.Name = "Button41"
-        Me.Button41.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.Button41.Size = New System.Drawing.Size(233, 45)
-        Me.Button41.TabIndex = 18
-        Me.Button41.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.Button41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button41.UseVisualStyleBackColor = True
+        Me.support.Dock = System.Windows.Forms.DockStyle.Top
+        Me.support.FlatAppearance.BorderSize = 0
+        Me.support.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.support.ForeColor = System.Drawing.Color.Gainsboro
+        Me.support.Location = New System.Drawing.Point(0, 1387)
+        Me.support.Name = "support"
+        Me.support.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.support.Size = New System.Drawing.Size(233, 45)
+        Me.support.TabIndex = 18
+        Me.support.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.support.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.support.UseVisualStyleBackColor = True
         '
         'panelPayment
         '
         Me.panelPayment.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.panelPayment.Controls.Add(Me.Button37)
-        Me.panelPayment.Controls.Add(Me.Button32)
-        Me.panelPayment.Controls.Add(Me.Button33)
-        Me.panelPayment.Controls.Add(Me.Button34)
-        Me.panelPayment.Controls.Add(Me.Button35)
+        Me.panelPayment.Controls.Add(Me.transactionHistory)
+        Me.panelPayment.Controls.Add(Me.generateReceipts)
+        Me.panelPayment.Controls.Add(Me.updatePaymentStats)
+        Me.panelPayment.Controls.Add(Me.paymentRecords)
         Me.panelPayment.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelPayment.Location = New System.Drawing.Point(0, 1219)
         Me.panelPayment.Name = "panelPayment"
-        Me.panelPayment.Size = New System.Drawing.Size(233, 207)
+        Me.panelPayment.Size = New System.Drawing.Size(233, 168)
         Me.panelPayment.TabIndex = 17
         '
-        'Button37
+        'transactionHistory
         '
-        Me.Button37.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button37.FlatAppearance.BorderSize = 0
-        Me.Button37.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button37.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button37.Location = New System.Drawing.Point(0, 160)
-        Me.Button37.Name = "Button37"
-        Me.Button37.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button37.Size = New System.Drawing.Size(233, 40)
-        Me.Button37.TabIndex = 5
-        Me.Button37.Text = "Button37"
-        Me.Button37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button37.UseVisualStyleBackColor = True
+        Me.transactionHistory.Dock = System.Windows.Forms.DockStyle.Top
+        Me.transactionHistory.FlatAppearance.BorderSize = 0
+        Me.transactionHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.transactionHistory.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.transactionHistory.Location = New System.Drawing.Point(0, 120)
+        Me.transactionHistory.Name = "transactionHistory"
+        Me.transactionHistory.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.transactionHistory.Size = New System.Drawing.Size(233, 40)
+        Me.transactionHistory.TabIndex = 4
+        Me.transactionHistory.Text = "Transaction History"
+        Me.transactionHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.transactionHistory.UseVisualStyleBackColor = True
         '
-        'Button32
+        'generateReceipts
         '
-        Me.Button32.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button32.FlatAppearance.BorderSize = 0
-        Me.Button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button32.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button32.Location = New System.Drawing.Point(0, 120)
-        Me.Button32.Name = "Button32"
-        Me.Button32.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button32.Size = New System.Drawing.Size(233, 40)
-        Me.Button32.TabIndex = 4
-        Me.Button32.Text = "Button32"
-        Me.Button32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button32.UseVisualStyleBackColor = True
+        Me.generateReceipts.Dock = System.Windows.Forms.DockStyle.Top
+        Me.generateReceipts.FlatAppearance.BorderSize = 0
+        Me.generateReceipts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.generateReceipts.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.generateReceipts.Location = New System.Drawing.Point(0, 80)
+        Me.generateReceipts.Name = "generateReceipts"
+        Me.generateReceipts.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.generateReceipts.Size = New System.Drawing.Size(233, 40)
+        Me.generateReceipts.TabIndex = 3
+        Me.generateReceipts.Text = "Generate Receipts"
+        Me.generateReceipts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.generateReceipts.UseVisualStyleBackColor = True
         '
-        'Button33
+        'updatePaymentStats
         '
-        Me.Button33.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button33.FlatAppearance.BorderSize = 0
-        Me.Button33.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button33.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button33.Location = New System.Drawing.Point(0, 80)
-        Me.Button33.Name = "Button33"
-        Me.Button33.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button33.Size = New System.Drawing.Size(233, 40)
-        Me.Button33.TabIndex = 3
-        Me.Button33.Text = "Button33"
-        Me.Button33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button33.UseVisualStyleBackColor = True
+        Me.updatePaymentStats.Dock = System.Windows.Forms.DockStyle.Top
+        Me.updatePaymentStats.FlatAppearance.BorderSize = 0
+        Me.updatePaymentStats.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.updatePaymentStats.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.updatePaymentStats.Location = New System.Drawing.Point(0, 40)
+        Me.updatePaymentStats.Name = "updatePaymentStats"
+        Me.updatePaymentStats.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.updatePaymentStats.Size = New System.Drawing.Size(233, 40)
+        Me.updatePaymentStats.TabIndex = 2
+        Me.updatePaymentStats.Text = "Update Payment Status"
+        Me.updatePaymentStats.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.updatePaymentStats.UseVisualStyleBackColor = True
         '
-        'Button34
+        'paymentRecords
         '
-        Me.Button34.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button34.FlatAppearance.BorderSize = 0
-        Me.Button34.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button34.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button34.Location = New System.Drawing.Point(0, 40)
-        Me.Button34.Name = "Button34"
-        Me.Button34.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button34.Size = New System.Drawing.Size(233, 40)
-        Me.Button34.TabIndex = 2
-        Me.Button34.Text = "Button34"
-        Me.Button34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button34.UseVisualStyleBackColor = True
+        Me.paymentRecords.Dock = System.Windows.Forms.DockStyle.Top
+        Me.paymentRecords.FlatAppearance.BorderSize = 0
+        Me.paymentRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.paymentRecords.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.paymentRecords.Location = New System.Drawing.Point(0, 0)
+        Me.paymentRecords.Name = "paymentRecords"
+        Me.paymentRecords.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.paymentRecords.Size = New System.Drawing.Size(233, 40)
+        Me.paymentRecords.TabIndex = 1
+        Me.paymentRecords.Text = "Payment Records"
+        Me.paymentRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.paymentRecords.UseVisualStyleBackColor = True
         '
-        'Button35
+        'payments
         '
-        Me.Button35.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button35.FlatAppearance.BorderSize = 0
-        Me.Button35.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button35.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button35.Location = New System.Drawing.Point(0, 0)
-        Me.Button35.Name = "Button35"
-        Me.Button35.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button35.Size = New System.Drawing.Size(233, 40)
-        Me.Button35.TabIndex = 1
-        Me.Button35.Text = "Button35"
-        Me.Button35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button35.UseVisualStyleBackColor = True
-        '
-        'Button36
-        '
-        Me.Button36.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button36.FlatAppearance.BorderSize = 0
-        Me.Button36.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button36.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Button36.Location = New System.Drawing.Point(0, 1174)
-        Me.Button36.Name = "Button36"
-        Me.Button36.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.Button36.Size = New System.Drawing.Size(233, 45)
-        Me.Button36.TabIndex = 16
-        Me.Button36.Text = "Payments"
-        Me.Button36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button36.UseVisualStyleBackColor = True
+        Me.payments.Dock = System.Windows.Forms.DockStyle.Top
+        Me.payments.FlatAppearance.BorderSize = 0
+        Me.payments.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.payments.ForeColor = System.Drawing.Color.Gainsboro
+        Me.payments.Location = New System.Drawing.Point(0, 1174)
+        Me.payments.Name = "payments"
+        Me.payments.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.payments.Size = New System.Drawing.Size(233, 45)
+        Me.payments.TabIndex = 16
+        Me.payments.Text = "Payments"
+        Me.payments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.payments.UseVisualStyleBackColor = True
         '
         'panelInventory
         '
         Me.panelInventory.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.panelInventory.Controls.Add(Me.Button22)
-        Me.panelInventory.Controls.Add(Me.Button27)
-        Me.panelInventory.Controls.Add(Me.Button28)
+        Me.panelInventory.Controls.Add(Me.lowStockAlerts)
+        Me.panelInventory.Controls.Add(Me.usageLogs)
+        Me.panelInventory.Controls.Add(Me.updateStockLevels)
         Me.panelInventory.Controls.Add(Me.addNewItems)
         Me.panelInventory.Controls.Add(Me.inventoryList)
         Me.panelInventory.Dock = System.Windows.Forms.DockStyle.Top
@@ -388,50 +371,50 @@ Partial Class adminMenu
         Me.panelInventory.Size = New System.Drawing.Size(233, 209)
         Me.panelInventory.TabIndex = 15
         '
-        'Button22
+        'lowStockAlerts
         '
-        Me.Button22.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button22.FlatAppearance.BorderSize = 0
-        Me.Button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button22.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button22.Location = New System.Drawing.Point(0, 160)
-        Me.Button22.Name = "Button22"
-        Me.Button22.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button22.Size = New System.Drawing.Size(233, 40)
-        Me.Button22.TabIndex = 5
-        Me.Button22.Text = "Button22"
-        Me.Button22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button22.UseVisualStyleBackColor = True
+        Me.lowStockAlerts.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lowStockAlerts.FlatAppearance.BorderSize = 0
+        Me.lowStockAlerts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lowStockAlerts.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lowStockAlerts.Location = New System.Drawing.Point(0, 160)
+        Me.lowStockAlerts.Name = "lowStockAlerts"
+        Me.lowStockAlerts.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.lowStockAlerts.Size = New System.Drawing.Size(233, 40)
+        Me.lowStockAlerts.TabIndex = 5
+        Me.lowStockAlerts.Text = "Low Stock Alerts"
+        Me.lowStockAlerts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lowStockAlerts.UseVisualStyleBackColor = True
         '
-        'Button27
+        'usageLogs
         '
-        Me.Button27.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button27.FlatAppearance.BorderSize = 0
-        Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button27.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button27.Location = New System.Drawing.Point(0, 120)
-        Me.Button27.Name = "Button27"
-        Me.Button27.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button27.Size = New System.Drawing.Size(233, 40)
-        Me.Button27.TabIndex = 4
-        Me.Button27.Text = "Button27"
-        Me.Button27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button27.UseVisualStyleBackColor = True
+        Me.usageLogs.Dock = System.Windows.Forms.DockStyle.Top
+        Me.usageLogs.FlatAppearance.BorderSize = 0
+        Me.usageLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.usageLogs.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.usageLogs.Location = New System.Drawing.Point(0, 120)
+        Me.usageLogs.Name = "usageLogs"
+        Me.usageLogs.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.usageLogs.Size = New System.Drawing.Size(233, 40)
+        Me.usageLogs.TabIndex = 4
+        Me.usageLogs.Text = "Usage Logs"
+        Me.usageLogs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.usageLogs.UseVisualStyleBackColor = True
         '
-        'Button28
+        'updateStockLevels
         '
-        Me.Button28.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button28.FlatAppearance.BorderSize = 0
-        Me.Button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button28.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Button28.Location = New System.Drawing.Point(0, 80)
-        Me.Button28.Name = "Button28"
-        Me.Button28.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.Button28.Size = New System.Drawing.Size(233, 40)
-        Me.Button28.TabIndex = 3
-        Me.Button28.Text = "Update St"
-        Me.Button28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button28.UseVisualStyleBackColor = True
+        Me.updateStockLevels.Dock = System.Windows.Forms.DockStyle.Top
+        Me.updateStockLevels.FlatAppearance.BorderSize = 0
+        Me.updateStockLevels.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.updateStockLevels.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.updateStockLevels.Location = New System.Drawing.Point(0, 80)
+        Me.updateStockLevels.Name = "updateStockLevels"
+        Me.updateStockLevels.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.updateStockLevels.Size = New System.Drawing.Size(233, 40)
+        Me.updateStockLevels.TabIndex = 3
+        Me.updateStockLevels.Text = "Update Stock Levels"
+        Me.updateStockLevels.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.updateStockLevels.UseVisualStyleBackColor = True
         '
         'addNewItems
         '
@@ -769,7 +752,7 @@ Partial Class adminMenu
         'panelAdmin
         '
         Me.panelAdmin.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.panelAdmin.Controls.Add(Me.adminAlerts)
+        Me.panelAdmin.Controls.Add(Me.reminders)
         Me.panelAdmin.Controls.Add(Me.quickstats)
         Me.panelAdmin.Controls.Add(Me.dailyOverview)
         Me.panelAdmin.Dock = System.Windows.Forms.DockStyle.Top
@@ -778,20 +761,20 @@ Partial Class adminMenu
         Me.panelAdmin.Size = New System.Drawing.Size(233, 126)
         Me.panelAdmin.TabIndex = 1
         '
-        'adminAlerts
+        'reminders
         '
-        Me.adminAlerts.Dock = System.Windows.Forms.DockStyle.Top
-        Me.adminAlerts.FlatAppearance.BorderSize = 0
-        Me.adminAlerts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.adminAlerts.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.adminAlerts.Location = New System.Drawing.Point(0, 80)
-        Me.adminAlerts.Name = "adminAlerts"
-        Me.adminAlerts.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.adminAlerts.Size = New System.Drawing.Size(233, 40)
-        Me.adminAlerts.TabIndex = 3
-        Me.adminAlerts.Text = "Alerts"
-        Me.adminAlerts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.adminAlerts.UseVisualStyleBackColor = True
+        Me.reminders.Dock = System.Windows.Forms.DockStyle.Top
+        Me.reminders.FlatAppearance.BorderSize = 0
+        Me.reminders.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.reminders.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.reminders.Location = New System.Drawing.Point(0, 80)
+        Me.reminders.Name = "reminders"
+        Me.reminders.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.reminders.Size = New System.Drawing.Size(233, 40)
+        Me.reminders.TabIndex = 3
+        Me.reminders.Text = "Reminders"
+        Me.reminders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.reminders.UseVisualStyleBackColor = True
         '
         'quickstats
         '
@@ -895,24 +878,24 @@ Partial Class adminMenu
     Friend WithEvents addService As Button
     Friend WithEvents servicelist As Button
     Friend WithEvents panelAdminProf As Panel
-    Friend WithEvents Button43 As Button
-    Friend WithEvents Button44 As Button
-    Friend WithEvents Button45 As Button
+    Friend WithEvents logout As Button
+    Friend WithEvents systemSettings As Button
+    Friend WithEvents updateAdminProfile As Button
     Friend WithEvents adminProfile As Button
     Friend WithEvents panelCustomerSupport As Panel
-    Friend WithEvents Button38 As Button
-    Friend WithEvents Button39 As Button
-    Friend WithEvents Button40 As Button
-    Friend WithEvents Button41 As Button
+    Friend WithEvents reviewMode As Button
+    Friend WithEvents faqManagement As Button
+    Friend WithEvents customerInquiries As Button
+    Friend WithEvents support As Button
     Friend WithEvents panelPayment As Panel
-    Friend WithEvents Button32 As Button
-    Friend WithEvents Button33 As Button
-    Friend WithEvents Button34 As Button
-    Friend WithEvents Button35 As Button
-    Friend WithEvents Button36 As Button
+    Friend WithEvents transactionHistory As Button
+    Friend WithEvents generateReceipts As Button
+    Friend WithEvents updatePaymentStats As Button
+    Friend WithEvents paymentRecords As Button
+    Friend WithEvents payments As Button
     Friend WithEvents panelInventory As Panel
-    Friend WithEvents Button27 As Button
-    Friend WithEvents Button28 As Button
+    Friend WithEvents usageLogs As Button
+    Friend WithEvents updateStockLevels As Button
     Friend WithEvents addNewItems As Button
     Friend WithEvents inventoryList As Button
     Friend WithEvents inventory As Button
@@ -920,7 +903,6 @@ Partial Class adminMenu
     Friend WithEvents salesrep As Button
     Friend WithEvents expenseTrack As Button
     Friend WithEvents finance As Button
-    Friend WithEvents Button37 As Button
-    Friend WithEvents Button22 As Button
-    Friend WithEvents adminAlerts As Button
+    Friend WithEvents lowStockAlerts As Button
+    Friend WithEvents reminders As Button
 End Class
