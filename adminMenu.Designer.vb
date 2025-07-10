@@ -429,7 +429,7 @@ Partial Class adminMenu
         Me.Button28.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
         Me.Button28.Size = New System.Drawing.Size(233, 40)
         Me.Button28.TabIndex = 3
-        Me.Button28.Text = "Button28"
+        Me.Button28.Text = "Update St"
         Me.Button28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button28.UseVisualStyleBackColor = True
         '
