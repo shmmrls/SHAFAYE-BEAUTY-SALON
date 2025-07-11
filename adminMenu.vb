@@ -1,4 +1,6 @@
-﻿Public Class adminMenu
+﻿
+
+Public Class adminMenu
 
     ' FOR SHOWING AND HIDING MENUS
     Sub customizeDesign()
@@ -54,6 +56,22 @@
         End If
     End Sub
 
+    Private someForm As Form = Nothing
+    Private Sub OpenChildForm(childForm As Form)
+        If someForm IsNot Nothing Then
+            someForm.Close()
+        End If
+
+        someForm = childForm
+        childForm.TopLevel = False
+        childForm.FormBorderStyle = FormBorderStyle.None
+        childForm.Dock = DockStyle.Fill
+        panelChildForm.Controls.Add(childForm)
+        panelChildForm.Tag = childForm
+        childForm.BringToFront()
+        childForm.Show()
+
+    End Sub
 
     Private Sub adminMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         customizeDesign()
@@ -67,6 +85,7 @@
     End Sub
 
     Private Sub dailyOverview_Click(sender As Object, e As EventArgs) Handles dailyOverview.Click
+        OpenChildForm(New dailyoverview())
         hideSubmenu()
     End Sub
 
@@ -244,7 +263,7 @@
         showSubmenu(panelAdminProf)
     End Sub
 
-    Private Sub updateAdminProfile_Click(sender As Object, e As EventArgs) Handles updateAdminProfile.Click
+    Private Sub updateAdminProfile_Click(sender As Object, e As EventArgs)
         hideSubmenu()
     End Sub
 

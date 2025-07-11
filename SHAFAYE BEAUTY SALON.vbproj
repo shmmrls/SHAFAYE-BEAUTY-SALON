@@ -138,6 +138,18 @@
     <Compile Include="adminMenu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="dailyoverview.Designer.vb">
+      <DependentUpon>dailyoverview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dailyoverview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.vb">
+      <DependentUpon>login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="login.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -159,11 +171,17 @@
     <EmbeddedResource Include="adminMenu.resx">
       <DependentUpon>adminMenu.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="dailyoverview.resx">
+      <DependentUpon>dailyoverview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +196,9 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo shafaye.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
