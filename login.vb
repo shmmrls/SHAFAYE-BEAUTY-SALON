@@ -36,7 +36,7 @@ Public Class login
 
 
     Private Sub signinbtn_Click(sender As Object, e As EventArgs) Handles signinbtn.Click
-        Dim username As String = usernametxt.Text.Trim().ToLower()
+        Dim username As String = usernametxt.Text.Trim()
         Dim password As String = passtxt.Text.Trim()
 
         If username = "" Or password = "" Then
@@ -47,29 +47,34 @@ Public Class login
         Try
             conn.Open()
 
-            Dim sql As String = "SELECT COUNT(*) FROM user_register WHERE username = @username AND password = @password"
+            Dim sql As String = "SELECT role FROM user_register WHERE username = @username AND password = @password"
             dbcomm = New MySqlCommand(sql, conn)
             dbcomm.Parameters.AddWithValue("@username", username)
             dbcomm.Parameters.AddWithValue("@password", HashPassword(password))
 
+            Dim reader As MySqlDataReader = dbcomm.ExecuteReader()
 
-            Dim matchCount As Integer = CInt(dbcomm.ExecuteScalar())
+            If reader.Read() Then
+                Dim role As String = reader("role").ToString()
 
-            If matchCount > 0 Then
-                MsgBox("Login successful!", MsgBoxStyle.Information, "Welcome")
-                usernametxt.Clear()
-                passtxt.Clear()
+                MsgBox("Login successful!", MsgBoxStyle.Information)
+
+                ' Check user role
+                If role = "admin" Then
+                    adminMenu.Show()
+                Else
+                    MsgBox("user menu")
+                End If
+
                 Me.Hide()
-                adminMenu.Show()
             Else
-                MessageBox.Show("Entered Hash: " & HashPassword(password))
-                MsgBox("Username or password does not match. Please try again.", MsgBoxStyle.Critical, "Login Failed")
+                MsgBox("Username or password incorrect.")
             End If
 
-        Catch ex As MySqlException
-            MsgBox("Database error: " & ex.Message, MsgBoxStyle.Critical)
+            reader.Close()
+
         Catch ex As Exception
-            MsgBox("Unexpected error: " & ex.Message, MsgBoxStyle.Critical)
+            MsgBox("Error: " & ex.Message)
         Finally
             conn.Close()
         End Try
