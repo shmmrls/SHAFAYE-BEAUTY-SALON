@@ -7,9 +7,7 @@ Public Class signup
     Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=shafaye_salon;User=root;Password=;")
     Public sql As String
     Public dbcomm As MySqlCommand
-    Public dbread As MySqlDataReader
-    Public DataAdapter1 As MySqlDataAdapter
-    Public ds As DataSet
+
 
     '========== PASSWORD ============
 
@@ -132,7 +130,7 @@ Public Class signup
     End Sub
 
     'sign up button visuals
-    Private Sub signupbtnn_MouseEnter(sender As Object, e As EventArgs) Handles signupbtn.MouseEnter
+    Private Sub signupbtn_MouseEnter(sender As Object, e As EventArgs) Handles signupbtn.MouseEnter
         signupbtn.BackgroundImage = My.Resources.signupbutton1_0
         signupbtn.BackgroundImageLayout = ImageLayout.Zoom
     End Sub

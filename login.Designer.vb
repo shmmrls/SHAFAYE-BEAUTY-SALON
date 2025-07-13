@@ -26,7 +26,7 @@ Partial Class login
         Me.signuppage = New System.Windows.Forms.PictureBox()
         Me.usernametxt = New System.Windows.Forms.TextBox()
         Me.passtxt = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.showpassword = New System.Windows.Forms.Label()
         Me.clear = New System.Windows.Forms.Label()
         CType(Me.signinbtn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.signuppage, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,17 +73,17 @@ Partial Class login
         Me.passtxt.Size = New System.Drawing.Size(421, 20)
         Me.passtxt.TabIndex = 4
         '
-        'Label1
+        'showpassword
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(834, 565)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(102, 19)
-        Me.Label1.TabIndex = 11
-        Me.Label1.Text = "SHOW PASSWORD"
+        Me.showpassword.AutoSize = True
+        Me.showpassword.BackColor = System.Drawing.Color.Transparent
+        Me.showpassword.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.showpassword.ForeColor = System.Drawing.Color.White
+        Me.showpassword.Location = New System.Drawing.Point(834, 565)
+        Me.showpassword.Name = "showpassword"
+        Me.showpassword.Size = New System.Drawing.Size(102, 19)
+        Me.showpassword.TabIndex = 11
+        Me.showpassword.Text = "SHOW PASSWORD"
         '
         'clear
         '
@@ -104,7 +104,7 @@ Partial Class login
         Me.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.sign_in_final
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(948, 593)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.showpassword)
         Me.Controls.Add(Me.clear)
         Me.Controls.Add(Me.passtxt)
         Me.Controls.Add(Me.usernametxt)
@@ -124,6 +124,6 @@ Partial Class login
     Friend WithEvents signuppage As PictureBox
     Friend WithEvents usernametxt As TextBox
     Friend WithEvents passtxt As TextBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents showpassword As Label
     Friend WithEvents clear As Label
 End Class
