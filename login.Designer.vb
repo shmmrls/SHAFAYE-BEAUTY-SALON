@@ -22,114 +22,108 @@ Partial Class login
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.signinbtn = New System.Windows.Forms.PictureBox()
+        Me.signuppage = New System.Windows.Forms.PictureBox()
+        Me.usernametxt = New System.Windows.Forms.TextBox()
+        Me.passtxt = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
+        Me.clear = New System.Windows.Forms.Label()
+        CType(Me.signinbtn, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.signuppage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Panel1
+        'signinbtn
         '
-        Me.Panel1.Controls.Add(Me.TextBox4)
-        Me.Panel1.Controls.Add(Me.TextBox3)
-        Me.Panel1.Controls.Add(Me.TextBox2)
-        Me.Panel1.Controls.Add(Me.TextBox1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(467, 561)
-        Me.Panel1.TabIndex = 0
+        Me.signinbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.signinbtn.BackColor = System.Drawing.Color.Transparent
+        Me.signinbtn.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.signinbutton
+        Me.signinbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.signinbtn.Location = New System.Drawing.Point(552, 451)
+        Me.signinbtn.Name = "signinbtn"
+        Me.signinbtn.Size = New System.Drawing.Size(186, 40)
+        Me.signinbtn.TabIndex = 1
+        Me.signinbtn.TabStop = False
         '
-        'Panel2
+        'signuppage
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Button1)
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(466, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(468, 561)
-        Me.Panel2.TabIndex = 1
+        Me.signuppage.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.signuppage.BackColor = System.Drawing.Color.Transparent
+        Me.signuppage.Location = New System.Drawing.Point(374, 33)
+        Me.signuppage.Name = "signuppage"
+        Me.signuppage.Size = New System.Drawing.Size(271, 52)
+        Me.signuppage.TabIndex = 2
+        Me.signuppage.TabStop = False
+        '
+        'usernametxt
+        '
+        Me.usernametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.usernametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.usernametxt.Location = New System.Drawing.Point(441, 270)
+        Me.usernametxt.Name = "usernametxt"
+        Me.usernametxt.Size = New System.Drawing.Size(421, 20)
+        Me.usernametxt.TabIndex = 3
+        '
+        'passtxt
+        '
+        Me.passtxt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.passtxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.passtxt.Location = New System.Drawing.Point(441, 364)
+        Me.passtxt.Name = "passtxt"
+        Me.passtxt.PasswordChar = Global.Microsoft.VisualBasic.ChrW(10043)
+        Me.passtxt.Size = New System.Drawing.Size(421, 20)
+        Me.passtxt.TabIndex = 4
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(157, 106)
+        Me.Label1.Location = New System.Drawing.Point(834, 565)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(154, 25)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Hello, Friend!"
+        Me.Label1.Size = New System.Drawing.Size(102, 19)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "SHOW PASSWORD"
         '
-        'Button1
+        'clear
         '
-        Me.Button1.Location = New System.Drawing.Point(194, 345)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Sign Up"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(72, 68)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(294, 20)
-        Me.TextBox1.TabIndex = 0
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(72, 111)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(294, 20)
-        Me.TextBox2.TabIndex = 1
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(72, 162)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(294, 20)
-        Me.TextBox3.TabIndex = 2
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(72, 215)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(294, 20)
-        Me.TextBox4.TabIndex = 3
+        Me.clear.AutoSize = True
+        Me.clear.BackColor = System.Drawing.Color.Transparent
+        Me.clear.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clear.ForeColor = System.Drawing.Color.White
+        Me.clear.Location = New System.Drawing.Point(334, 565)
+        Me.clear.Name = "clear"
+        Me.clear.Size = New System.Drawing.Size(40, 19)
+        Me.clear.TabIndex = 10
+        Me.clear.Text = "CLEAR"
         '
         'login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(934, 561)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
+        Me.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.sign_in_final
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ClientSize = New System.Drawing.Size(948, 593)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.clear)
+        Me.Controls.Add(Me.passtxt)
+        Me.Controls.Add(Me.usernametxt)
+        Me.Controls.Add(Me.signuppage)
+        Me.Controls.Add(Me.signinbtn)
+        Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "login"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
+        CType(Me.signinbtn, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.signuppage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents signinbtn As PictureBox
+    Friend WithEvents signuppage As PictureBox
+    Friend WithEvents usernametxt As TextBox
+    Friend WithEvents passtxt As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents clear As Label
 End Class

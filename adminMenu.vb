@@ -56,6 +56,8 @@ Public Class adminMenu
         End If
     End Sub
 
+
+
     Private someForm As Form = Nothing
     Private Sub OpenChildForm(childForm As Form)
         If someForm IsNot Nothing Then
@@ -90,10 +92,12 @@ Public Class adminMenu
     End Sub
 
     Private Sub quickstats_Click(sender As Object, e As EventArgs) Handles quickstats.Click
+        OpenChildForm(New quickStats())
         hideSubmenu()
     End Sub
 
     Private Sub reminders_Click(sender As Object, e As EventArgs) Handles reminders.Click
+        OpenChildForm(New reminder())
         hideSubmenu()
     End Sub
 
@@ -106,9 +110,11 @@ Public Class adminMenu
         showSubmenu(panelAppointment)
     End Sub
     Private Sub viewAppointments_Click(sender As Object, e As EventArgs) Handles viewAppointments.Click
+        OpenChildForm(New viewallbookings())
         hideSubmenu()
     End Sub
     Private Sub bookingActions_Click(sender As Object, e As EventArgs) Handles bookingActions.Click
+        OpenChildForm(New bookingactions())
         hideSubmenu()
     End Sub
 
