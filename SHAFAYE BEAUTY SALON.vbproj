@@ -139,6 +139,12 @@
     <Compile Include="adminMenu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AdminServices.Designer.vb">
+      <DependentUpon>AdminServices.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminServices.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="bookingactions.Designer.vb">
       <DependentUpon>bookingactions.vb</DependentUpon>
     </Compile>
@@ -185,10 +191,22 @@
     <Compile Include="reminder.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ServiceCard.Designer.vb">
+      <DependentUpon>ServiceCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceCard.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="signup.Designer.vb">
       <DependentUpon>signup.vb</DependentUpon>
     </Compile>
     <Compile Include="signup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userMenu.Designer.vb">
+      <DependentUpon>userMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="userMenu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="viewallbookings.Designer.vb">
@@ -201,6 +219,9 @@
   <ItemGroup>
     <EmbeddedResource Include="adminMenu.resx">
       <DependentUpon>adminMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminServices.resx">
+      <DependentUpon>AdminServices.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="bookingactions.resx">
       <DependentUpon>bookingactions.vb</DependentUpon>
@@ -223,8 +244,14 @@
     <EmbeddedResource Include="reminder.resx">
       <DependentUpon>reminder.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ServiceCard.resx">
+      <DependentUpon>ServiceCard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="signup.resx">
       <DependentUpon>signup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userMenu.resx">
+      <DependentUpon>userMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewallbookings.resx">
       <DependentUpon>viewallbookings.vb</DependentUpon>
@@ -281,6 +308,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\signupbutton1.0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\root_touchup.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rebond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bleach.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

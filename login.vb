@@ -63,7 +63,7 @@ Public Class login
                 If role = "admin" Then
                     adminMenu.Show()
                 Else
-                    MsgBox("user menu")
+                    userMenu.Show()
                 End If
 
                 Me.Hide()

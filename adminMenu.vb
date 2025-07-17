@@ -76,8 +76,11 @@ Public Class adminMenu
     End Sub
 
     Private Sub adminMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dailyOverview.PerformClick()
         customizeDesign()
         hideSubmenu()
+
+
     End Sub
 
 
@@ -132,6 +135,7 @@ Public Class adminMenu
 
     Private Sub addService_Click(sender As Object, e As EventArgs) Handles addService.Click
         hideSubmenu()
+        OpenChildForm(New AdminServices())
     End Sub
 
     Private Sub editDeleteService_Click(sender As Object, e As EventArgs) Handles editDeleteService.Click
