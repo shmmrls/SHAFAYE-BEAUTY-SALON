@@ -281,7 +281,14 @@ Public Class adminMenu
         hideSubmenu()
     End Sub
 
+    'logout
     Private Sub logout_Click(sender As Object, e As EventArgs) Handles logout.Click
         hideSubmenu()
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            Me.Hide()
+            login.Show()
+            MsgBox("You have successfully logged out.", MsgBoxStyle.Information, "Logout Successful")
+        End If
     End Sub
 End Class
