@@ -4,7 +4,7 @@ Imports System.Text
 
 Public Class signup
 
-    Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=shafaye_salon;User=root;Password=;")
+    Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
     Public sql As String
     Public dbcomm As MySqlCommand
 
@@ -94,6 +94,7 @@ Public Class signup
         Try
             conn.Open()
 
+            ' Check if username already exists
             Dim checkUser As String = $"SELECT COUNT(*) FROM user_register WHERE username = '{username}'"
             Dim cmdCheck As New MySqlCommand(checkUser, conn)
             Dim exists As Integer = CInt(cmdCheck.ExecuteScalar())
@@ -104,19 +105,33 @@ Public Class signup
                 Exit Sub
             End If
 
+            ' Insert into user_register
             Dim sql As String = "INSERT INTO user_register (full_name, username, password) VALUES (@fullname, @username, @password)"
             dbcomm = New MySqlCommand(sql, conn)
             dbcomm.Parameters.AddWithValue("@fullname", fullname)
             dbcomm.Parameters.AddWithValue("@username", username)
             dbcomm.Parameters.AddWithValue("@password", HashPassword(password))
             dbcomm.ExecuteNonQuery()
+
+            ' ✅ Get last inserted user_id from dbcomm
+            Dim lastId As Integer = CInt(dbcomm.LastInsertedId)
+
+            ' Insert default profile entry in user_profiles
+            Dim profileQuery As String = "INSERT INTO user_profiles (user_id, email, phone, date_of_birth) VALUES (@userId, NULL, NULL, NULL)"
+            Using profileCmd As New MySqlCommand(profileQuery, conn)
+                profileCmd.Parameters.AddWithValue("@userId", lastId)
+                profileCmd.ExecuteNonQuery()
+            End Using
+
             MsgBox("User successfully registered. Please proceed to log in.", MsgBoxStyle.Information, "Registration Complete")
 
+            ' Clear fields
             fullnametxt.Clear()
             usernametxt.Clear()
             passtxt.Clear()
             confirmpasstx.Clear()
 
+            ' Navigate to login form
             Me.Hide()
             login.Show()
 
@@ -127,6 +142,7 @@ Public Class signup
         Finally
             conn.Close()
         End Try
+
     End Sub
 
     'sign up button visuals
@@ -148,6 +164,22 @@ Public Class signup
 
     Private Sub passtxt_Leave(sender As Object, e As EventArgs) Handles passtxt.Leave
         passwordPopupPanel.Visible = False
+    End Sub
+
+    Public Sub showpassword_MouseEnter(sender As Object, e As EventArgs) Handles showpassword.MouseEnter
+        showpassword.ForeColor = Color.FromArgb(255, 128, 128)
+    End Sub
+
+    Public Sub showpassword_MouseLeave(sender As Object, e As EventArgs) Handles showpassword.MouseLeave
+        showpassword.ForeColor = Color.FromArgb(255, 255, 255)
+    End Sub
+
+    Public Sub clear_MouseEnter(sender As Object, e As EventArgs) Handles clear.MouseEnter
+        clear.ForeColor = Color.FromArgb(255, 128, 128)
+    End Sub
+
+    Public Sub clear_MouseLeave(sender As Object, e As EventArgs) Handles clear.MouseLeave
+        clear.ForeColor = Color.FromArgb(255, 255, 255)
     End Sub
 
     Private Sub passtxt_TextChanged(sender As Object, e As EventArgs) Handles passtxt.TextChanged
@@ -201,13 +233,17 @@ Public Class signup
         If isPasswordVisible Then
             passtxt.PasswordChar = "✻"c
             confirmpasstx.PasswordChar = "✻"c
-            showpassword.Text = "Show Password"
+            showpassword.Text = "SHOW PASSWORD"
             isPasswordVisible = False
         Else
             passtxt.PasswordChar = ControlChars.NullChar
             confirmpasstx.PasswordChar = ControlChars.NullChar
-            showpassword.Text = "Hide Password"
+            showpassword.Text = "HIDE PASSWORD"
             isPasswordVisible = True
         End If
+    End Sub
+
+    Private Sub passwordPopupPanel_Paint(sender As Object, e As PaintEventArgs) Handles passwordPopupPanel.Paint
+
     End Sub
 End Class

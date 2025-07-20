@@ -28,6 +28,7 @@ Partial Class login
         Me.passtxt = New System.Windows.Forms.TextBox()
         Me.showpassword = New System.Windows.Forms.Label()
         Me.clear = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.signinbtn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.signuppage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -38,7 +39,8 @@ Partial Class login
         Me.signinbtn.BackColor = System.Drawing.Color.Transparent
         Me.signinbtn.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.signinbutton
         Me.signinbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.signinbtn.Location = New System.Drawing.Point(552, 451)
+        Me.signinbtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.signinbtn.Location = New System.Drawing.Point(534, 451)
         Me.signinbtn.Name = "signinbtn"
         Me.signinbtn.Size = New System.Drawing.Size(186, 40)
         Me.signinbtn.TabIndex = 1
@@ -48,6 +50,7 @@ Partial Class login
         '
         Me.signuppage.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.signuppage.BackColor = System.Drawing.Color.Transparent
+        Me.signuppage.Cursor = System.Windows.Forms.Cursors.Hand
         Me.signuppage.Location = New System.Drawing.Point(374, 33)
         Me.signuppage.Name = "signuppage"
         Me.signuppage.Size = New System.Drawing.Size(271, 52)
@@ -77,6 +80,7 @@ Partial Class login
         '
         Me.showpassword.AutoSize = True
         Me.showpassword.BackColor = System.Drawing.Color.Transparent
+        Me.showpassword.Cursor = System.Windows.Forms.Cursors.Hand
         Me.showpassword.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.showpassword.ForeColor = System.Drawing.Color.White
         Me.showpassword.Location = New System.Drawing.Point(834, 565)
@@ -89,6 +93,7 @@ Partial Class login
         '
         Me.clear.AutoSize = True
         Me.clear.BackColor = System.Drawing.Color.Transparent
+        Me.clear.Cursor = System.Windows.Forms.Cursors.Hand
         Me.clear.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clear.ForeColor = System.Drawing.Color.White
         Me.clear.Location = New System.Drawing.Point(334, 565)
@@ -97,6 +102,20 @@ Partial Class login
         Me.clear.TabIndex = 10
         Me.clear.Text = "CLEAR"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label1.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(502, 565)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(250, 19)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "ARE YOU AN ADMIN/STAFF? LOGIN HERE INSTEAD."
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -104,6 +123,7 @@ Partial Class login
         Me.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.sign_in_final
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(948, 593)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.showpassword)
         Me.Controls.Add(Me.clear)
         Me.Controls.Add(Me.passtxt)
@@ -126,4 +146,5 @@ Partial Class login
     Friend WithEvents passtxt As TextBox
     Friend WithEvents showpassword As Label
     Friend WithEvents clear As Label
+    Friend WithEvents Label1 As Label
 End Class

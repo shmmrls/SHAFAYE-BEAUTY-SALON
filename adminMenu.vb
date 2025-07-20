@@ -76,6 +76,7 @@ Public Class adminMenu
     End Sub
 
     Private Sub adminMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Text = ""
         dailyOverview.PerformClick()
         customizeDesign()
         hideSubmenu()

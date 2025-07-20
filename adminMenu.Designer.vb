@@ -905,6 +905,7 @@ Partial Class adminMenu
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MinimumSize = New System.Drawing.Size(1280, 766)
         Me.Name = "adminMenu"
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "adminMenu"
         Me.mainPanel.ResumeLayout(False)

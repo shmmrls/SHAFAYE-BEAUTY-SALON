@@ -3,7 +3,8 @@ Imports System.Security.Cryptography
 Imports System.Text
 
 
-Public Class login
+Public Class adminstafflogin
+
     Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
     Public sql As String
     Public dbcomm As MySqlCommand
@@ -31,10 +32,9 @@ Public Class login
     Private Sub passtxt_KeyDown(sender As Object, e As KeyEventArgs) Handles passtxt.KeyDown
         If e.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
-            signinbtn_Click(Nothing, Nothing)
+            signinbtn_click(Nothing, Nothing)
         End If
     End Sub
-
 
     Private Sub signinbtn_Click(sender As Object, e As EventArgs) Handles signinbtn.Click
         Dim username As String = usernametxt.Text.Trim()
@@ -58,19 +58,19 @@ Public Class login
             If reader.Read() Then
                 Dim role As String = reader("role").ToString()
 
-                LoggedInUsername = username
-                LoggedInUsername = usernametxt.Text.Trim()
-                LoggedInRole = role
 
 
-                ' Check user role
+
                 If role = "admin" Then
-                    MsgBox("This page is for clients only. Please log in from the admin page.", MsgBoxStyle.Exclamation, "Access Denied")
-                    adminstafflogin.Show()
-                    Me.Hide()
-                Else
                     MsgBox("Login successful!", MsgBoxStyle.Information)
-                    userMenu.Show()
+                    adminMenu.Show()
+                ElseIf role = "staff" Then
+                    MsgBox("Login successful!", MsgBoxStyle.Information)
+                    MsgBox("staff")
+                Else
+                    MsgBox("This page is for admin or staff only. Please use the client login page.", MsgBoxStyle.Exclamation, "Access Denied")
+                    login.Show()
+                    Me.Hide()
                 End If
 
                 Me.Hide()
@@ -87,7 +87,6 @@ Public Class login
         End Try
     End Sub
 
-
     Private Sub signinbtn_MouseEnter(sender As Object, e As EventArgs) Handles signinbtn.MouseEnter
         signinbtn.BackgroundImage = My.Resources.signinbutton1_0
         signinbtn.BackgroundImageLayout = ImageLayout.Zoom
@@ -98,37 +97,9 @@ Public Class login
         signinbtn.BackgroundImageLayout = ImageLayout.Zoom
     End Sub
 
-    Public Sub adminbtntxt_MouseEnter(sender As Object, e As EventArgs) Handles Label1.MouseEnter
-        Label1.ForeColor = Color.FromArgb(255, 128, 128)
-    End Sub
-
-    Public Sub adminbtntxt_MouseLeave(sender As Object, e As EventArgs) Handles Label1.MouseLeave
-        Label1.ForeColor = Color.FromArgb(255, 255, 255)
-    End Sub
-
-    Public Sub showpassword_MouseEnter(sender As Object, e As EventArgs) Handles showpassword.MouseEnter
-        showpassword.ForeColor = Color.FromArgb(255, 128, 128)
-    End Sub
-
-    Public Sub showpassword_MouseLeave(sender As Object, e As EventArgs) Handles showpassword.MouseLeave
-        showpassword.ForeColor = Color.FromArgb(255, 255, 255)
-    End Sub
-
-    Public Sub clear_MouseEnter(sender As Object, e As EventArgs) Handles clear.MouseEnter
-        clear.ForeColor = Color.FromArgb(255, 128, 128)
-    End Sub
-
-    Public Sub clear_MouseLeave(sender As Object, e As EventArgs) Handles clear.MouseLeave
-        clear.ForeColor = Color.FromArgb(255, 255, 255)
-    End Sub
 
 
-    Private Sub signuppage_Click(sender As Object, e As EventArgs) Handles signuppage.Click
-        signup.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub adminstafflogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Opacity = 0
         Dim fadeTimer As New Timer With {.Interval = 10}
         AddHandler fadeTimer.Tick, Sub()
@@ -138,16 +109,17 @@ Public Class login
         fadeTimer.Start()
     End Sub
 
+
     Dim isPasswordVisible As Boolean = False
 
     Private Sub showpassword_Click(sender As Object, e As EventArgs) Handles showpassword.Click
         If isPasswordVisible Then
             passtxt.PasswordChar = "✻"c
-            showpassword.Text = "SHOW PASSWORD"
+            showpassword.Text = "Show Password"
             isPasswordVisible = False
         Else
             passtxt.PasswordChar = ControlChars.NullChar
-            showpassword.Text = "HIDE PASSWORD"
+            showpassword.Text = "Hide Password"
             isPasswordVisible = True
         End If
     End Sub
@@ -157,8 +129,9 @@ Public Class login
         passtxt.Clear()
     End Sub
 
+
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-        adminstafflogin.Show()
+        login.Show()
         Me.Hide()
     End Sub
 End Class

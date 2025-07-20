@@ -145,16 +145,52 @@
     <Compile Include="AdminServices.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="adminstafflogin.Designer.vb">
+      <DependentUpon>adminstafflogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adminstafflogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bookappointment.Designer.vb">
+      <DependentUpon>bookappointment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="bookappointment.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="bookingactions.Designer.vb">
       <DependentUpon>bookingactions.vb</DependentUpon>
     </Compile>
     <Compile Include="bookingactions.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="customersupport.Designer.vb">
+      <DependentUpon>customersupport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="customersupport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="dailyoverview.Designer.vb">
       <DependentUpon>dailyoverview.vb</DependentUpon>
     </Compile>
     <Compile Include="dailyoverview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="faq.Designer.vb">
+      <DependentUpon>faq.vb</DependentUpon>
+    </Compile>
+    <Compile Include="faq.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="home.Designer.vb">
+      <DependentUpon>home.vb</DependentUpon>
+    </Compile>
+    <Compile Include="home.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="homepage.Designer.vb">
+      <DependentUpon>homepage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="homepage.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="login.Designer.vb">
@@ -191,12 +227,25 @@
     <Compile Include="reminder.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="reviews.Designer.vb">
+      <DependentUpon>reviews.vb</DependentUpon>
+    </Compile>
+    <Compile Include="reviews.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ServiceCard.Designer.vb">
       <DependentUpon>ServiceCard.vb</DependentUpon>
     </Compile>
     <Compile Include="ServiceCard.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="services.Designer.vb">
+      <DependentUpon>services.vb</DependentUpon>
+    </Compile>
+    <Compile Include="services.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="session.vb" />
     <Compile Include="signup.Designer.vb">
       <DependentUpon>signup.vb</DependentUpon>
     </Compile>
@@ -223,11 +272,26 @@
     <EmbeddedResource Include="AdminServices.resx">
       <DependentUpon>AdminServices.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="adminstafflogin.resx">
+      <DependentUpon>adminstafflogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bookappointment.resx">
+      <DependentUpon>bookappointment.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="bookingactions.resx">
       <DependentUpon>bookingactions.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="customersupport.resx">
+      <DependentUpon>customersupport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dailyoverview.resx">
       <DependentUpon>dailyoverview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="home.resx">
+      <DependentUpon>home.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="homepage.resx">
+      <DependentUpon>homepage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
@@ -244,8 +308,14 @@
     <EmbeddedResource Include="reminder.resx">
       <DependentUpon>reminder.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reviews.resx">
+      <DependentUpon>reviews.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceCard.resx">
       <DependentUpon>ServiceCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="services.resx">
+      <DependentUpon>services.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="signup.resx">
       <DependentUpon>signup.vb</DependentUpon>
@@ -317,6 +387,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bleach.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login admin staff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo shafaye 2.0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hompgsignin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hompgsignin2.0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hompgsignup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hompgsignup2.0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basehompage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homepage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updpass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updproff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BASE PROFILE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
