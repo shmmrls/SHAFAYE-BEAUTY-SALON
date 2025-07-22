@@ -22,18 +22,107 @@ Partial Class services
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.flowServices = New System.Windows.Forms.FlowLayoutPanel()
+        Me.fororganization = New System.Windows.Forms.Panel()
+        Me.chkAvailableOnly = New System.Windows.Forms.CheckBox()
+        Me.cmbSortBy = New System.Windows.Forms.ComboBox()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.cmbCategoryFilter = New System.Windows.Forms.ComboBox()
+        Me.fororganization.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'flowServices
+        '
+        Me.flowServices.AutoScroll = True
+        Me.flowServices.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.flowServices.Location = New System.Drawing.Point(242, 170)
+        Me.flowServices.Name = "flowServices"
+        Me.flowServices.Size = New System.Drawing.Size(525, 291)
+        Me.flowServices.TabIndex = 0
+        Me.flowServices.WrapContents = False
+        '
+        'fororganization
+        '
+        Me.fororganization.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.fororganization.Controls.Add(Me.chkAvailableOnly)
+        Me.fororganization.Controls.Add(Me.cmbSortBy)
+        Me.fororganization.Controls.Add(Me.btnSearch)
+        Me.fororganization.Controls.Add(Me.txtSearch)
+        Me.fororganization.Controls.Add(Me.cmbCategoryFilter)
+        Me.fororganization.Dock = System.Windows.Forms.DockStyle.Top
+        Me.fororganization.Location = New System.Drawing.Point(0, 0)
+        Me.fororganization.Name = "fororganization"
+        Me.fororganization.Size = New System.Drawing.Size(1023, 110)
+        Me.fororganization.TabIndex = 6
+        '
+        'chkAvailableOnly
+        '
+        Me.chkAvailableOnly.AutoSize = True
+        Me.chkAvailableOnly.ForeColor = System.Drawing.Color.White
+        Me.chkAvailableOnly.Location = New System.Drawing.Point(124, 51)
+        Me.chkAvailableOnly.Name = "chkAvailableOnly"
+        Me.chkAvailableOnly.Size = New System.Drawing.Size(123, 17)
+        Me.chkAvailableOnly.TabIndex = 10
+        Me.chkAvailableOnly.Text = "Show Available Only"
+        Me.chkAvailableOnly.UseVisualStyleBackColor = True
+        '
+        'cmbSortBy
+        '
+        Me.cmbSortBy.FormattingEnabled = True
+        Me.cmbSortBy.Location = New System.Drawing.Point(437, 47)
+        Me.cmbSortBy.Name = "cmbSortBy"
+        Me.cmbSortBy.Size = New System.Drawing.Size(121, 21)
+        Me.cmbSortBy.TabIndex = 9
+        '
+        'btnSearch
+        '
+        Me.btnSearch.Location = New System.Drawing.Point(773, 47)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(75, 23)
+        Me.btnSearch.TabIndex = 8
+        Me.btnSearch.Text = "Search"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Location = New System.Drawing.Point(587, 48)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(180, 20)
+        Me.txtSearch.TabIndex = 7
+        '
+        'cmbCategoryFilter
+        '
+        Me.cmbCategoryFilter.FormattingEnabled = True
+        Me.cmbCategoryFilter.Location = New System.Drawing.Point(298, 47)
+        Me.cmbCategoryFilter.Name = "cmbCategoryFilter"
+        Me.cmbCategoryFilter.Size = New System.Drawing.Size(121, 21)
+        Me.cmbCategoryFilter.TabIndex = 6
         '
         'services
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1280, 638)
+        Me.BackColor = System.Drawing.Color.White
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ClientSize = New System.Drawing.Size(1023, 520)
+        Me.Controls.Add(Me.flowServices)
+        Me.Controls.Add(Me.fororganization)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "services"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "services"
+        Me.fororganization.ResumeLayout(False)
+        Me.fororganization.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
+
+    Friend WithEvents flowServices As FlowLayoutPanel
+    Friend WithEvents fororganization As Panel
+    Friend WithEvents chkAvailableOnly As CheckBox
+    Friend WithEvents cmbSortBy As ComboBox
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents cmbCategoryFilter As ComboBox
 End Class

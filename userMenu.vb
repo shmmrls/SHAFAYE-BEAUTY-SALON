@@ -15,22 +15,30 @@ Public Class userMenu
 
 
 
-    Private someForm As Form = Nothing
+    Private currentForm As Form = Nothing
+
     Private Sub OpenChildForm(childForm As Form)
-        If someForm IsNot Nothing Then
-            someForm.Close()
+        If currentForm IsNot Nothing Then
+            currentForm.Close()
         End If
 
-        someForm = childForm
-        childForm.TopLevel = False
-        childForm.FormBorderStyle = FormBorderStyle.None
-        childForm.Dock = DockStyle.Fill
+        currentForm = childForm
+        With childForm
+            .TopLevel = False
+            .FormBorderStyle = FormBorderStyle.None
+            .Dock = DockStyle.Fill
+            .StartPosition = FormStartPosition.Manual
+            .Bounds = panelChildForm.ClientRectangle ' ← Ensures exact fit
+        End With
+
+        panelChildForm.Controls.Clear()
         panelChildForm.Controls.Add(childForm)
         panelChildForm.Tag = childForm
         childForm.BringToFront()
         childForm.Show()
-
     End Sub
+
+
 
     'password hashing
     Private Function HashPassword(password As String) As String

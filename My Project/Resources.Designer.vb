@@ -83,9 +83,39 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property bleach() As System.Drawing.Bitmap
+        Friend ReadOnly Property haircut_men_basic() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("bleach", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("haircut_men_basic", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property haircut_men_shampoo() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("haircut_men_shampoo", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property haircut_women_basic() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("haircut_women_basic", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property haircut_women_styled() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("haircut_women_styled", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -176,26 +206,6 @@ Namespace My.Resources
         Friend ReadOnly Property profile() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("profile", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property rebond() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("rebond", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property root_touchup() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("root_touchup", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

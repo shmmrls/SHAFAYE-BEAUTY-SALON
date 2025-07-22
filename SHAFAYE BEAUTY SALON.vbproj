@@ -424,5 +424,17 @@
   <ItemGroup>
     <None Include="Resources\profile.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haircut_men_basic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haircut_men_shampoo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haircut_women_basic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haircut_women_styled.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
