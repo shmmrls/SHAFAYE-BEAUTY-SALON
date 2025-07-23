@@ -174,6 +174,7 @@ Partial Class homepage
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.signupbtn)
         Me.Controls.Add(Me.signinbtn)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
         Me.Name = "homepage"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

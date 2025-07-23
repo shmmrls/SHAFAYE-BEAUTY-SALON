@@ -1,6 +1,28 @@
 ﻿Public Class homepage
 
-    Private someForm As Form = Nothing
+
+    Private currentForm As Form = Nothing
+
+    Private Sub OpenChildForm(childForm As Form)
+        If currentForm IsNot Nothing Then
+            currentForm.Close()
+        End If
+
+        currentForm = childForm
+        With childForm
+            .TopLevel = False
+            .FormBorderStyle = FormBorderStyle.None
+            .Dock = DockStyle.Fill
+            .StartPosition = FormStartPosition.Manual
+            .Bounds = panelChildForm.ClientRectangle ' ← Ensures exact fit
+        End With
+
+        panelChildForm.Controls.Clear()
+        panelChildForm.Controls.Add(childForm)
+        panelChildForm.Tag = childForm
+        childForm.BringToFront()
+        childForm.Show()
+    End Sub
 
 
     Private Sub signinbtn_Click(sender As Object, e As EventArgs) Handles signinbtn.Click
@@ -70,8 +92,7 @@
 
     Private Sub services_Click(sender As Object, e As EventArgs) Handles services.Click
         panelChildForm.Visible = True
-        services.Show()
-        Me.Close()
+        OpenChildForm(New servicesforhomepage())
     End Sub
 
     Private Sub bookappointment_Click(sender As Object, e As EventArgs) Handles bookappointment.Click

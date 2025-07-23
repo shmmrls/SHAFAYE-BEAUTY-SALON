@@ -5,6 +5,18 @@ Public Class services
     Public sql As String
     Public dbcomm As MySqlCommand
 
+    Private Sub txtsearch_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearch.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+            btnSearch_Click(Me, New EventArgs())
+        End If
+    End Sub
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        LoadServicesFiltered()
+    End Sub
+
+
     Private Sub LoadServicesFiltered()
         flowServices.Controls.Clear()
 
@@ -16,7 +28,7 @@ Public Class services
             "SELECT s.name AS service_name, s.description, s.price, s.is_available, sc.name AS category_name, s.image_name " &
             "FROM services s " &
             "JOIN service_categories sc ON s.category_id = sc.category_id " &
-            "WHERE (@cat = 'All Categories' OR sc.name = @cat) " &
+            "WHERE (@cat = 'All Categories' OR LOWER(sc.name) = LOWER(@cat))" &
             "AND (s.name LIKE @search OR s.description LIKE @search) "
 
             If chkAvailableOnly.Checked Then
@@ -69,7 +81,7 @@ Public Class services
                 .Padding = New Padding(10)
             }
 
-                ' Load image from Resources or show nothing if not found
+
                 Dim serviceImage As Image = TryCast(My.Resources.ResourceManager.GetObject(imageName), Image)
 
                 Dim picService As New PictureBox With {
@@ -82,21 +94,22 @@ Public Class services
                 Dim lblName As New Label With {
                 .Text = serviceName,
                 .Font = New Font("Segoe UI", 10, FontStyle.Bold),
-                .Location = New Point(90, 10),
+                .Location = New Point(110, 10),
                 .AutoSize = True
             }
 
                 Dim lblPrice As New Label With {
-                .Text = price,
-                .Font = New Font("Segoe UI", 10),
-                .Location = New Point(300, 10),
-                .AutoSize = True
-            }
+    .Text = price,
+    .Font = New Font("Segoe UI", 10),
+    .AutoSize = True
+}
+                lblPrice.Location = New Point(card.Width - lblPrice.PreferredWidth - 20, 10)
+
 
                 Dim lblDesc As New Label With {
                 .Text = description,
                 .Font = New Font("Segoe UI", 9, FontStyle.Italic),
-                .Location = New Point(90, 35),
+                .Location = New Point(110, 35),
                 .AutoSize = True
             }
 
@@ -104,7 +117,7 @@ Public Class services
                 .Text = If(isAvailable, "Available", "Not Available"),
                 .ForeColor = If(isAvailable, Color.Green, Color.Red),
                 .Font = New Font("Segoe UI", 9, FontStyle.Bold),
-                .Location = New Point(90, 60),
+                .Location = New Point(110, 60),
                 .AutoSize = True
             }
 
@@ -147,7 +160,7 @@ Public Class services
         cmbSortBy.Items.Clear()
         cmbSortBy.Items.Add("Price - Low to High")
         cmbSortBy.Items.Add("Price - High to Low")
-        cmbSortBy.Items.Add("Default")
+        cmbSortBy.Items.Add("Default - Alphabetical")
 
         If cmbSortBy.Items.Count > 0 Then
             cmbSortBy.SelectedIndex = 0
@@ -157,7 +170,12 @@ Public Class services
         cmbCategoryFilter.Text = "All Categories"
 
         LoadServicesFiltered()
+
     End Sub
+
+
+
+
 
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -175,5 +193,7 @@ Public Class services
     Private Sub cmbSortBy_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSortBy.SelectedIndexChanged
         LoadServicesFiltered()
     End Sub
+
+
 
 End Class

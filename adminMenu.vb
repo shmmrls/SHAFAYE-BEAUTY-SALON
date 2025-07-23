@@ -59,7 +59,7 @@ Public Class adminMenu
 
 
     Private someForm As Form = Nothing
-    Private Sub OpenChildForm(childForm As Form)
+    Public Sub OpenChildForm(childForm As Form)
         If someForm IsNot Nothing Then
             someForm.Close()
         End If
@@ -140,10 +140,12 @@ Public Class adminMenu
     End Sub
 
     Private Sub editDeleteService_Click(sender As Object, e As EventArgs) Handles editDeleteService.Click
+
         hideSubmenu()
+        OpenChildForm(New editstaff)
     End Sub
 
-    Private Sub enableDisableService_Click(sender As Object, e As EventArgs) Handles enableDisableService.Click
+    Private Sub enableDisableService_Click(sender As Object, e As EventArgs)
         hideSubmenu()
     End Sub
 
@@ -157,16 +159,15 @@ Public Class adminMenu
     End Sub
 
     Private Sub staffList_Click(sender As Object, e As EventArgs) Handles stafflist.Click
+        OpenChildForm(New stafflist())
         hideSubmenu()
     End Sub
 
-    Private Sub addnewStaff_Click(sender As Object, e As EventArgs) Handles addnewStaff.Click
+    Private Sub editStaff_Click(sender As Object, e As EventArgs) Handles addnewStaff.Click
+        OpenChildForm(New editstaff())
         hideSubmenu()
     End Sub
 
-    Private Sub editstaffinfo_Click(sender As Object, e As EventArgs) Handles editstaffinfo.Click
-        hideSubmenu()
-    End Sub
 
     Private Sub staffpef_Click(sender As Object, e As EventArgs) Handles staffpef.Click
         hideSubmenu()

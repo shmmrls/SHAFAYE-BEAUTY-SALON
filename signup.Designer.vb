@@ -24,7 +24,7 @@ Partial Class signup
     Private Sub InitializeComponent()
         Me.signupbtn = New System.Windows.Forms.PictureBox()
         Me.signinpage = New System.Windows.Forms.PictureBox()
-        Me.fullnametxt = New System.Windows.Forms.TextBox()
+        Me.lastnametxt = New System.Windows.Forms.TextBox()
         Me.usernametxt = New System.Windows.Forms.TextBox()
         Me.passtxt = New System.Windows.Forms.TextBox()
         Me.confirmpasstx = New System.Windows.Forms.TextBox()
@@ -32,6 +32,7 @@ Partial Class signup
         Me.showpassword = New System.Windows.Forms.Label()
         Me.passwordPopupPanel = New System.Windows.Forms.Panel()
         Me.passwordPopupLabel = New System.Windows.Forms.Label()
+        Me.firstnametxt = New System.Windows.Forms.TextBox()
         CType(Me.signupbtn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.signinpage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.passwordPopupPanel.SuspendLayout()
@@ -59,20 +60,20 @@ Partial Class signup
         Me.signinpage.TabIndex = 3
         Me.signinpage.TabStop = False
         '
-        'fullnametxt
+        'lastnametxt
         '
-        Me.fullnametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.fullnametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fullnametxt.Location = New System.Drawing.Point(454, 207)
-        Me.fullnametxt.Name = "fullnametxt"
-        Me.fullnametxt.Size = New System.Drawing.Size(421, 20)
-        Me.fullnametxt.TabIndex = 4
+        Me.lastnametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lastnametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lastnametxt.Location = New System.Drawing.Point(454, 216)
+        Me.lastnametxt.Name = "lastnametxt"
+        Me.lastnametxt.Size = New System.Drawing.Size(421, 20)
+        Me.lastnametxt.TabIndex = 4
         '
         'usernametxt
         '
         Me.usernametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.usernametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.usernametxt.Location = New System.Drawing.Point(454, 297)
+        Me.usernametxt.Location = New System.Drawing.Point(454, 302)
         Me.usernametxt.Name = "usernametxt"
         Me.usernametxt.Size = New System.Drawing.Size(421, 20)
         Me.usernametxt.TabIndex = 5
@@ -81,7 +82,7 @@ Partial Class signup
         '
         Me.passtxt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.passtxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.passtxt.Location = New System.Drawing.Point(454, 388)
+        Me.passtxt.Location = New System.Drawing.Point(454, 391)
         Me.passtxt.Name = "passtxt"
         Me.passtxt.PasswordChar = Global.Microsoft.VisualBasic.ChrW(10043)
         Me.passtxt.Size = New System.Drawing.Size(421, 20)
@@ -147,6 +148,15 @@ Partial Class signup
         Me.passwordPopupLabel.TabIndex = 11
         Me.passwordPopupLabel.Text = "Label1"
         '
+        'firstnametxt
+        '
+        Me.firstnametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.firstnametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.firstnametxt.Location = New System.Drawing.Point(454, 130)
+        Me.firstnametxt.Name = "firstnametxt"
+        Me.firstnametxt.Size = New System.Drawing.Size(421, 20)
+        Me.firstnametxt.TabIndex = 11
+        '
         'signup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -154,13 +164,14 @@ Partial Class signup
         Me.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.sign_u_final
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(948, 593)
+        Me.Controls.Add(Me.firstnametxt)
         Me.Controls.Add(Me.passwordPopupPanel)
         Me.Controls.Add(Me.showpassword)
         Me.Controls.Add(Me.clear)
         Me.Controls.Add(Me.confirmpasstx)
         Me.Controls.Add(Me.passtxt)
         Me.Controls.Add(Me.usernametxt)
-        Me.Controls.Add(Me.fullnametxt)
+        Me.Controls.Add(Me.lastnametxt)
         Me.Controls.Add(Me.signinpage)
         Me.Controls.Add(Me.signupbtn)
         Me.DoubleBuffered = True
@@ -178,7 +189,7 @@ Partial Class signup
 
     Friend WithEvents signupbtn As PictureBox
     Friend WithEvents signinpage As PictureBox
-    Friend WithEvents fullnametxt As TextBox
+    Friend WithEvents lastnametxt As TextBox
     Friend WithEvents usernametxt As TextBox
     Friend WithEvents passtxt As TextBox
     Friend WithEvents confirmpasstx As TextBox
@@ -186,4 +197,5 @@ Partial Class signup
     Friend WithEvents showpassword As Label
     Friend WithEvents passwordPopupPanel As Panel
     Friend WithEvents passwordPopupLabel As Label
+    Friend WithEvents firstnametxt As TextBox
 End Class

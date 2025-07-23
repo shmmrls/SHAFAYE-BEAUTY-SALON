@@ -118,11 +118,50 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="addadminstaff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addadminstaff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addadminstaff2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addadminstaff2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="basehompage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\basehompage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BASE_PROFILE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BASE PROFILE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="booknow2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\booknow2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="book_now" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book now.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eyebrow_tint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eyebrow_tint.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="facial_acne" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\facial_acne.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="facial_basic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\facial_basic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="foot_reflex_1hr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\foot_reflex_1hr.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="foot_reflex_30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\foot_reflex_30.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="foot_spa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\foot_spa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="haircolor_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\haircolor_long.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="haircolor_medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\haircolor_medium.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="haircolor_short" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\haircolor_short.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="haircut_men_basic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\haircut_men_basic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -131,10 +170,16 @@
     <value>..\Resources\haircut_men_shampoo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="haircut_women_basic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\haircut_women_basic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\haircut_women_basic  .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="haircut_women_styled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\haircut_women_styled.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hand_spa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hand_spa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="homepage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\homepage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,6 +196,21 @@
   <data name="hompgsignup2_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hompgsignup2.0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hot_oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hot_oil.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keratin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keratin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lash_classic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lash_classic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lash_lift" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lash_lift.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lash_volume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lash_volume.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="login_admin_staff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login admin staff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,8 +220,53 @@
   <data name="logo_shafaye_2_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo shafaye 2.0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="manicure_basic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\manicure_basic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="manicure_gel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\manicure_gel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="manicure_massage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\manicure_massage.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="massage_normal_1hr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\massage_normal_1hr.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="massage_normal_90mins" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\massage_normal_90mins.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="massage_stone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\massage_stone.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="package_basic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\package_basic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="package_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\package_full.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="package_premium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\package_premium.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pedicure_basic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pedicure_basic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pedicure_gel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pedicure_gel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pedicure_scrub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pedicure_scrub.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rebonding_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rebonding_long.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rebonding_medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rebonding_medium.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rebonding_short" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rebonding_short.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="signinbutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\signinbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,10 +298,31 @@
   <data name="sign_u_final" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sign u final.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="threading_eyebrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\threading_eyebrow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="threading_lip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\threading_lip.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="updpass" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\updpass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="updpass2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\updpass2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="updproff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\updproff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="updproff2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\updproff2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="waxing_brazilian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\waxing_brazilian.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="waxing_leg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\waxing_leg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="waxing_underarm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\waxing_underarm.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

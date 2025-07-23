@@ -175,6 +175,12 @@
     <Compile Include="dailyoverview.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="editstaff.Designer.vb">
+      <DependentUpon>editstaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="editstaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="faq.Designer.vb">
       <DependentUpon>faq.vb</DependentUpon>
     </Compile>
@@ -215,6 +221,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="profile.Designer.vb">
+      <DependentUpon>profile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="profile.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="quickStats.Designer.vb">
       <DependentUpon>quickStats.vb</DependentUpon>
     </Compile>
@@ -233,6 +245,12 @@
     <Compile Include="reviews.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="roundedtextbox.Designer.vb">
+      <DependentUpon>roundedtextbox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="roundedtextbox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ServiceCard.Designer.vb">
       <DependentUpon>ServiceCard.vb</DependentUpon>
     </Compile>
@@ -245,11 +263,23 @@
     <Compile Include="services.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="servicesforhomepage.Designer.vb">
+      <DependentUpon>servicesforhomepage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="servicesforhomepage.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="session.vb" />
     <Compile Include="signup.Designer.vb">
       <DependentUpon>signup.vb</DependentUpon>
     </Compile>
     <Compile Include="signup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stafflist.Designer.vb">
+      <DependentUpon>stafflist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="stafflist.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="userMenu.Designer.vb">
@@ -287,6 +317,9 @@
     <EmbeddedResource Include="dailyoverview.resx">
       <DependentUpon>dailyoverview.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="editstaff.resx">
+      <DependentUpon>editstaff.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="home.resx">
       <DependentUpon>home.vb</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +335,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="profile.resx">
+      <DependentUpon>profile.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="quickStats.resx">
       <DependentUpon>quickStats.vb</DependentUpon>
     </EmbeddedResource>
@@ -311,14 +347,23 @@
     <EmbeddedResource Include="reviews.resx">
       <DependentUpon>reviews.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="roundedtextbox.resx">
+      <DependentUpon>roundedtextbox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceCard.resx">
       <DependentUpon>ServiceCard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="services.resx">
       <DependentUpon>services.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="servicesforhomepage.resx">
+      <DependentUpon>servicesforhomepage.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="signup.resx">
       <DependentUpon>signup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stafflist.resx">
+      <DependentUpon>stafflist.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userMenu.resx">
       <DependentUpon>userMenu.vb</DependentUpon>
@@ -357,9 +402,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sign in v2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sign u final.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sign up v1.png" />
@@ -425,16 +467,148 @@
     <None Include="Resources\profile.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\haircut_women_basic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book now.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\booknow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign u final.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyebrow_tint.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\facial_acne.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\facial_basic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foot_reflex_1hr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foot_reflex_30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foot_spa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haircolor_long.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haircolor_medium.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haircolor_short.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\haircut_men_basic.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\haircut_men_shampoo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\haircut_women_basic.jpg" />
+    <None Include="Resources\haircut_women_styled.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\haircut_women_styled.jpg" />
+    <None Include="Resources\hand_spa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hot_oil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keratin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lash_classic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lash_lift.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lash_volume.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manicure_basic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manicure_gel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manicure_massage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\massage_normal_1hr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\massage_normal_90mins.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\massage_stone.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package_basic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package_full.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package_premium.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedicure_basic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedicure_gel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedicure_scrub.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rebonding_long.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rebonding_medium.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rebonding_short.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\threading_eyebrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\threading_lip.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\waxing_brazilian.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\waxing_leg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\waxing_underarm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haircut_women_basic  .jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updpass2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updproff2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addadminstaff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addadminstaff2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -48,7 +48,8 @@ Public Class login
         Try
             conn.Open()
 
-            Dim sql As String = "SELECT role FROM user_register WHERE username = @username AND password = @password"
+            ' Also get the user_id now
+            Dim sql As String = "SELECT user_id, role FROM user_register WHERE username = @username AND password = @password"
             dbcomm = New MySqlCommand(sql, conn)
             dbcomm.Parameters.AddWithValue("@username", username)
             dbcomm.Parameters.AddWithValue("@password", HashPassword(password))
@@ -57,23 +58,21 @@ Public Class login
 
             If reader.Read() Then
                 Dim role As String = reader("role").ToString()
+                Dim userIDFromLogin As Integer = Convert.ToInt32(reader("user_id"))
 
                 LoggedInUsername = username
-                LoggedInUsername = usernametxt.Text.Trim()
                 LoggedInRole = role
 
-
-                ' Check user role
                 If role = "admin" Then
                     MsgBox("This page is for clients only. Please log in from the admin page.", MsgBoxStyle.Exclamation, "Access Denied")
                     adminstafflogin.Show()
                     Me.Hide()
                 Else
                     MsgBox("Login successful!", MsgBoxStyle.Information)
+                    userMenu.LoggedInUserID = userIDFromLogin
                     userMenu.Show()
+                    Me.Hide()
                 End If
-
-                Me.Hide()
             Else
                 MsgBox("Username or password incorrect.")
             End If
@@ -86,7 +85,6 @@ Public Class login
             conn.Close()
         End Try
     End Sub
-
 
     Private Sub signinbtn_MouseEnter(sender As Object, e As EventArgs) Handles signinbtn.MouseEnter
         signinbtn.BackgroundImage = My.Resources.signinbutton1_0

@@ -35,7 +35,14 @@ Public Class signup
     End Function
 
     'password enter
-    Private Sub fullnametxt_KeyDown(sender As Object, e As KeyEventArgs) Handles fullnametxt.KeyDown
+
+    Private Sub firstnametxt_KeyDown(sender As Object, e As KeyEventArgs) Handles firstnametxt.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+            lastnametxt.Focus()
+        End If
+    End Sub
+    Private Sub lastnametxt_KeyDown(sender As Object, e As KeyEventArgs) Handles lastnametxt.KeyDown
         If e.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
             usernametxt.Focus()
@@ -65,16 +72,16 @@ Public Class signup
 
     'main sign up button
     Private Sub signupbtn_Click(sender As Object, e As EventArgs) Handles signupbtn.Click
-        Dim fullname As String = fullnametxt.Text.Trim()
+        Dim firstName As String = firstnametxt.Text.Trim()
+        Dim lastName As String = lastnametxt.Text.Trim()
         Dim username As String = usernametxt.Text.Trim()
         Dim password As String = passtxt.Text.Trim()
         Dim confirmpassword As String = confirmpasstx.Text.Trim()
 
-        If fullname = "" Or username = "" Or password = "" Or confirmpassword = "" Then
+        If firstName = "" Or lastName = "" Or username = "" Or password = "" Or confirmpassword = "" Then
             MsgBox("Please fill out all required fields.")
             Exit Sub
         End If
-
 
         If password <> confirmpassword Then
             MsgBox("Passwords do not match. Please try again.", MsgBoxStyle.Exclamation)
@@ -89,12 +96,9 @@ Public Class signup
             Return
         End If
 
-
-
         Try
             conn.Open()
 
-            ' Check if username already exists
             Dim checkUser As String = $"SELECT COUNT(*) FROM user_register WHERE username = '{username}'"
             Dim cmdCheck As New MySqlCommand(checkUser, conn)
             Dim exists As Integer = CInt(cmdCheck.ExecuteScalar())
@@ -105,18 +109,16 @@ Public Class signup
                 Exit Sub
             End If
 
-            ' Insert into user_register
-            Dim sql As String = "INSERT INTO user_register (full_name, username, password) VALUES (@fullname, @username, @password)"
+            Dim sql As String = "INSERT INTO user_register (first_name, last_name, username, password) VALUES (@firstName, @lastName, @username, @password)"
             dbcomm = New MySqlCommand(sql, conn)
-            dbcomm.Parameters.AddWithValue("@fullname", fullname)
+            dbcomm.Parameters.AddWithValue("@firstName", firstName)
+            dbcomm.Parameters.AddWithValue("@lastName", lastName)
             dbcomm.Parameters.AddWithValue("@username", username)
             dbcomm.Parameters.AddWithValue("@password", HashPassword(password))
             dbcomm.ExecuteNonQuery()
 
-            ' ✅ Get last inserted user_id from dbcomm
             Dim lastId As Integer = CInt(dbcomm.LastInsertedId)
 
-            ' Insert default profile entry in user_profiles
             Dim profileQuery As String = "INSERT INTO user_profiles (user_id, email, phone, date_of_birth) VALUES (@userId, NULL, NULL, NULL)"
             Using profileCmd As New MySqlCommand(profileQuery, conn)
                 profileCmd.Parameters.AddWithValue("@userId", lastId)
@@ -125,13 +127,12 @@ Public Class signup
 
             MsgBox("User successfully registered. Please proceed to log in.", MsgBoxStyle.Information, "Registration Complete")
 
-            ' Clear fields
-            fullnametxt.Clear()
+            firstnametxt.Clear()
+            lastnametxt.Clear()
             usernametxt.Clear()
             passtxt.Clear()
             confirmpasstx.Clear()
 
-            ' Navigate to login form
             Me.Hide()
             login.Show()
 
@@ -142,8 +143,8 @@ Public Class signup
         Finally
             conn.Close()
         End Try
-
     End Sub
+
 
     'sign up button visuals
     Private Sub signupbtn_MouseEnter(sender As Object, e As EventArgs) Handles signupbtn.MouseEnter
@@ -210,7 +211,12 @@ Public Class signup
         Me.Hide()
     End Sub
 
+    Private Sub signup_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        firstnametxt.Focus()
+    End Sub
+
     Private Sub signup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        firstnametxt.Focus()
         passwordPopupPanel.Left = passtxt.Left
         passwordPopupPanel.Top = passtxt.Bottom + 5
         passtxt.PasswordChar = "✻"c
@@ -221,7 +227,8 @@ Public Class signup
 
     'clear txtboxes
     Private Sub clear_Click(sender As Object, e As EventArgs) Handles clear.Click
-        fullnametxt.Clear()
+        firstnametxt.Clear()
+        lastnametxt.Clear()
         usernametxt.Clear()
         passtxt.Clear()
         confirmpasstx.Clear()
