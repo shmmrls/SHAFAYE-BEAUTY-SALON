@@ -50,4 +50,58 @@ Public Class stafflist
     Private Sub addStaffbtn_Click(sender As Object, e As EventArgs) Handles addStaffbtn.Click
         adminMenu.OpenChildForm(New editstaff())
     End Sub
+
+    Private Sub deleteStaffbtn_Click(sender As Object, e As EventArgs) Handles deleteStaffbtn.Click
+        If dgvStaff.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a staff member to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        Dim selectedRow As DataGridViewRow = dgvStaff.SelectedRows(0)
+        Dim staffID As Integer = Convert.ToInt32(selectedRow.Cells("staff_id").Value)
+
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this staff member?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.Yes Then
+            Try
+                conn.Open()
+                Dim cmd As New MySqlCommand("DELETE FROM staff WHERE staff_id = @staff_id", conn)
+                cmd.Parameters.AddWithValue("@staff_id", staffID)
+
+                Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+                If rowsAffected > 0 Then
+                    MessageBox.Show("Staff deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    LoadStaffTable()
+                Else
+                    MessageBox.Show("Failed to delete staff. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Finally
+                conn.Close()
+            End Try
+        End If
+    End Sub
+
+
+    Private Sub addStaffbtn_MouseEnter(sender As Object, e As EventArgs) Handles addStaffbtn.MouseEnter
+        addStaffbtn.BackgroundImage = My.Resources.addadminstaff2
+        addStaffbtn.BackgroundImageLayout = ImageLayout.Zoom
+    End Sub
+
+    Private Sub addStaffbtn_MouseLeave(sender As Object, e As EventArgs) Handles addStaffbtn.MouseLeave
+        addStaffbtn.BackgroundImage = My.Resources.addadminstaff
+        addStaffbtn.BackgroundImageLayout = ImageLayout.Zoom
+    End Sub
+
+    Private Sub deleteStaffbtn_MouseEnter(sender As Object, e As EventArgs) Handles deleteStaffbtn.MouseEnter
+        deleteStaffbtn.BackgroundImage = My.Resources.addadminstaff2
+        deleteStaffbtn.BackgroundImageLayout = ImageLayout.Zoom
+    End Sub
+
+    Private Sub deleteStaffbtn_MouseLeave(sender As Object, e As EventArgs) Handles deleteStaffbtn.MouseLeave
+        deleteStaffbtn.BackgroundImage = My.Resources.addadminstaff
+        deleteStaffbtn.BackgroundImageLayout = ImageLayout.Zoom
+    End Sub
 End Class

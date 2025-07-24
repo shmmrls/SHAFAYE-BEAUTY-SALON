@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.IO
 
-Public Class servicesforhomepage
+Public Class servicelist
     Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
     Public sql As String
     Public dbcomm As MySqlCommand
@@ -17,19 +17,19 @@ Public Class servicesforhomepage
         LoadServicesFiltered()
     End Sub
 
+
     Private Sub LoadServicesFiltered()
         flowServices.Controls.Clear()
 
         Try
             conn.Open()
 
-            ' Updated SQL with image_name
             Dim query As String =
-            "SELECT s.name AS service_name, s.description, s.price, s.is_available, sc.name AS category_name, s.image_name " &
-            "FROM services s " &
-            "JOIN service_categories sc ON s.category_id = sc.category_id " &
-            "WHERE (@cat = 'All Categories' OR sc.name = @cat) " &
-            "AND (s.name LIKE @search OR s.description LIKE @search) "
+        "SELECT s.name AS service_name, s.description, s.price, s.is_available, sc.name AS category_name, s.image_name " &
+        "FROM services s " &
+        "JOIN service_categories sc ON s.category_id = sc.category_id " &
+        "WHERE (@cat = 'All Categories' OR LOWER(sc.name) = LOWER(@cat)) " &
+        "AND (s.name LIKE @search OR s.description LIKE @search) "
 
             If chkAvailableOnly.Checked Then
                 query &= "AND s.is_available = TRUE "
@@ -73,15 +73,16 @@ Public Class servicesforhomepage
                     flowServices.Controls.Add(categoryLabel)
                 End If
 
-                Dim card As New Panel With {
-                .BackColor = If(isAvailable, Color.WhiteSmoke, Color.LightGray),
-                .Height = 90,
+                ' Row-style layout
+                Dim rowPanel As New Panel With {
+                .Height = 60,
                 .Width = flowServices.Width - 40,
-                .Margin = New Padding(10),
-                .Padding = New Padding(10)
+                .BackColor = Color.Transparent,
+                .Margin = New Padding(5),
+                .Padding = New Padding(5)
             }
 
-
+                ' Service image
                 Dim serviceImage As Image = Nothing
                 Dim possibleExtensions = {".png", ".jpg", ".jpeg", ".bmp"}
 
@@ -94,7 +95,7 @@ Public Class servicesforhomepage
                 Next
 
                 If serviceImage Is Nothing Then
-
+                    ' Optional: fallback image if not found
                     serviceImage = My.Resources.logo_shafaye '
                 End If
 
@@ -102,47 +103,42 @@ Public Class servicesforhomepage
                 Dim picService As New PictureBox With {
                 .Image = serviceImage,
                 .SizeMode = PictureBoxSizeMode.Zoom,
-                .Location = New Point(10, 10),
-                .Size = New Size(70, 70)
+                .Location = New Point(5, 10),
+                .Size = New Size(40, 40)
             }
+                rowPanel.Controls.Add(picService)
 
+                ' Service name
                 Dim lblName As New Label With {
                 .Text = serviceName,
                 .Font = New Font("Segoe UI", 10, FontStyle.Bold),
-                .Location = New Point(110, 10),
-                .AutoSize = True
+                .AutoSize = True,
+                .Location = New Point(60, 10)
             }
+                rowPanel.Controls.Add(lblName)
 
+                ' Price
                 Dim lblPrice As New Label With {
                 .Text = price,
                 .Font = New Font("Segoe UI", 10),
-                .AutoSize = True
-               }
-                lblPrice.Location = New Point(card.Width - lblPrice.PreferredWidth - 20, 10)
-
-
-                Dim lblDesc As New Label With {
-                .Text = description,
-                .Font = New Font("Segoe UI", 9, FontStyle.Italic),
-                .Location = New Point(110, 35),
-                .AutoSize = True
+                .ForeColor = Color.FromArgb(77, 0, 18),
+                .AutoSize = True,
+                .Location = New Point(60, 30)
             }
+                rowPanel.Controls.Add(lblPrice)
 
+                ' Availability label
                 Dim lblAvail As New Label With {
                 .Text = If(isAvailable, "Available", "Not Available"),
-                .ForeColor = If(isAvailable, Color.Green, Color.Red),
-                .Font = New Font("Segoe UI", 9, FontStyle.Bold),
-                .Location = New Point(110, 60),
+                .ForeColor = If(isAvailable, Color.ForestGreen, Color.DarkRed),
+                .Font = New Font("Segoe UI", 9, FontStyle.Italic),
                 .AutoSize = True
             }
+                lblAvail.Left = rowPanel.Width - lblAvail.PreferredWidth - 20
+                lblAvail.Top = (rowPanel.Height - lblAvail.Height) \ 2
+                rowPanel.Controls.Add(lblAvail)
 
-                card.Controls.Add(picService)
-                card.Controls.Add(lblName)
-                card.Controls.Add(lblPrice)
-                card.Controls.Add(lblDesc)
-                card.Controls.Add(lblAvail)
-
-                flowServices.Controls.Add(card)
+                flowServices.Controls.Add(rowPanel)
             End While
 
             reader.Close()
@@ -171,7 +167,7 @@ Public Class servicesforhomepage
         End Try
     End Sub
 
-    Private Sub servicesforhomepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub services_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmbSortBy.Items.Clear()
         cmbSortBy.Items.Add("Price - Low to High")
         cmbSortBy.Items.Add("Price - High to Low")
@@ -185,7 +181,12 @@ Public Class servicesforhomepage
         cmbCategoryFilter.Text = "All Categories"
 
         LoadServicesFiltered()
+
     End Sub
+
+
+
+
 
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click

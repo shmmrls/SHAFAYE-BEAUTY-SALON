@@ -398,7 +398,7 @@ Partial Class editstaff
         Me.cancelEditbtn.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cancelEditbtn.BackColor = System.Drawing.Color.Transparent
-        Me.cancelEditbtn.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.addadminstaff
+        Me.cancelEditbtn.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.cancelEdit
         Me.cancelEditbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.cancelEditbtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cancelEditbtn.Location = New System.Drawing.Point(137, 403)
@@ -504,7 +504,7 @@ Partial Class editstaff
         Me.saveEditbtn.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.saveEditbtn.BackColor = System.Drawing.Color.Transparent
-        Me.saveEditbtn.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.addadminstaff
+        Me.saveEditbtn.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.saveEdit
         Me.saveEditbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.saveEditbtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.saveEditbtn.Location = New System.Drawing.Point(343, 403)

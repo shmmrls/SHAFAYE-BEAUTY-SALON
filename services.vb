@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.IO
 
 Public Class services
     Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
@@ -23,7 +24,7 @@ Public Class services
         Try
             conn.Open()
 
-            ' Updated SQL with image_name
+
             Dim query As String =
             "SELECT s.name AS service_name, s.description, s.price, s.is_available, sc.name AS category_name, s.image_name " &
             "FROM services s " &
@@ -82,7 +83,22 @@ Public Class services
             }
 
 
-                Dim serviceImage As Image = TryCast(My.Resources.ResourceManager.GetObject(imageName), Image)
+                Dim serviceImage As Image = Nothing
+                Dim possibleExtensions = {".png", ".jpg", ".jpeg", ".bmp"}
+
+                For Each ext In possibleExtensions
+                    Dim imagePath As String = Path.Combine(Application.StartupPath, "Resources", imageName & ext)
+                    If File.Exists(imagePath) Then
+                        serviceImage = Image.FromFile(imagePath)
+                        Exit For
+                    End If
+                Next
+
+                If serviceImage Is Nothing Then
+
+                    serviceImage = My.Resources.logo_shafaye '
+                End If
+
 
                 Dim picService As New PictureBox With {
                 .Image = serviceImage,
@@ -99,10 +115,11 @@ Public Class services
             }
 
                 Dim lblPrice As New Label With {
-    .Text = price,
-    .Font = New Font("Segoe UI", 10),
-    .AutoSize = True
-}
+                .Text = price,
+                .Font = New Font("Segoe UI", 10),
+                .AutoSize = True
+            }
+
                 lblPrice.Location = New Point(card.Width - lblPrice.PreferredWidth - 20, 10)
 
 
@@ -193,7 +210,6 @@ Public Class services
     Private Sub cmbSortBy_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSortBy.SelectedIndexChanged
         LoadServicesFiltered()
     End Sub
-
 
 
 End Class

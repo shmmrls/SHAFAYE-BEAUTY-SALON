@@ -132,17 +132,17 @@ Public Class adminMenu
 
     Private Sub servicelist_Click(sender As Object, e As EventArgs) Handles servicelist.Click
         hideSubmenu()
+        OpenChildForm(New servicelist())
     End Sub
 
     Private Sub addService_Click(sender As Object, e As EventArgs) Handles addService.Click
         hideSubmenu()
-        OpenChildForm(New AdminServices())
+        OpenChildForm(New addservices())
     End Sub
 
     Private Sub editDeleteService_Click(sender As Object, e As EventArgs) Handles editDeleteService.Click
-
         hideSubmenu()
-        OpenChildForm(New editstaff)
+        OpenChildForm(New editDeleteService())
     End Sub
 
     Private Sub enableDisableService_Click(sender As Object, e As EventArgs)

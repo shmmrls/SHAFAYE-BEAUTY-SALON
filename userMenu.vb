@@ -37,11 +37,15 @@ Public Class userMenu
 
 
     Private Sub userMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        OpenChildForm(New home())
+        Dim homeForm As New home()
+        homeForm.LoggedInUserID = LoggedInUserID
+        OpenChildForm(homeForm)
     End Sub
 
     Private Sub home_Click(sender As Object, e As EventArgs) Handles hometxt.Click
-        OpenChildForm(New home())
+        Dim homeForm As New home()
+        homeForm.LoggedInUserID = LoggedInUserID
+        OpenChildForm(homeForm)
     End Sub
 
     Private Sub services_Click(sender As Object, e As EventArgs) Handles servicestxt.Click

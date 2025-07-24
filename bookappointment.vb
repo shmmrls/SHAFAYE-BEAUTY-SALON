@@ -1,6 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class bookappointment
+
+
+
     Private userID As Integer
 
 
@@ -25,9 +28,14 @@ Public Class bookappointment
             Exit Sub
         End If
 
-        appointmentDate.MinDate = Date.Today
-        appointmentDate.MaxDate = Date.Today.AddMonths(3)
-        appointmentDate.Value = Date.Today
+
+        Dim today As Date = Date.Today
+        Dim maxDate As Date = today.AddMonths(3)
+
+        appointmentDate.MinDate = today
+        appointmentDate.MaxDate = maxDate
+        appointmentDate.Value = today
+
 
         LoadCategories()
     End Sub
@@ -72,14 +80,13 @@ Public Class bookappointment
                 lntext.Text = reader("last_name").ToString()
                 emailtext.Text = reader("email").ToString()
 
-                ' Make fields read-only
+
                 fntext.ReadOnly = True
                 lntext.ReadOnly = True
                 emailtext.ReadOnly = True
             Else
                 MsgBox("No user profile found. Please update your profile first.", MsgBoxStyle.Exclamation)
-                profile.Show()
-                Me.Close()
+                userMenu.OpenChildForm(New profile())
             End If
 
         Catch ex As Exception
@@ -192,7 +199,7 @@ Public Class bookappointment
         ' Check for duplicate appointment
         Dim duplicateQuery As String = "SELECT COUNT(*) FROM appointments WHERE user_id = @uid AND appointment_date = @date AND appointment_time = @time"
         Dim cmdCheck As New MySqlCommand(duplicateQuery, conn)
-        cmdCheck.Parameters.AddWithValue("@uid", LoggedInUserID)
+        cmdCheck.Parameters.AddWithValue("@uid", userID)
         cmdCheck.Parameters.AddWithValue("@date", selectedDate)
         cmdCheck.Parameters.AddWithValue("@time", selectedTime)
         conn.Open()
@@ -214,7 +221,7 @@ Public Class bookappointment
 
         conn.Open()
         Dim cmdApp As New MySqlCommand("INSERT INTO appointments (user_id, appointment_date, appointment_time) VALUES (@user, @date, @time)", conn)
-        cmdApp.Parameters.AddWithValue("@user", LoggedInUserID)
+        cmdApp.Parameters.AddWithValue("@user", userID)
         cmdApp.Parameters.AddWithValue("@date", selectedDate)
         cmdApp.Parameters.AddWithValue("@time", selectedTime)
         cmdApp.ExecuteNonQuery()
@@ -260,4 +267,18 @@ Public Class bookappointment
         conn.Close()
     End Sub
 
+    Private Sub submitBooking_MouseEnter(sender As Object, e As EventArgs) Handles submitBooking.MouseEnter
+        submitBooking.BackgroundImage = My.Resources.confirmbooking2
+        submitBooking.BackgroundImageLayout = ImageLayout.Zoom
+    End Sub
+
+    Private Sub submitBooking_MouseLeave(sender As Object, e As EventArgs) Handles submitBooking.MouseLeave
+        submitBooking.BackgroundImage = My.Resources.confirmbooking
+        submitBooking.BackgroundImageLayout = ImageLayout.Zoom
+    End Sub
+
+    Private Sub clear_Click(sender As Object, e As EventArgs) Handles clear.Click
+        lstselected.Items.Clear()
+        selectedServiceIDs.Clear()
+    End Sub
 End Class

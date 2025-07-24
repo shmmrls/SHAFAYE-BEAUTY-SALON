@@ -139,12 +139,10 @@
     <Compile Include="adminMenu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminServices.Designer.vb">
-      <DependentUpon>AdminServices.vb</DependentUpon>
+    <Compile Include="addservices.Designer.vb">
+      <DependentUpon>addservices.vb</DependentUpon>
     </Compile>
-    <Compile Include="AdminServices.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="addservices.vb" />
     <Compile Include="adminstafflogin.Designer.vb">
       <DependentUpon>adminstafflogin.vb</DependentUpon>
     </Compile>
@@ -173,6 +171,12 @@
       <DependentUpon>dailyoverview.vb</DependentUpon>
     </Compile>
     <Compile Include="dailyoverview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editDeleteService.Designer.vb">
+      <DependentUpon>editDeleteService.vb</DependentUpon>
+    </Compile>
+    <Compile Include="editDeleteService.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="editstaff.Designer.vb">
@@ -257,6 +261,12 @@
     <Compile Include="ServiceCard.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="servicelist.Designer.vb">
+      <DependentUpon>servicelist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="servicelist.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="services.Designer.vb">
       <DependentUpon>services.vb</DependentUpon>
     </Compile>
@@ -299,8 +309,8 @@
     <EmbeddedResource Include="adminMenu.resx">
       <DependentUpon>adminMenu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminServices.resx">
-      <DependentUpon>AdminServices.vb</DependentUpon>
+    <EmbeddedResource Include="addservices.resx">
+      <DependentUpon>addservices.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="adminstafflogin.resx">
       <DependentUpon>adminstafflogin.vb</DependentUpon>
@@ -316,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dailyoverview.resx">
       <DependentUpon>dailyoverview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editDeleteService.resx">
+      <DependentUpon>editDeleteService.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editstaff.resx">
       <DependentUpon>editstaff.vb</DependentUpon>
@@ -352,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceCard.resx">
       <DependentUpon>ServiceCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="servicelist.resx">
+      <DependentUpon>servicelist.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="services.resx">
       <DependentUpon>services.vb</DependentUpon>
@@ -609,6 +625,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\addadminstaff2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\removeStaff2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelEdit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveEdit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\removeStaff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\removeservice2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\removeservice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addservice2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addservice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editservice2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editservice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirmbooking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirmbooking2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

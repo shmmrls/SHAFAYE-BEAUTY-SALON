@@ -31,8 +31,7 @@ Public Class editstaff
             .AllowUserToDeleteRows = False
             .AllowUserToResizeRows = False
 
-            '.RowHeadersVisible = False
-            '.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+
             .DefaultCellStyle.SelectionBackColor = Color.LightGray
             .DefaultCellStyle.SelectionForeColor = Color.Black
 
@@ -127,6 +126,26 @@ Public Class editstaff
         addstaffadmin.BackgroundImageLayout = ImageLayout.Zoom
     End Sub
 
+    Private Sub saveEditbtn_MouseEnter(sender As Object, e As EventArgs) Handles saveEditbtn.MouseEnter
+        saveEditbtn.BackgroundImage = My.Resources.saveEdit2
+        saveEditbtn.BackgroundImageLayout = ImageLayout.Zoom
+    End Sub
+
+    Private Sub saveEditbtn_MouseLeave(sender As Object, e As EventArgs) Handles saveEditbtn.MouseLeave
+        saveEditbtn.BackgroundImage = My.Resources.saveEdit
+        saveEditbtn.BackgroundImageLayout = ImageLayout.Zoom
+    End Sub
+
+    Private Sub cancelEditbtn_MouseEnter(sender As Object, e As EventArgs) Handles cancelEditbtn.MouseEnter
+        cancelEditbtn.BackgroundImage = My.Resources.cancelEdit2
+        cancelEditbtn.BackgroundImageLayout = ImageLayout.Zoom
+    End Sub
+
+    Private Sub cancelEditbtn_MouseLeave(sender As Object, e As EventArgs) Handles cancelEditbtn.MouseLeave
+        cancelEditbtn.BackgroundImage = My.Resources.cancelEdit
+        cancelEditbtn.BackgroundImageLayout = ImageLayout.Zoom
+    End Sub
+
     Private Sub editstaffinfo_Click(sender As Object, e As EventArgs) Handles editstaffinfo.Click
         Panel3.Visible = True
     End Sub
@@ -163,14 +182,14 @@ Public Class editstaff
 
         conn.Open()
 
-        ' Update user_register table
+
         Dim updateUser As New MySqlCommand("UPDATE user_register u JOIN staff s ON u.user_id = s.user_id SET u.first_name = @fname, u.last_name = @lname WHERE s.staff_id = @staff_id", conn)
         updateUser.Parameters.AddWithValue("@fname", firstName)
         updateUser.Parameters.AddWithValue("@lname", lastName)
         updateUser.Parameters.AddWithValue("@staff_id", staffID)
         updateUser.ExecuteNonQuery()
 
-        ' Update staff table
+
         Dim updateStaff As New MySqlCommand("UPDATE staff SET position = @position, salary = @salary, status = @status WHERE staff_id = @staff_id", conn)
         updateStaff.Parameters.AddWithValue("@position", position)
         updateStaff.Parameters.AddWithValue("@salary", salary)

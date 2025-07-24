@@ -35,7 +35,6 @@ Partial Class bookappointment
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cmbtimeslot = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.submitBooking = New System.Windows.Forms.PictureBox()
         Me.clear = New System.Windows.Forms.Label()
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
         Me.cmbServices = New System.Windows.Forms.ComboBox()
@@ -44,6 +43,7 @@ Partial Class bookappointment
         Me.lblstaff = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.removeservicebtn = New System.Windows.Forms.Button()
+        Me.submitBooking = New System.Windows.Forms.PictureBox()
         Me.RoundedTextBox7 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.RoundedTextBox1 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.RoundedTextBox6 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
@@ -136,7 +136,8 @@ Partial Class bookappointment
         Me.appointmentDate.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.appointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.appointmentDate.Location = New System.Drawing.Point(521, 129)
-        Me.appointmentDate.MaxDate = New Date(2025, 7, 23, 0, 0, 0, 0)
+        Me.appointmentDate.MaxDate = New Date(2030, 7, 23, 0, 0, 0, 0)
+        Me.appointmentDate.MinDate = New Date(1753, 1, 2, 0, 0, 0, 0)
         Me.appointmentDate.Name = "appointmentDate"
         Me.appointmentDate.Size = New System.Drawing.Size(386, 25)
         Me.appointmentDate.TabIndex = 72
@@ -192,20 +193,6 @@ Partial Class bookappointment
         Me.Label3.TabIndex = 90
         Me.Label3.Text = "SELECT SERVICE/S TO BOOK: (UP TO 3 SERVICES PER BOOKING):"
         '
-        'submitBooking
-        '
-        Me.submitBooking.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.submitBooking.BackColor = System.Drawing.Color.Transparent
-        Me.submitBooking.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.updproff
-        Me.submitBooking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.submitBooking.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.submitBooking.Location = New System.Drawing.Point(643, 412)
-        Me.submitBooking.Name = "submitBooking"
-        Me.submitBooking.Size = New System.Drawing.Size(205, 40)
-        Me.submitBooking.TabIndex = 91
-        Me.submitBooking.TabStop = False
-        '
         'clear
         '
         Me.clear.AutoSize = True
@@ -213,7 +200,7 @@ Partial Class bookappointment
         Me.clear.Cursor = System.Windows.Forms.Cursors.Hand
         Me.clear.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clear.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.clear.Location = New System.Drawing.Point(725, 465)
+        Me.clear.Location = New System.Drawing.Point(672, 465)
         Me.clear.Name = "clear"
         Me.clear.Size = New System.Drawing.Size(40, 19)
         Me.clear.TabIndex = 92
@@ -290,6 +277,20 @@ Partial Class bookappointment
         Me.removeservicebtn.TabIndex = 103
         Me.removeservicebtn.Text = "REMOVE SERVICE FROM THE LIST"
         Me.removeservicebtn.UseVisualStyleBackColor = True
+        '
+        'submitBooking
+        '
+        Me.submitBooking.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.submitBooking.BackColor = System.Drawing.Color.Transparent
+        Me.submitBooking.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.confirmbooking
+        Me.submitBooking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.submitBooking.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.submitBooking.Location = New System.Drawing.Point(643, 412)
+        Me.submitBooking.Name = "submitBooking"
+        Me.submitBooking.Size = New System.Drawing.Size(205, 40)
+        Me.submitBooking.TabIndex = 91
+        Me.submitBooking.TabStop = False
         '
         'RoundedTextBox7
         '

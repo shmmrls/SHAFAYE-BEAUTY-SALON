@@ -124,6 +124,12 @@
   <data name="addadminstaff2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addadminstaff2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="addservice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addservice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addservice2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addservice2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="basehompage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\basehompage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,6 +141,24 @@
   </data>
   <data name="book_now" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\book now.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancelEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelEdit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancelEdit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelEdit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="confirmbooking" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\confirmbooking.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="confirmbooking2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\confirmbooking2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editservice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editservice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editservice2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editservice2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eyebrow_tint" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eyebrow_tint.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -267,6 +291,24 @@
   </data>
   <data name="rebonding_short" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rebonding_short.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="removeservice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\removeservice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="removeservice2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\removeservice2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="removeStaff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\removeStaff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="removeStaff2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\removeStaff2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="saveEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\saveEdit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="saveEdit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\saveEdit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="signinbutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\signinbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
