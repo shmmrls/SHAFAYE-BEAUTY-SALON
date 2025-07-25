@@ -1,17 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class bookappointment
-
-
-
     Private userID As Integer
-
-
-
     Dim conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
     Private selectedServiceIDs As New List(Of Integer)
-
-
 
     Public Sub New(ByVal userID As Integer)
         InitializeComponent()
@@ -28,59 +20,43 @@ Public Class bookappointment
             Exit Sub
         End If
 
-
         Dim today As Date = Date.Today
         Dim maxDate As Date = today.AddMonths(3)
-
         appointmentDate.MinDate = today
         appointmentDate.MaxDate = maxDate
         appointmentDate.Value = today
-
 
         LoadCategories()
     End Sub
 
     Private Function CheckUserProfileExists(userID As Integer) As Boolean
         Dim exists As Boolean = False
-        Dim conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
-
         Try
             conn.Open()
             Dim query As String = "SELECT * FROM user_profiles WHERE user_id = @id"
             Dim cmd As New MySqlCommand(query, conn)
             cmd.Parameters.AddWithValue("@id", userID)
-
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
-            If reader.HasRows Then
-                exists = True
-            End If
+            If reader.HasRows Then exists = True
         Catch ex As Exception
             MessageBox.Show("Error checking profile: " & ex.Message)
         Finally
             conn.Close()
         End Try
-
         Return exists
     End Function
 
     Private Sub LoadUserInfo()
         Try
             conn.Open()
-            Dim query As String = "SELECT ur.first_name, ur.last_name, up.email " &
-                              "FROM user_register ur " &
-                              "JOIN user_profiles up ON ur.user_id = up.user_id " &
-                              "WHERE ur.user_id = @id"
-
+            Dim query As String = "SELECT ur.first_name, ur.last_name, up.email FROM user_register ur JOIN user_profiles up ON ur.user_id = up.user_id WHERE ur.user_id = @id"
             Dim cmd As New MySqlCommand(query, conn)
             cmd.Parameters.AddWithValue("@id", userID)
-
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
             If reader.Read() Then
                 fntext.Text = reader("first_name").ToString()
                 lntext.Text = reader("last_name").ToString()
                 emailtext.Text = reader("email").ToString()
-
-
                 fntext.ReadOnly = True
                 lntext.ReadOnly = True
                 emailtext.ReadOnly = True
@@ -88,15 +64,12 @@ Public Class bookappointment
                 MsgBox("No user profile found. Please update your profile first.", MsgBoxStyle.Exclamation)
                 userMenu.OpenChildForm(New profile())
             End If
-
         Catch ex As Exception
             MsgBox("Error loading user info: " & ex.Message)
         Finally
             conn.Close()
         End Try
     End Sub
-
-
 
     Private Sub dtpDate_ValueChanged(sender As Object, e As EventArgs) Handles appointmentDate.ValueChanged
         cmbtimeslot.Items.Clear()
@@ -196,7 +169,6 @@ Public Class bookappointment
         Dim selectedDate As Date = appointmentDate.Value.Date
         Dim selectedTime As String = cmbtimeslot.SelectedItem.ToString()
 
-        ' Check for duplicate appointment
         Dim duplicateQuery As String = "SELECT COUNT(*) FROM appointments WHERE user_id = @uid AND appointment_date = @date AND appointment_time = @time"
         Dim cmdCheck As New MySqlCommand(duplicateQuery, conn)
         cmdCheck.Parameters.AddWithValue("@uid", userID)
@@ -210,25 +182,22 @@ Public Class bookappointment
             Exit Sub
         End If
 
-        Dim staffId As Integer = -1
-        Dim staffName As String = ""
-        GetAvailableStaff(selectedDate, staffId, staffName)
-
-        If staffId = -1 Then
-            MsgBox("No available staff for that date.")
-            Exit Sub
-        End If
-
         conn.Open()
         Dim cmdApp As New MySqlCommand("INSERT INTO appointments (user_id, appointment_date, appointment_time) VALUES (@user, @date, @time)", conn)
         cmdApp.Parameters.AddWithValue("@user", userID)
         cmdApp.Parameters.AddWithValue("@date", selectedDate)
         cmdApp.Parameters.AddWithValue("@time", selectedTime)
         cmdApp.ExecuteNonQuery()
-
         Dim appId As Integer = cmdApp.LastInsertedId
 
         For Each svcId In selectedServiceIDs
+            Dim staffId As Integer = GetStaffForService(svcId, selectedDate)
+            If staffId = -1 Then
+                MsgBox("No available staff for service ID: " & svcId, MsgBoxStyle.Critical)
+                conn.Close()
+                Exit Sub
+            End If
+
             Dim cmdSvc As New MySqlCommand("INSERT INTO appointment_services (appointment_id, service_id, staff_id) VALUES (@aid, @sid, @staff)", conn)
             cmdSvc.Parameters.AddWithValue("@aid", appId)
             cmdSvc.Parameters.AddWithValue("@sid", svcId)
@@ -237,35 +206,32 @@ Public Class bookappointment
         Next
 
         conn.Close()
-        lblstaff.Text = "Assigned Staff: " & staffName
         MsgBox("Appointment booked successfully!", MsgBoxStyle.Information)
         selectedServiceIDs.Clear()
         lstselected.Items.Clear()
     End Sub
 
-    Private Sub GetAvailableStaff(dateSelected As Date, ByRef staffId As Integer, ByRef staffName As String)
-        staffId = -1
-        staffName = ""
-
-        Dim query As String = "SELECT s.staff_id, CONCAT(u.first_name, ' ', u.last_name) AS full_name, COUNT(a.id) AS total_clients " &
-                              "FROM staff s " &
-                              "JOIN user_register u ON u.user_id = s.user_id " &
-                              "LEFT JOIN appointment_services a ON s.staff_id = a.staff_id " &
-                              "LEFT JOIN appointments ap ON a.appointment_id = ap.appointment_id AND ap.appointment_date = @selectedDate " &
-                              "GROUP BY s.staff_id " &
-                              "HAVING total_clients < 10 " &
-                              "ORDER BY total_clients ASC LIMIT 1"
-
+    Private Function GetStaffForService(serviceId As Integer, selectedDate As Date) As Integer
+        Dim staffId As Integer = -1
+        Dim query As String = "SELECT s.staff_id FROM staff s " &
+                              "JOIN service_staff_roles sr ON sr.role_name = s.position " &
+                              "WHERE sr.service_id = @sid AND s.staff_id NOT IN (" &
+                              "SELECT a.staff_id FROM appointment_services a " &
+                              "JOIN appointments ap ON ap.appointment_id = a.appointment_id " &
+                              "WHERE ap.appointment_date = @date " &
+                              "GROUP BY a.staff_id HAVING COUNT(*) >= 10) " &
+                              "LIMIT 1"
         Dim cmd As New MySqlCommand(query, conn)
-        cmd.Parameters.AddWithValue("@selectedDate", dateSelected)
-        conn.Open()
+        cmd.Parameters.AddWithValue("@sid", serviceId)
+        cmd.Parameters.AddWithValue("@date", selectedDate)
+
         Dim reader As MySqlDataReader = cmd.ExecuteReader()
         If reader.Read() Then
             staffId = reader("staff_id")
-            staffName = reader("full_name").ToString()
         End If
-        conn.Close()
-    End Sub
+        reader.Close()
+        Return staffId
+    End Function
 
     Private Sub submitBooking_MouseEnter(sender As Object, e As EventArgs) Handles submitBooking.MouseEnter
         submitBooking.BackgroundImage = My.Resources.confirmbooking2

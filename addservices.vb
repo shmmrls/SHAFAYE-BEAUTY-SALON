@@ -1,14 +1,6 @@
 ﻿Imports System.IO
 Imports MySql.Data.MySqlClient
 
-Public Class ComboBoxItem
-    Public Property Text As String
-    Public Property Value As Integer
-
-    Public Overrides Function ToString() As String
-        Return Text
-    End Function
-End Class
 Public Class addservices
 
     Dim conn As New MySqlConnection("server=localhost;user=root;password=;database=final_shafaye_salon;")
@@ -90,22 +82,66 @@ Public Class addservices
         ' Insert service into database
         Try
             conn.Open()
-            Dim cmd As New MySqlCommand("INSERT INTO services (name, description, price, category_id, is_available, image_name) VALUES (@name, @desc, @price, @cat, @avail, @img)", conn)
-            cmd.Parameters.AddWithValue("@name", txtServiceName.Text.Trim())
-            cmd.Parameters.AddWithValue("@desc", txtDescription.Text.Trim())
-            cmd.Parameters.AddWithValue("@price", Decimal.Parse(txtPrice.Text.Trim()))
-            cmd.Parameters.AddWithValue("@cat", category_id)
-            cmd.Parameters.AddWithValue("@avail", If(rbAvailable.Checked, 1, 0))
-            cmd.Parameters.AddWithValue("@img", imageNameOnly) ' no extension
-            cmd.ExecuteNonQuery()
+            Dim insertServiceCmd As New MySqlCommand("INSERT INTO services (name, description, price, category_id, is_available, image_name) VALUES (@name, @desc, @price, @cat, @avail, @img)", conn)
+            insertServiceCmd.Parameters.AddWithValue("@name", txtServiceName.Text.Trim())
+            insertServiceCmd.Parameters.AddWithValue("@desc", txtDescription.Text.Trim())
+            insertServiceCmd.Parameters.AddWithValue("@price", Decimal.Parse(txtPrice.Text.Trim()))
+            insertServiceCmd.Parameters.AddWithValue("@cat", category_id)
+            insertServiceCmd.Parameters.AddWithValue("@avail", If(rbAvailable.Checked, 1, 0))
+            insertServiceCmd.Parameters.AddWithValue("@img", imageNameOnly)
+            insertServiceCmd.ExecuteNonQuery()
+
+            ' >>> Get the last inserted service_id
+            Dim serviceId As Integer = CInt(New MySqlCommand("SELECT LAST_INSERT_ID()", conn).ExecuteScalar())
+
+            ' >>> Determine role(s) to assign
+            Dim roleToAssign As New List(Of String)
+            Dim serviceNameLower As String = txtServiceName.Text.ToLower()
+
+            Select Case category_id
+                Case 1 ' Massage Services
+                    roleToAssign.Add("Massage Therapist")
+                Case 2 ' Nail Services
+                    roleToAssign.Add("Nail Technician")
+                Case 3 ' Facial and Skin Care
+                    roleToAssign.Add("Facial Specialist")
+                Case 4 ' Waxing and Threading
+                    roleToAssign.Add("Waxing Specialist")
+                Case 5 ' Lashes and Brows
+                    roleToAssign.Add("Threading Specialist")
+                Case 6 ' Hair Services
+                    If serviceNameLower.Contains("color") Then
+                        roleToAssign.Add("Hair Colorist")
+                    ElseIf serviceNameLower.Contains("rebond") Then
+                        roleToAssign.Add("Rebond Specialist")
+                    ElseIf serviceNameLower.Contains("treatment") OrElse serviceNameLower.Contains("keratin") OrElse serviceNameLower.Contains("hot oil") Then
+                        roleToAssign.Add("Hair Treatment Specialist")
+                    ElseIf serviceNameLower.Contains("men") Then
+                        roleToAssign.Add("Barber")
+                    Else
+                        roleToAssign.Add("Hair Stylist")
+                    End If
+                Case 7 ' Spa Packages
+                    roleToAssign.Add("All-Around Spa Therapist")
+            End Select
+
+            ' >>> Insert roles into service_staff_roles table
+            For Each role As String In roleToAssign
+                Dim roleCmd As New MySqlCommand("INSERT INTO service_staff_roles (service_id, role_name) VALUES (@service_id, @role_name)", conn)
+                roleCmd.Parameters.AddWithValue("@service_id", serviceId)
+                roleCmd.Parameters.AddWithValue("@role_name", role)
+                roleCmd.ExecuteNonQuery()
+            Next
 
             MessageBox.Show("Service successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
             ClearForm()
+
         Catch ex As Exception
             MessageBox.Show("Error saving to database: " & ex.Message)
         Finally
             conn.Close()
         End Try
+
     End Sub
 
     Private Sub ClearForm()
@@ -119,3 +155,13 @@ Public Class addservices
         rbNotAvailable.Checked = False
     End Sub
 End Class
+
+Public Class ComboBoxItem
+    Public Property Text As String
+    Public Property Value As Integer
+
+    Public Overrides Function ToString() As String
+        Return Text
+    End Function
+End Class
+

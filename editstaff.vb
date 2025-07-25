@@ -75,8 +75,7 @@ Public Class editstaff
         End If
 
         Dim role As String = cmbRole.SelectedItem.ToString()
-        Dim defaultPassword As String = If(role = "admin", "shaFayeAdmin2010!", "
-!")
+        Dim defaultPassword As String = If(role = "admin", "shaFayeAdmin2010!", "shaFayeStaff1020!")
         Dim status As String = If(rbActive.Checked, "Active", "Inactive")
 
         Try

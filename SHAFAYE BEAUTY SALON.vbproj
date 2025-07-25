@@ -57,6 +57,9 @@
     <Reference Include="Google.Protobuf, Version=3.30.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>packages\Google.Protobuf.3.30.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
     </Reference>
@@ -142,12 +145,20 @@
     <Compile Include="addservices.Designer.vb">
       <DependentUpon>addservices.vb</DependentUpon>
     </Compile>
-    <Compile Include="addservices.vb" />
+    <Compile Include="addservices.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="adminstafflogin.Designer.vb">
       <DependentUpon>adminstafflogin.vb</DependentUpon>
     </Compile>
     <Compile Include="adminstafflogin.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppointmentCard.Designer.vb">
+      <DependentUpon>AppointmentCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentCard.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="bookappointment.Designer.vb">
       <DependentUpon>bookappointment.vb</DependentUpon>
@@ -159,6 +170,12 @@
       <DependentUpon>bookingactions.vb</DependentUpon>
     </Compile>
     <Compile Include="bookingactions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReportViewerForm.Designer.vb">
+      <DependentUpon>CrystalReportViewerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReportViewerForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="customersupport.Designer.vb">
@@ -209,6 +226,12 @@
     <Compile Include="login.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="managecustomers.Designer.vb">
+      <DependentUpon>managecustomers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="managecustomers.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -243,10 +266,22 @@
     <Compile Include="reminder.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ReviewCard.Designer.vb">
+      <DependentUpon>ReviewCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewCard.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="reviews.Designer.vb">
       <DependentUpon>reviews.vb</DependentUpon>
     </Compile>
     <Compile Include="reviews.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reviewshomepage.Designer.vb">
+      <DependentUpon>reviewshomepage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="reviewshomepage.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="roundedtextbox.Designer.vb">
@@ -292,6 +327,12 @@
     <Compile Include="stafflist.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="transactionhistory.Designer.vb">
+      <DependentUpon>transactionhistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="transactionhistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="userMenu.Designer.vb">
       <DependentUpon>userMenu.vb</DependentUpon>
     </Compile>
@@ -315,6 +356,9 @@
     <EmbeddedResource Include="adminstafflogin.resx">
       <DependentUpon>adminstafflogin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AppointmentCard.resx">
+      <DependentUpon>AppointmentCard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="bookappointment.resx">
       <DependentUpon>bookappointment.vb</DependentUpon>
     </EmbeddedResource>
@@ -333,6 +377,9 @@
     <EmbeddedResource Include="editstaff.resx">
       <DependentUpon>editstaff.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="faq.resx">
+      <DependentUpon>faq.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="home.resx">
       <DependentUpon>home.vb</DependentUpon>
     </EmbeddedResource>
@@ -341,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="managecustomers.resx">
+      <DependentUpon>managecustomers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -357,8 +407,14 @@
     <EmbeddedResource Include="reminder.resx">
       <DependentUpon>reminder.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReviewCard.resx">
+      <DependentUpon>ReviewCard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reviews.resx">
       <DependentUpon>reviews.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reviewshomepage.resx">
+      <DependentUpon>reviewshomepage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="roundedtextbox.resx">
       <DependentUpon>roundedtextbox.vb</DependentUpon>
@@ -380,6 +436,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="stafflist.resx">
       <DependentUpon>stafflist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="transactionhistory.resx">
+      <DependentUpon>transactionhistory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userMenu.resx">
       <DependentUpon>userMenu.vb</DependentUpon>

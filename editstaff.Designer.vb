@@ -387,7 +387,7 @@ Partial Class editstaff
         Me.dgvStaff.GridColor = System.Drawing.Color.LightGray
         Me.dgvStaff.Location = New System.Drawing.Point(64, 12)
         Me.dgvStaff.Name = "dgvStaff"
-        Me.dgvStaff.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.dgvStaff.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvStaff.ShowEditingIcon = False
         Me.dgvStaff.Size = New System.Drawing.Size(556, 113)

@@ -102,13 +102,12 @@
 
     Private Sub review_Click(sender As Object, e As EventArgs) Handles review.Click
         panelChildForm.Visible = True
-        reviews.Show()
-        Me.Close()
+        OpenChildForm(New reviewshomepage())
     End Sub
 
     Private Sub faq_Click(sender As Object, e As EventArgs) Handles faq.Click
         panelChildForm.Visible = True
-        faq.Show()
-        Me.Close()
+        OpenChildForm(New faq())
     End Sub
+
 End Class

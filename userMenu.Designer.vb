@@ -32,8 +32,8 @@ Partial Class userMenu
         Me.bookappointmenttxt = New System.Windows.Forms.Label()
         Me.servicestxt = New System.Windows.Forms.Label()
         Me.hometxt = New System.Windows.Forms.Label()
-        Me.panelChildForm = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.panelChildForm = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,16 +167,6 @@ Partial Class userMenu
         Me.hometxt.TabIndex = 2
         Me.hometxt.Text = "HOME"
         '
-        'panelChildForm
-        '
-        Me.panelChildForm.BackColor = System.Drawing.Color.Transparent
-        Me.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelChildForm.Location = New System.Drawing.Point(0, 111)
-        Me.panelChildForm.Margin = New System.Windows.Forms.Padding(0)
-        Me.panelChildForm.Name = "panelChildForm"
-        Me.panelChildForm.Size = New System.Drawing.Size(1280, 638)
-        Me.panelChildForm.TabIndex = 3
-        '
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.logo_shafaye
@@ -186,6 +176,16 @@ Partial Class userMenu
         Me.PictureBox1.Size = New System.Drawing.Size(220, 71)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
+        '
+        'panelChildForm
+        '
+        Me.panelChildForm.BackColor = System.Drawing.Color.Transparent
+        Me.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.panelChildForm.Location = New System.Drawing.Point(0, 111)
+        Me.panelChildForm.Margin = New System.Windows.Forms.Padding(0)
+        Me.panelChildForm.Name = "panelChildForm"
+        Me.panelChildForm.Size = New System.Drawing.Size(1280, 638)
+        Me.panelChildForm.TabIndex = 3
         '
         'userMenu
         '

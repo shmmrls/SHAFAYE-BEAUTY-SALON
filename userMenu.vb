@@ -58,7 +58,9 @@ Public Class userMenu
     End Sub
 
     Private Sub review_Click(sender As Object, e As EventArgs) Handles reviewtxt.Click
-        OpenChildForm(New reviews())
+        Dim ba As New reviews(LoggedInUserID)
+        OpenChildForm(ba)
+
     End Sub
 
     Private Sub profile_Click(sender As Object, e As EventArgs) Handles profiletxt.Click
@@ -68,7 +70,8 @@ Public Class userMenu
     End Sub
 
     Private Sub custsupp_Click(sender As Object, e As EventArgs) Handles custsupptxt.Click
-        OpenChildForm(New customersupport())
+        Dim ba As New CustomerSupport(LoggedInUserID)
+        OpenChildForm(ba)
     End Sub
 
     Public Sub home_MouseEnter(sender As Object, e As EventArgs) Handles hometxt.MouseEnter
@@ -143,4 +146,8 @@ Public Class userMenu
         logouttxt.ForeColor = Color.FromArgb(77, 0, 18)
     End Sub
 
+    Private Sub transachistxt_Click(sender As Object, e As EventArgs) Handles transachistxt.Click
+        Dim ba As New transactionhistory(LoggedInUserID)
+        OpenChildForm(ba)
+    End Sub
 End Class

@@ -24,31 +24,30 @@ Partial Class bookappointment
     Private Sub InitializeComponent()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lntext = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblemail = New System.Windows.Forms.Label()
         Me.lblfullname = New System.Windows.Forms.Label()
         Me.fntext = New System.Windows.Forms.TextBox()
         Me.appointmentDate = New System.Windows.Forms.DateTimePicker()
         Me.emailtext = New System.Windows.Forms.TextBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cmbtimeslot = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.clear = New System.Windows.Forms.Label()
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
         Me.cmbServices = New System.Windows.Forms.ComboBox()
         Me.btnaddbook = New System.Windows.Forms.Button()
         Me.lstselected = New System.Windows.Forms.ListBox()
-        Me.lblstaff = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.removeservicebtn = New System.Windows.Forms.Button()
         Me.submitBooking = New System.Windows.Forms.PictureBox()
         Me.RoundedTextBox7 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.RoundedTextBox1 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.RoundedTextBox6 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.Panel1.SuspendLayout()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.clear = New System.Windows.Forms.Label()
         CType(Me.submitBooking, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label5
@@ -71,18 +70,6 @@ Partial Class bookappointment
         Me.lntext.Name = "lntext"
         Me.lntext.Size = New System.Drawing.Size(159, 20)
         Me.lntext.TabIndex = 84
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(311, 12)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(387, 47)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Text = "BOOK APPOINTMENT"
         '
         'Label2
         '
@@ -153,15 +140,6 @@ Partial Class bookappointment
         Me.emailtext.Size = New System.Drawing.Size(362, 20)
         Me.emailtext.TabIndex = 70
         '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1023, 75)
-        Me.Panel1.TabIndex = 66
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -192,19 +170,6 @@ Partial Class bookappointment
         Me.Label3.Size = New System.Drawing.Size(376, 23)
         Me.Label3.TabIndex = 90
         Me.Label3.Text = "SELECT SERVICE/S TO BOOK: (UP TO 3 SERVICES PER BOOKING):"
-        '
-        'clear
-        '
-        Me.clear.AutoSize = True
-        Me.clear.BackColor = System.Drawing.Color.Transparent
-        Me.clear.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.clear.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.clear.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.clear.Location = New System.Drawing.Point(672, 465)
-        Me.clear.Name = "clear"
-        Me.clear.Size = New System.Drawing.Size(40, 19)
-        Me.clear.TabIndex = 92
-        Me.clear.Text = "CLEAR"
         '
         'cmbCategory
         '
@@ -246,17 +211,6 @@ Partial Class bookappointment
         Me.lstselected.Size = New System.Drawing.Size(386, 72)
         Me.lstselected.TabIndex = 96
         '
-        'lblstaff
-        '
-        Me.lblstaff.AutoSize = True
-        Me.lblstaff.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblstaff.ForeColor = System.Drawing.Color.DimGray
-        Me.lblstaff.Location = New System.Drawing.Point(517, 367)
-        Me.lblstaff.Name = "lblstaff"
-        Me.lblstaff.Size = New System.Drawing.Size(44, 23)
-        Me.lblstaff.TabIndex = 101
-        Me.lblstaff.Text = "STAFF"
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -286,9 +240,9 @@ Partial Class bookappointment
         Me.submitBooking.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.confirmbooking
         Me.submitBooking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.submitBooking.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.submitBooking.Location = New System.Drawing.Point(643, 412)
+        Me.submitBooking.Location = New System.Drawing.Point(543, 380)
         Me.submitBooking.Name = "submitBooking"
-        Me.submitBooking.Size = New System.Drawing.Size(205, 40)
+        Me.submitBooking.Size = New System.Drawing.Size(386, 72)
         Me.submitBooking.TabIndex = 91
         Me.submitBooking.TabStop = False
         '
@@ -325,6 +279,40 @@ Partial Class bookappointment
         Me.RoundedTextBox6.Size = New System.Drawing.Size(183, 38)
         Me.RoundedTextBox6.TabIndex = 82
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(311, 12)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(387, 47)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "BOOK APPOINTMENT"
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1023, 75)
+        Me.Panel1.TabIndex = 66
+        '
+        'clear
+        '
+        Me.clear.AutoSize = True
+        Me.clear.BackColor = System.Drawing.Color.Transparent
+        Me.clear.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.clear.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clear.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.clear.Location = New System.Drawing.Point(692, 466)
+        Me.clear.Name = "clear"
+        Me.clear.Size = New System.Drawing.Size(40, 19)
+        Me.clear.TabIndex = 92
+        Me.clear.Text = "CLEAR"
+        '
         'bookappointment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -333,7 +321,6 @@ Partial Class bookappointment
         Me.ClientSize = New System.Drawing.Size(1023, 520)
         Me.Controls.Add(Me.removeservicebtn)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.lblstaff)
         Me.Controls.Add(Me.lstselected)
         Me.Controls.Add(Me.btnaddbook)
         Me.Controls.Add(Me.cmbServices)
@@ -359,9 +346,9 @@ Partial Class bookappointment
         Me.Name = "bookappointment"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "  "
+        CType(Me.submitBooking, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.submitBooking, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -370,26 +357,25 @@ Partial Class bookappointment
     Friend WithEvents Label5 As Label
     Friend WithEvents lntext As TextBox
     Friend WithEvents RoundedTextBox7 As RoundedTextBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents lblemail As Label
     Friend WithEvents lblfullname As Label
     Friend WithEvents fntext As TextBox
     Friend WithEvents appointmentDate As DateTimePicker
     Friend WithEvents emailtext As TextBox
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents RoundedTextBox1 As RoundedTextBox
     Friend WithEvents RoundedTextBox6 As RoundedTextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents cmbtimeslot As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents submitBooking As PictureBox
-    Friend WithEvents clear As Label
     Friend WithEvents cmbCategory As ComboBox
     Friend WithEvents cmbServices As ComboBox
     Friend WithEvents btnaddbook As Button
     Friend WithEvents lstselected As ListBox
-    Friend WithEvents lblstaff As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents removeservicebtn As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents clear As Label
 End Class

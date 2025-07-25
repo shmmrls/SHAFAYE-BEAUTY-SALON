@@ -22,37 +22,46 @@ Partial Class addservices
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.panelforedit = New System.Windows.Forms.Panel()
         Me.btnUploadImage = New System.Windows.Forms.Button()
         Me.PictureBoxImage = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtImageName = New System.Windows.Forms.TextBox()
+        Me.RoundedTextBox1 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.categoryComboBox = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtPrice = New System.Windows.Forms.TextBox()
+        Me.RoundedTextBox10 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtServiceName = New System.Windows.Forms.TextBox()
+        Me.RoundedTextBox11 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.rbNotAvailable = New System.Windows.Forms.RadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.rbAvailable = New System.Windows.Forms.RadioButton()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtDescription = New System.Windows.Forms.TextBox()
-        Me.btnSave = New System.Windows.Forms.PictureBox()
-        Me.backtoaddtxt = New System.Windows.Forms.Label()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.RoundedTextBox1 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox10 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox11 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.RoundedTextBox5 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
+        Me.btnSave = New System.Windows.Forms.PictureBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel1.SuspendLayout()
         Me.panelforedit.SuspendLayout()
         CType(Me.PictureBoxImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSave, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(684, 83)
+        Me.Panel1.TabIndex = 14
         '
         'Label1
         '
@@ -65,16 +74,6 @@ Partial Class addservices
         Me.Label1.Size = New System.Drawing.Size(359, 65)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "ADD SERVICES"
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(684, 83)
-        Me.Panel1.TabIndex = 14
         '
         'panelforedit
         '
@@ -99,7 +98,6 @@ Partial Class addservices
         Me.panelforedit.Controls.Add(Me.txtDescription)
         Me.panelforedit.Controls.Add(Me.RoundedTextBox5)
         Me.panelforedit.Controls.Add(Me.btnSave)
-        Me.panelforedit.Controls.Add(Me.backtoaddtxt)
         Me.panelforedit.Location = New System.Drawing.Point(12, 89)
         Me.panelforedit.Name = "panelforedit"
         Me.panelforedit.Size = New System.Drawing.Size(660, 460)
@@ -157,6 +155,17 @@ Partial Class addservices
         Me.txtImageName.Size = New System.Drawing.Size(159, 20)
         Me.txtImageName.TabIndex = 145
         '
+        'RoundedTextBox1
+        '
+        Me.RoundedTextBox1.BorderColor = System.Drawing.Color.DarkGray
+        Me.RoundedTextBox1.BorderRadius = 25
+        Me.RoundedTextBox1.BorderSize = 2
+        Me.RoundedTextBox1.Location = New System.Drawing.Point(146, 212)
+        Me.RoundedTextBox1.Name = "RoundedTextBox1"
+        Me.RoundedTextBox1.Padding = New System.Windows.Forms.Padding(5)
+        Me.RoundedTextBox1.Size = New System.Drawing.Size(183, 38)
+        Me.RoundedTextBox1.TabIndex = 146
+        '
         'categoryComboBox
         '
         Me.categoryComboBox.FormattingEnabled = True
@@ -198,6 +207,17 @@ Partial Class addservices
         Me.txtPrice.Size = New System.Drawing.Size(159, 20)
         Me.txtPrice.TabIndex = 139
         '
+        'RoundedTextBox10
+        '
+        Me.RoundedTextBox10.BorderColor = System.Drawing.Color.DarkGray
+        Me.RoundedTextBox10.BorderRadius = 25
+        Me.RoundedTextBox10.BorderSize = 2
+        Me.RoundedTextBox10.Location = New System.Drawing.Point(146, 130)
+        Me.RoundedTextBox10.Name = "RoundedTextBox10"
+        Me.RoundedTextBox10.Padding = New System.Windows.Forms.Padding(5)
+        Me.RoundedTextBox10.Size = New System.Drawing.Size(183, 38)
+        Me.RoundedTextBox10.TabIndex = 140
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -218,6 +238,17 @@ Partial Class addservices
         Me.txtServiceName.Name = "txtServiceName"
         Me.txtServiceName.Size = New System.Drawing.Size(159, 20)
         Me.txtServiceName.TabIndex = 136
+        '
+        'RoundedTextBox11
+        '
+        Me.RoundedTextBox11.BorderColor = System.Drawing.Color.DarkGray
+        Me.RoundedTextBox11.BorderRadius = 25
+        Me.RoundedTextBox11.BorderSize = 2
+        Me.RoundedTextBox11.Location = New System.Drawing.Point(146, 47)
+        Me.RoundedTextBox11.Name = "RoundedTextBox11"
+        Me.RoundedTextBox11.Padding = New System.Windows.Forms.Padding(5)
+        Me.RoundedTextBox11.Size = New System.Drawing.Size(183, 38)
+        Me.RoundedTextBox11.TabIndex = 138
         '
         'rbNotAvailable
         '
@@ -275,73 +306,6 @@ Partial Class addservices
         Me.txtDescription.Size = New System.Drawing.Size(366, 20)
         Me.txtDescription.TabIndex = 130
         '
-        'btnSave
-        '
-        Me.btnSave.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.BackColor = System.Drawing.Color.Transparent
-        Me.btnSave.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.saveEdit
-        Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.Location = New System.Drawing.Point(242, 381)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(205, 40)
-        Me.btnSave.TabIndex = 129
-        Me.btnSave.TabStop = False
-        '
-        'backtoaddtxt
-        '
-        Me.backtoaddtxt.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.backtoaddtxt.AutoSize = True
-        Me.backtoaddtxt.BackColor = System.Drawing.Color.Transparent
-        Me.backtoaddtxt.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.backtoaddtxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.backtoaddtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.backtoaddtxt.Location = New System.Drawing.Point(259, 424)
-        Me.backtoaddtxt.Name = "backtoaddtxt"
-        Me.backtoaddtxt.Size = New System.Drawing.Size(170, 23)
-        Me.backtoaddtxt.TabIndex = 127
-        Me.backtoaddtxt.Text = "EDIT SERVICES? CLICK HERE." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'RoundedTextBox1
-        '
-        Me.RoundedTextBox1.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox1.BorderRadius = 25
-        Me.RoundedTextBox1.BorderSize = 2
-        Me.RoundedTextBox1.Location = New System.Drawing.Point(146, 212)
-        Me.RoundedTextBox1.Name = "RoundedTextBox1"
-        Me.RoundedTextBox1.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox1.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox1.TabIndex = 146
-        '
-        'RoundedTextBox10
-        '
-        Me.RoundedTextBox10.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox10.BorderRadius = 25
-        Me.RoundedTextBox10.BorderSize = 2
-        Me.RoundedTextBox10.Location = New System.Drawing.Point(146, 130)
-        Me.RoundedTextBox10.Name = "RoundedTextBox10"
-        Me.RoundedTextBox10.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox10.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox10.TabIndex = 140
-        '
-        'RoundedTextBox11
-        '
-        Me.RoundedTextBox11.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox11.BorderRadius = 25
-        Me.RoundedTextBox11.BorderSize = 2
-        Me.RoundedTextBox11.Location = New System.Drawing.Point(146, 47)
-        Me.RoundedTextBox11.Name = "RoundedTextBox11"
-        Me.RoundedTextBox11.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox11.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox11.TabIndex = 138
-        '
         'RoundedTextBox5
         '
         Me.RoundedTextBox5.BorderColor = System.Drawing.Color.DarkGray
@@ -352,6 +316,24 @@ Partial Class addservices
         Me.RoundedTextBox5.Padding = New System.Windows.Forms.Padding(5)
         Me.RoundedTextBox5.Size = New System.Drawing.Size(386, 38)
         Me.RoundedTextBox5.TabIndex = 132
+        '
+        'btnSave
+        '
+        Me.btnSave.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSave.BackColor = System.Drawing.Color.Transparent
+        Me.btnSave.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.saveEdit
+        Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.Location = New System.Drawing.Point(237, 405)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(205, 40)
+        Me.btnSave.TabIndex = 129
+        Me.btnSave.TabStop = False
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'addservices
         '
@@ -374,7 +356,6 @@ Partial Class addservices
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents panelforedit As Panel
     Friend WithEvents Label5 As Label
@@ -395,9 +376,9 @@ Partial Class addservices
     Friend WithEvents txtDescription As TextBox
     Friend WithEvents RoundedTextBox5 As RoundedTextBox
     Friend WithEvents btnSave As PictureBox
-    Friend WithEvents backtoaddtxt As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents btnUploadImage As Button
     Friend WithEvents PictureBoxImage As PictureBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents Label1 As Label
 End Class
