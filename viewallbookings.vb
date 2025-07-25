@@ -3,35 +3,35 @@
 Public Class viewallbookings
 
     Private Sub LoadAppointments(Optional statusFilter As String = "All",
-                                 Optional dateFilter As String = "All",
-                                 Optional staffFilter As String = "All",
-                                 Optional timeFilter As String = "All",
-                                 Optional orderBy As String = "Oldest to Recent")
+                             Optional dateFilter As String = "All",
+                             Optional staffFilter As String = "All",
+                             Optional timeFilter As String = "All",
+                             Optional orderBy As String = "Oldest to Recent")
 
         flowAppointments.Controls.Clear()
 
         Dim baseQuery As String = "SELECT a.appointment_id, a.appointment_date, a.appointment_time, a.status, " &
-                                  "GROUP_CONCAT(s.name SEPARATOR ', ') AS service_names, " &
-                                  "CONCAT(u.first_name, ' ', u.last_name) AS client_name " &
-                                  "FROM appointments a " &
-                                  "JOIN appointment_services aps ON a.appointment_id = aps.appointment_id " &
-                                  "JOIN services s ON aps.service_id = s.service_id " &
-                                  "JOIN user_register u ON a.user_id = u.user_id " &
-                                  "WHERE a.status != 'Cancelled'"
+                              "GROUP_CONCAT(DISTINCT s.name SEPARATOR ', ') AS service_names, " &
+                              "CONCAT(u.first_name, ' ', u.last_name) AS client_name " &
+                              "FROM appointments a " &
+                              "JOIN appointment_services aps ON a.appointment_id = aps.appointment_id " &
+                              "JOIN services s ON aps.service_id = s.service_id " &
+                              "JOIN user_register u ON a.user_id = u.user_id "
 
         ' Apply filters
         If statusFilter <> "All" Then baseQuery &= " AND a.status = @status"
         If dateFilter <> "All" Then baseQuery &= " AND a.appointment_date = @date"
         If staffFilter <> "All" Then
             baseQuery &= " AND EXISTS (SELECT 1 FROM appointment_services aps2 " &
-                        "JOIN staff st ON aps2.staff_id = st.staff_id " &
-                        "JOIN user_register u2 ON st.user_id = u2.user_id " &
-                        "WHERE aps2.appointment_id = a.appointment_id " &
-                        "AND CONCAT(u2.first_name, ' ', u2.last_name) = @staff)"
+                    "JOIN staff st ON aps2.staff_id = st.staff_id " &
+                    "JOIN user_register u2 ON st.user_id = u2.user_id " &
+                    "WHERE aps2.appointment_id = a.appointment_id " &
+                    "AND CONCAT(u2.first_name, ' ', u2.last_name) = @staff)"
         End If
         If timeFilter <> "All" Then baseQuery &= " AND a.appointment_time = @time"
 
-        baseQuery &= " GROUP BY a.appointment_id, a.appointment_date, a.appointment_time, a.status, u.first_name, u.last_name"
+        ' Simplified GROUP BY - only group by appointment_id since it's unique
+        baseQuery &= " GROUP BY a.appointment_id"
 
         ' Add order by clause based on selection
         If orderBy = "Recent to Oldest" Then
@@ -65,8 +65,17 @@ Public Class viewallbookings
 
                 Try
                     conn.Open()
+
+                    ' Debug: Show the query being executed
+                    Console.WriteLine("Executing query: " & baseQuery)
+
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
+                        Dim appointmentCount As Integer = 0
+
                         While reader.Read()
+                            appointmentCount += 1
+                            Console.WriteLine($"Processing appointment #{appointmentCount}: ID = {reader("appointment_id")}")
+
                             Dim card As New AppointmentCard()
 
                             ' Format the appointment date and time
@@ -88,22 +97,27 @@ Public Class viewallbookings
                             Dim assignedStaff As String = GetAssignedStaff(Convert.ToInt32(reader("appointment_id")))
 
                             card.SetData(reader("service_names").ToString(),
-                                       assignedStaff,
-                                       appointmentDate & " " & appointmentTime,
-                                       reader("status").ToString())
+                                   assignedStaff,
+                                   appointmentDate & " " & appointmentTime,
+                                   reader("status").ToString())
 
                             flowAppointments.Controls.Add(card)
                         End While
+
+                        ' Debug: Show total count
+                        Console.WriteLine($"Total appointments loaded: {appointmentCount}")
+                        If appointmentCount = 0 Then
+                            MessageBox.Show("No appointments found matching the current filters.")
+                        End If
                     End Using
                 Catch ex As Exception
-                    MessageBox.Show("Error loading appointments: " & ex.Message)
+                    MessageBox.Show("Error loading appointments: " & ex.Message & vbCrLf & "Query: " & baseQuery)
                 Finally
                     If conn.State = ConnectionState.Open Then conn.Close()
                 End Try
             End Using
         End Using
     End Sub
-
     Private Function GetAssignedStaff(appointmentId As Integer) As String
         Dim staffNames As String = ""
 

@@ -120,9 +120,10 @@ Public Class transactionhistory
                                 btnPrint.Text = "Print Receipt"
                                 btnPrint.Size = New Size(120, 35)
                                 btnPrint.Location = New Point(panel.Width - 135, 20)
-                                btnPrint.BackColor = Color.SteelBlue
+                                btnPrint.BackColor = Color.FromArgb(77, 0, 18)
                                 btnPrint.ForeColor = Color.White
                                 btnPrint.FlatStyle = FlatStyle.Flat
+                                btnPrint.Cursor = Cursors.Hand
                                 btnPrint.Font = New System.Drawing.Font("Segoe UI", 9, FontStyle.Bold)
                                 AddHandler btnPrint.Click, Sub()
                                                                GeneratePDFReceipt(appointmentID)
@@ -136,10 +137,12 @@ Public Class transactionhistory
                                 btnCancel.Text = "Cancel"
                                 btnCancel.Size = New Size(120, 35)
                                 btnCancel.Location = New Point(panel.Width - 135, 20)
-                                btnCancel.BackColor = Color.IndianRed
-                                btnCancel.ForeColor = Color.White
+                                btnCancel.BackColor = Color.FromArgb(255, 128, 128)
+                                btnCancel.ForeColor = Color.FromArgb(77, 0, 18)
                                 btnCancel.FlatStyle = FlatStyle.Flat
+                                btnCancel.Cursor = Cursors.Hand
                                 btnCancel.Font = New System.Drawing.Font("Segoe UI", 9, FontStyle.Bold)
+
                                 AddHandler btnCancel.Click, Sub()
                                                                 Dim confirm = MessageBox.Show("Are you sure you want to cancel this appointment?", "Confirm", MessageBoxButtons.YesNo)
                                                                 If confirm = DialogResult.Yes Then

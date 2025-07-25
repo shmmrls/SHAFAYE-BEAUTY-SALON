@@ -142,7 +142,8 @@ Public Class bookingactions
                 .FlatStyle = FlatStyle.Flat,
                 .Tag = New With {
                     Key .AppointmentID = row("appointment_id"),
-                    Key .ComboBox = statusBox
+                    Key .ComboBox = statusBox,
+                    Key .CurrentStatus = row("status").ToString()
                 }
             }
                 btnUpdate.FlatAppearance.BorderSize = 0
@@ -201,6 +202,7 @@ Public Class bookingactions
         Dim appointmentID As Integer = info.AppointmentID
         Dim comboBox As ComboBox = info.ComboBox
         Dim newStatus As String = comboBox.SelectedItem.ToString()
+        Dim currentStatus As String = info.CurrentStatus
 
         Dim result As DialogResult = MessageBox.Show(
             $"Are you sure you want to change the status to '{newStatus}'?",
@@ -211,18 +213,76 @@ Public Class bookingactions
         If result = DialogResult.No Then Exit Sub
         If conn.State = ConnectionState.Open Then conn.Close()
 
-        Dim updateQuery As String = "UPDATE appointments SET status = @status WHERE appointment_id = @id"
-
         Try
             conn.Open()
-            Using cmd As New MySqlCommand(updateQuery, conn)
-                cmd.Parameters.AddWithValue("@status", newStatus)
-                cmd.Parameters.AddWithValue("@id", appointmentID)
-                cmd.ExecuteNonQuery()
-            End Using
 
-            MessageBox.Show("Status updated successfully!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            LoadBookings()
+            ' Start transaction to ensure data consistency
+            Dim transaction As MySqlTransaction = conn.BeginTransaction()
+
+            Try
+                ' Update appointment status
+                Dim updateQuery As String = "UPDATE appointments SET status = @status WHERE appointment_id = @id"
+                Using cmd As New MySqlCommand(updateQuery, conn, transaction)
+                    cmd.Parameters.AddWithValue("@status", newStatus)
+                    cmd.Parameters.AddWithValue("@id", appointmentID)
+                    cmd.ExecuteNonQuery()
+                End Using
+
+                ' Handle payment record based on status change
+                Select Case newStatus
+                    Case "Approved"
+                        ' Check if payment record already exists
+                        Dim checkPaymentQuery As String = "SELECT COUNT(*) FROM payments WHERE appointment_id = @id"
+                        Using checkCmd As New MySqlCommand(checkPaymentQuery, conn, transaction)
+                            checkCmd.Parameters.AddWithValue("@id", appointmentID)
+                            Dim paymentExists As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
+
+                            ' Only insert if payment record doesn't exist
+                            If paymentExists = 0 Then
+                                Dim insertPaymentQuery As String = "INSERT INTO payments (appointment_id, payment_date, payment_type, payment_status) VALUES (@id, @date, @type, @status)"
+                                Using insertCmd As New MySqlCommand(insertPaymentQuery, conn, transaction)
+                                    insertCmd.Parameters.AddWithValue("@id", appointmentID)
+                                    insertCmd.Parameters.AddWithValue("@date", DateTime.Today)
+                                    insertCmd.Parameters.AddWithValue("@type", "Cash")
+                                    insertCmd.Parameters.AddWithValue("@status", "Paid")
+                                    insertCmd.ExecuteNonQuery()
+                                End Using
+                            End If
+                        End Using
+
+                    Case "Cancelled"
+
+                        Dim deletePaymentQuery As String = "DELETE FROM payments WHERE appointment_id = @id"
+                        Using deleteCmd As New MySqlCommand(deletePaymentQuery, conn, transaction)
+                            deleteCmd.Parameters.AddWithValue("@id", appointmentID)
+                            deleteCmd.ExecuteNonQuery()
+                        End Using
+
+                    Case "Pending", "Completed"
+
+                        If newStatus = "Pending" Then
+                            Dim deletePaymentQuery As String = "DELETE FROM payments WHERE appointment_id = @id"
+                            Using deleteCmd As New MySqlCommand(deletePaymentQuery, conn, transaction)
+                                deleteCmd.Parameters.AddWithValue("@id", appointmentID)
+                                deleteCmd.ExecuteNonQuery()
+                            End Using
+                        End If
+                End Select
+
+                ' Commit transaction
+                transaction.Commit()
+
+                MessageBox.Show("Status updated successfully!" &
+                               If(newStatus = "Approved", vbCrLf & "Payment record created.", "") &
+                               If(newStatus = "Cancelled", vbCrLf & "Payment record removed.", ""),
+                               "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadBookings()
+
+            Catch ex As Exception
+                ' Rollback transaction on error
+                transaction.Rollback()
+                Throw ex
+            End Try
 
         Catch ex As Exception
             MessageBox.Show("Error updating status: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
