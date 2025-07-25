@@ -22,7 +22,6 @@ Partial Class CustomerSupport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.fororganization = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SendButton = New System.Windows.Forms.Button()
@@ -40,15 +39,6 @@ Partial Class CustomerSupport
         Me.RoundedTextBox6 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'fororganization
-        '
-        Me.fororganization.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.fororganization.Dock = System.Windows.Forms.DockStyle.Top
-        Me.fororganization.Location = New System.Drawing.Point(0, 83)
-        Me.fororganization.Name = "fororganization"
-        Me.fororganization.Size = New System.Drawing.Size(1023, 67)
-        Me.fororganization.TabIndex = 10
         '
         'Label1
         '
@@ -73,20 +63,23 @@ Partial Class CustomerSupport
         '
         'SendButton
         '
-        Me.SendButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SendButton.Location = New System.Drawing.Point(417, 467)
+        Me.SendButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.SendButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.SendButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SendButton.ForeColor = System.Drawing.Color.White
+        Me.SendButton.Location = New System.Drawing.Point(417, 427)
         Me.SendButton.Name = "SendButton"
         Me.SendButton.Size = New System.Drawing.Size(154, 29)
         Me.SendButton.TabIndex = 122
         Me.SendButton.Text = "SUBMIT QUESTION"
-        Me.SendButton.UseVisualStyleBackColor = True
+        Me.SendButton.UseVisualStyleBackColor = False
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.DimGray
-        Me.Label5.Location = New System.Drawing.Point(508, 177)
+        Me.Label5.Location = New System.Drawing.Point(508, 137)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(74, 23)
         Me.Label5.TabIndex = 114
@@ -97,7 +90,7 @@ Partial Class CustomerSupport
         Me.lntext.BackColor = System.Drawing.Color.White
         Me.lntext.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lntext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lntext.Location = New System.Drawing.Point(525, 215)
+        Me.lntext.Location = New System.Drawing.Point(525, 175)
         Me.lntext.Name = "lntext"
         Me.lntext.Size = New System.Drawing.Size(159, 20)
         Me.lntext.TabIndex = 112
@@ -107,7 +100,7 @@ Partial Class CustomerSupport
         Me.lblemail.AutoSize = True
         Me.lblemail.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblemail.ForeColor = System.Drawing.Color.DimGray
-        Me.lblemail.Location = New System.Drawing.Point(305, 257)
+        Me.lblemail.Location = New System.Drawing.Point(305, 217)
         Me.lblemail.Name = "lblemail"
         Me.lblemail.Size = New System.Drawing.Size(62, 23)
         Me.lblemail.TabIndex = 108
@@ -118,7 +111,7 @@ Partial Class CustomerSupport
         Me.lblfullname.AutoSize = True
         Me.lblfullname.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfullname.ForeColor = System.Drawing.Color.DimGray
-        Me.lblfullname.Location = New System.Drawing.Point(305, 177)
+        Me.lblfullname.Location = New System.Drawing.Point(305, 137)
         Me.lblfullname.Name = "lblfullname"
         Me.lblfullname.Size = New System.Drawing.Size(77, 23)
         Me.lblfullname.TabIndex = 107
@@ -129,7 +122,7 @@ Partial Class CustomerSupport
         Me.fntext.BackColor = System.Drawing.Color.White
         Me.fntext.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.fntext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fntext.Location = New System.Drawing.Point(322, 215)
+        Me.fntext.Location = New System.Drawing.Point(322, 175)
         Me.fntext.Name = "fntext"
         Me.fntext.Size = New System.Drawing.Size(159, 20)
         Me.fntext.TabIndex = 104
@@ -139,7 +132,7 @@ Partial Class CustomerSupport
         Me.subjectText.BackColor = System.Drawing.Color.White
         Me.subjectText.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.subjectText.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.subjectText.Location = New System.Drawing.Point(320, 295)
+        Me.subjectText.Location = New System.Drawing.Point(320, 255)
         Me.subjectText.Name = "subjectText"
         Me.subjectText.Size = New System.Drawing.Size(362, 20)
         Me.subjectText.TabIndex = 105
@@ -149,7 +142,7 @@ Partial Class CustomerSupport
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.DimGray
-        Me.Label2.Location = New System.Drawing.Point(309, 336)
+        Me.Label2.Location = New System.Drawing.Point(309, 296)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(65, 23)
         Me.Label2.TabIndex = 124
@@ -160,7 +153,7 @@ Partial Class CustomerSupport
         Me.messagetxtbox.BackColor = System.Drawing.Color.White
         Me.messagetxtbox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.messagetxtbox.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.messagetxtbox.Location = New System.Drawing.Point(324, 368)
+        Me.messagetxtbox.Location = New System.Drawing.Point(324, 328)
         Me.messagetxtbox.Multiline = True
         Me.messagetxtbox.Name = "messagetxtbox"
         Me.messagetxtbox.Size = New System.Drawing.Size(362, 77)
@@ -171,7 +164,7 @@ Partial Class CustomerSupport
         Me.RoundedTextBox2.BorderColor = System.Drawing.Color.DarkGray
         Me.RoundedTextBox2.BorderRadius = 25
         Me.RoundedTextBox2.BorderSize = 2
-        Me.RoundedTextBox2.Location = New System.Drawing.Point(313, 362)
+        Me.RoundedTextBox2.Location = New System.Drawing.Point(313, 322)
         Me.RoundedTextBox2.Name = "RoundedTextBox2"
         Me.RoundedTextBox2.Padding = New System.Windows.Forms.Padding(5)
         Me.RoundedTextBox2.Size = New System.Drawing.Size(386, 89)
@@ -182,7 +175,7 @@ Partial Class CustomerSupport
         Me.RoundedTextBox7.BorderColor = System.Drawing.Color.DarkGray
         Me.RoundedTextBox7.BorderRadius = 25
         Me.RoundedTextBox7.BorderSize = 2
-        Me.RoundedTextBox7.Location = New System.Drawing.Point(512, 203)
+        Me.RoundedTextBox7.Location = New System.Drawing.Point(512, 163)
         Me.RoundedTextBox7.Name = "RoundedTextBox7"
         Me.RoundedTextBox7.Padding = New System.Windows.Forms.Padding(5)
         Me.RoundedTextBox7.Size = New System.Drawing.Size(183, 38)
@@ -193,7 +186,7 @@ Partial Class CustomerSupport
         Me.RoundedTextBox1.BorderColor = System.Drawing.Color.DarkGray
         Me.RoundedTextBox1.BorderRadius = 25
         Me.RoundedTextBox1.BorderSize = 2
-        Me.RoundedTextBox1.Location = New System.Drawing.Point(309, 283)
+        Me.RoundedTextBox1.Location = New System.Drawing.Point(309, 243)
         Me.RoundedTextBox1.Name = "RoundedTextBox1"
         Me.RoundedTextBox1.Padding = New System.Windows.Forms.Padding(5)
         Me.RoundedTextBox1.Size = New System.Drawing.Size(386, 38)
@@ -204,7 +197,7 @@ Partial Class CustomerSupport
         Me.RoundedTextBox6.BorderColor = System.Drawing.Color.DarkGray
         Me.RoundedTextBox6.BorderRadius = 25
         Me.RoundedTextBox6.BorderSize = 2
-        Me.RoundedTextBox6.Location = New System.Drawing.Point(309, 203)
+        Me.RoundedTextBox6.Location = New System.Drawing.Point(309, 163)
         Me.RoundedTextBox6.Name = "RoundedTextBox6"
         Me.RoundedTextBox6.Padding = New System.Windows.Forms.Padding(5)
         Me.RoundedTextBox6.Size = New System.Drawing.Size(183, 38)
@@ -229,7 +222,6 @@ Partial Class CustomerSupport
         Me.Controls.Add(Me.subjectText)
         Me.Controls.Add(Me.RoundedTextBox1)
         Me.Controls.Add(Me.RoundedTextBox6)
-        Me.Controls.Add(Me.fororganization)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "CustomerSupport"
@@ -241,8 +233,6 @@ Partial Class CustomerSupport
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents fororganization As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents SendButton As Button

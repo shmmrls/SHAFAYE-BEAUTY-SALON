@@ -110,4 +110,45 @@
         OpenChildForm(New faq())
     End Sub
 
+    Public Sub home_MouseEnter(sender As Object, e As EventArgs) Handles home.MouseEnter
+        home.ForeColor = Color.FromArgb(255, 128, 128)
+    End Sub
+
+    Public Sub home_MouseLeave(sender As Object, e As EventArgs) Handles home.MouseLeave
+        home.ForeColor = Color.White
+    End Sub
+
+    Public Sub services_MouseEnter(sender As Object, e As EventArgs) Handles services.MouseEnter
+        services.ForeColor = Color.FromArgb(255, 128, 128)
+    End Sub
+
+    Public Sub services_MouseLeave(sender As Object, e As EventArgs) Handles services.MouseLeave
+        services.ForeColor = Color.White
+    End Sub
+
+    Public Sub bookappointment_MouseEnter(sender As Object, e As EventArgs) Handles bookappointment.MouseEnter
+        bookappointment.ForeColor = Color.FromArgb(255, 128, 128)
+    End Sub
+
+    Public Sub bookappointment_MouseLeave(sender As Object, e As EventArgs) Handles bookappointment.MouseLeave
+        bookappointment.ForeColor = Color.White
+    End Sub
+
+    Public Sub review_MouseEnter(sender As Object, e As EventArgs) Handles review.MouseEnter
+        review.ForeColor = Color.FromArgb(255, 128, 128)
+    End Sub
+
+    Public Sub review_MouseLeave(sender As Object, e As EventArgs) Handles review.MouseLeave
+        review.ForeColor = Color.White
+
+    End Sub
+
+    Public Sub faq_MouseEnter(sender As Object, e As EventArgs) Handles faq.MouseEnter
+        faq.ForeColor = Color.FromArgb(255, 128, 128)
+    End Sub
+
+    Public Sub faq_MouseLeave(sender As Object, e As EventArgs) Handles faq.MouseLeave
+        faq.ForeColor = Color.White
+    End Sub
+
 End Class

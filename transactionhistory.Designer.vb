@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class transactionhistory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class transactionhistory
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.fororganization = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -30,7 +30,6 @@ Partial Class transactionhistory
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.flowAppointments = New System.Windows.Forms.FlowLayoutPanel()
-        Me.cancelAppointmentbtn = New System.Windows.Forms.Button()
         Me.fororganization.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -53,7 +52,7 @@ Partial Class transactionhistory
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(598, 13)
+        Me.Label6.Location = New System.Drawing.Point(538, 13)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(71, 17)
         Me.Label6.TabIndex = 27
@@ -62,7 +61,7 @@ Partial Class transactionhistory
         'cmborderby
         '
         Me.cmborderby.FormattingEnabled = True
-        Me.cmborderby.Location = New System.Drawing.Point(601, 33)
+        Me.cmborderby.Location = New System.Drawing.Point(541, 33)
         Me.cmborderby.Name = "cmborderby"
         Me.cmborderby.Size = New System.Drawing.Size(108, 21)
         Me.cmborderby.TabIndex = 23
@@ -73,7 +72,7 @@ Partial Class transactionhistory
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(286, 13)
+        Me.Label2.Location = New System.Drawing.Point(375, 13)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(118, 17)
         Me.Label2.TabIndex = 22
@@ -82,7 +81,7 @@ Partial Class transactionhistory
         'cmbStatus
         '
         Me.cmbStatus.FormattingEnabled = True
-        Me.cmbStatus.Location = New System.Drawing.Point(288, 33)
+        Me.cmbStatus.Location = New System.Drawing.Point(377, 33)
         Me.cmbStatus.Name = "cmbStatus"
         Me.cmbStatus.Size = New System.Drawing.Size(128, 21)
         Me.cmbStatus.TabIndex = 20
@@ -115,21 +114,11 @@ Partial Class transactionhistory
         Me.flowAppointments.AutoScroll = True
         Me.flowAppointments.BackColor = System.Drawing.Color.White
         Me.flowAppointments.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.flowAppointments.Location = New System.Drawing.Point(199, 172)
+        Me.flowAppointments.Location = New System.Drawing.Point(179, 170)
         Me.flowAppointments.Name = "flowAppointments"
-        Me.flowAppointments.Size = New System.Drawing.Size(625, 261)
+        Me.flowAppointments.Size = New System.Drawing.Size(675, 322)
         Me.flowAppointments.TabIndex = 13
         Me.flowAppointments.WrapContents = False
-        '
-        'cancelAppointmentbtn
-        '
-        Me.cancelAppointmentbtn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cancelAppointmentbtn.Location = New System.Drawing.Point(438, 457)
-        Me.cancelAppointmentbtn.Name = "cancelAppointmentbtn"
-        Me.cancelAppointmentbtn.Size = New System.Drawing.Size(143, 23)
-        Me.cancelAppointmentbtn.TabIndex = 14
-        Me.cancelAppointmentbtn.Text = "Cancel Appointment"
-        Me.cancelAppointmentbtn.UseVisualStyleBackColor = True
         '
         'transactionhistory
         '
@@ -137,7 +126,6 @@ Partial Class transactionhistory
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1023, 520)
-        Me.Controls.Add(Me.cancelAppointmentbtn)
         Me.Controls.Add(Me.flowAppointments)
         Me.Controls.Add(Me.fororganization)
         Me.Controls.Add(Me.Panel1)
@@ -161,5 +149,4 @@ Partial Class transactionhistory
     Friend WithEvents Label2 As Label
     Friend WithEvents cmbStatus As ComboBox
     Friend WithEvents flowAppointments As FlowLayoutPanel
-    Friend WithEvents cancelAppointmentbtn As Button
 End Class

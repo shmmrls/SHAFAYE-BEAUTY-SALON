@@ -1,9 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Drawing
 Imports System.IO
-Imports CrystalDecisions.CrystalReports.Engine
-Imports CrystalDecisions.Shared
-Imports System.Data
+Imports System.Text
+Imports iTextSharp.text
+Imports iTextSharp.text.pdf
 
 Public Class transactionhistory
     Private userID As Integer
@@ -21,9 +21,28 @@ Public Class transactionhistory
     End Sub
 
     Private Sub transactionhistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Initialize filter combo boxes
+        InitializeFilterControls()
         LoadAppointments()
         AddHandler cmbStatus.SelectedIndexChanged, AddressOf FilterAppointments
         AddHandler cmborderby.SelectedIndexChanged, AddressOf FilterAppointments
+    End Sub
+
+    Private Sub InitializeFilterControls()
+        ' Setup Status filter combo box
+        cmbStatus.Items.Clear()
+        cmbStatus.Items.Add("All Status")
+        cmbStatus.Items.Add("Pending")
+        cmbStatus.Items.Add("Approved")
+        cmbStatus.Items.Add("Completed")
+        cmbStatus.Items.Add("Cancelled")
+        cmbStatus.SelectedIndex = 0 ' Default to "All Status"
+
+        ' Setup Order By combo box
+        cmborderby.Items.Clear()
+        cmborderby.Items.Add("Newest to Oldest")
+        cmborderby.Items.Add("Oldest to Newest")
+        cmborderby.SelectedIndex = 0 ' Default to "Newest to Oldest"
     End Sub
 
     Private Sub LoadAppointments(Optional statusFilter As String = "", Optional orderBy As String = "DESC")
@@ -81,41 +100,46 @@ Public Class transactionhistory
 
                             Dim lblDetails As New Label With {
                                 .AutoSize = False,
-                                .Width = panel.Width - 20,
-                                .Height = 90,
+                                .Width = panel.Width - 150,
+                                .Height = panel.Height - 20,
                                 .Font = New System.Drawing.Font("Segoe UI", 10, FontStyle.Regular),
                                 .Text = $"Date: {appDate}" & vbCrLf &
                                         $"Time: {appTime}" & vbCrLf &
                                         $"Services: {serviceName}" & vbCrLf &
                                         $"Staff: {staffName}" & vbCrLf &
                                         $"Status: {status}" & vbCrLf &
-                                        $"Amount: ₱{totalAmount:N2}"
+                                        $"Amount: ₱{totalAmount:N2}",
+                                .Location = New Point(10, 10)
                             }
 
                             panel.Controls.Add(lblDetails)
 
-                            ' Print Receipt Button
-                            Dim btnPrint As New Button()
-                            btnPrint.Text = "Print Receipt"
-                            btnPrint.Size = New Size(110, 30)
-                            btnPrint.Location = New Point(10, lblDetails.Bottom + 10)
-                            btnPrint.BackColor = Color.SteelBlue
-                            btnPrint.ForeColor = Color.White
-                            btnPrint.FlatStyle = FlatStyle.Flat
-                            AddHandler btnPrint.Click, Sub()
-                                                           GenerateCrystalReceipt(appointmentID)
-                                                       End Sub
-                            panel.Controls.Add(btnPrint)
+                            ' Print Receipt Button (only for Completed/Approved status)
+                            If status = "Completed" OrElse status = "Approved" Then
+                                Dim btnPrint As New Button()
+                                btnPrint.Text = "Print Receipt"
+                                btnPrint.Size = New Size(120, 35)
+                                btnPrint.Location = New Point(panel.Width - 135, 20)
+                                btnPrint.BackColor = Color.SteelBlue
+                                btnPrint.ForeColor = Color.White
+                                btnPrint.FlatStyle = FlatStyle.Flat
+                                btnPrint.Font = New System.Drawing.Font("Segoe UI", 9, FontStyle.Bold)
+                                AddHandler btnPrint.Click, Sub()
+                                                               GeneratePDFReceipt(appointmentID)
+                                                           End Sub
+                                panel.Controls.Add(btnPrint)
+                            End If
 
-                            ' Cancel Appointment Button (only if status is Pending)
+                            ' Cancel Appointment Button (only for Pending status)
                             If status = "Pending" Then
                                 Dim btnCancel As New Button()
-                                btnCancel.Text = "Cancel Appointment"
-                                btnCancel.Size = New Size(130, 30)
-                                btnCancel.Location = New Point(btnPrint.Right + 10, lblDetails.Bottom + 10)
+                                btnCancel.Text = "Cancel"
+                                btnCancel.Size = New Size(120, 35)
+                                btnCancel.Location = New Point(panel.Width - 135, 20)
                                 btnCancel.BackColor = Color.IndianRed
                                 btnCancel.ForeColor = Color.White
                                 btnCancel.FlatStyle = FlatStyle.Flat
+                                btnCancel.Font = New System.Drawing.Font("Segoe UI", 9, FontStyle.Bold)
                                 AddHandler btnCancel.Click, Sub()
                                                                 Dim confirm = MessageBox.Show("Are you sure you want to cancel this appointment?", "Confirm", MessageBoxButtons.YesNo)
                                                                 If confirm = DialogResult.Yes Then
@@ -145,36 +169,191 @@ Public Class transactionhistory
         End Try
     End Sub
 
-    Private Sub GenerateCrystalReceipt(appointmentID As Integer)
+    Private Sub GeneratePDFReceipt(appointmentID As Integer)
         Try
-            ' Create a DataSet for the Crystal Report
-            Dim ds As New DataSet()
-            Dim dt As New DataTable("ReceiptData")
+            ' Get appointment data
+            Dim appointmentData = GetAppointmentData(appointmentID)
+            If appointmentData Is Nothing Then
+                MessageBox.Show("No appointment data found.")
+                Return
+            End If
 
-            ' Define the structure for our receipt data
-            dt.Columns.Add("AppointmentID", GetType(Integer))
-            dt.Columns.Add("CustomerName", GetType(String))
-            dt.Columns.Add("Phone", GetType(String))
-            dt.Columns.Add("Email", GetType(String))
-            dt.Columns.Add("AppointmentDate", GetType(String))
-            dt.Columns.Add("AppointmentTime", GetType(String))
-            dt.Columns.Add("Status", GetType(String))
-            dt.Columns.Add("ServiceName", GetType(String))
-            dt.Columns.Add("ServicePrice", GetType(Decimal))
-            dt.Columns.Add("StaffName", GetType(String))
-            dt.Columns.Add("TotalAmount", GetType(Decimal))
-            dt.Columns.Add("ReceiptDate", GetType(String))
-            dt.Columns.Add("SalonName", GetType(String))
-            dt.Columns.Add("SalonAddress", GetType(String))
-            dt.Columns.Add("SalonPhone", GetType(String))
+            ' Create PDF file path
+            Dim fileName As String = $"SalonReceipt_{appointmentID}_{DateTime.Now:yyyyMMdd_HHmmss}.pdf"
+            Dim filePath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName)
 
-            ' Get appointment details from database
+            ' Create PDF document
+            Dim document As New Document(PageSize.A4, 40, 40, 40, 40)
+            Dim writer As PdfWriter = PdfWriter.GetInstance(document, New FileStream(filePath, FileMode.Create))
+
+            document.Open()
+
+            ' Define fonts
+            Dim titleFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD)
+            Dim headerFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14, iTextSharp.text.Font.BOLD)
+            Dim normalFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10)
+            Dim boldFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.BOLD)
+
+            ' Header - Salon Name
+            Dim salonTitle As New Paragraph("SHAFAYE SALON", titleFont)
+            salonTitle.Alignment = Element.ALIGN_CENTER
+            salonTitle.SpacingAfter = 5
+            document.Add(salonTitle)
+
+            Dim tagline As New Paragraph("Professional Beauty Services", normalFont)
+            tagline.Alignment = Element.ALIGN_CENTER
+            tagline.SpacingAfter = 5
+            document.Add(tagline)
+
+            Dim contact As New Paragraph("Km. 14 East Service Road, Western Bicutan, Taguig City, Metro Manila" & vbLf & "Phone: 09697858317 | Email: shafayesalon@gmail.com", normalFont)
+            contact.Alignment = Element.ALIGN_CENTER
+            contact.SpacingAfter = 20
+            document.Add(contact)
+
+            ' Add horizontal line
+            Dim line As New Paragraph("_________________________________________________________________")
+            line.Alignment = Element.ALIGN_CENTER
+            line.SpacingAfter = 20
+            document.Add(line)
+
+            ' Receipt title
+            Dim receiptTitle As New Paragraph("APPOINTMENT RECEIPT", headerFont)
+            receiptTitle.Alignment = Element.ALIGN_CENTER
+            receiptTitle.SpacingAfter = 15
+            document.Add(receiptTitle)
+
+            ' Receipt info
+            Dim receiptInfo As New Paragraph($"Receipt Date: {DateTime.Now:MMMM dd, yyyy hh:mm tt}                Receipt #: {appointmentID:D4}", normalFont)
+            receiptInfo.Alignment = Element.ALIGN_CENTER
+            receiptInfo.SpacingAfter = 20
+            document.Add(receiptInfo)
+
+            ' Customer Information Section
+            Dim customerHeader As New Paragraph("CUSTOMER INFORMATION", headerFont)
+            customerHeader.SpacingAfter = 10
+            document.Add(customerHeader)
+
+            document.Add(New Paragraph($"Name: {appointmentData("CustomerName")}", normalFont))
+            document.Add(New Paragraph($"Phone: {appointmentData("Phone")}", normalFont))
+            document.Add(New Paragraph($"Email: {appointmentData("Email")}", normalFont))
+            document.Add(New Paragraph(" ", normalFont)) ' Space
+
+            ' Appointment Details Section
+            Dim appointmentHeader As New Paragraph("APPOINTMENT DETAILS", headerFont)
+            appointmentHeader.SpacingAfter = 10
+            document.Add(appointmentHeader)
+
+            document.Add(New Paragraph($"Date: {appointmentData("AppointmentDate")}", normalFont))
+            document.Add(New Paragraph($"Time: {appointmentData("AppointmentTime")}", normalFont))
+            document.Add(New Paragraph($"Status: {appointmentData("Status")}", normalFont))
+            document.Add(New Paragraph(" ", normalFont)) ' Space
+
+            ' Services Section
+            Dim servicesHeader As New Paragraph("SERVICES AVAILED", headerFont)
+            servicesHeader.SpacingAfter = 10
+            document.Add(servicesHeader)
+
+            ' Create services table
+            Dim table As New PdfPTable(3)
+            table.WidthPercentage = 100
+            table.SetWidths({4, 3, 2})
+
+            ' Table headers
+            Dim serviceCell As New PdfPCell(New Phrase("SERVICE", boldFont))
+            serviceCell.HorizontalAlignment = Element.ALIGN_LEFT
+            serviceCell.Padding = 8
+            serviceCell.BackgroundColor = BaseColor.LIGHT_GRAY
+            table.AddCell(serviceCell)
+
+            Dim staffCell As New PdfPCell(New Phrase("STAFF", boldFont))
+            staffCell.HorizontalAlignment = Element.ALIGN_LEFT
+            staffCell.Padding = 8
+            staffCell.BackgroundColor = BaseColor.LIGHT_GRAY
+            table.AddCell(staffCell)
+
+            Dim priceCell As New PdfPCell(New Phrase("PRICE", boldFont))
+            priceCell.HorizontalAlignment = Element.ALIGN_RIGHT
+            priceCell.Padding = 8
+            priceCell.BackgroundColor = BaseColor.LIGHT_GRAY
+            table.AddCell(priceCell)
+
+            ' Add service rows
+            Dim services As List(Of Dictionary(Of String, Object)) = appointmentData("Services")
+            For Each service In services
+                ' Service name
+                Dim serviceNameCell As New PdfPCell(New Phrase(service("ServiceName").ToString(), normalFont))
+                serviceNameCell.Padding = 8
+                serviceNameCell.HorizontalAlignment = Element.ALIGN_LEFT
+                table.AddCell(serviceNameCell)
+
+                ' Staff name
+                Dim staffNameCell As New PdfPCell(New Phrase(service("StaffName").ToString(), normalFont))
+                staffNameCell.Padding = 8
+                staffNameCell.HorizontalAlignment = Element.ALIGN_LEFT
+                table.AddCell(staffNameCell)
+
+                ' Price
+                Dim servicePriceCell As New PdfPCell(New Phrase($"₱{Convert.ToDecimal(service("Price")):N2}", normalFont))
+                servicePriceCell.Padding = 8
+                servicePriceCell.HorizontalAlignment = Element.ALIGN_RIGHT
+                table.AddCell(servicePriceCell)
+            Next
+
+            document.Add(table)
+            document.Add(New Paragraph(" ", normalFont)) ' Space
+
+            ' Total Amount
+            Dim totalParagraph As New Paragraph($"TOTAL AMOUNT: ₱{Convert.ToDecimal(appointmentData("TotalAmount")):N2}", headerFont)
+            totalParagraph.Alignment = Element.ALIGN_RIGHT
+            totalParagraph.SpacingBefore = 10
+            totalParagraph.SpacingAfter = 20
+            document.Add(totalParagraph)
+
+            ' Footer
+            Dim footerLine As New Paragraph("_________________________________________________________________")
+            footerLine.Alignment = Element.ALIGN_CENTER
+            footerLine.SpacingAfter = 10
+            document.Add(footerLine)
+
+            Dim thankYou As New Paragraph("Thank you for your patronage!", headerFont)
+            thankYou.Alignment = Element.ALIGN_CENTER
+            thankYou.SpacingAfter = 5
+            document.Add(thankYou)
+
+            Dim appreciation As New Paragraph("We appreciate choosing Shafaye Salon", normalFont)
+            appreciation.Alignment = Element.ALIGN_CENTER
+            appreciation.SpacingAfter = 10
+            document.Add(appreciation)
+
+            Dim footerContact As New Paragraph("For inquiries, please contact:" & vbLf & "Phone: 09697858317 | Email: shafayesalon@gmail.com", normalFont)
+            footerContact.Alignment = Element.ALIGN_CENTER
+            document.Add(footerContact)
+
+            document.Close()
+
+            MessageBox.Show($"Professional PDF receipt generated successfully!" & vbCrLf & "Saved as: " & fileName & vbCrLf & vbCrLf & "The PDF has been saved to your Desktop.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ' Open the PDF file
+            If MessageBox.Show("Would you like to open the receipt?", "Open Receipt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                Process.Start(filePath)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error generating PDF receipt: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Function GetAppointmentData(appointmentID As Integer) As Dictionary(Of String, Object)
+        Try
             conn.Open()
+            Dim appointmentData As New Dictionary(Of String, Object)
+            Dim services As New List(Of Dictionary(Of String, Object))
+
             Dim query As String = "SELECT a.appointment_id, a.appointment_date, a.appointment_time, a.status, " &
                                  "CONCAT(u.first_name, ' ', u.last_name) as customer_name, " &
-                                 "up.phone, up.email, " &
+                                 "COALESCE(up.phone, 'N/A') as phone, COALESCE(up.email, 'N/A') as email, " &
                                  "s.name as service_name, s.price, " &
-                                 "CONCAT(ur_staff.first_name, ' ', ur_staff.last_name) as staff_name " &
+                                 "COALESCE(CONCAT(ur_staff.first_name, ' ', ur_staff.last_name), 'Not assigned') as staff_name " &
                                  "FROM appointments a " &
                                  "LEFT JOIN user_register u ON a.user_id = u.user_id " &
                                  "LEFT JOIN user_profiles up ON a.user_id = up.user_id " &
@@ -188,90 +367,46 @@ Public Class transactionhistory
                 cmd.Parameters.AddWithValue("@appointmentID", appointmentID)
                 Using reader As MySqlDataReader = cmd.ExecuteReader()
                     Dim totalAmount As Decimal = 0
-                    Dim customerName As String = ""
-                    Dim phone As String = ""
-                    Dim email As String = ""
-                    Dim appDate As String = ""
-                    Dim appTime As String = ""
-                    Dim status As String = ""
 
                     While reader.Read()
-                        ' Get basic info (same for all services)
-                        If String.IsNullOrEmpty(customerName) Then
-                            customerName = If(IsDBNull(reader("customer_name")), "N/A", reader("customer_name").ToString())
-                            phone = If(IsDBNull(reader("phone")), "N/A", reader("phone").ToString())
-                            email = If(IsDBNull(reader("email")), "N/A", reader("email").ToString())
-                            appDate = Convert.ToDateTime(reader("appointment_date")).ToString("MMMM dd, yyyy")
-                            appTime = reader("appointment_time").ToString()
-                            status = reader("status").ToString()
+                        ' Set basic appointment info (same for all services)
+                        If appointmentData.Count = 0 Then
+                            appointmentData("AppointmentID") = reader("appointment_id")
+                            appointmentData("CustomerName") = reader("customer_name").ToString()
+                            appointmentData("Phone") = reader("phone").ToString()
+                            appointmentData("Email") = reader("email").ToString()
+                            appointmentData("AppointmentDate") = Convert.ToDateTime(reader("appointment_date")).ToString("MMMM dd, yyyy")
+                            appointmentData("AppointmentTime") = reader("appointment_time").ToString()
+                            appointmentData("Status") = reader("status").ToString()
                         End If
 
-                        ' Add service details
-                        Dim serviceName As String = If(IsDBNull(reader("service_name")), "N/A", reader("service_name").ToString())
-                        Dim servicePrice As Decimal = If(IsDBNull(reader("price")), 0, Convert.ToDecimal(reader("price")))
-                        Dim staffName As String = If(IsDBNull(reader("staff_name")), "Not assigned", reader("staff_name").ToString())
-
-                        totalAmount += servicePrice
-
-                        ' Add row to DataTable
-                        Dim row As DataRow = dt.NewRow()
-                        row("AppointmentID") = appointmentID
-                        row("CustomerName") = customerName
-                        row("Phone") = phone
-                        row("Email") = email
-                        row("AppointmentDate") = appDate
-                        row("AppointmentTime") = appTime
-                        row("Status") = status
-                        row("ServiceName") = serviceName
-                        row("ServicePrice") = servicePrice
-                        row("StaffName") = staffName
-                        row("TotalAmount") = totalAmount
-                        row("ReceiptDate") = DateTime.Now.ToString("MMMM dd, yyyy hh:mm tt")
-                        row("SalonName") = "SHAFAYE SALON"
-                        row("SalonAddress") = "Your Salon Address Here"
-                        row("SalonPhone") = "Your Salon Phone Number"
-
-                        dt.Rows.Add(row)
+                        ' Add service info
+                        If Not IsDBNull(reader("service_name")) Then
+                            Dim serviceData As New Dictionary(Of String, Object)
+                            serviceData("ServiceName") = reader("service_name").ToString()
+                            serviceData("StaffName") = reader("staff_name").ToString()
+                            serviceData("Price") = Convert.ToDecimal(reader("price"))
+                            services.Add(serviceData)
+                            totalAmount += Convert.ToDecimal(reader("price"))
+                        End If
                     End While
+
+                    appointmentData("Services") = services
+                    appointmentData("TotalAmount") = totalAmount
                 End Using
             End Using
 
-            ds.Tables.Add(dt)
-
-            ' Create and configure Crystal Report
-            Dim rpt As New ReportDocument()
-
-            ' Load your Crystal Report file (.rpt)
-            ' Make sure to create this Crystal Report file first
-            rpt.Load(Application.StartupPath & "\Reports\SalonReceipt.rpt")
-
-            ' Set the data source
-            rpt.SetDataSource(ds)
-
-            ' Show the report in a Crystal Report Viewer form
-            Dim frmReportViewer As New Form()
-            frmReportViewer.Text = "Salon Receipt - Appointment #" & appointmentID
-            frmReportViewer.WindowState = FormWindowState.Maximized
-
-            Dim crystalReportViewer As New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-            crystalReportViewer.Dock = DockStyle.Fill
-            crystalReportViewer.ReportSource = rpt
-
-            frmReportViewer.Controls.Add(crystalReportViewer)
-            frmReportViewer.ShowDialog()
-
-            ' Clean up
-            rpt.Close()
-            rpt.Dispose()
+            Return appointmentData
 
         Catch ex As Exception
-            MessageBox.Show("Error generating Crystal Report receipt: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error retrieving appointment data: " & ex.Message)
+            Return Nothing
         Finally
             If conn.State = ConnectionState.Open Then
                 conn.Close()
             End If
         End Try
-    End Sub
+    End Function
 
     Private Sub CancelAppointment(ByVal appointmentID As Integer)
         Try
@@ -290,8 +425,19 @@ Public Class transactionhistory
     End Sub
 
     Private Sub FilterAppointments(sender As Object, e As EventArgs)
-        Dim statusFilter As String = cmbStatus.Text
-        Dim orderBy As String = If(cmborderby.Text = "Oldest to Newest", "ASC", "DESC")
+        Dim statusFilter As String = ""
+        Dim orderBy As String = "DESC"
+
+        ' Get status filter - only apply filter if not "All Status"
+        If cmbStatus.SelectedItem IsNot Nothing AndAlso cmbStatus.SelectedItem.ToString() <> "All Status" Then
+            statusFilter = cmbStatus.SelectedItem.ToString()
+        End If
+
+        ' Get order by preference
+        If cmborderby.SelectedItem IsNot Nothing Then
+            orderBy = If(cmborderby.SelectedItem.ToString() = "Oldest to Newest", "ASC", "DESC")
+        End If
+
         LoadAppointments(statusFilter, orderBy)
     End Sub
 End Class
