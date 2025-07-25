@@ -203,22 +203,27 @@ Public Class adminMenu
 
     Private Sub inventoryList_Click(sender As Object, e As EventArgs) Handles inventoryList.Click
         hideSubmenu()
+        OpenChildForm(New inventoryList())
     End Sub
 
     Private Sub addNewItems_Click(sender As Object, e As EventArgs) Handles addNewItems.Click
         hideSubmenu()
+        OpenChildForm(New addNewItems())
     End Sub
 
     Private Sub updateStockLevels_Click(sender As Object, e As EventArgs) Handles updateStockLevels.Click
         hideSubmenu()
+        OpenChildForm(New updateStockLevels())
     End Sub
 
     Private Sub usageLogs_Click(sender As Object, e As EventArgs) Handles usageLogs.Click
         hideSubmenu()
+        OpenChildForm(New usageLogs())
     End Sub
 
     Private Sub lowStockAlerts_Click(sender As Object, e As EventArgs) Handles lowStockAlerts.Click
         hideSubmenu()
+        OpenChildForm(New lowStockAlerts())
     End Sub
 
 

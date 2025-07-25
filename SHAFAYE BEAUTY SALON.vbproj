@@ -139,6 +139,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addNewItems.Designer.vb">
+      <DependentUpon>addNewItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="addNewItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="adminMenu.Designer.vb">
       <DependentUpon>adminMenu.vb</DependentUpon>
     </Compile>
@@ -223,10 +229,22 @@
     <Compile Include="homepage.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="inventoryList.Designer.vb">
+      <DependentUpon>inventoryList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="inventoryList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="login.Designer.vb">
       <DependentUpon>login.vb</DependentUpon>
     </Compile>
     <Compile Include="login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lowStockAlerts.Designer.vb">
+      <DependentUpon>lowStockAlerts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="lowStockAlerts.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="managecustomers.Designer.vb">
@@ -336,6 +354,18 @@
     <Compile Include="transactionhistory.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="updateStockLevels.Designer.vb">
+      <DependentUpon>updateStockLevels.vb</DependentUpon>
+    </Compile>
+    <Compile Include="updateStockLevels.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usageLogs.Designer.vb">
+      <DependentUpon>usageLogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usageLogs.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="userMenu.Designer.vb">
       <DependentUpon>userMenu.vb</DependentUpon>
     </Compile>
@@ -350,6 +380,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="addNewItems.resx">
+      <DependentUpon>addNewItems.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="adminMenu.resx">
       <DependentUpon>adminMenu.vb</DependentUpon>
     </EmbeddedResource>
@@ -389,8 +422,14 @@
     <EmbeddedResource Include="homepage.resx">
       <DependentUpon>homepage.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="inventoryList.resx">
+      <DependentUpon>inventoryList.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lowStockAlerts.resx">
+      <DependentUpon>lowStockAlerts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="managecustomers.resx">
       <DependentUpon>managecustomers.vb</DependentUpon>
@@ -442,6 +481,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="transactionhistory.resx">
       <DependentUpon>transactionhistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateStockLevels.resx">
+      <DependentUpon>updateStockLevels.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usageLogs.resx">
+      <DependentUpon>usageLogs.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userMenu.resx">
       <DependentUpon>userMenu.vb</DependentUpon>
