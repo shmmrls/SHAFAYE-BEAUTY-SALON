@@ -27,7 +27,7 @@ Partial Class adminMenu
         Me.panelMenu = New System.Windows.Forms.Panel()
         Me.panelAdminProf = New System.Windows.Forms.Panel()
         Me.logout = New System.Windows.Forms.Button()
-        Me.systemSettings = New System.Windows.Forms.Button()
+        Me.adminUpdate = New System.Windows.Forms.Button()
         Me.adminProfile = New System.Windows.Forms.Button()
         Me.panelCustomerSupport = New System.Windows.Forms.Panel()
         Me.reviewMode = New System.Windows.Forms.Button()
@@ -35,15 +35,12 @@ Partial Class adminMenu
         Me.customerInquiries = New System.Windows.Forms.Button()
         Me.support = New System.Windows.Forms.Button()
         Me.panelPayment = New System.Windows.Forms.Panel()
-        Me.transactionHistory = New System.Windows.Forms.Button()
         Me.generateReceipts = New System.Windows.Forms.Button()
-        Me.updatePaymentStats = New System.Windows.Forms.Button()
         Me.paymentRecords = New System.Windows.Forms.Button()
         Me.payments = New System.Windows.Forms.Button()
         Me.panelInventory = New System.Windows.Forms.Panel()
-        Me.lowStockAlerts = New System.Windows.Forms.Button()
+        Me.alerts = New System.Windows.Forms.Button()
         Me.usageLogs = New System.Windows.Forms.Button()
-        Me.updateStockLevels = New System.Windows.Forms.Button()
         Me.addNewItems = New System.Windows.Forms.Button()
         Me.inventoryList = New System.Windows.Forms.Button()
         Me.inventory = New System.Windows.Forms.Button()
@@ -62,12 +59,11 @@ Partial Class adminMenu
         Me.servicelist = New System.Windows.Forms.Button()
         Me.services = New System.Windows.Forms.Button()
         Me.panelAppointment = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.manageCustomersBtn = New System.Windows.Forms.Button()
         Me.bookingActions = New System.Windows.Forms.Button()
         Me.viewAppointments = New System.Windows.Forms.Button()
         Me.appointmentManagement = New System.Windows.Forms.Button()
         Me.panelAdmin = New System.Windows.Forms.Panel()
-        Me.reminders = New System.Windows.Forms.Button()
         Me.quickstats = New System.Windows.Forms.Button()
         Me.dailyOverview = New System.Windows.Forms.Button()
         Me.adminDashboard = New System.Windows.Forms.Button()
@@ -142,10 +138,10 @@ Partial Class adminMenu
         '
         Me.panelAdminProf.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.panelAdminProf.Controls.Add(Me.logout)
-        Me.panelAdminProf.Controls.Add(Me.systemSettings)
+        Me.panelAdminProf.Controls.Add(Me.adminUpdate)
         Me.panelAdminProf.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelAdminProf.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelAdminProf.Location = New System.Drawing.Point(0, 2062)
+        Me.panelAdminProf.Location = New System.Drawing.Point(0, 1817)
         Me.panelAdminProf.Margin = New System.Windows.Forms.Padding(4)
         Me.panelAdminProf.Name = "panelAdminProf"
         Me.panelAdminProf.Size = New System.Drawing.Size(316, 113)
@@ -167,21 +163,21 @@ Partial Class adminMenu
         Me.logout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.logout.UseVisualStyleBackColor = True
         '
-        'systemSettings
+        'adminUpdate
         '
-        Me.systemSettings.Dock = System.Windows.Forms.DockStyle.Top
-        Me.systemSettings.FlatAppearance.BorderSize = 0
-        Me.systemSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.systemSettings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.systemSettings.Location = New System.Drawing.Point(0, 0)
-        Me.systemSettings.Margin = New System.Windows.Forms.Padding(4)
-        Me.systemSettings.Name = "systemSettings"
-        Me.systemSettings.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
-        Me.systemSettings.Size = New System.Drawing.Size(316, 49)
-        Me.systemSettings.TabIndex = 2
-        Me.systemSettings.Text = "System Settings" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.systemSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.systemSettings.UseVisualStyleBackColor = True
+        Me.adminUpdate.Dock = System.Windows.Forms.DockStyle.Top
+        Me.adminUpdate.FlatAppearance.BorderSize = 0
+        Me.adminUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.adminUpdate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.adminUpdate.Location = New System.Drawing.Point(0, 0)
+        Me.adminUpdate.Margin = New System.Windows.Forms.Padding(4)
+        Me.adminUpdate.Name = "adminUpdate"
+        Me.adminUpdate.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
+        Me.adminUpdate.Size = New System.Drawing.Size(316, 49)
+        Me.adminUpdate.TabIndex = 2
+        Me.adminUpdate.Text = "Admin Control"
+        Me.adminUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.adminUpdate.UseVisualStyleBackColor = True
         '
         'adminProfile
         '
@@ -190,7 +186,7 @@ Partial Class adminMenu
         Me.adminProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.adminProfile.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.adminProfile.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.adminProfile.Location = New System.Drawing.Point(0, 2007)
+        Me.adminProfile.Location = New System.Drawing.Point(0, 1762)
         Me.adminProfile.Margin = New System.Windows.Forms.Padding(4)
         Me.adminProfile.Name = "adminProfile"
         Me.adminProfile.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -208,7 +204,7 @@ Partial Class adminMenu
         Me.panelCustomerSupport.Controls.Add(Me.customerInquiries)
         Me.panelCustomerSupport.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelCustomerSupport.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelCustomerSupport.Location = New System.Drawing.Point(0, 1851)
+        Me.panelCustomerSupport.Location = New System.Drawing.Point(0, 1606)
         Me.panelCustomerSupport.Margin = New System.Windows.Forms.Padding(4)
         Me.panelCustomerSupport.Name = "panelCustomerSupport"
         Me.panelCustomerSupport.Size = New System.Drawing.Size(316, 156)
@@ -226,7 +222,7 @@ Partial Class adminMenu
         Me.reviewMode.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
         Me.reviewMode.Size = New System.Drawing.Size(316, 49)
         Me.reviewMode.TabIndex = 3
-        Me.reviewMode.Text = "Review Moderation"
+        Me.reviewMode.Text = "Moderate Reviews"
         Me.reviewMode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.reviewMode.UseVisualStyleBackColor = True
         '
@@ -269,7 +265,7 @@ Partial Class adminMenu
         Me.support.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.support.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.support.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.support.Location = New System.Drawing.Point(0, 1796)
+        Me.support.Location = New System.Drawing.Point(0, 1551)
         Me.support.Margin = New System.Windows.Forms.Padding(4)
         Me.support.Name = "support"
         Me.support.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -282,33 +278,15 @@ Partial Class adminMenu
         'panelPayment
         '
         Me.panelPayment.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.panelPayment.Controls.Add(Me.transactionHistory)
         Me.panelPayment.Controls.Add(Me.generateReceipts)
-        Me.panelPayment.Controls.Add(Me.updatePaymentStats)
         Me.panelPayment.Controls.Add(Me.paymentRecords)
         Me.panelPayment.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelPayment.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelPayment.Location = New System.Drawing.Point(0, 1589)
+        Me.panelPayment.Location = New System.Drawing.Point(0, 1445)
         Me.panelPayment.Margin = New System.Windows.Forms.Padding(4)
         Me.panelPayment.Name = "panelPayment"
-        Me.panelPayment.Size = New System.Drawing.Size(316, 207)
+        Me.panelPayment.Size = New System.Drawing.Size(316, 106)
         Me.panelPayment.TabIndex = 17
-        '
-        'transactionHistory
-        '
-        Me.transactionHistory.Dock = System.Windows.Forms.DockStyle.Top
-        Me.transactionHistory.FlatAppearance.BorderSize = 0
-        Me.transactionHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.transactionHistory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.transactionHistory.Location = New System.Drawing.Point(0, 147)
-        Me.transactionHistory.Margin = New System.Windows.Forms.Padding(4)
-        Me.transactionHistory.Name = "transactionHistory"
-        Me.transactionHistory.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
-        Me.transactionHistory.Size = New System.Drawing.Size(316, 49)
-        Me.transactionHistory.TabIndex = 4
-        Me.transactionHistory.Text = "Transaction History"
-        Me.transactionHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.transactionHistory.UseVisualStyleBackColor = True
         '
         'generateReceipts
         '
@@ -316,7 +294,7 @@ Partial Class adminMenu
         Me.generateReceipts.FlatAppearance.BorderSize = 0
         Me.generateReceipts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.generateReceipts.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.generateReceipts.Location = New System.Drawing.Point(0, 98)
+        Me.generateReceipts.Location = New System.Drawing.Point(0, 49)
         Me.generateReceipts.Margin = New System.Windows.Forms.Padding(4)
         Me.generateReceipts.Name = "generateReceipts"
         Me.generateReceipts.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
@@ -325,22 +303,6 @@ Partial Class adminMenu
         Me.generateReceipts.Text = "Generate Receipts"
         Me.generateReceipts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.generateReceipts.UseVisualStyleBackColor = True
-        '
-        'updatePaymentStats
-        '
-        Me.updatePaymentStats.Dock = System.Windows.Forms.DockStyle.Top
-        Me.updatePaymentStats.FlatAppearance.BorderSize = 0
-        Me.updatePaymentStats.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.updatePaymentStats.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.updatePaymentStats.Location = New System.Drawing.Point(0, 49)
-        Me.updatePaymentStats.Margin = New System.Windows.Forms.Padding(4)
-        Me.updatePaymentStats.Name = "updatePaymentStats"
-        Me.updatePaymentStats.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
-        Me.updatePaymentStats.Size = New System.Drawing.Size(316, 49)
-        Me.updatePaymentStats.TabIndex = 2
-        Me.updatePaymentStats.Text = "Update Payment Status"
-        Me.updatePaymentStats.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.updatePaymentStats.UseVisualStyleBackColor = True
         '
         'paymentRecords
         '
@@ -365,7 +327,7 @@ Partial Class adminMenu
         Me.payments.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.payments.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.payments.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.payments.Location = New System.Drawing.Point(0, 1534)
+        Me.payments.Location = New System.Drawing.Point(0, 1390)
         Me.payments.Margin = New System.Windows.Forms.Padding(4)
         Me.payments.Name = "payments"
         Me.payments.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -378,34 +340,33 @@ Partial Class adminMenu
         'panelInventory
         '
         Me.panelInventory.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.panelInventory.Controls.Add(Me.lowStockAlerts)
+        Me.panelInventory.Controls.Add(Me.alerts)
         Me.panelInventory.Controls.Add(Me.usageLogs)
-        Me.panelInventory.Controls.Add(Me.updateStockLevels)
         Me.panelInventory.Controls.Add(Me.addNewItems)
         Me.panelInventory.Controls.Add(Me.inventoryList)
         Me.panelInventory.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelInventory.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelInventory.Location = New System.Drawing.Point(0, 1277)
+        Me.panelInventory.Location = New System.Drawing.Point(0, 1179)
         Me.panelInventory.Margin = New System.Windows.Forms.Padding(4)
         Me.panelInventory.Name = "panelInventory"
-        Me.panelInventory.Size = New System.Drawing.Size(316, 257)
+        Me.panelInventory.Size = New System.Drawing.Size(316, 211)
         Me.panelInventory.TabIndex = 15
         '
-        'lowStockAlerts
+        'alerts
         '
-        Me.lowStockAlerts.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lowStockAlerts.FlatAppearance.BorderSize = 0
-        Me.lowStockAlerts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lowStockAlerts.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lowStockAlerts.Location = New System.Drawing.Point(0, 196)
-        Me.lowStockAlerts.Margin = New System.Windows.Forms.Padding(4)
-        Me.lowStockAlerts.Name = "lowStockAlerts"
-        Me.lowStockAlerts.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
-        Me.lowStockAlerts.Size = New System.Drawing.Size(316, 49)
-        Me.lowStockAlerts.TabIndex = 5
-        Me.lowStockAlerts.Text = "Low Stock Alerts"
-        Me.lowStockAlerts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lowStockAlerts.UseVisualStyleBackColor = True
+        Me.alerts.Dock = System.Windows.Forms.DockStyle.Top
+        Me.alerts.FlatAppearance.BorderSize = 0
+        Me.alerts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.alerts.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.alerts.Location = New System.Drawing.Point(0, 147)
+        Me.alerts.Margin = New System.Windows.Forms.Padding(4)
+        Me.alerts.Name = "alerts"
+        Me.alerts.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
+        Me.alerts.Size = New System.Drawing.Size(316, 49)
+        Me.alerts.TabIndex = 5
+        Me.alerts.Text = "Alerts"
+        Me.alerts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.alerts.UseVisualStyleBackColor = True
         '
         'usageLogs
         '
@@ -413,7 +374,7 @@ Partial Class adminMenu
         Me.usageLogs.FlatAppearance.BorderSize = 0
         Me.usageLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.usageLogs.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.usageLogs.Location = New System.Drawing.Point(0, 147)
+        Me.usageLogs.Location = New System.Drawing.Point(0, 98)
         Me.usageLogs.Margin = New System.Windows.Forms.Padding(4)
         Me.usageLogs.Name = "usageLogs"
         Me.usageLogs.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
@@ -422,22 +383,6 @@ Partial Class adminMenu
         Me.usageLogs.Text = "Usage Logs"
         Me.usageLogs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.usageLogs.UseVisualStyleBackColor = True
-        '
-        'updateStockLevels
-        '
-        Me.updateStockLevels.Dock = System.Windows.Forms.DockStyle.Top
-        Me.updateStockLevels.FlatAppearance.BorderSize = 0
-        Me.updateStockLevels.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.updateStockLevels.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.updateStockLevels.Location = New System.Drawing.Point(0, 98)
-        Me.updateStockLevels.Margin = New System.Windows.Forms.Padding(4)
-        Me.updateStockLevels.Name = "updateStockLevels"
-        Me.updateStockLevels.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
-        Me.updateStockLevels.Size = New System.Drawing.Size(316, 49)
-        Me.updateStockLevels.TabIndex = 3
-        Me.updateStockLevels.Text = "Update Stock Levels"
-        Me.updateStockLevels.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.updateStockLevels.UseVisualStyleBackColor = True
         '
         'addNewItems
         '
@@ -451,7 +396,7 @@ Partial Class adminMenu
         Me.addNewItems.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
         Me.addNewItems.Size = New System.Drawing.Size(316, 49)
         Me.addNewItems.TabIndex = 2
-        Me.addNewItems.Text = "Add New Items"
+        Me.addNewItems.Text = "Add and Update Stock"
         Me.addNewItems.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.addNewItems.UseVisualStyleBackColor = True
         '
@@ -478,7 +423,7 @@ Partial Class adminMenu
         Me.inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.inventory.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.inventory.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.inventory.Location = New System.Drawing.Point(0, 1222)
+        Me.inventory.Location = New System.Drawing.Point(0, 1124)
         Me.inventory.Margin = New System.Windows.Forms.Padding(4)
         Me.inventory.Name = "inventory"
         Me.inventory.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -495,7 +440,7 @@ Partial Class adminMenu
         Me.panelFinancial.Controls.Add(Me.expenseTrack)
         Me.panelFinancial.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelFinancial.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelFinancial.Location = New System.Drawing.Point(0, 1114)
+        Me.panelFinancial.Location = New System.Drawing.Point(0, 1016)
         Me.panelFinancial.Margin = New System.Windows.Forms.Padding(4)
         Me.panelFinancial.Name = "panelFinancial"
         Me.panelFinancial.Size = New System.Drawing.Size(316, 108)
@@ -513,7 +458,7 @@ Partial Class adminMenu
         Me.salesrep.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
         Me.salesrep.Size = New System.Drawing.Size(316, 49)
         Me.salesrep.TabIndex = 2
-        Me.salesrep.Text = "Sales Reports"
+        Me.salesrep.Text = "Sales Report"
         Me.salesrep.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.salesrep.UseVisualStyleBackColor = True
         '
@@ -540,7 +485,7 @@ Partial Class adminMenu
         Me.finance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.finance.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.finance.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.finance.Location = New System.Drawing.Point(0, 1059)
+        Me.finance.Location = New System.Drawing.Point(0, 961)
         Me.finance.Margin = New System.Windows.Forms.Padding(4)
         Me.finance.Name = "finance"
         Me.finance.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -558,7 +503,7 @@ Partial Class adminMenu
         Me.panelStaff.Controls.Add(Me.stafflist)
         Me.panelStaff.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelStaff.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelStaff.Location = New System.Drawing.Point(0, 900)
+        Me.panelStaff.Location = New System.Drawing.Point(0, 802)
         Me.panelStaff.Margin = New System.Windows.Forms.Padding(4)
         Me.panelStaff.Name = "panelStaff"
         Me.panelStaff.Size = New System.Drawing.Size(316, 159)
@@ -619,7 +564,7 @@ Partial Class adminMenu
         Me.staff.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.staff.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.staff.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.staff.Location = New System.Drawing.Point(0, 845)
+        Me.staff.Location = New System.Drawing.Point(0, 747)
         Me.staff.Margin = New System.Windows.Forms.Padding(4)
         Me.staff.Name = "staff"
         Me.staff.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -637,7 +582,7 @@ Partial Class adminMenu
         Me.panelService.Controls.Add(Me.servicelist)
         Me.panelService.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelService.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelService.Location = New System.Drawing.Point(0, 691)
+        Me.panelService.Location = New System.Drawing.Point(0, 593)
         Me.panelService.Margin = New System.Windows.Forms.Padding(4)
         Me.panelService.Name = "panelService"
         Me.panelService.Size = New System.Drawing.Size(316, 154)
@@ -698,7 +643,7 @@ Partial Class adminMenu
         Me.services.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.services.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.services.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.services.Location = New System.Drawing.Point(0, 636)
+        Me.services.Location = New System.Drawing.Point(0, 538)
         Me.services.Margin = New System.Windows.Forms.Padding(4)
         Me.services.Name = "services"
         Me.services.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -711,32 +656,32 @@ Partial Class adminMenu
         'panelAppointment
         '
         Me.panelAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.panelAppointment.Controls.Add(Me.Button1)
+        Me.panelAppointment.Controls.Add(Me.manageCustomersBtn)
         Me.panelAppointment.Controls.Add(Me.bookingActions)
         Me.panelAppointment.Controls.Add(Me.viewAppointments)
         Me.panelAppointment.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelAppointment.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelAppointment.Location = New System.Drawing.Point(0, 429)
+        Me.panelAppointment.Location = New System.Drawing.Point(0, 379)
         Me.panelAppointment.Margin = New System.Windows.Forms.Padding(4)
         Me.panelAppointment.Name = "panelAppointment"
-        Me.panelAppointment.Size = New System.Drawing.Size(316, 207)
+        Me.panelAppointment.Size = New System.Drawing.Size(316, 159)
         Me.panelAppointment.TabIndex = 2
         '
-        'Button1
+        'manageCustomersBtn
         '
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Button1.Location = New System.Drawing.Point(0, 98)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
-        Me.Button1.Size = New System.Drawing.Size(316, 49)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "Manage Customers"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.manageCustomersBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.manageCustomersBtn.FlatAppearance.BorderSize = 0
+        Me.manageCustomersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.manageCustomersBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.manageCustomersBtn.Location = New System.Drawing.Point(0, 98)
+        Me.manageCustomersBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.manageCustomersBtn.Name = "manageCustomersBtn"
+        Me.manageCustomersBtn.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
+        Me.manageCustomersBtn.Size = New System.Drawing.Size(316, 49)
+        Me.manageCustomersBtn.TabIndex = 3
+        Me.manageCustomersBtn.Text = "Manage Customers"
+        Me.manageCustomersBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.manageCustomersBtn.UseVisualStyleBackColor = True
         '
         'bookingActions
         '
@@ -777,7 +722,7 @@ Partial Class adminMenu
         Me.appointmentManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.appointmentManagement.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.appointmentManagement.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.appointmentManagement.Location = New System.Drawing.Point(0, 374)
+        Me.appointmentManagement.Location = New System.Drawing.Point(0, 324)
         Me.appointmentManagement.Margin = New System.Windows.Forms.Padding(4)
         Me.appointmentManagement.Name = "appointmentManagement"
         Me.appointmentManagement.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -790,7 +735,6 @@ Partial Class adminMenu
         'panelAdmin
         '
         Me.panelAdmin.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.panelAdmin.Controls.Add(Me.reminders)
         Me.panelAdmin.Controls.Add(Me.quickstats)
         Me.panelAdmin.Controls.Add(Me.dailyOverview)
         Me.panelAdmin.Dock = System.Windows.Forms.DockStyle.Top
@@ -798,24 +742,8 @@ Partial Class adminMenu
         Me.panelAdmin.Location = New System.Drawing.Point(0, 219)
         Me.panelAdmin.Margin = New System.Windows.Forms.Padding(4)
         Me.panelAdmin.Name = "panelAdmin"
-        Me.panelAdmin.Size = New System.Drawing.Size(316, 155)
+        Me.panelAdmin.Size = New System.Drawing.Size(316, 105)
         Me.panelAdmin.TabIndex = 1
-        '
-        'reminders
-        '
-        Me.reminders.Dock = System.Windows.Forms.DockStyle.Top
-        Me.reminders.FlatAppearance.BorderSize = 0
-        Me.reminders.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.reminders.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.reminders.Location = New System.Drawing.Point(0, 98)
-        Me.reminders.Margin = New System.Windows.Forms.Padding(4)
-        Me.reminders.Name = "reminders"
-        Me.reminders.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
-        Me.reminders.Size = New System.Drawing.Size(316, 49)
-        Me.reminders.TabIndex = 3
-        Me.reminders.Text = "Reminders"
-        Me.reminders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.reminders.UseVisualStyleBackColor = True
         '
         'quickstats
         '
@@ -936,14 +864,11 @@ Partial Class adminMenu
     Friend WithEvents customerInquiries As Button
     Friend WithEvents support As Button
     Friend WithEvents panelPayment As Panel
-    Friend WithEvents transactionHistory As Button
     Friend WithEvents generateReceipts As Button
-    Friend WithEvents updatePaymentStats As Button
     Friend WithEvents paymentRecords As Button
     Friend WithEvents payments As Button
     Friend WithEvents panelInventory As Panel
     Friend WithEvents usageLogs As Button
-    Friend WithEvents updateStockLevels As Button
     Friend WithEvents addNewItems As Button
     Friend WithEvents inventoryList As Button
     Friend WithEvents inventory As Button
@@ -951,10 +876,9 @@ Partial Class adminMenu
     Friend WithEvents salesrep As Button
     Friend WithEvents expenseTrack As Button
     Friend WithEvents finance As Button
-    Friend WithEvents lowStockAlerts As Button
-    Friend WithEvents reminders As Button
     Friend WithEvents logout As Button
-    Friend WithEvents systemSettings As Button
+    Friend WithEvents adminUpdate As Button
     Friend WithEvents panelChildForm As Panel
-    Friend WithEvents Button1 As Button
+    Friend WithEvents manageCustomersBtn As Button
+    Friend WithEvents alerts As Button
 End Class

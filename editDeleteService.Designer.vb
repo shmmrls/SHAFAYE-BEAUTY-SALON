@@ -36,19 +36,16 @@ Partial Class editDeleteService
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.pricetxt = New System.Windows.Forms.TextBox()
-        Me.RoundedTextBox10 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.nmetxt = New System.Windows.Forms.TextBox()
-        Me.RoundedTextBox11 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.notAvailableRadbtn = New System.Windows.Forms.RadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.availableRadBtn = New System.Windows.Forms.RadioButton()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.descriptiontxt = New System.Windows.Forms.TextBox()
-        Me.RoundedTextBox5 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.backtoaddtxt = New System.Windows.Forms.Label()
         Me.saveditbtn = New System.Windows.Forms.PictureBox()
         Me.canceleditbtn = New System.Windows.Forms.PictureBox()
+        Me.backtoaddtxt = New System.Windows.Forms.Label()
         Me.editservicebtn = New System.Windows.Forms.PictureBox()
         Me.removeservicebtn = New System.Windows.Forms.PictureBox()
         Me.fororganization.SuspendLayout()
@@ -155,16 +152,13 @@ Partial Class editDeleteService
         Me.panelforedit.Controls.Add(Me.Label3)
         Me.panelforedit.Controls.Add(Me.Label2)
         Me.panelforedit.Controls.Add(Me.pricetxt)
-        Me.panelforedit.Controls.Add(Me.RoundedTextBox10)
         Me.panelforedit.Controls.Add(Me.Label10)
         Me.panelforedit.Controls.Add(Me.nmetxt)
-        Me.panelforedit.Controls.Add(Me.RoundedTextBox11)
         Me.panelforedit.Controls.Add(Me.notAvailableRadbtn)
         Me.panelforedit.Controls.Add(Me.Label4)
         Me.panelforedit.Controls.Add(Me.availableRadBtn)
         Me.panelforedit.Controls.Add(Me.Label8)
         Me.panelforedit.Controls.Add(Me.descriptiontxt)
-        Me.panelforedit.Controls.Add(Me.RoundedTextBox5)
         Me.panelforedit.Controls.Add(Me.saveditbtn)
         Me.panelforedit.Controls.Add(Me.canceleditbtn)
         Me.panelforedit.Controls.Add(Me.backtoaddtxt)
@@ -208,23 +202,12 @@ Partial Class editDeleteService
         'pricetxt
         '
         Me.pricetxt.BackColor = System.Drawing.Color.White
-        Me.pricetxt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.pricetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pricetxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pricetxt.Location = New System.Drawing.Point(159, 142)
+        Me.pricetxt.Location = New System.Drawing.Point(146, 142)
         Me.pricetxt.Name = "pricetxt"
-        Me.pricetxt.Size = New System.Drawing.Size(362, 20)
+        Me.pricetxt.Size = New System.Drawing.Size(375, 27)
         Me.pricetxt.TabIndex = 139
-        '
-        'RoundedTextBox10
-        '
-        Me.RoundedTextBox10.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox10.BorderRadius = 25
-        Me.RoundedTextBox10.BorderSize = 2
-        Me.RoundedTextBox10.Location = New System.Drawing.Point(146, 130)
-        Me.RoundedTextBox10.Name = "RoundedTextBox10"
-        Me.RoundedTextBox10.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox10.Size = New System.Drawing.Size(386, 38)
-        Me.RoundedTextBox10.TabIndex = 140
         '
         'Label10
         '
@@ -240,23 +223,12 @@ Partial Class editDeleteService
         'nmetxt
         '
         Me.nmetxt.BackColor = System.Drawing.Color.White
-        Me.nmetxt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.nmetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.nmetxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nmetxt.Location = New System.Drawing.Point(159, 59)
+        Me.nmetxt.Location = New System.Drawing.Point(146, 59)
         Me.nmetxt.Name = "nmetxt"
-        Me.nmetxt.Size = New System.Drawing.Size(159, 20)
+        Me.nmetxt.Size = New System.Drawing.Size(172, 27)
         Me.nmetxt.TabIndex = 136
-        '
-        'RoundedTextBox11
-        '
-        Me.RoundedTextBox11.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox11.BorderRadius = 25
-        Me.RoundedTextBox11.BorderSize = 2
-        Me.RoundedTextBox11.Location = New System.Drawing.Point(146, 47)
-        Me.RoundedTextBox11.Name = "RoundedTextBox11"
-        Me.RoundedTextBox11.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox11.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox11.TabIndex = 138
         '
         'notAvailableRadbtn
         '
@@ -307,39 +279,12 @@ Partial Class editDeleteService
         'descriptiontxt
         '
         Me.descriptiontxt.BackColor = System.Drawing.Color.White
-        Me.descriptiontxt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.descriptiontxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.descriptiontxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.descriptiontxt.Location = New System.Drawing.Point(155, 220)
+        Me.descriptiontxt.Location = New System.Drawing.Point(142, 220)
         Me.descriptiontxt.Name = "descriptiontxt"
-        Me.descriptiontxt.Size = New System.Drawing.Size(366, 20)
+        Me.descriptiontxt.Size = New System.Drawing.Size(379, 27)
         Me.descriptiontxt.TabIndex = 130
-        '
-        'RoundedTextBox5
-        '
-        Me.RoundedTextBox5.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox5.BorderRadius = 25
-        Me.RoundedTextBox5.BorderSize = 2
-        Me.RoundedTextBox5.Location = New System.Drawing.Point(145, 210)
-        Me.RoundedTextBox5.Name = "RoundedTextBox5"
-        Me.RoundedTextBox5.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox5.Size = New System.Drawing.Size(386, 38)
-        Me.RoundedTextBox5.TabIndex = 132
-        '
-        'backtoaddtxt
-        '
-        Me.backtoaddtxt.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.backtoaddtxt.AutoSize = True
-        Me.backtoaddtxt.BackColor = System.Drawing.Color.Transparent
-        Me.backtoaddtxt.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.backtoaddtxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.backtoaddtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.backtoaddtxt.Location = New System.Drawing.Point(259, 358)
-        Me.backtoaddtxt.Name = "backtoaddtxt"
-        Me.backtoaddtxt.Size = New System.Drawing.Size(171, 23)
-        Me.backtoaddtxt.TabIndex = 127
-        Me.backtoaddtxt.Text = "ADD SERVICES? CLICK HERE." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'saveditbtn
         '
@@ -368,6 +313,22 @@ Partial Class editDeleteService
         Me.canceleditbtn.Size = New System.Drawing.Size(205, 40)
         Me.canceleditbtn.TabIndex = 128
         Me.canceleditbtn.TabStop = False
+        '
+        'backtoaddtxt
+        '
+        Me.backtoaddtxt.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.backtoaddtxt.AutoSize = True
+        Me.backtoaddtxt.BackColor = System.Drawing.Color.Transparent
+        Me.backtoaddtxt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.backtoaddtxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.backtoaddtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.backtoaddtxt.Location = New System.Drawing.Point(259, 358)
+        Me.backtoaddtxt.Name = "backtoaddtxt"
+        Me.backtoaddtxt.Size = New System.Drawing.Size(171, 23)
+        Me.backtoaddtxt.TabIndex = 127
+        Me.backtoaddtxt.Text = "ADD SERVICES? CLICK HERE." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'editservicebtn
         '

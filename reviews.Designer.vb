@@ -32,6 +32,7 @@ Partial Class reviews
         Me.flowReviews = New System.Windows.Forms.FlowLayoutPanel()
         Me.viewReviewsbtn = New System.Windows.Forms.Button()
         Me.panelleavereview = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.txtComment = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -40,8 +41,6 @@ Partial Class reviews
         Me.nudServiceRating = New System.Windows.Forms.NumericUpDown()
         Me.lblServiceRating = New System.Windows.Forms.Label()
         Me.cbAppointments = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.RoundedTextBox1 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.Panel1.SuspendLayout()
         Me.fororganization.SuspendLayout()
         Me.panelleavereview.SuspendLayout()
@@ -150,7 +149,6 @@ Partial Class reviews
         Me.panelleavereview.Controls.Add(Me.Label2)
         Me.panelleavereview.Controls.Add(Me.btnSubmit)
         Me.panelleavereview.Controls.Add(Me.txtComment)
-        Me.panelleavereview.Controls.Add(Me.RoundedTextBox1)
         Me.panelleavereview.Controls.Add(Me.Label3)
         Me.panelleavereview.Controls.Add(Me.nudStaffRating)
         Me.panelleavereview.Controls.Add(Me.lblStaffRating)
@@ -161,6 +159,17 @@ Partial Class reviews
         Me.panelleavereview.Name = "panelleavereview"
         Me.panelleavereview.Size = New System.Drawing.Size(809, 243)
         Me.panelleavereview.TabIndex = 0
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(28, 27)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(205, 17)
+        Me.Label2.TabIndex = 25
+        Me.Label2.Text = "Select Completed Appointment:"
         '
         'btnSubmit
         '
@@ -173,11 +182,11 @@ Partial Class reviews
         '
         'txtComment
         '
-        Me.txtComment.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtComment.Location = New System.Drawing.Point(347, 72)
+        Me.txtComment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtComment.Location = New System.Drawing.Point(347, 59)
         Me.txtComment.Multiline = True
         Me.txtComment.Name = "txtComment"
-        Me.txtComment.Size = New System.Drawing.Size(437, 86)
+        Me.txtComment.Size = New System.Drawing.Size(437, 99)
         Me.txtComment.TabIndex = 24
         '
         'Label3
@@ -241,29 +250,6 @@ Partial Class reviews
         Me.cbAppointments.Name = "cbAppointments"
         Me.cbAppointments.Size = New System.Drawing.Size(234, 21)
         Me.cbAppointments.TabIndex = 18
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(28, 27)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(205, 17)
-        Me.Label2.TabIndex = 25
-        Me.Label2.Text = "Select Completed Appointment:"
-        '
-        'RoundedTextBox1
-        '
-        Me.RoundedTextBox1.BackColor = System.Drawing.Color.White
-        Me.RoundedTextBox1.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox1.BorderRadius = 25
-        Me.RoundedTextBox1.BorderSize = 2
-        Me.RoundedTextBox1.Location = New System.Drawing.Point(341, 59)
-        Me.RoundedTextBox1.Name = "RoundedTextBox1"
-        Me.RoundedTextBox1.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox1.Size = New System.Drawing.Size(449, 107)
-        Me.RoundedTextBox1.TabIndex = 23
         '
         'reviews
         '

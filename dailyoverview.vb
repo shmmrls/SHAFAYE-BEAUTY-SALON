@@ -1,111 +1,173 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Data
+Imports MySql.Data.MySqlClient
 
 Public Class dailyoverview
+    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
 
-    ' Set your DB connection
-    Dim connectionString As String = "server=localhost;user=root;password=;database=final_shafaye_salon"
-
-    ' 🔃 Load when form opens
     Private Sub dailyoverview_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dtpBookingDate.Value = Date.Today
-        LoadRevenue(dtpBookingDate.Value)
-        LoadBookings(dtpBookingDate.Value)
+        UpdateRevenueLabel()
+        UpdateTodaysRevenue()
+        LoadTodaysPendingBookings()
     End Sub
 
-    ' 🔍 When user clicks "Search"
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        Dim selectedDate As Date = dtpBookingDate.Value.Date
-        LoadRevenue(selectedDate)
-        LoadBookings(selectedDate)
+    Private Sub UpdateRevenueLabel()
+
+        lblRevenue.Text = $"Revenue as of {DateTime.Now.ToString("MMMM dd, yyyy")}"
     End Sub
 
-    ' 💰 Load total revenue (as of selected date)
-    Private Sub LoadRevenue(selectedDate As Date)
-        Dim totalRevenue As Decimal = 0
+    Private Sub UpdateTodaysRevenue()
+        Try
+            Using connection As New MySqlConnection(connectionString)
+                connection.Open()
 
-        Using conn As New MySqlConnection(connectionString)
-            conn.Open()
-            Dim query As String = "SELECT IFNULL(SUM(amount), 0) FROM payments WHERE DATE(payment_date) <= @date"
-            Using cmd As New MySqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@date", selectedDate)
-                totalRevenue = Convert.ToDecimal(cmd.ExecuteScalar())
-            End Using
-        End Using
 
-        lblRevenue.Text = "Total Revenue (as of " & selectedDate.ToString("MMMM dd, yyyy") & "): ₱" & totalRevenue.ToString("N2")
-    End Sub
+                Dim query As String = "
+                    SELECT COALESCE(SUM(s.price), 0) as total_revenue
+                    FROM appointments a
+                    INNER JOIN appointment_services aps ON a.appointment_id = aps.appointment_id
+                    INNER JOIN services s ON aps.service_id = s.service_id
+                    WHERE DATE(a.appointment_date) = CURDATE() 
+                    AND a.status = 'Completed'"
 
-    ' 📅 Load all bookings for selected date
-    Private Sub LoadBookings(selectedDate As Date)
-        flpBookings.Controls.Clear()
-        lblBookingsTitle.Text = "Bookings for " & selectedDate.ToString("MMMM dd, yyyy") & ":"
+                Using command As New MySqlCommand(query, connection)
+                    Dim result = command.ExecuteScalar()
+                    Dim todayRevenue As Decimal = If(result IsNot Nothing AndAlso Not IsDBNull(result), Convert.ToDecimal(result), 0)
 
-        Using conn As New MySqlConnection(connectionString)
-            conn.Open()
-            Dim query As String = "SELECT time, client_name, service_name, status FROM bookings WHERE DATE(booking_date) = @date ORDER BY time ASC"
-            Using cmd As New MySqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@date", selectedDate)
-
-                Using reader As MySqlDataReader = cmd.ExecuteReader()
-                    While reader.Read()
-                        Dim time As String = reader("time").ToString()
-                        Dim client As String = reader("client_name").ToString()
-                        Dim service As String = reader("service_name").ToString()
-                        Dim status As String = reader("status").ToString()
-
-                        Dim card As Panel = CreateBookingCard(time, client, service, status)
-                        flpBookings.Controls.Add(card)
-                    End While
+                    todaysRevenueLbl.Text = $"₱{todayRevenue:N2}"
                 End Using
             End Using
-        End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error updating today's revenue: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            todaysRevenueLbl.Text = "₱0.00"
+        End Try
     End Sub
 
-    ' 🧾 Create visual booking card (Panel)
-    Private Function CreateBookingCard(time As String, client As String, service As String, status As String) As Panel
-        Dim card As New Panel With {
-            .Width = 280,
-            .Height = 100,
-            .BackColor = Color.White,
-            .BorderStyle = BorderStyle.FixedSingle,
-            .Margin = New Padding(10),
-            .Padding = New Padding(10)
-        }
+    Private Sub LoadTodaysPendingBookings()
+        Try
+            flowBookings.Controls.Clear()
 
-        Dim lblTime As New Label With {
-            .Text = "TIME: " & time,
-            .Font = New Font("Segoe UI", 10),
-            .AutoSize = True,
-            .Location = New Point(10, 10)
-        }
+            Using connection As New MySqlConnection(connectionString)
+                connection.Open()
 
-        Dim lblClient As New Label With {
-            .Text = "CLIENT: " & client,
-            .Font = New Font("Segoe UI", 10),
-            .AutoSize = True,
-            .Location = New Point(10, 30)
-        }
 
-        Dim lblService As New Label With {
-            .Text = "SERVICE: " & service,
-            .Font = New Font("Segoe UI", 10),
-            .AutoSize = True,
-            .Location = New Point(10, 50)
-        }
+                Dim query As String = "
+                    SELECT DISTINCT
+                        a.appointment_id,
+                        a.appointment_time,
+                        CONCAT(ur.first_name, ' ', ur.last_name) as customer_name,
+                        GROUP_CONCAT(s.name SEPARATOR ', ') as services,
+                        SUM(s.price) as total_amount
+                    FROM appointments a
+                    INNER JOIN user_register ur ON a.user_id = ur.user_id
+                    INNER JOIN appointment_services aps ON a.appointment_id = aps.appointment_id
+                    INNER JOIN services s ON aps.service_id = s.service_id
+                    WHERE DATE(a.appointment_date) = CURDATE() 
+                    AND a.status = 'Pending'
+                    GROUP BY a.appointment_id, a.appointment_time, ur.first_name, ur.last_name
+                    ORDER BY a.appointment_time"
 
-        Dim lblStatus As New Label With {
-            .Text = "STATUS: " & status,
-            .Font = New Font("Segoe UI", 10),
-            .AutoSize = True,
-            .Location = New Point(10, 70)
-        }
+                Using command As New MySqlCommand(query, connection)
+                    Using reader As MySqlDataReader = command.ExecuteReader()
+                        While reader.Read()
+                            Dim bookingPanel As Panel = CreateBookingPanel(
+                                reader("appointment_id").ToString(),
+                                reader("appointment_time").ToString(),
+                                reader("customer_name").ToString(),
+                                reader("services").ToString(),
+                                Convert.ToDecimal(reader("total_amount"))
+                            )
+                            flowBookings.Controls.Add(bookingPanel)
+                        End While
+                    End Using
+                End Using
+            End Using
 
-        card.Controls.Add(lblTime)
-        card.Controls.Add(lblClient)
-        card.Controls.Add(lblService)
-        card.Controls.Add(lblStatus)
 
-        Return card
+            If flowBookings.Controls.Count = 0 Then
+                Dim noBookingsLabel As New Label()
+                noBookingsLabel.Text = "No pending bookings for today"
+                noBookingsLabel.ForeColor = Color.Gray
+                noBookingsLabel.Font = New Font("Segoe UI", 10, FontStyle.Italic)
+                noBookingsLabel.AutoSize = True
+                noBookingsLabel.Margin = New Padding(10)
+                flowBookings.Controls.Add(noBookingsLabel)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show($"Error loading pending bookings: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Function CreateBookingPanel(appointmentId As String, appointmentTime As String, customerName As String, services As String, totalAmount As Decimal) As Panel
+        Dim panel As New Panel()
+        panel.Size = New Size(400, 120)
+        panel.BorderStyle = BorderStyle.FixedSingle
+        panel.BackColor = Color.White
+        panel.Margin = New Padding(5)
+
+
+        Dim lblAppointmentId As New Label()
+        lblAppointmentId.Text = $"Appointment #{appointmentId}"
+        lblAppointmentId.Font = New Font("Segoe UI", 9, FontStyle.Bold)
+        lblAppointmentId.ForeColor = Color.DarkBlue
+        lblAppointmentId.Location = New Point(10, 8)
+        lblAppointmentId.AutoSize = True
+        panel.Controls.Add(lblAppointmentId)
+
+
+        Dim lblTime As New Label()
+        lblTime.Text = $"Time: {appointmentTime}"
+        lblTime.Font = New Font("Segoe UI", 9)
+        lblTime.Location = New Point(10, 28)
+        lblTime.AutoSize = True
+        panel.Controls.Add(lblTime)
+
+
+        Dim lblCustomer As New Label()
+        lblCustomer.Text = $"Customer: {customerName}"
+        lblCustomer.Font = New Font("Segoe UI", 9, FontStyle.Bold)
+        lblCustomer.Location = New Point(10, 48)
+        lblCustomer.AutoSize = True
+        panel.Controls.Add(lblCustomer)
+
+
+        Dim lblServices As New Label()
+        lblServices.Text = $"Services: {services}"
+        lblServices.Font = New Font("Segoe UI", 8)
+        lblServices.Location = New Point(10, 68)
+        lblServices.Size = New Size(380, 20)
+        lblServices.ForeColor = Color.DarkGreen
+        panel.Controls.Add(lblServices)
+
+
+        Dim lblAmount As New Label()
+        lblAmount.Text = $"Total: ₱{totalAmount:N2}"
+        lblAmount.Font = New Font("Segoe UI", 9, FontStyle.Bold)
+        lblAmount.ForeColor = Color.Red
+        lblAmount.Location = New Point(10, 88)
+        lblAmount.AutoSize = True
+        panel.Controls.Add(lblAmount)
+
+
+        Dim lblStatus As New Label()
+        lblStatus.Text = "PENDING"
+        lblStatus.Font = New Font("Segoe UI", 8, FontStyle.Bold)
+        lblStatus.ForeColor = Color.Orange
+        lblStatus.Location = New Point(320, 8)
+        lblStatus.AutoSize = True
+        panel.Controls.Add(lblStatus)
+
+        Return panel
     End Function
 
+
+    Public Sub RefreshData()
+        UpdateRevenueLabel()
+        UpdateTodaysRevenue()
+        LoadTodaysPendingBookings()
+    End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        RefreshData()
+    End Sub
 End Class

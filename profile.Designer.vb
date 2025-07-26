@@ -45,14 +45,7 @@ Partial Class profile
         Me.updatepass = New System.Windows.Forms.PictureBox()
         Me.passtext = New System.Windows.Forms.TextBox()
         Me.clear = New System.Windows.Forms.Label()
-        Me.RoundedTextBox4 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox5 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox1 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox3 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox6 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox2 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.lntext = New System.Windows.Forms.TextBox()
-        Me.RoundedTextBox7 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.passwordPopupPanel.SuspendLayout()
@@ -110,11 +103,11 @@ Partial Class profile
         'fntext
         '
         Me.fntext.BackColor = System.Drawing.Color.White
-        Me.fntext.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.fntext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.fntext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fntext.Location = New System.Drawing.Point(75, 141)
+        Me.fntext.Location = New System.Drawing.Point(62, 141)
         Me.fntext.Name = "fntext"
-        Me.fntext.Size = New System.Drawing.Size(159, 20)
+        Me.fntext.Size = New System.Drawing.Size(172, 27)
         Me.fntext.TabIndex = 40
         '
         'DateOfBirth
@@ -135,31 +128,31 @@ Partial Class profile
         'phonetext
         '
         Me.phonetext.BackColor = System.Drawing.Color.White
-        Me.phonetext.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.phonetext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.phonetext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.phonetext.Location = New System.Drawing.Point(536, 221)
+        Me.phonetext.Location = New System.Drawing.Point(525, 221)
         Me.phonetext.Name = "phonetext"
-        Me.phonetext.Size = New System.Drawing.Size(366, 20)
+        Me.phonetext.Size = New System.Drawing.Size(377, 27)
         Me.phonetext.TabIndex = 43
         '
         'emailtext
         '
         Me.emailtext.BackColor = System.Drawing.Color.White
-        Me.emailtext.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.emailtext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.emailtext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.emailtext.Location = New System.Drawing.Point(73, 221)
+        Me.emailtext.Location = New System.Drawing.Point(60, 221)
         Me.emailtext.Name = "emailtext"
-        Me.emailtext.Size = New System.Drawing.Size(362, 20)
+        Me.emailtext.Size = New System.Drawing.Size(375, 27)
         Me.emailtext.TabIndex = 42
         '
         'untxt
         '
         Me.untxt.BackColor = System.Drawing.Color.White
-        Me.untxt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.untxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.untxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.untxt.Location = New System.Drawing.Point(536, 140)
+        Me.untxt.Location = New System.Drawing.Point(525, 140)
         Me.untxt.Name = "untxt"
-        Me.untxt.Size = New System.Drawing.Size(366, 20)
+        Me.untxt.Size = New System.Drawing.Size(377, 27)
         Me.untxt.TabIndex = 41
         '
         'updateprofile
@@ -241,8 +234,6 @@ Partial Class profile
         Me.Panel2.Controls.Add(Me.updatepass)
         Me.Panel2.Controls.Add(Me.passtext)
         Me.Panel2.Controls.Add(Me.clear)
-        Me.Panel2.Controls.Add(Me.RoundedTextBox4)
-        Me.Panel2.Controls.Add(Me.RoundedTextBox5)
         Me.Panel2.Location = New System.Drawing.Point(0, 366)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1005, 145)
@@ -261,12 +252,12 @@ Partial Class profile
         '
         'confirmpasstext
         '
-        Me.confirmpasstext.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.confirmpasstext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.confirmpasstext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.confirmpasstext.Location = New System.Drawing.Point(541, 52)
+        Me.confirmpasstext.Location = New System.Drawing.Point(528, 52)
         Me.confirmpasstext.Name = "confirmpasstext"
         Me.confirmpasstext.PasswordChar = Global.Microsoft.VisualBasic.ChrW(10043)
-        Me.confirmpasstext.Size = New System.Drawing.Size(360, 20)
+        Me.confirmpasstext.Size = New System.Drawing.Size(373, 27)
         Me.confirmpasstext.TabIndex = 62
         '
         'showpassword
@@ -308,12 +299,12 @@ Partial Class profile
         '
         'passtext
         '
-        Me.passtext.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.passtext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.passtext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.passtext.Location = New System.Drawing.Point(78, 52)
+        Me.passtext.Location = New System.Drawing.Point(65, 52)
         Me.passtext.Name = "passtext"
         Me.passtext.PasswordChar = Global.Microsoft.VisualBasic.ChrW(10043)
-        Me.passtext.Size = New System.Drawing.Size(362, 20)
+        Me.passtext.Size = New System.Drawing.Size(375, 27)
         Me.passtext.TabIndex = 57
         '
         'clear
@@ -329,94 +320,15 @@ Partial Class profile
         Me.clear.TabIndex = 58
         Me.clear.Text = "CLEAR"
         '
-        'RoundedTextBox4
-        '
-        Me.RoundedTextBox4.BackColor = System.Drawing.Color.White
-        Me.RoundedTextBox4.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox4.BorderRadius = 25
-        Me.RoundedTextBox4.BorderSize = 2
-        Me.RoundedTextBox4.Location = New System.Drawing.Point(67, 40)
-        Me.RoundedTextBox4.Name = "RoundedTextBox4"
-        Me.RoundedTextBox4.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox4.Size = New System.Drawing.Size(386, 38)
-        Me.RoundedTextBox4.TabIndex = 64
-        '
-        'RoundedTextBox5
-        '
-        Me.RoundedTextBox5.BackColor = System.Drawing.Color.White
-        Me.RoundedTextBox5.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox5.BorderRadius = 25
-        Me.RoundedTextBox5.BorderSize = 2
-        Me.RoundedTextBox5.Location = New System.Drawing.Point(521, 40)
-        Me.RoundedTextBox5.Name = "RoundedTextBox5"
-        Me.RoundedTextBox5.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox5.Size = New System.Drawing.Size(386, 38)
-        Me.RoundedTextBox5.TabIndex = 65
-        '
-        'RoundedTextBox1
-        '
-        Me.RoundedTextBox1.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox1.BorderRadius = 25
-        Me.RoundedTextBox1.BorderSize = 2
-        Me.RoundedTextBox1.Location = New System.Drawing.Point(62, 209)
-        Me.RoundedTextBox1.Name = "RoundedTextBox1"
-        Me.RoundedTextBox1.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox1.Size = New System.Drawing.Size(386, 38)
-        Me.RoundedTextBox1.TabIndex = 58
-        '
-        'RoundedTextBox3
-        '
-        Me.RoundedTextBox3.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox3.BorderRadius = 25
-        Me.RoundedTextBox3.BorderSize = 2
-        Me.RoundedTextBox3.Location = New System.Drawing.Point(525, 209)
-        Me.RoundedTextBox3.Name = "RoundedTextBox3"
-        Me.RoundedTextBox3.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox3.Size = New System.Drawing.Size(386, 38)
-        Me.RoundedTextBox3.TabIndex = 60
-        '
-        'RoundedTextBox6
-        '
-        Me.RoundedTextBox6.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox6.BorderRadius = 25
-        Me.RoundedTextBox6.BorderSize = 2
-        Me.RoundedTextBox6.Location = New System.Drawing.Point(62, 129)
-        Me.RoundedTextBox6.Name = "RoundedTextBox6"
-        Me.RoundedTextBox6.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox6.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox6.TabIndex = 61
-        '
-        'RoundedTextBox2
-        '
-        Me.RoundedTextBox2.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox2.BorderRadius = 25
-        Me.RoundedTextBox2.BorderSize = 2
-        Me.RoundedTextBox2.Location = New System.Drawing.Point(525, 129)
-        Me.RoundedTextBox2.Name = "RoundedTextBox2"
-        Me.RoundedTextBox2.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox2.Size = New System.Drawing.Size(386, 38)
-        Me.RoundedTextBox2.TabIndex = 62
-        '
         'lntext
         '
         Me.lntext.BackColor = System.Drawing.Color.White
-        Me.lntext.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lntext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lntext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lntext.Location = New System.Drawing.Point(278, 141)
+        Me.lntext.Location = New System.Drawing.Point(265, 141)
         Me.lntext.Name = "lntext"
-        Me.lntext.Size = New System.Drawing.Size(159, 20)
+        Me.lntext.Size = New System.Drawing.Size(172, 27)
         Me.lntext.TabIndex = 63
-        '
-        'RoundedTextBox7
-        '
-        Me.RoundedTextBox7.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox7.BorderRadius = 25
-        Me.RoundedTextBox7.BorderSize = 2
-        Me.RoundedTextBox7.Location = New System.Drawing.Point(265, 129)
-        Me.RoundedTextBox7.Name = "RoundedTextBox7"
-        Me.RoundedTextBox7.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox7.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox7.TabIndex = 64
         '
         'Label5
         '
@@ -440,7 +352,6 @@ Partial Class profile
         Me.ClientSize = New System.Drawing.Size(1005, 511)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lntext)
-        Me.Controls.Add(Me.RoundedTextBox7)
         Me.Controls.Add(Me.passwordPopupPanel)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Label2)
@@ -455,10 +366,6 @@ Partial Class profile
         Me.Controls.Add(Me.untxt)
         Me.Controls.Add(Me.updateprofile)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.RoundedTextBox1)
-        Me.Controls.Add(Me.RoundedTextBox3)
-        Me.Controls.Add(Me.RoundedTextBox6)
-        Me.Controls.Add(Me.RoundedTextBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "profile"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

@@ -28,7 +28,6 @@ Partial Class inventoryList
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.lblBookingsTitle = New System.Windows.Forms.Label()
         Me.lblRevenue = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.pnlDailyOverview = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
@@ -50,7 +49,6 @@ Partial Class inventoryList
         Me.fororganization.Controls.Add(Me.txtSearch)
         Me.fororganization.Controls.Add(Me.lblBookingsTitle)
         Me.fororganization.Controls.Add(Me.lblRevenue)
-        Me.fororganization.Controls.Add(Me.Label3)
         Me.fororganization.Controls.Add(Me.Label2)
         Me.fororganization.Dock = System.Windows.Forms.DockStyle.Top
         Me.fororganization.Location = New System.Drawing.Point(0, 83)
@@ -60,7 +58,7 @@ Partial Class inventoryList
         '
         'btnSearch
         '
-        Me.btnSearch.Location = New System.Drawing.Point(483, 32)
+        Me.btnSearch.Location = New System.Drawing.Point(429, 26)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(101, 30)
         Me.btnSearch.TabIndex = 19
@@ -69,7 +67,7 @@ Partial Class inventoryList
         '
         'txtSearch
         '
-        Me.txtSearch.Location = New System.Drawing.Point(237, 39)
+        Me.txtSearch.Location = New System.Drawing.Point(183, 33)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(216, 20)
         Me.txtSearch.TabIndex = 18
@@ -79,7 +77,7 @@ Partial Class inventoryList
         Me.lblBookingsTitle.AutoSize = True
         Me.lblBookingsTitle.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBookingsTitle.ForeColor = System.Drawing.Color.White
-        Me.lblBookingsTitle.Location = New System.Drawing.Point(427, 39)
+        Me.lblBookingsTitle.Location = New System.Drawing.Point(373, 33)
         Me.lblBookingsTitle.Name = "lblBookingsTitle"
         Me.lblBookingsTitle.Size = New System.Drawing.Size(0, 30)
         Me.lblBookingsTitle.TabIndex = 17
@@ -93,17 +91,6 @@ Partial Class inventoryList
         Me.lblRevenue.Name = "lblRevenue"
         Me.lblRevenue.Size = New System.Drawing.Size(0, 30)
         Me.lblRevenue.TabIndex = 16
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(120, 32)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(106, 30)
-        Me.Label3.TabIndex = 14
-        Me.Label3.Text = "SEARCH: "
         '
         'Label2
         '
@@ -128,13 +115,13 @@ Partial Class inventoryList
         '
         Me.lblTitle.AutoSize = True
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(147, 9)
+        Me.lblTitle.Location = New System.Drawing.Point(80, 20)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(407, 65)
+        Me.lblTitle.Size = New System.Drawing.Size(584, 47)
         Me.lblTitle.TabIndex = 7
-        Me.lblTitle.Text = "INVENTORY LIST"
+        Me.lblTitle.Text = "INVENTORY LIST W/ USAGE LOGS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'inventoryList
         '
@@ -163,7 +150,6 @@ Partial Class inventoryList
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents lblBookingsTitle As Label
     Friend WithEvents lblRevenue As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents pnlDailyOverview As Panel
     Friend WithEvents lblTitle As Label

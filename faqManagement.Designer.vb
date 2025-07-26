@@ -1,8 +1,8 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class RoundedTextBox
-    Inherits System.Windows.Forms.UserControl
+Partial Class faqManagement
+    Inherits System.Windows.Forms.Form
 
-    'UserControl overrides dispose to clean up the component list.
+    'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
@@ -24,14 +24,17 @@ Partial Class RoundedTextBox
     Private Sub InitializeComponent()
         Me.SuspendLayout()
         '
-        'RoundedTextBox
+        'faqManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Name = "RoundedTextBox"
-        Me.Size = New System.Drawing.Size(596, 150)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(684, 561)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Name = "faqManagement"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "faqManagement"
         Me.ResumeLayout(False)
 
     End Sub
-
 End Class

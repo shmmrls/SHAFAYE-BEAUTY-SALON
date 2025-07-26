@@ -40,9 +40,6 @@ Partial Class bookappointment
         Me.Label4 = New System.Windows.Forms.Label()
         Me.removeservicebtn = New System.Windows.Forms.Button()
         Me.submitBooking = New System.Windows.Forms.PictureBox()
-        Me.RoundedTextBox7 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox1 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox6 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.clear = New System.Windows.Forms.Label()
@@ -64,11 +61,11 @@ Partial Class bookappointment
         'lntext
         '
         Me.lntext.BackColor = System.Drawing.Color.White
-        Me.lntext.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lntext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lntext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lntext.Location = New System.Drawing.Point(288, 134)
+        Me.lntext.Location = New System.Drawing.Point(275, 134)
         Me.lntext.Name = "lntext"
-        Me.lntext.Size = New System.Drawing.Size(159, 20)
+        Me.lntext.Size = New System.Drawing.Size(183, 27)
         Me.lntext.TabIndex = 84
         '
         'Label2
@@ -107,11 +104,11 @@ Partial Class bookappointment
         'fntext
         '
         Me.fntext.BackColor = System.Drawing.Color.White
-        Me.fntext.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.fntext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.fntext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fntext.Location = New System.Drawing.Point(85, 134)
+        Me.fntext.Location = New System.Drawing.Point(72, 134)
         Me.fntext.Name = "fntext"
-        Me.fntext.Size = New System.Drawing.Size(159, 20)
+        Me.fntext.Size = New System.Drawing.Size(172, 27)
         Me.fntext.TabIndex = 68
         '
         'appointmentDate
@@ -133,11 +130,11 @@ Partial Class bookappointment
         'emailtext
         '
         Me.emailtext.BackColor = System.Drawing.Color.White
-        Me.emailtext.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.emailtext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.emailtext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.emailtext.Location = New System.Drawing.Point(83, 214)
+        Me.emailtext.Location = New System.Drawing.Point(75, 214)
         Me.emailtext.Name = "emailtext"
-        Me.emailtext.Size = New System.Drawing.Size(362, 20)
+        Me.emailtext.Size = New System.Drawing.Size(383, 27)
         Me.emailtext.TabIndex = 70
         '
         'Label6
@@ -240,44 +237,11 @@ Partial Class bookappointment
         Me.submitBooking.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.confirmbooking
         Me.submitBooking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.submitBooking.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.submitBooking.Location = New System.Drawing.Point(543, 380)
+        Me.submitBooking.Location = New System.Drawing.Point(589, 385)
         Me.submitBooking.Name = "submitBooking"
-        Me.submitBooking.Size = New System.Drawing.Size(386, 72)
+        Me.submitBooking.Size = New System.Drawing.Size(254, 39)
         Me.submitBooking.TabIndex = 91
         Me.submitBooking.TabStop = False
-        '
-        'RoundedTextBox7
-        '
-        Me.RoundedTextBox7.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox7.BorderRadius = 25
-        Me.RoundedTextBox7.BorderSize = 2
-        Me.RoundedTextBox7.Location = New System.Drawing.Point(275, 122)
-        Me.RoundedTextBox7.Name = "RoundedTextBox7"
-        Me.RoundedTextBox7.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox7.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox7.TabIndex = 85
-        '
-        'RoundedTextBox1
-        '
-        Me.RoundedTextBox1.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox1.BorderRadius = 25
-        Me.RoundedTextBox1.BorderSize = 2
-        Me.RoundedTextBox1.Location = New System.Drawing.Point(72, 202)
-        Me.RoundedTextBox1.Name = "RoundedTextBox1"
-        Me.RoundedTextBox1.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox1.Size = New System.Drawing.Size(386, 38)
-        Me.RoundedTextBox1.TabIndex = 80
-        '
-        'RoundedTextBox6
-        '
-        Me.RoundedTextBox6.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox6.BorderRadius = 25
-        Me.RoundedTextBox6.BorderSize = 2
-        Me.RoundedTextBox6.Location = New System.Drawing.Point(72, 122)
-        Me.RoundedTextBox6.Name = "RoundedTextBox6"
-        Me.RoundedTextBox6.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox6.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox6.TabIndex = 82
         '
         'Label1
         '
@@ -307,7 +271,7 @@ Partial Class bookappointment
         Me.clear.Cursor = System.Windows.Forms.Cursors.Hand
         Me.clear.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clear.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.clear.Location = New System.Drawing.Point(692, 466)
+        Me.clear.Location = New System.Drawing.Point(693, 437)
         Me.clear.Name = "clear"
         Me.clear.Size = New System.Drawing.Size(40, 19)
         Me.clear.TabIndex = 92
@@ -332,7 +296,6 @@ Partial Class bookappointment
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lntext)
-        Me.Controls.Add(Me.RoundedTextBox7)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblemail)
         Me.Controls.Add(Me.lblfullname)
@@ -340,8 +303,6 @@ Partial Class bookappointment
         Me.Controls.Add(Me.appointmentDate)
         Me.Controls.Add(Me.emailtext)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.RoundedTextBox1)
-        Me.Controls.Add(Me.RoundedTextBox6)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "bookappointment"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

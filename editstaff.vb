@@ -35,6 +35,9 @@ Public Class editstaff
             .DefaultCellStyle.SelectionBackColor = Color.LightGray
             .DefaultCellStyle.SelectionForeColor = Color.Black
 
+            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            .AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+
         End With
     End Sub
 
@@ -59,8 +62,7 @@ Public Class editstaff
         rbActive.Visible = isStaff
         rbInactive.Visible = isStaff
         lblstatus.Visible = isStaff
-        RoundedTextBox1.Visible = isStaff
-        RoundedTextBox3.Visible = isStaff
+
     End Sub
 
     Private Sub addstaffadmin_Click(sender As Object, e As EventArgs) Handles addstaffadmin.Click
@@ -251,4 +253,7 @@ Public Class editstaff
         inactiveEditrdb.Checked = False
         Panel3.Visible = False
     End Sub
+
+
+
 End Class

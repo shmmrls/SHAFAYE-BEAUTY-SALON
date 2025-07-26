@@ -216,6 +216,7 @@ Public Class bookingactions
         Try
             conn.Open()
 
+
             ' Start transaction to ensure data consistency
             Dim transaction As MySqlTransaction = conn.BeginTransaction()
 
@@ -258,17 +259,70 @@ Public Class bookingactions
                             deleteCmd.ExecuteNonQuery()
                         End Using
 
-                    Case "Pending", "Completed"
+                    Case "Pending"
+                        Dim deletePaymentQuery As String = "DELETE FROM payments WHERE appointment_id = @id"
+                        Using deleteCmd As New MySqlCommand(deletePaymentQuery, conn, transaction)
+                            deleteCmd.Parameters.AddWithValue("@id", appointmentID)
+                            deleteCmd.ExecuteNonQuery()
+                        End Using
 
-                        If newStatus = "Pending" Then
-                            Dim deletePaymentQuery As String = "DELETE FROM payments WHERE appointment_id = @id"
-                            Using deleteCmd As New MySqlCommand(deletePaymentQuery, conn, transaction)
-                                deleteCmd.Parameters.AddWithValue("@id", appointmentID)
-                                deleteCmd.ExecuteNonQuery()
+                    Case "Completed"
+                        ' Check if inventory was already deducted
+                        Dim deductedQuery As String = "SELECT inventory_deducted FROM appointments WHERE appointment_id = @id"
+                        Dim alreadyDeducted As Boolean = False
+                        Using deductedCmd As New MySqlCommand(deductedQuery, conn, transaction)
+                            deductedCmd.Parameters.AddWithValue("@id", appointmentID)
+                            Dim resultObj = deductedCmd.ExecuteScalar()
+                            If resultObj IsNot DBNull.Value AndAlso Convert.ToBoolean(resultObj) Then
+                                alreadyDeducted = True
+                            End If
+                        End Using
+
+                        If Not alreadyDeducted Then
+                            ' Deduct inventory for all services used in this appointment
+                            Dim serviceQuery As String = "SELECT service_id FROM appointment_services WHERE appointment_id = @id"
+                            Using serviceCmd As New MySqlCommand(serviceQuery, conn, transaction)
+                                serviceCmd.Parameters.AddWithValue("@id", appointmentID)
+                                Using serviceReader As MySqlDataReader = serviceCmd.ExecuteReader()
+                                    Dim serviceList As New List(Of Integer)
+                                    While serviceReader.Read()
+                                        serviceList.Add(Convert.ToInt32(serviceReader("service_id")))
+                                    End While
+                                    serviceReader.Close()
+
+                                    For Each serviceId In serviceList
+                                        Dim usageQuery As String = "SELECT item_id, quantity_used FROM inventory_usage WHERE service_id = @sid"
+                                        Using usageCmd As New MySqlCommand(usageQuery, conn, transaction)
+                                            usageCmd.Parameters.AddWithValue("@sid", serviceId)
+                                            Using usageReader As MySqlDataReader = usageCmd.ExecuteReader()
+                                                Dim deductions As New List(Of Tuple(Of Integer, Integer))
+                                                While usageReader.Read()
+                                                    deductions.Add(Tuple.Create(Convert.ToInt32(usageReader("item_id")), Convert.ToInt32(usageReader("quantity_used"))))
+                                                End While
+                                                usageReader.Close()
+
+                                                For Each deduction In deductions
+                                                    Dim deductQuery As String = "UPDATE inventory SET quantity = quantity - @qtyUsed WHERE item_id = @itemId"
+                                                    Using deductCmd As New MySqlCommand(deductQuery, conn, transaction)
+                                                        deductCmd.Parameters.AddWithValue("@qtyUsed", deduction.Item2)
+                                                        deductCmd.Parameters.AddWithValue("@itemId", deduction.Item1)
+                                                        deductCmd.ExecuteNonQuery()
+                                                    End Using
+                                                Next
+                                            End Using
+                                        End Using
+                                    Next
+                                End Using
+                            End Using
+
+                            ' Update the appointment to mark inventory as deducted
+                            Dim markDeductedQuery As String = "UPDATE appointments SET inventory_deducted = 1 WHERE appointment_id = @id"
+                            Using markCmd As New MySqlCommand(markDeductedQuery, conn, transaction)
+                                markCmd.Parameters.AddWithValue("@id", appointmentID)
+                                markCmd.ExecuteNonQuery()
                             End Using
                         End If
                 End Select
-
                 ' Commit transaction
                 transaction.Commit()
 

@@ -85,7 +85,7 @@ Public Class adminMenu
     End Sub
 
 
-    ' ADMIN DASHBOARD
+    ' ADMIN DASHBOARD IMPROVE NALANG DESIGN
     Private Sub adminDashboard_Click(sender As Object, e As EventArgs) Handles adminDashboard.Click
         showSubmenu(panelAdmin)
     End Sub
@@ -100,7 +100,7 @@ Public Class adminMenu
         hideSubmenu()
     End Sub
 
-    Private Sub reminders_Click(sender As Object, e As EventArgs) Handles reminders.Click
+    Private Sub reminders_Click(sender As Object, e As EventArgs)
         OpenChildForm(New reminder())
         hideSubmenu()
     End Sub
@@ -109,7 +109,7 @@ Public Class adminMenu
 
 
 
-    ' APPOINTMENT MANAGEMENT
+    ' APPOINTMENT MANAGEMENT OK NA 
     Private Sub appointmentManagement_Click(sender As Object, e As EventArgs) Handles appointmentManagement.Click
         showSubmenu(panelAppointment)
     End Sub
@@ -122,10 +122,14 @@ Public Class adminMenu
         hideSubmenu()
     End Sub
 
+    Private Sub manageCustomersBtn_Click(sender As Object, e As EventArgs) Handles manageCustomersBtn.Click
+        OpenChildForm(New manageCustomers())
+        hideSubmenu()
+    End Sub
 
 
 
-    ' SERVICES
+    ' SERVICES OK NA
     Private Sub services_Click(sender As Object, e As EventArgs) Handles services.Click
         showSubmenu(panelService)
     End Sub
@@ -153,7 +157,7 @@ Public Class adminMenu
 
 
 
-    ' STAFF
+    ' STAFF OK NA
     Private Sub staff_Click(sender As Object, e As EventArgs) Handles staff.Click
         showSubmenu(panelStaff)
     End Sub
@@ -168,8 +172,8 @@ Public Class adminMenu
         hideSubmenu()
     End Sub
 
-
     Private Sub staffpef_Click(sender As Object, e As EventArgs) Handles staffpef.Click
+        OpenChildForm(New staffperformance())
         hideSubmenu()
     End Sub
 
@@ -186,17 +190,19 @@ Public Class adminMenu
 
     Private Sub expenseTrack_Click(sender As Object, e As EventArgs) Handles expenseTrack.Click
         hideSubmenu()
+        OpenChildForm(New expenseTracking())
     End Sub
 
     Private Sub salesrep_Click(sender As Object, e As EventArgs) Handles salesrep.Click
         hideSubmenu()
+        OpenChildForm(New salesReport())
     End Sub
 
 
 
 
 
-    ' INVENTORY
+    ' INVENTORY IMPROVE
     Private Sub inventory_Click(sender As Object, e As EventArgs) Handles inventory.Click
         showSubmenu(panelInventory)
     End Sub
@@ -211,19 +217,15 @@ Public Class adminMenu
         OpenChildForm(New addNewItems())
     End Sub
 
-    Private Sub updateStockLevels_Click(sender As Object, e As EventArgs) Handles updateStockLevels.Click
-        hideSubmenu()
-        OpenChildForm(New updateStockLevels())
-    End Sub
 
     Private Sub usageLogs_Click(sender As Object, e As EventArgs) Handles usageLogs.Click
         hideSubmenu()
         OpenChildForm(New usageLogs())
     End Sub
 
-    Private Sub lowStockAlerts_Click(sender As Object, e As EventArgs) Handles lowStockAlerts.Click
+    Private Sub alerts_Click(sender As Object, e As EventArgs) Handles alerts.Click
         hideSubmenu()
-        OpenChildForm(New lowStockAlerts())
+        OpenChildForm(New alerts())
     End Sub
 
 
@@ -235,18 +237,12 @@ Public Class adminMenu
 
     Private Sub paymentRecords_Click(sender As Object, e As EventArgs) Handles paymentRecords.Click
         hideSubmenu()
-    End Sub
-
-    Private Sub updatePaymentStats_Click(sender As Object, e As EventArgs) Handles updatePaymentStats.Click
-        hideSubmenu()
+        OpenChildForm(New paymentRecords())
     End Sub
 
     Private Sub generateReceipts_Click(sender As Object, e As EventArgs) Handles generateReceipts.Click
         hideSubmenu()
-    End Sub
-
-    Private Sub transactionHistory_Click(sender As Object, e As EventArgs) Handles transactionHistory.Click
-        hideSubmenu()
+        OpenChildForm(New genReceipts())
     End Sub
 
 
@@ -261,21 +257,24 @@ Public Class adminMenu
 
     Private Sub customerInquiries_Click(sender As Object, e As EventArgs) Handles customerInquiries.Click
         hideSubmenu()
+        OpenChildForm(New customerInquiries())
     End Sub
 
     Private Sub faqManagement_Click(sender As Object, e As EventArgs) Handles faqManagement.Click
         hideSubmenu()
+        OpenChildForm(New faqManagement())
     End Sub
 
     Private Sub reviewMode_Click(sender As Object, e As EventArgs) Handles reviewMode.Click
         hideSubmenu()
+        OpenChildForm(New moderateReviews())
     End Sub
 
 
 
 
 
-    'PROFILE AND SETTINGS
+    'PROFILE AND SETTINGS  OK NA
     Private Sub adminProfile_Click(sender As Object, e As EventArgs) Handles adminProfile.Click
         showSubmenu(panelAdminProf)
     End Sub
@@ -284,18 +283,21 @@ Public Class adminMenu
         hideSubmenu()
     End Sub
 
-    Private Sub systemSettings_Click(sender As Object, e As EventArgs) Handles systemSettings.Click
+    Private Sub adminUpdate_Click(sender As Object, e As EventArgs) Handles adminUpdate.Click
         hideSubmenu()
+        OpenChildForm(New adminControl())
     End Sub
 
-    'logout
+    'logout OK NA
     Private Sub logout_Click(sender As Object, e As EventArgs) Handles logout.Click
         hideSubmenu()
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
             Me.Hide()
-            login.Show()
+            homepage.Show()
             MsgBox("You have successfully logged out.", MsgBoxStyle.Information, "Logout Successful")
         End If
     End Sub
+
+
 End Class

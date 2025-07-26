@@ -33,10 +33,6 @@ Partial Class CustomerSupport
         Me.subjectText = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.messagetxtbox = New System.Windows.Forms.TextBox()
-        Me.RoundedTextBox2 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox7 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox1 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
-        Me.RoundedTextBox6 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -88,11 +84,11 @@ Partial Class CustomerSupport
         'lntext
         '
         Me.lntext.BackColor = System.Drawing.Color.White
-        Me.lntext.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lntext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lntext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lntext.Location = New System.Drawing.Point(525, 175)
+        Me.lntext.Location = New System.Drawing.Point(512, 175)
         Me.lntext.Name = "lntext"
-        Me.lntext.Size = New System.Drawing.Size(159, 20)
+        Me.lntext.Size = New System.Drawing.Size(172, 27)
         Me.lntext.TabIndex = 112
         '
         'lblemail
@@ -120,21 +116,21 @@ Partial Class CustomerSupport
         'fntext
         '
         Me.fntext.BackColor = System.Drawing.Color.White
-        Me.fntext.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.fntext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.fntext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fntext.Location = New System.Drawing.Point(322, 175)
+        Me.fntext.Location = New System.Drawing.Point(309, 175)
         Me.fntext.Name = "fntext"
-        Me.fntext.Size = New System.Drawing.Size(159, 20)
+        Me.fntext.Size = New System.Drawing.Size(172, 27)
         Me.fntext.TabIndex = 104
         '
         'subjectText
         '
         Me.subjectText.BackColor = System.Drawing.Color.White
-        Me.subjectText.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.subjectText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.subjectText.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.subjectText.Location = New System.Drawing.Point(320, 255)
+        Me.subjectText.Location = New System.Drawing.Point(307, 255)
         Me.subjectText.Name = "subjectText"
-        Me.subjectText.Size = New System.Drawing.Size(362, 20)
+        Me.subjectText.Size = New System.Drawing.Size(375, 27)
         Me.subjectText.TabIndex = 105
         '
         'Label2
@@ -151,57 +147,13 @@ Partial Class CustomerSupport
         'messagetxtbox
         '
         Me.messagetxtbox.BackColor = System.Drawing.Color.White
-        Me.messagetxtbox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.messagetxtbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.messagetxtbox.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.messagetxtbox.Location = New System.Drawing.Point(324, 328)
+        Me.messagetxtbox.Location = New System.Drawing.Point(311, 328)
         Me.messagetxtbox.Multiline = True
         Me.messagetxtbox.Name = "messagetxtbox"
-        Me.messagetxtbox.Size = New System.Drawing.Size(362, 77)
+        Me.messagetxtbox.Size = New System.Drawing.Size(375, 77)
         Me.messagetxtbox.TabIndex = 123
-        '
-        'RoundedTextBox2
-        '
-        Me.RoundedTextBox2.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox2.BorderRadius = 25
-        Me.RoundedTextBox2.BorderSize = 2
-        Me.RoundedTextBox2.Location = New System.Drawing.Point(313, 322)
-        Me.RoundedTextBox2.Name = "RoundedTextBox2"
-        Me.RoundedTextBox2.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox2.Size = New System.Drawing.Size(386, 89)
-        Me.RoundedTextBox2.TabIndex = 125
-        '
-        'RoundedTextBox7
-        '
-        Me.RoundedTextBox7.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox7.BorderRadius = 25
-        Me.RoundedTextBox7.BorderSize = 2
-        Me.RoundedTextBox7.Location = New System.Drawing.Point(512, 163)
-        Me.RoundedTextBox7.Name = "RoundedTextBox7"
-        Me.RoundedTextBox7.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox7.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox7.TabIndex = 113
-        '
-        'RoundedTextBox1
-        '
-        Me.RoundedTextBox1.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox1.BorderRadius = 25
-        Me.RoundedTextBox1.BorderSize = 2
-        Me.RoundedTextBox1.Location = New System.Drawing.Point(309, 243)
-        Me.RoundedTextBox1.Name = "RoundedTextBox1"
-        Me.RoundedTextBox1.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox1.Size = New System.Drawing.Size(386, 38)
-        Me.RoundedTextBox1.TabIndex = 110
-        '
-        'RoundedTextBox6
-        '
-        Me.RoundedTextBox6.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox6.BorderRadius = 25
-        Me.RoundedTextBox6.BorderSize = 2
-        Me.RoundedTextBox6.Location = New System.Drawing.Point(309, 163)
-        Me.RoundedTextBox6.Name = "RoundedTextBox6"
-        Me.RoundedTextBox6.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox6.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox6.TabIndex = 111
         '
         'CustomerSupport
         '
@@ -211,17 +163,13 @@ Partial Class CustomerSupport
         Me.ClientSize = New System.Drawing.Size(1023, 520)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.messagetxtbox)
-        Me.Controls.Add(Me.RoundedTextBox2)
         Me.Controls.Add(Me.SendButton)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lntext)
-        Me.Controls.Add(Me.RoundedTextBox7)
         Me.Controls.Add(Me.lblemail)
         Me.Controls.Add(Me.lblfullname)
         Me.Controls.Add(Me.fntext)
         Me.Controls.Add(Me.subjectText)
-        Me.Controls.Add(Me.RoundedTextBox1)
-        Me.Controls.Add(Me.RoundedTextBox6)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "CustomerSupport"

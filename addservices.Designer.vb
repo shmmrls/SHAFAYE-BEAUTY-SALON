@@ -30,21 +30,17 @@ Partial Class addservices
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtImageName = New System.Windows.Forms.TextBox()
-        Me.RoundedTextBox1 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.categoryComboBox = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtPrice = New System.Windows.Forms.TextBox()
-        Me.RoundedTextBox10 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtServiceName = New System.Windows.Forms.TextBox()
-        Me.RoundedTextBox11 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.rbNotAvailable = New System.Windows.Forms.RadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.rbAvailable = New System.Windows.Forms.RadioButton()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtDescription = New System.Windows.Forms.TextBox()
-        Me.RoundedTextBox5 = New SHAFAYE_BEAUTY_SALON.RoundedTextBox()
         Me.btnSave = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel1.SuspendLayout()
@@ -82,21 +78,17 @@ Partial Class addservices
         Me.panelforedit.Controls.Add(Me.Label6)
         Me.panelforedit.Controls.Add(Me.Label5)
         Me.panelforedit.Controls.Add(Me.txtImageName)
-        Me.panelforedit.Controls.Add(Me.RoundedTextBox1)
         Me.panelforedit.Controls.Add(Me.categoryComboBox)
         Me.panelforedit.Controls.Add(Me.Label3)
         Me.panelforedit.Controls.Add(Me.Label2)
         Me.panelforedit.Controls.Add(Me.txtPrice)
-        Me.panelforedit.Controls.Add(Me.RoundedTextBox10)
         Me.panelforedit.Controls.Add(Me.Label10)
         Me.panelforedit.Controls.Add(Me.txtServiceName)
-        Me.panelforedit.Controls.Add(Me.RoundedTextBox11)
         Me.panelforedit.Controls.Add(Me.rbNotAvailable)
         Me.panelforedit.Controls.Add(Me.Label4)
         Me.panelforedit.Controls.Add(Me.rbAvailable)
         Me.panelforedit.Controls.Add(Me.Label8)
         Me.panelforedit.Controls.Add(Me.txtDescription)
-        Me.panelforedit.Controls.Add(Me.RoundedTextBox5)
         Me.panelforedit.Controls.Add(Me.btnSave)
         Me.panelforedit.Location = New System.Drawing.Point(12, 89)
         Me.panelforedit.Name = "panelforedit"
@@ -148,23 +140,12 @@ Partial Class addservices
         'txtImageName
         '
         Me.txtImageName.BackColor = System.Drawing.Color.White
-        Me.txtImageName.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtImageName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtImageName.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtImageName.Location = New System.Drawing.Point(159, 224)
+        Me.txtImageName.Location = New System.Drawing.Point(146, 224)
         Me.txtImageName.Name = "txtImageName"
-        Me.txtImageName.Size = New System.Drawing.Size(159, 20)
+        Me.txtImageName.Size = New System.Drawing.Size(172, 27)
         Me.txtImageName.TabIndex = 145
-        '
-        'RoundedTextBox1
-        '
-        Me.RoundedTextBox1.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox1.BorderRadius = 25
-        Me.RoundedTextBox1.BorderSize = 2
-        Me.RoundedTextBox1.Location = New System.Drawing.Point(146, 212)
-        Me.RoundedTextBox1.Name = "RoundedTextBox1"
-        Me.RoundedTextBox1.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox1.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox1.TabIndex = 146
         '
         'categoryComboBox
         '
@@ -200,23 +181,12 @@ Partial Class addservices
         'txtPrice
         '
         Me.txtPrice.BackColor = System.Drawing.Color.White
-        Me.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPrice.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPrice.Location = New System.Drawing.Point(159, 142)
+        Me.txtPrice.Location = New System.Drawing.Point(146, 142)
         Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.Size = New System.Drawing.Size(159, 20)
+        Me.txtPrice.Size = New System.Drawing.Size(172, 27)
         Me.txtPrice.TabIndex = 139
-        '
-        'RoundedTextBox10
-        '
-        Me.RoundedTextBox10.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox10.BorderRadius = 25
-        Me.RoundedTextBox10.BorderSize = 2
-        Me.RoundedTextBox10.Location = New System.Drawing.Point(146, 130)
-        Me.RoundedTextBox10.Name = "RoundedTextBox10"
-        Me.RoundedTextBox10.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox10.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox10.TabIndex = 140
         '
         'Label10
         '
@@ -232,23 +202,12 @@ Partial Class addservices
         'txtServiceName
         '
         Me.txtServiceName.BackColor = System.Drawing.Color.White
-        Me.txtServiceName.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtServiceName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtServiceName.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtServiceName.Location = New System.Drawing.Point(159, 59)
+        Me.txtServiceName.Location = New System.Drawing.Point(146, 59)
         Me.txtServiceName.Name = "txtServiceName"
-        Me.txtServiceName.Size = New System.Drawing.Size(159, 20)
+        Me.txtServiceName.Size = New System.Drawing.Size(172, 27)
         Me.txtServiceName.TabIndex = 136
-        '
-        'RoundedTextBox11
-        '
-        Me.RoundedTextBox11.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox11.BorderRadius = 25
-        Me.RoundedTextBox11.BorderSize = 2
-        Me.RoundedTextBox11.Location = New System.Drawing.Point(146, 47)
-        Me.RoundedTextBox11.Name = "RoundedTextBox11"
-        Me.RoundedTextBox11.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox11.Size = New System.Drawing.Size(183, 38)
-        Me.RoundedTextBox11.TabIndex = 138
         '
         'rbNotAvailable
         '
@@ -299,23 +258,12 @@ Partial Class addservices
         'txtDescription
         '
         Me.txtDescription.BackColor = System.Drawing.Color.White
-        Me.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtDescription.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescription.Location = New System.Drawing.Point(155, 297)
+        Me.txtDescription.Location = New System.Drawing.Point(146, 297)
         Me.txtDescription.Name = "txtDescription"
-        Me.txtDescription.Size = New System.Drawing.Size(366, 20)
+        Me.txtDescription.Size = New System.Drawing.Size(375, 27)
         Me.txtDescription.TabIndex = 130
-        '
-        'RoundedTextBox5
-        '
-        Me.RoundedTextBox5.BorderColor = System.Drawing.Color.DarkGray
-        Me.RoundedTextBox5.BorderRadius = 25
-        Me.RoundedTextBox5.BorderSize = 2
-        Me.RoundedTextBox5.Location = New System.Drawing.Point(145, 287)
-        Me.RoundedTextBox5.Name = "RoundedTextBox5"
-        Me.RoundedTextBox5.Padding = New System.Windows.Forms.Padding(5)
-        Me.RoundedTextBox5.Size = New System.Drawing.Size(386, 38)
-        Me.RoundedTextBox5.TabIndex = 132
         '
         'btnSave
         '

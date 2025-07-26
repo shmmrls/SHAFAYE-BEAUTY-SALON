@@ -1,107 +1,258 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Data
+Imports MySql.Data.MySqlClient
+
 Public Class addNewItems
-    Dim conn As New MySqlConnection("server=localhost;user=root;password=;database=final_shafaye_salon")
+    ' Database connection string
+    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
 
-    Private Sub StockManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadItemsToComboBox()
-        LoadStockSummary()
+    Private Sub addNewItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadServices()
+        LoadInventoryItems()
+        SetupForm()
     End Sub
 
-    ' 🟢 ADD NEW ITEM
+    Private Sub SetupForm()
+        ' Set initial values and properties
+        numUpDownQuantity.Minimum = 0
+        numUpDownQuantity.Maximum = 999999
+        numUpDownQuantity.Value = 0
+
+        numUpDownReorderLvl.Minimum = 0
+        numUpDownReorderLvl.Maximum = 999999
+        numUpDownReorderLvl.Value = 0
+
+        numUpDownQuantityUsed.Minimum = 1
+        numUpDownQuantityUsed.Maximum = 999999
+        numUpDownQuantityUsed.Value = 1
+
+        numUpDownAddStock.Minimum = 0
+        numUpDownAddStock.Maximum = 999999
+        numUpDownAddStock.Value = 0
+
+        lblCurrentStock.Text = "Current Stock: 0"
+    End Sub
+
+    Private Sub LoadServices()
+        Try
+            Using connection As New MySqlConnection(connectionString)
+                connection.Open()
+                Dim query As String = "SELECT service_id, name FROM services WHERE is_available = 1 ORDER BY name"
+                Using command As New MySqlCommand(query, connection)
+                    Using reader As MySqlDataReader = command.ExecuteReader()
+                        Dim servicesTable As New DataTable()
+                        servicesTable.Load(reader)
+
+                        cmbService.DataSource = servicesTable
+                        cmbService.DisplayMember = "name"
+                        cmbService.ValueMember = "service_id"
+                        cmbService.SelectedIndex = -1
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error loading services: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub LoadInventoryItems()
+        Try
+            Using connection As New MySqlConnection(connectionString)
+                connection.Open()
+                Dim query As String = "SELECT item_id, item_name, quantity FROM inventory ORDER BY item_name"
+                Using command As New MySqlCommand(query, connection)
+                    Using reader As MySqlDataReader = command.ExecuteReader()
+                        Dim inventoryTable As New DataTable()
+                        inventoryTable.Load(reader)
+
+                        cbxItemSelect.DataSource = inventoryTable
+                        cbxItemSelect.DisplayMember = "item_name"
+                        cbxItemSelect.ValueMember = "item_id"
+                        cbxItemSelect.SelectedIndex = -1
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error loading inventory items: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
-        If txtName.Text = "" Or txtCategory.Text = "" Or txtQuantity.Text = "" Or txtFreq.Text = "" Then
-            MessageBox.Show("Please complete all fields.")
-            Exit Sub
+        ' Validate input fields
+        If String.IsNullOrWhiteSpace(txtName.Text) Then
+            MessageBox.Show("Please enter an item name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtName.Focus()
+            Return
         End If
 
-        Dim cmd As New MySqlCommand("INSERT INTO supplies (item_name, category, quantity) VALUES (@name, @cat, @qty)", conn)
-        cmd.Parameters.AddWithValue("@name", txtName.Text)
-        cmd.Parameters.AddWithValue("@cat", txtCategory.Text)
-        cmd.Parameters.AddWithValue("@qty", Val(txtQuantity.Text))
+        If String.IsNullOrWhiteSpace(txtUnit.Text) Then
+            MessageBox.Show("Please enter a unit.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtUnit.Focus()
+            Return
+        End If
 
-        conn.Open()
-        cmd.ExecuteNonQuery()
-        conn.Close()
+        If cmbService.SelectedIndex = -1 Then
+            MessageBox.Show("Please select a service.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            cmbService.Focus()
+            Return
+        End If
 
-        MessageBox.Show("Item added successfully!")
-        ClearInputs()
-        LoadItemsToComboBox()
-        LoadStockSummary()
+        Try
+            Using connection As New MySqlConnection(connectionString)
+                connection.Open()
+                Using transaction As MySqlTransaction = connection.BeginTransaction()
+                    Try
+                        ' Check if item name already exists
+                        Dim checkQuery As String = "SELECT COUNT(*) FROM inventory WHERE item_name = @itemName"
+                        Using checkCommand As New MySqlCommand(checkQuery, connection, transaction)
+                            checkCommand.Parameters.AddWithValue("@itemName", txtName.Text.Trim())
+                            Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+                            If count > 0 Then
+                                MessageBox.Show("An item with this name already exists in inventory.", "Duplicate Item", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                                Return
+                            End If
+                        End Using
+
+                        ' Insert new item into inventory
+                        Dim insertInventoryQuery As String = "INSERT INTO inventory (item_name, quantity, unit, reorder_level) VALUES (@itemName, @quantity, @unit, @reorderLevel)"
+                        Dim newItemId As Integer
+
+                        Using insertCommand As New MySqlCommand(insertInventoryQuery, connection, transaction)
+                            insertCommand.Parameters.AddWithValue("@itemName", txtName.Text.Trim())
+                            insertCommand.Parameters.AddWithValue("@quantity", numUpDownQuantity.Value)
+                            insertCommand.Parameters.AddWithValue("@unit", txtUnit.Text.Trim())
+                            insertCommand.Parameters.AddWithValue("@reorderLevel", numUpDownReorderLvl.Value)
+                            insertCommand.ExecuteNonQuery()
+
+                            ' Get the newly inserted item ID
+                            newItemId = Convert.ToInt32(insertCommand.LastInsertedId)
+                        End Using
+
+                        ' Insert into inventory_usage table
+                        Dim insertUsageQuery As String = "INSERT INTO inventory_usage (service_id, item_id, quantity_used) VALUES (@serviceId, @itemId, @quantityUsed)"
+                        Using usageCommand As New MySqlCommand(insertUsageQuery, connection, transaction)
+                            usageCommand.Parameters.AddWithValue("@serviceId", cmbService.SelectedValue)
+                            usageCommand.Parameters.AddWithValue("@itemId", newItemId)
+                            usageCommand.Parameters.AddWithValue("@quantityUsed", numUpDownQuantityUsed.Value)
+                            usageCommand.ExecuteNonQuery()
+                        End Using
+
+                        transaction.Commit()
+                        MessageBox.Show("Item added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                        ' Clear form and refresh data
+                        ClearAddItemForm()
+                        LoadInventoryItems()
+
+                    Catch ex As Exception
+                        transaction.Rollback()
+                        Throw ex
+                    End Try
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error adding item: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
-    ' 🔄 UPDATE STOCK
     Private Sub btnUpdateStock_Click(sender As Object, e As EventArgs) Handles btnUpdateStock.Click
-        If cbxItemSelect.Text = "" Or txtAddStock.Text = "" Then
-            MessageBox.Show("Please select item and input stock to add.")
-            Exit Sub
+        If cbxItemSelect.SelectedIndex = -1 Then
+            MessageBox.Show("Please select an item to update.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            cbxItemSelect.Focus()
+            Return
         End If
 
-        Dim cmd As New MySqlCommand("UPDATE supplies SET quantity = quantity + @addQty WHERE item_name = @name", conn)
-        cmd.Parameters.AddWithValue("@addQty", Val(txtAddStock.Text))
-        cmd.Parameters.AddWithValue("@name", cbxItemSelect.Text)
+        If numUpDownAddStock.Value <= 0 Then
+            MessageBox.Show("Please enter a valid quantity to add.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            numUpDownAddStock.Focus()
+            Return
+        End If
 
-        conn.Open()
-        cmd.ExecuteNonQuery()
-        conn.Close()
+        Try
+            Using connection As New MySqlConnection(connectionString)
+                connection.Open()
 
-        MessageBox.Show("Stock updated!")
-        txtAddStock.Clear()
-        LoadStockSummary()
-        ShowCurrentStock()
+                ' Get current quantity
+                Dim getCurrentQuery As String = "SELECT quantity FROM inventory WHERE item_id = @itemId"
+                Dim currentQuantity As Integer = 0
+
+                Using getCurrentCommand As New MySqlCommand(getCurrentQuery, connection)
+                    getCurrentCommand.Parameters.AddWithValue("@itemId", cbxItemSelect.SelectedValue)
+                    Dim result = getCurrentCommand.ExecuteScalar()
+                    If result IsNot Nothing Then
+                        currentQuantity = Convert.ToInt32(result)
+                    End If
+                End Using
+
+                ' Update quantity
+                Dim newQuantity As Integer = currentQuantity + numUpDownAddStock.Value
+                Dim updateQuery As String = "UPDATE inventory SET quantity = @newQuantity WHERE item_id = @itemId"
+
+                Using updateCommand As New MySqlCommand(updateQuery, connection)
+                    updateCommand.Parameters.AddWithValue("@newQuantity", newQuantity)
+                    updateCommand.Parameters.AddWithValue("@itemId", cbxItemSelect.SelectedValue)
+                    updateCommand.ExecuteNonQuery()
+                End Using
+
+                MessageBox.Show($"Stock updated successfully! New quantity: {newQuantity}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                ' Refresh data and reset form
+                LoadInventoryItems()
+                numUpDownAddStock.Value = 0
+                UpdateCurrentStockLabel()
+
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error updating stock: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
-    ' 🔃 COMBOBOX LIST
-    Private Sub LoadItemsToComboBox()
-        cbxItemSelect.Items.Clear()
-
-        Dim cmd As New MySqlCommand("SELECT item_name FROM supplies", conn)
-        conn.Open()
-        Dim reader = cmd.ExecuteReader()
-        While reader.Read()
-            cbxItemSelect.Items.Add(reader("item_name").ToString())
-        End While
-        conn.Close()
-    End Sub
-
-    ' 📊 SHOW CURRENT QTY ON SELECTION
     Private Sub cbxItemSelect_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxItemSelect.SelectedIndexChanged
-        ShowCurrentStock()
+        UpdateCurrentStockLabel()
     End Sub
 
-    Private Sub ShowCurrentStock()
-        Dim cmd As New MySqlCommand("SELECT quantity FROM supplies WHERE item_name = @name", conn)
-        cmd.Parameters.AddWithValue("@name", cbxItemSelect.Text)
-
-        conn.Open()
-        Dim qty = cmd.ExecuteScalar()
-        conn.Close()
-
-        lblCurrentQty.Text = "Current Stock: " & qty.ToString()
+    Private Sub UpdateCurrentStockLabel()
+        If cbxItemSelect.SelectedIndex <> -1 Then
+            Try
+                Dim selectedRow As DataRowView = DirectCast(cbxItemSelect.SelectedItem, DataRowView)
+                Dim quantity As Integer = Convert.ToInt32(selectedRow("quantity"))
+                lblCurrentStock.Text = $"Current Stock: {quantity}"
+            Catch ex As Exception
+                lblCurrentStock.Text = "Current Stock: 0"
+            End Try
+        Else
+            lblCurrentStock.Text = "Current Stock: 0"
+        End If
     End Sub
 
-    ' 📋 LOAD LISTVIEW SUMMARY
-    Private Sub LoadStockSummary()
-        lvStockSummary.Items.Clear()
-        Dim cmd As New MySqlCommand("SELECT item_name, category, quantity, usage_frequency FROM supplies", conn)
-        conn.Open()
-        Dim reader = cmd.ExecuteReader()
-
-        While reader.Read()
-            Dim item As New ListViewItem(reader("item_name").ToString())
-            item.SubItems.Add(reader("category").ToString())
-            item.SubItems.Add(reader("quantity").ToString())
-            item.SubItems.Add(reader("usage_frequency").ToString())
-            lvStockSummary.Items.Add(item)
-        End While
-
-        conn.Close()
+    Private Sub btnUpdatedInventory_Click(sender As Object, e As EventArgs) Handles btnUpdatedInventory.Click
+        Try
+            adminMenu.OpenChildForm(New inventoryList())
+        Catch ex As Exception
+            MessageBox.Show("Error opening inventory list: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
-    ' 🔄 RESET INPUT
-    Private Sub ClearInputs()
+    Private Sub ClearAddItemForm()
         txtName.Clear()
-        txtCategory.Clear()
-        txtQuantity.Clear()
-        txtFreq.Clear()
+        txtUnit.Clear()
+        cmbService.SelectedIndex = -1
+        numUpDownQuantity.Value = 0
+        numUpDownReorderLvl.Value = 0
+        numUpDownQuantityUsed.Value = 1
+    End Sub
+
+    ' Optional: Add validation for text boxes to prevent SQL injection
+    Private Sub txtName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtName.KeyPress
+        ' Allow letters, numbers, spaces, and basic punctuation
+        If Not (Char.IsLetterOrDigit(e.KeyChar) OrElse e.KeyChar = " "c OrElse e.KeyChar = "-"c OrElse e.KeyChar = "/"c OrElse e.KeyChar = "("c OrElse e.KeyChar = ")"c OrElse Char.IsControl(e.KeyChar)) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtUnit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUnit.KeyPress
+        ' Allow letters, numbers, and basic units (ml, g, pcs, etc.)
+        If Not (Char.IsLetterOrDigit(e.KeyChar) OrElse e.KeyChar = " "c OrElse Char.IsControl(e.KeyChar)) Then
+            e.Handled = True
+        End If
     End Sub
 End Class
