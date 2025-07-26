@@ -163,6 +163,12 @@
     <Compile Include="adminstafflogin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="alerts.Designer.vb">
+      <DependentUpon>alerts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="alerts.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AppointmentCard.Designer.vb">
       <DependentUpon>AppointmentCard.vb</DependentUpon>
     </Compile>
@@ -391,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="adminstafflogin.resx">
       <DependentUpon>adminstafflogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="alerts.resx">
+      <DependentUpon>alerts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppointmentCard.resx">
       <DependentUpon>AppointmentCard.vb</DependentUpon>

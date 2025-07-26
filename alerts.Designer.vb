@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class inventoryList
+Partial Class alerts
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,6 @@ Partial Class inventoryList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.flpInventoryList = New System.Windows.Forms.FlowLayoutPanel()
         Me.fororganization = New System.Windows.Forms.Panel()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
@@ -32,16 +31,10 @@ Partial Class inventoryList
         Me.Label2 = New System.Windows.Forms.Label()
         Me.pnlDailyOverview = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
+        Me.flwAlerts = New System.Windows.Forms.FlowLayoutPanel()
         Me.fororganization.SuspendLayout()
         Me.pnlDailyOverview.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'flpInventoryList
-        '
-        Me.flpInventoryList.Location = New System.Drawing.Point(23, 194)
-        Me.flpInventoryList.Name = "flpInventoryList"
-        Me.flpInventoryList.Size = New System.Drawing.Size(641, 338)
-        Me.flpInventoryList.TabIndex = 28
         '
         'fororganization
         '
@@ -55,8 +48,8 @@ Partial Class inventoryList
         Me.fororganization.Dock = System.Windows.Forms.DockStyle.Top
         Me.fororganization.Location = New System.Drawing.Point(0, 83)
         Me.fororganization.Name = "fororganization"
-        Me.fororganization.Size = New System.Drawing.Size(684, 82)
-        Me.fororganization.TabIndex = 26
+        Me.fororganization.Size = New System.Drawing.Size(668, 82)
+        Me.fororganization.TabIndex = 23
         '
         'btnSearch
         '
@@ -64,7 +57,7 @@ Partial Class inventoryList
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(101, 30)
         Me.btnSearch.TabIndex = 19
-        Me.btnSearch.Text = "SEARCH"
+        Me.btnSearch.Text = "Button1"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
         'txtSearch
@@ -121,8 +114,8 @@ Partial Class inventoryList
         Me.pnlDailyOverview.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlDailyOverview.Location = New System.Drawing.Point(0, 0)
         Me.pnlDailyOverview.Name = "pnlDailyOverview"
-        Me.pnlDailyOverview.Size = New System.Drawing.Size(684, 83)
-        Me.pnlDailyOverview.TabIndex = 27
+        Me.pnlDailyOverview.Size = New System.Drawing.Size(668, 83)
+        Me.pnlDailyOverview.TabIndex = 24
         '
         'lblTitle
         '
@@ -130,25 +123,30 @@ Partial Class inventoryList
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(147, 9)
+        Me.lblTitle.Location = New System.Drawing.Point(220, 9)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(407, 65)
+        Me.lblTitle.Size = New System.Drawing.Size(265, 65)
         Me.lblTitle.TabIndex = 7
-        Me.lblTitle.Text = "INVENTORY LIST"
+        Me.lblTitle.Text = "ALERTS⚠"
         '
-        'inventoryList
+        'flwAlerts
+        '
+        Me.flwAlerts.Location = New System.Drawing.Point(32, 209)
+        Me.flwAlerts.Name = "flwAlerts"
+        Me.flwAlerts.Size = New System.Drawing.Size(578, 282)
+        Me.flwAlerts.TabIndex = 25
+        '
+        'alerts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(684, 561)
-        Me.Controls.Add(Me.flpInventoryList)
+        Me.ClientSize = New System.Drawing.Size(668, 522)
+        Me.Controls.Add(Me.flwAlerts)
         Me.Controls.Add(Me.fororganization)
         Me.Controls.Add(Me.pnlDailyOverview)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "inventoryList"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "inventoryList"
+        Me.Name = "alerts"
+        Me.Text = "alerts"
         Me.fororganization.ResumeLayout(False)
         Me.fororganization.PerformLayout()
         Me.pnlDailyOverview.ResumeLayout(False)
@@ -156,15 +154,14 @@ Partial Class inventoryList
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents flpInventoryList As FlowLayoutPanel
     Friend WithEvents fororganization As Panel
-    Friend WithEvents btnSearch As Button
-    Friend WithEvents txtSearch As TextBox
     Friend WithEvents lblBookingsTitle As Label
     Friend WithEvents lblRevenue As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents pnlDailyOverview As Panel
     Friend WithEvents lblTitle As Label
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents flwAlerts As FlowLayoutPanel
 End Class
