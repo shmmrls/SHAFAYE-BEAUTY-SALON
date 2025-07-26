@@ -131,7 +131,7 @@ Partial Class editDeleteService
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(220, 9)
+        Me.Label1.Location = New System.Drawing.Point(199, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(359, 65)
         Me.Label1.TabIndex = 7
@@ -180,22 +180,22 @@ Partial Class editDeleteService
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.DimGray
         Me.Label3.Location = New System.Drawing.Point(344, 21)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 23)
+        Me.Label3.Size = New System.Drawing.Size(82, 16)
         Me.Label3.TabIndex = 143
         Me.Label3.Text = "CATEGORY"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.DimGray
         Me.Label2.Location = New System.Drawing.Point(142, 104)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(43, 23)
+        Me.Label2.Size = New System.Drawing.Size(47, 16)
         Me.Label2.TabIndex = 141
         Me.Label2.Text = "PRICE"
         '
@@ -203,20 +203,20 @@ Partial Class editDeleteService
         '
         Me.pricetxt.BackColor = System.Drawing.Color.White
         Me.pricetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pricetxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pricetxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pricetxt.Location = New System.Drawing.Point(146, 142)
         Me.pricetxt.Name = "pricetxt"
-        Me.pricetxt.Size = New System.Drawing.Size(375, 27)
+        Me.pricetxt.Size = New System.Drawing.Size(375, 22)
         Me.pricetxt.TabIndex = 139
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.DimGray
         Me.Label10.Location = New System.Drawing.Point(142, 21)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(44, 23)
+        Me.Label10.Size = New System.Drawing.Size(46, 16)
         Me.Label10.TabIndex = 137
         Me.Label10.Text = "NAME"
         '
@@ -224,10 +224,10 @@ Partial Class editDeleteService
         '
         Me.nmetxt.BackColor = System.Drawing.Color.White
         Me.nmetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.nmetxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nmetxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nmetxt.Location = New System.Drawing.Point(146, 59)
         Me.nmetxt.Name = "nmetxt"
-        Me.nmetxt.Size = New System.Drawing.Size(172, 27)
+        Me.nmetxt.Size = New System.Drawing.Size(172, 22)
         Me.nmetxt.TabIndex = 136
         '
         'notAvailableRadbtn
@@ -245,11 +245,11 @@ Partial Class editDeleteService
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.DimGray
         Me.Label4.Location = New System.Drawing.Point(171, 267)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(89, 23)
+        Me.Label4.Size = New System.Drawing.Size(100, 16)
         Me.Label4.TabIndex = 134
         Me.Label4.Text = "IS AVAILABLE?"
         '
@@ -268,11 +268,11 @@ Partial Class editDeleteService
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.DimGray
         Me.Label8.Location = New System.Drawing.Point(142, 185)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(88, 23)
+        Me.Label8.Size = New System.Drawing.Size(98, 16)
         Me.Label8.TabIndex = 131
         Me.Label8.Text = "DESCRIPTION"
         '
@@ -280,10 +280,10 @@ Partial Class editDeleteService
         '
         Me.descriptiontxt.BackColor = System.Drawing.Color.White
         Me.descriptiontxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.descriptiontxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.descriptiontxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.descriptiontxt.Location = New System.Drawing.Point(142, 220)
         Me.descriptiontxt.Name = "descriptiontxt"
-        Me.descriptiontxt.Size = New System.Drawing.Size(379, 27)
+        Me.descriptiontxt.Size = New System.Drawing.Size(379, 22)
         Me.descriptiontxt.TabIndex = 130
         '
         'saveditbtn
@@ -322,11 +322,11 @@ Partial Class editDeleteService
         Me.backtoaddtxt.AutoSize = True
         Me.backtoaddtxt.BackColor = System.Drawing.Color.Transparent
         Me.backtoaddtxt.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.backtoaddtxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.backtoaddtxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.backtoaddtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
         Me.backtoaddtxt.Location = New System.Drawing.Point(259, 358)
         Me.backtoaddtxt.Name = "backtoaddtxt"
-        Me.backtoaddtxt.Size = New System.Drawing.Size(171, 23)
+        Me.backtoaddtxt.Size = New System.Drawing.Size(196, 16)
         Me.backtoaddtxt.TabIndex = 127
         Me.backtoaddtxt.Text = "ADD SERVICES? CLICK HERE." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '

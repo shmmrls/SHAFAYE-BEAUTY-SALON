@@ -70,11 +70,11 @@ Partial Class editstaff
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.DimGray
         Me.Label5.Location = New System.Drawing.Point(347, 81)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(74, 23)
+        Me.Label5.Size = New System.Drawing.Size(83, 16)
         Me.Label5.TabIndex = 80
         Me.Label5.Text = "LAST NAME"
         '
@@ -82,31 +82,31 @@ Partial Class editstaff
         '
         Me.lntext.BackColor = System.Drawing.Color.White
         Me.lntext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lntext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lntext.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lntext.Location = New System.Drawing.Point(350, 119)
         Me.lntext.Name = "lntext"
-        Me.lntext.Size = New System.Drawing.Size(173, 27)
+        Me.lntext.Size = New System.Drawing.Size(173, 22)
         Me.lntext.TabIndex = 78
         '
         'lblusername
         '
         Me.lblusername.AutoSize = True
-        Me.lblusername.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblusername.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblusername.ForeColor = System.Drawing.Color.DimGray
         Me.lblusername.Location = New System.Drawing.Point(144, 153)
         Me.lblusername.Name = "lblusername"
-        Me.lblusername.Size = New System.Drawing.Size(72, 23)
+        Me.lblusername.Size = New System.Drawing.Size(84, 16)
         Me.lblusername.TabIndex = 71
         Me.lblusername.Text = "USERNAME"
         '
         'lblfullname
         '
         Me.lblfullname.AutoSize = True
-        Me.lblfullname.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblfullname.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfullname.ForeColor = System.Drawing.Color.DimGray
         Me.lblfullname.Location = New System.Drawing.Point(144, 81)
         Me.lblfullname.Name = "lblfullname"
-        Me.lblfullname.Size = New System.Drawing.Size(77, 23)
+        Me.lblfullname.Size = New System.Drawing.Size(88, 16)
         Me.lblfullname.TabIndex = 70
         Me.lblfullname.Text = "FIRST NAME"
         '
@@ -114,30 +114,30 @@ Partial Class editstaff
         '
         Me.fntext.BackColor = System.Drawing.Color.White
         Me.fntext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.fntext.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.fntext.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.fntext.Location = New System.Drawing.Point(147, 119)
         Me.fntext.Name = "fntext"
-        Me.fntext.Size = New System.Drawing.Size(173, 27)
+        Me.fntext.Size = New System.Drawing.Size(173, 22)
         Me.fntext.TabIndex = 66
         '
         'untxt
         '
         Me.untxt.BackColor = System.Drawing.Color.White
         Me.untxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.untxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.untxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.untxt.Location = New System.Drawing.Point(148, 190)
         Me.untxt.Name = "untxt"
-        Me.untxt.Size = New System.Drawing.Size(375, 27)
+        Me.untxt.Size = New System.Drawing.Size(375, 22)
         Me.untxt.TabIndex = 67
         '
         'lblposition
         '
         Me.lblposition.AutoSize = True
-        Me.lblposition.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblposition.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblposition.ForeColor = System.Drawing.Color.DimGray
         Me.lblposition.Location = New System.Drawing.Point(144, 290)
         Me.lblposition.Name = "lblposition"
-        Me.lblposition.Size = New System.Drawing.Size(66, 23)
+        Me.lblposition.Size = New System.Drawing.Size(70, 16)
         Me.lblposition.TabIndex = 82
         Me.lblposition.Text = "POSITION"
         Me.lblposition.Visible = False
@@ -146,21 +146,21 @@ Partial Class editstaff
         '
         Me.txtposition.BackColor = System.Drawing.Color.White
         Me.txtposition.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtposition.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtposition.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtposition.Location = New System.Drawing.Point(148, 327)
         Me.txtposition.Name = "txtposition"
-        Me.txtposition.Size = New System.Drawing.Size(375, 27)
+        Me.txtposition.Size = New System.Drawing.Size(375, 22)
         Me.txtposition.TabIndex = 81
         Me.txtposition.Visible = False
         '
         'lblsalary
         '
         Me.lblsalary.AutoSize = True
-        Me.lblsalary.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblsalary.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblsalary.ForeColor = System.Drawing.Color.DimGray
         Me.lblsalary.Location = New System.Drawing.Point(144, 363)
         Me.lblsalary.Name = "lblsalary"
-        Me.lblsalary.Size = New System.Drawing.Size(52, 23)
+        Me.lblsalary.Size = New System.Drawing.Size(60, 16)
         Me.lblsalary.TabIndex = 85
         Me.lblsalary.Text = "SALARY"
         Me.lblsalary.Visible = False
@@ -169,10 +169,10 @@ Partial Class editstaff
         '
         Me.txtsalary.BackColor = System.Drawing.Color.White
         Me.txtsalary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtsalary.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtsalary.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsalary.Location = New System.Drawing.Point(148, 400)
         Me.txtsalary.Name = "txtsalary"
-        Me.txtsalary.Size = New System.Drawing.Size(375, 27)
+        Me.txtsalary.Size = New System.Drawing.Size(375, 22)
         Me.txtsalary.TabIndex = 84
         Me.txtsalary.Visible = False
         '
@@ -192,11 +192,11 @@ Partial Class editstaff
         'lblstatus
         '
         Me.lblstatus.AutoSize = True
-        Me.lblstatus.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblstatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblstatus.ForeColor = System.Drawing.Color.DimGray
         Me.lblstatus.Location = New System.Drawing.Point(190, 439)
         Me.lblstatus.Name = "lblstatus"
-        Me.lblstatus.Size = New System.Drawing.Size(93, 23)
+        Me.lblstatus.Size = New System.Drawing.Size(111, 16)
         Me.lblstatus.TabIndex = 89
         Me.lblstatus.Text = "STAFF STATUS:"
         Me.lblstatus.Visible = False
@@ -213,11 +213,11 @@ Partial Class editstaff
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.DimGray
         Me.Label6.Location = New System.Drawing.Point(144, 227)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(38, 23)
+        Me.Label6.Size = New System.Drawing.Size(43, 16)
         Me.Label6.TabIndex = 91
         Me.Label6.Text = "ROLE"
         '
@@ -253,11 +253,11 @@ Partial Class editstaff
         Me.editstaffinfo.AutoSize = True
         Me.editstaffinfo.BackColor = System.Drawing.Color.Transparent
         Me.editstaffinfo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.editstaffinfo.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.editstaffinfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.editstaffinfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
         Me.editstaffinfo.Location = New System.Drawing.Point(278, 523)
         Me.editstaffinfo.Name = "editstaffinfo"
-        Me.editstaffinfo.Size = New System.Drawing.Size(180, 23)
+        Me.editstaffinfo.Size = New System.Drawing.Size(208, 16)
         Me.editstaffinfo.TabIndex = 96
         Me.editstaffinfo.Text = "EDIT STAFF INFO? CLICK HERE." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
@@ -267,7 +267,7 @@ Partial Class editstaff
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(192, 9)
+        Me.Label1.Location = New System.Drawing.Point(152, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(426, 47)
         Me.Label1.TabIndex = 8
@@ -296,20 +296,20 @@ Partial Class editstaff
         '
         Me.txtPositionEdit.BackColor = System.Drawing.Color.White
         Me.txtPositionEdit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtPositionEdit.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPositionEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPositionEdit.Location = New System.Drawing.Point(138, 255)
         Me.txtPositionEdit.Name = "txtPositionEdit"
-        Me.txtPositionEdit.Size = New System.Drawing.Size(375, 27)
+        Me.txtPositionEdit.Size = New System.Drawing.Size(375, 22)
         Me.txtPositionEdit.TabIndex = 106
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.DimGray
         Me.Label8.Location = New System.Drawing.Point(134, 220)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(66, 23)
+        Me.Label8.Size = New System.Drawing.Size(70, 16)
         Me.Label8.TabIndex = 107
         Me.Label8.Text = "POSITION"
         '
@@ -317,20 +317,20 @@ Partial Class editstaff
         '
         Me.txtSalaryedit.BackColor = System.Drawing.Color.White
         Me.txtSalaryedit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtSalaryedit.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSalaryedit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSalaryedit.Location = New System.Drawing.Point(138, 334)
         Me.txtSalaryedit.Name = "txtSalaryedit"
-        Me.txtSalaryedit.Size = New System.Drawing.Size(375, 27)
+        Me.txtSalaryedit.Size = New System.Drawing.Size(375, 22)
         Me.txtSalaryedit.TabIndex = 109
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.DimGray
         Me.Label7.Location = New System.Drawing.Point(136, 297)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(52, 23)
+        Me.Label7.Size = New System.Drawing.Size(60, 16)
         Me.Label7.TabIndex = 110
         Me.Label7.Text = "SALARY"
         '
@@ -349,11 +349,11 @@ Partial Class editstaff
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.DimGray
         Me.Label4.Location = New System.Drawing.Point(180, 372)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(93, 23)
+        Me.Label4.Size = New System.Drawing.Size(111, 16)
         Me.Label4.TabIndex = 113
         Me.Label4.Text = "STAFF STATUS:"
         '
@@ -391,11 +391,11 @@ Partial Class editstaff
         Me.backtoaddtxt.AutoSize = True
         Me.backtoaddtxt.BackColor = System.Drawing.Color.Transparent
         Me.backtoaddtxt.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.backtoaddtxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.backtoaddtxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.backtoaddtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
         Me.backtoaddtxt.Location = New System.Drawing.Point(258, 446)
         Me.backtoaddtxt.Name = "backtoaddtxt"
-        Me.backtoaddtxt.Size = New System.Drawing.Size(195, 23)
+        Me.backtoaddtxt.Size = New System.Drawing.Size(219, 16)
         Me.backtoaddtxt.TabIndex = 118
         Me.backtoaddtxt.Text = "ADD STAFF/ADMIN? CLICK HERE." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
@@ -403,20 +403,20 @@ Partial Class editstaff
         '
         Me.fntxtedit.BackColor = System.Drawing.Color.White
         Me.fntxtedit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.fntxtedit.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.fntxtedit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.fntxtedit.Location = New System.Drawing.Point(137, 172)
         Me.fntxtedit.Name = "fntxtedit"
-        Me.fntxtedit.Size = New System.Drawing.Size(173, 27)
+        Me.fntxtedit.Size = New System.Drawing.Size(173, 22)
         Me.fntxtedit.TabIndex = 119
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.DimGray
         Me.Label10.Location = New System.Drawing.Point(134, 134)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(77, 23)
+        Me.Label10.Size = New System.Drawing.Size(88, 16)
         Me.Label10.TabIndex = 120
         Me.Label10.Text = "FIRST NAME"
         '
@@ -424,20 +424,20 @@ Partial Class editstaff
         '
         Me.lntxtedit.BackColor = System.Drawing.Color.White
         Me.lntxtedit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lntxtedit.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lntxtedit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lntxtedit.Location = New System.Drawing.Point(340, 172)
         Me.lntxtedit.Name = "lntxtedit"
-        Me.lntxtedit.Size = New System.Drawing.Size(173, 27)
+        Me.lntxtedit.Size = New System.Drawing.Size(173, 22)
         Me.lntxtedit.TabIndex = 122
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.DimGray
         Me.Label2.Location = New System.Drawing.Point(337, 134)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(74, 23)
+        Me.Label2.Size = New System.Drawing.Size(83, 16)
         Me.Label2.TabIndex = 124
         Me.Label2.Text = "LAST NAME"
         '
