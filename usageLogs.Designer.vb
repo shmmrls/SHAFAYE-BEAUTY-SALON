@@ -22,22 +22,12 @@ Partial Class usageLogs
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.fororganization = New System.Windows.Forms.Panel()
         Me.pnlDailyOverview = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.UsageLogPanel = New System.Windows.Forms.Panel()
         Me.btnExport = New System.Windows.Forms.Button()
         Me.pnlDailyOverview.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'fororganization
-        '
-        Me.fororganization.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.fororganization.Dock = System.Windows.Forms.DockStyle.Top
-        Me.fororganization.Location = New System.Drawing.Point(0, 83)
-        Me.fororganization.Name = "fororganization"
-        Me.fororganization.Size = New System.Drawing.Size(684, 82)
-        Me.fororganization.TabIndex = 29
         '
         'pnlDailyOverview
         '
@@ -54,7 +44,7 @@ Partial Class usageLogs
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(189, 9)
+        Me.lblTitle.Location = New System.Drawing.Point(200, 9)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(318, 65)
         Me.lblTitle.TabIndex = 7
@@ -63,9 +53,9 @@ Partial Class usageLogs
         'UsageLogPanel
         '
         Me.UsageLogPanel.AutoScroll = True
-        Me.UsageLogPanel.Location = New System.Drawing.Point(24, 194)
+        Me.UsageLogPanel.Location = New System.Drawing.Point(24, 104)
         Me.UsageLogPanel.Name = "UsageLogPanel"
-        Me.UsageLogPanel.Size = New System.Drawing.Size(626, 290)
+        Me.UsageLogPanel.Size = New System.Drawing.Size(626, 380)
         Me.UsageLogPanel.TabIndex = 31
         '
         'btnExport
@@ -87,7 +77,6 @@ Partial Class usageLogs
         Me.ClientSize = New System.Drawing.Size(684, 561)
         Me.Controls.Add(Me.btnExport)
         Me.Controls.Add(Me.UsageLogPanel)
-        Me.Controls.Add(Me.fororganization)
         Me.Controls.Add(Me.pnlDailyOverview)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "usageLogs"
@@ -98,7 +87,6 @@ Partial Class usageLogs
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents fororganization As Panel
     Friend WithEvents pnlDailyOverview As Panel
     Friend WithEvents lblTitle As Label
     Friend WithEvents UsageLogPanel As Panel

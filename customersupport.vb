@@ -50,22 +50,34 @@ Public Class CustomerSupport
 
         Try
             conn.Open()
+
+            ' Insert into contact_messages table
             Dim query As String = "
-                INSERT INTO contact_messages (user_id, subject, message) 
-                VALUES (@userID, @subject, @message)"
+            INSERT INTO contact_messages (user_id, subject, message) 
+            VALUES (@userID, @subject, @message)"
             Dim cmd As New MySqlCommand(query, conn)
             cmd.Parameters.AddWithValue("@userID", userID)
             cmd.Parameters.AddWithValue("@subject", subjectText.Text.Trim())
             cmd.Parameters.AddWithValue("@message", messagetxtbox.Text.Trim())
-
             cmd.ExecuteNonQuery()
+
+            ' Insert into faq table with question = message, answer = NULL, is_invisible = 0
+            Dim faqQuery As String = "
+            INSERT INTO faq (question, answer, is_invisible) 
+            VALUES (@question, NULL, 0)"
+            Dim faqCmd As New MySqlCommand(faqQuery, conn)
+            faqCmd.Parameters.AddWithValue("@question", messagetxtbox.Text.Trim())
+            faqCmd.ExecuteNonQuery()
+
             MessageBox.Show("Message sent successfully.")
             subjectText.Clear()
             messagetxtbox.Clear()
+
         Catch ex As Exception
             MessageBox.Show("Failed to send message: " & ex.Message)
         Finally
             conn.Close()
         End Try
     End Sub
+
 End Class

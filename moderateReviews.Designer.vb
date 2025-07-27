@@ -24,13 +24,15 @@ Partial Class moderateReviews
     Private Sub InitializeComponent()
         Me.pnlDailyOverview = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cmbFilter = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.btnSearch = New System.Windows.Forms.Button()
         Me.flpReviews = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmbSortByRating = New System.Windows.Forms.ComboBox()
+        Me.cmbSortByDate = New System.Windows.Forms.ComboBox()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.pnlDailyOverview.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlDailyOverview
@@ -46,68 +48,82 @@ Partial Class moderateReviews
         '
         Me.lblTitle.AutoSize = True
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 40.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(86, 9)
+        Me.lblTitle.Location = New System.Drawing.Point(114, 9)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(542, 65)
+        Me.lblTitle.Size = New System.Drawing.Size(610, 72)
         Me.lblTitle.TabIndex = 7
         Me.lblTitle.Text = "REVIEW MODERATION"
         '
-        'Label1
+        'flpReviews
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(12, 116)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(151, 21)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "FILTER BY STATUS: "
+        Me.flpReviews.AutoScroll = True
+        Me.flpReviews.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.flpReviews.Location = New System.Drawing.Point(62, 197)
+        Me.flpReviews.Name = "flpReviews"
+        Me.flpReviews.Size = New System.Drawing.Size(586, 331)
+        Me.flpReviews.TabIndex = 48
+        Me.flpReviews.WrapContents = False
         '
-        'cmbFilter
+        'Panel1
         '
-        Me.cmbFilter.FormattingEnabled = True
-        Me.cmbFilter.Location = New System.Drawing.Point(169, 116)
-        Me.cmbFilter.Name = "cmbFilter"
-        Me.cmbFilter.Size = New System.Drawing.Size(157, 21)
-        Me.cmbFilter.TabIndex = 44
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.cmbSortByRating)
+        Me.Panel1.Controls.Add(Me.cmbSortByDate)
+        Me.Panel1.Controls.Add(Me.btnSearch)
+        Me.Panel1.Controls.Add(Me.txtSearch)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 83)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(684, 100)
+        Me.Panel1.TabIndex = 51
+        '
+        'cmbSortByRating
+        '
+        Me.cmbSortByRating.FormattingEnabled = True
+        Me.cmbSortByRating.Location = New System.Drawing.Point(356, 65)
+        Me.cmbSortByRating.Name = "cmbSortByRating"
+        Me.cmbSortByRating.Size = New System.Drawing.Size(189, 21)
+        Me.cmbSortByRating.TabIndex = 55
+        '
+        'cmbSortByDate
+        '
+        Me.cmbSortByDate.FormattingEnabled = True
+        Me.cmbSortByDate.Location = New System.Drawing.Point(143, 65)
+        Me.cmbSortByDate.Name = "cmbSortByDate"
+        Me.cmbSortByDate.Size = New System.Drawing.Size(189, 21)
+        Me.cmbSortByDate.TabIndex = 54
+        '
+        'btnSearch
+        '
+        Me.btnSearch.Location = New System.Drawing.Point(436, 14)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(109, 30)
+        Me.btnSearch.TabIndex = 53
+        Me.btnSearch.Text = "SEARCH"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
+        'txtSearch
+        '
+        Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtSearch.Location = New System.Drawing.Point(238, 20)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(192, 20)
+        Me.txtSearch.TabIndex = 52
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(403, 116)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(139, 20)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(93, 21)
-        Me.Label2.TabIndex = 45
+        Me.Label2.TabIndex = 51
         Me.Label2.Text = "KEYWORD:"
-        '
-        'txtSearch
-        '
-        Me.txtSearch.Location = New System.Drawing.Point(502, 119)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(109, 20)
-        Me.txtSearch.TabIndex = 46
-        '
-        'btnSearch
-        '
-        Me.btnSearch.Location = New System.Drawing.Point(502, 145)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(109, 30)
-        Me.btnSearch.TabIndex = 47
-        Me.btnSearch.Text = "SEARCH"
-        Me.btnSearch.UseVisualStyleBackColor = True
-        '
-        'flpReviews
-        '
-        Me.flpReviews.Location = New System.Drawing.Point(42, 197)
-        Me.flpReviews.Name = "flpReviews"
-        Me.flpReviews.Size = New System.Drawing.Size(586, 352)
-        Me.flpReviews.TabIndex = 48
         '
         'moderateReviews
         '
@@ -115,12 +131,8 @@ Partial Class moderateReviews
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(684, 561)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.flpReviews)
-        Me.Controls.Add(Me.btnSearch)
-        Me.Controls.Add(Me.txtSearch)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.cmbFilter)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.pnlDailyOverview)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "moderateReviews"
@@ -128,17 +140,19 @@ Partial Class moderateReviews
         Me.Text = "moderateReviews"
         Me.pnlDailyOverview.ResumeLayout(False)
         Me.pnlDailyOverview.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents pnlDailyOverview As Panel
     Friend WithEvents lblTitle As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents cmbFilter As ComboBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents txtSearch As TextBox
-    Friend WithEvents btnSearch As Button
     Friend WithEvents flpReviews As FlowLayoutPanel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents cmbSortByRating As ComboBox
+    Friend WithEvents cmbSortByDate As ComboBox
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents Label2 As Label
 End Class

@@ -20,27 +20,34 @@ Public Class dailyoverview
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-
                 Dim query As String = "
-                    SELECT COALESCE(SUM(s.price), 0) as total_revenue
-                    FROM appointments a
-                    INNER JOIN appointment_services aps ON a.appointment_id = aps.appointment_id
-                    INNER JOIN services s ON aps.service_id = s.service_id
-                    WHERE DATE(a.appointment_date) = CURDATE() 
-                    AND a.status = 'Completed'"
+                SELECT SUM(s.price) as total_revenue
+                FROM appointments a
+                INNER JOIN appointment_services aps ON a.appointment_id = aps.appointment_id
+                INNER JOIN services s ON aps.service_id = s.service_id
+                WHERE DATE(a.appointment_date) <= CURDATE()
+                AND a.status = 'Completed'"
 
                 Using command As New MySqlCommand(query, connection)
                     Dim result = command.ExecuteScalar()
-                    Dim todayRevenue As Decimal = If(result IsNot Nothing AndAlso Not IsDBNull(result), Convert.ToDecimal(result), 0)
+                    Dim totalRevenue As Decimal
 
-                    todaysRevenueLbl.Text = $"₱{todayRevenue:N2}"
+                    If result IsNot Nothing AndAlso Not IsDBNull(result) Then
+                        totalRevenue = Convert.ToDecimal(result)
+                    Else
+                        totalRevenue = 0
+                    End If
+
+                    todaysRevenueLbl.Text = $"₱{totalRevenue:N2}"
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show($"Error updating today's revenue: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show($"Error updating revenue: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             todaysRevenueLbl.Text = "₱0.00"
         End Try
     End Sub
+
+
 
     Private Sub LoadTodaysPendingBookings()
         Try
@@ -100,7 +107,7 @@ Public Class dailyoverview
 
     Private Function CreateBookingPanel(appointmentId As String, appointmentTime As String, customerName As String, services As String, totalAmount As Decimal) As Panel
         Dim panel As New Panel()
-        panel.Size = New Size(400, 120)
+        panel.Size = New Size(pnlDailyOverview.Width - 30, 120)
         panel.BorderStyle = BorderStyle.FixedSingle
         panel.BackColor = Color.White
         panel.Margin = New Padding(5)

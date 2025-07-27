@@ -16,7 +16,11 @@ Public Class faq
 
         Try
             conn.Open()
-            Dim query As String = "SELECT question, answer FROM faq WHERE question LIKE @search OR answer LIKE @search"
+            Dim query As String = "
+            SELECT question, IFNULL(answer,'') AS answer
+            FROM faq
+            WHERE is_visible = 1
+              AND (question LIKE @search OR answer LIKE @search)"
             Dim cmd As New MySqlCommand(query, conn)
             cmd.Parameters.AddWithValue("@search", "%" & searchTerm & "%")
             Dim reader As MySqlDataReader = cmd.ExecuteReader()

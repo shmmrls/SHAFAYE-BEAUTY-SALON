@@ -117,11 +117,11 @@ Partial Class inventoryList
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(80, 20)
+        Me.lblTitle.Location = New System.Drawing.Point(217, 21)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(584, 47)
+        Me.lblTitle.Size = New System.Drawing.Size(300, 47)
         Me.lblTitle.TabIndex = 7
-        Me.lblTitle.Text = "INVENTORY LIST W/ USAGE LOGS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lblTitle.Text = "INVENTORY LIST"
         '
         'inventoryList
         '

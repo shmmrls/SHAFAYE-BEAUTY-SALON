@@ -24,14 +24,14 @@ Partial Class genReceipts
     Private Sub InitializeComponent()
         Me.pnlDailyOverview = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
-        Me.btnSearch = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.pnlReceipt = New System.Windows.Forms.Panel()
+        Me.amountLbl = New System.Windows.Forms.Label()
+        Me.serviceLbl = New System.Windows.Forms.Label()
+        Me.customerLbl = New System.Windows.Forms.Label()
         Me.btnPrint = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cmbBookingIdCompleted = New System.Windows.Forms.ComboBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnlDailyOverview.SuspendLayout()
         Me.pnlReceipt.SuspendLayout()
         Me.SuspendLayout()
@@ -60,92 +60,97 @@ Partial Class genReceipts
         Me.lblTitle.Text = "GENERATE AND PRINT RECEIPTS"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnSearch
-        '
-        Me.btnSearch.Location = New System.Drawing.Point(253, 140)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(137, 40)
-        Me.btnSearch.TabIndex = 56
-        Me.btnSearch.Text = "SEARCH"
-        Me.btnSearch.UseVisualStyleBackColor = True
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(18, 111)
+        Me.Label1.Location = New System.Drawing.Point(194, 109)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(139, 21)
+        Me.Label1.Size = New System.Drawing.Size(145, 21)
         Me.Label1.TabIndex = 51
-        Me.Label1.Text = "Enter Booking ID"
+        Me.Label1.Text = "Select Booking ID"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtSearch
-        '
-        Me.txtSearch.Location = New System.Drawing.Point(163, 114)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(227, 20)
-        Me.txtSearch.TabIndex = 53
         '
         'pnlReceipt
         '
-        Me.pnlReceipt.Controls.Add(Me.Label4)
-        Me.pnlReceipt.Controls.Add(Me.Label3)
-        Me.pnlReceipt.Controls.Add(Me.Label2)
-        Me.pnlReceipt.Location = New System.Drawing.Point(48, 222)
+        Me.pnlReceipt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlReceipt.Controls.Add(Me.Panel1)
+        Me.pnlReceipt.Controls.Add(Me.amountLbl)
+        Me.pnlReceipt.Controls.Add(Me.serviceLbl)
+        Me.pnlReceipt.Controls.Add(Me.customerLbl)
+        Me.pnlReceipt.Location = New System.Drawing.Point(48, 158)
         Me.pnlReceipt.Name = "pnlReceipt"
-        Me.pnlReceipt.Size = New System.Drawing.Size(579, 240)
+        Me.pnlReceipt.Size = New System.Drawing.Size(579, 304)
         Me.pnlReceipt.TabIndex = 57
+        '
+        'amountLbl
+        '
+        Me.amountLbl.AutoSize = True
+        Me.amountLbl.BackColor = System.Drawing.Color.Transparent
+        Me.amountLbl.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.amountLbl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.amountLbl.Location = New System.Drawing.Point(35, 232)
+        Me.amountLbl.Name = "amountLbl"
+        Me.amountLbl.Size = New System.Drawing.Size(100, 30)
+        Me.amountLbl.TabIndex = 61
+        Me.amountLbl.Text = "Amount:"
+        Me.amountLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'serviceLbl
+        '
+        Me.serviceLbl.AutoSize = True
+        Me.serviceLbl.BackColor = System.Drawing.Color.Transparent
+        Me.serviceLbl.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.serviceLbl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.serviceLbl.Location = New System.Drawing.Point(35, 123)
+        Me.serviceLbl.Name = "serviceLbl"
+        Me.serviceLbl.Size = New System.Drawing.Size(89, 30)
+        Me.serviceLbl.TabIndex = 60
+        Me.serviceLbl.Text = "Service:"
+        Me.serviceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'customerLbl
+        '
+        Me.customerLbl.AutoSize = True
+        Me.customerLbl.BackColor = System.Drawing.Color.Transparent
+        Me.customerLbl.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.customerLbl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.customerLbl.Location = New System.Drawing.Point(35, 65)
+        Me.customerLbl.Name = "customerLbl"
+        Me.customerLbl.Size = New System.Drawing.Size(114, 30)
+        Me.customerLbl.TabIndex = 59
+        Me.customerLbl.Text = "Customer:"
+        Me.customerLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(490, 468)
+        Me.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPrint.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrint.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.btnPrint.Location = New System.Drawing.Point(204, 486)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(137, 40)
+        Me.btnPrint.Size = New System.Drawing.Size(258, 40)
         Me.btnPrint.TabIndex = 58
-        Me.btnPrint.Text = "PRINT RECEIPT"
+        Me.btnPrint.Text = "PRINT RECEIPT FOR ADMIN COPY"
         Me.btnPrint.UseVisualStyleBackColor = True
         '
-        'Label2
+        'cmbBookingIdCompleted
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(37, 48)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(88, 21)
-        Me.Label2.TabIndex = 59
-        Me.Label2.Text = "Customer:"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.cmbBookingIdCompleted.FormattingEnabled = True
+        Me.cmbBookingIdCompleted.Location = New System.Drawing.Point(355, 109)
+        Me.cmbBookingIdCompleted.Name = "cmbBookingIdCompleted"
+        Me.cmbBookingIdCompleted.Size = New System.Drawing.Size(126, 21)
+        Me.cmbBookingIdCompleted.TabIndex = 59
         '
-        'Label3
+        'Panel1
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(37, 106)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(70, 21)
-        Me.Label3.TabIndex = 60
-        Me.Label3.Text = "Service:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(37, 172)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(76, 21)
-        Me.Label4.TabIndex = 61
-        Me.Label4.Text = "Amount:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.Panel1.Location = New System.Drawing.Point(40, 193)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(508, 10)
+        Me.Panel1.TabIndex = 62
         '
         'genReceipts
         '
@@ -153,12 +158,11 @@ Partial Class genReceipts
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(684, 561)
+        Me.Controls.Add(Me.cmbBookingIdCompleted)
         Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.pnlReceipt)
         Me.Controls.Add(Me.pnlDailyOverview)
-        Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtSearch)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "genReceipts"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -174,12 +178,12 @@ Partial Class genReceipts
 
     Friend WithEvents pnlDailyOverview As Panel
     Friend WithEvents lblTitle As Label
-    Friend WithEvents btnSearch As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtSearch As TextBox
     Friend WithEvents pnlReceipt As Panel
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents amountLbl As Label
+    Friend WithEvents serviceLbl As Label
+    Friend WithEvents customerLbl As Label
     Friend WithEvents btnPrint As Button
+    Friend WithEvents cmbBookingIdCompleted As ComboBox
+    Friend WithEvents Panel1 As Panel
 End Class

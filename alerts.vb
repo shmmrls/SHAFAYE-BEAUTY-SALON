@@ -74,7 +74,7 @@ Public Class alerts
     Private Sub CreateAlertCard(reader As MySqlDataReader)
         ' Create main panel for the alert card
         Dim alertPanel As New Panel()
-        alertPanel.Size = New Size(450, 180)
+        alertPanel.Size = New Size(flwAlerts.Width - 30, 180)
         alertPanel.BorderStyle = BorderStyle.FixedSingle
         alertPanel.Margin = New Padding(10)
 
@@ -118,7 +118,7 @@ Public Class alerts
         itemNameLabel.Size = New Size(320, 25)
         itemNameLabel.Text = reader("item_name").ToString()
         itemNameLabel.Font = New Font("Microsoft Sans Serif", 12, FontStyle.Bold)
-        itemNameLabel.ForeColor = Color.DarkBlue
+        itemNameLabel.ForeColor = Color.FromArgb(77, 0, 18)
         alertPanel.Controls.Add(itemNameLabel)
 
         ' Current stock info
@@ -193,7 +193,7 @@ Public Class alerts
 
     Private Sub CreateNoAlertsCard()
         Dim noAlertPanel As New Panel()
-        noAlertPanel.Size = New Size(450, 100)
+        noAlertPanel.Size = New Size(flwAlerts.Width - 30, 100)
         noAlertPanel.BorderStyle = BorderStyle.FixedSingle
         noAlertPanel.BackColor = Color.FromArgb(212, 237, 218) ' Green background
         noAlertPanel.Margin = New Padding(10)
@@ -219,7 +219,7 @@ Public Class alerts
 
         Dim detailLabel As New Label()
         detailLabel.Location = New Point(10, 50)
-        detailLabel.Size = New Size(430, 40)
+        detailLabel.Size = New Size(flwAlerts.Width - 50, 40)
         detailLabel.Text = "✅ All inventory items are at or above their reorder levels. Your stock levels are healthy!"
         detailLabel.Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular)
         detailLabel.ForeColor = Color.DarkGreen

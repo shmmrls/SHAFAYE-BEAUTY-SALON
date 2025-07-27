@@ -126,7 +126,7 @@ Public Class quickStats
 
     Private Function CreateClientCard(userId As String, firstName As String, lastName As String, email As String, phone As String, dateOfBirth As DateTime?, totalTransactions As Integer) As Panel
         Dim card As New Panel()
-        card.Size = New Size(350, 140)
+        card.Size = New Size(pnlTotalClientsCard.Width - 30, 140)
         card.BorderStyle = BorderStyle.FixedSingle
         card.BackColor = Color.White
         card.Margin = New Padding(5)
@@ -135,7 +135,7 @@ Public Class quickStats
         Dim lblName As New Label()
         lblName.Text = $"{firstName} {lastName}"
         lblName.Font = New Font("Segoe UI", 11, FontStyle.Bold)
-        lblName.ForeColor = Color.DarkBlue
+        lblName.ForeColor = Color.FromArgb(77, 0, 18)
         lblName.Location = New Point(10, 8)
         lblName.Size = New Size(250, 25)
         card.Controls.Add(lblName)
@@ -144,8 +144,8 @@ Public Class quickStats
         Dim lblTransactions As New Label()
         lblTransactions.Text = $"Transactions: {totalTransactions}"
         lblTransactions.Font = New Font("Segoe UI", 9, FontStyle.Bold)
-        lblTransactions.ForeColor = Color.Green
-        lblTransactions.Location = New Point(270, 8)
+        lblTransactions.ForeColor = Color.FromArgb(255, 128, 128)
+        lblTransactions.Location = New Point(pnlTotalClientsCard.Width - 150, 8)
         lblTransactions.AutoSize = True
         card.Controls.Add(lblTransactions)
 
@@ -197,9 +197,9 @@ Public Class quickStats
 
     Private Function CreateRevenueCard(monthlyRevenue As Decimal, connection As MySqlConnection) As Panel
         Dim card As New Panel()
-        card.Size = New Size(400, 200)
+        card.Size = New Size(pnlRevenueCard.Width - 30, 200)
         card.BorderStyle = BorderStyle.FixedSingle
-        card.BackColor = Color.LightBlue
+        card.BackColor = Color.White
         card.Margin = New Padding(5)
         card.Location = New Point(10, 10)
 
@@ -207,7 +207,7 @@ Public Class quickStats
         Dim lblTitle As New Label()
         lblTitle.Text = $"{DateTime.Now.ToString("MMMM yyyy")} Revenue Overview"
         lblTitle.Font = New Font("Segoe UI", 12, FontStyle.Bold)
-        lblTitle.ForeColor = Color.DarkBlue
+        lblTitle.ForeColor = Color.FromArgb(77, 0, 18)
         lblTitle.Location = New Point(15, 10)
         lblTitle.AutoSize = True
         card.Controls.Add(lblTitle)
@@ -216,7 +216,7 @@ Public Class quickStats
         Dim lblTotal As New Label()
         lblTotal.Text = $"₱{monthlyRevenue:N2}"
         lblTotal.Font = New Font("Segoe UI", 18, FontStyle.Bold)
-        lblTotal.ForeColor = Color.Green
+        lblTotal.ForeColor = Color.FromArgb(255, 128, 128)
         lblTotal.Location = New Point(15, 35)
         lblTotal.AutoSize = True
         card.Controls.Add(lblTotal)

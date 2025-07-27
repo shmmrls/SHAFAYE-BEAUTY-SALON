@@ -72,7 +72,7 @@ Partial Class dailyoverview
         Me.lblBookingsTitle.AutoSize = True
         Me.lblBookingsTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBookingsTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblBookingsTitle.Location = New System.Drawing.Point(251, 155)
+        Me.lblBookingsTitle.Location = New System.Drawing.Point(251, 165)
         Me.lblBookingsTitle.Name = "lblBookingsTitle"
         Me.lblBookingsTitle.Size = New System.Drawing.Size(194, 25)
         Me.lblBookingsTitle.TabIndex = 17
@@ -84,7 +84,7 @@ Partial Class dailyoverview
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(151, 9)
+        Me.lblTitle.Location = New System.Drawing.Point(176, 9)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(422, 65)
         Me.lblTitle.TabIndex = 7
@@ -101,11 +101,13 @@ Partial Class dailyoverview
         '
         'flowBookings
         '
+        Me.flowBookings.AutoScroll = True
         Me.flowBookings.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.flowBookings.Location = New System.Drawing.Point(23, 192)
+        Me.flowBookings.Location = New System.Drawing.Point(61, 214)
         Me.flowBookings.Name = "flowBookings"
-        Me.flowBookings.Size = New System.Drawing.Size(635, 281)
+        Me.flowBookings.Size = New System.Drawing.Size(578, 259)
         Me.flowBookings.TabIndex = 18
+        Me.flowBookings.WrapContents = False
         '
         'btnRefresh
         '

@@ -229,7 +229,7 @@ Public Class inventoryList
         Dim panel As New Panel()
         panel.Size = New Size(flpInventoryList.Width - 50, 80)
         panel.BorderStyle = BorderStyle.None
-        panel.BackColor = Color.FromArgb(52, 152, 219) ' Blue header
+        panel.BackColor = Color.FromArgb(77, 0, 18) ' Blue header
         panel.Margin = New Padding(5, 10, 5, 5)
 
         ' Service Name
@@ -254,7 +254,7 @@ Public Class inventoryList
         Dim lblPrice As New Label()
         lblPrice.Text = $"₱{serviceData.Price:N2}"
         lblPrice.Font = New Font("Segoe UI", 10, FontStyle.Bold)
-        lblPrice.ForeColor = Color.Yellow
+        lblPrice.ForeColor = Color.White
         lblPrice.Location = New Point(panel.Width - 120, 10)
         lblPrice.AutoSize = True
         panel.Controls.Add(lblPrice)
@@ -298,7 +298,7 @@ Public Class inventoryList
         Dim lblItemName As New Label()
         lblItemName.Text = itemName
         lblItemName.Font = New Font("Segoe UI", 10, FontStyle.Bold)
-        lblItemName.ForeColor = Color.DarkBlue
+        lblItemName.ForeColor = Color.FromArgb(77, 0, 18)
         lblItemName.Location = New Point(10, 8)
         lblItemName.Size = New Size(200, 20)
         panel.Controls.Add(lblItemName)
@@ -357,7 +357,7 @@ Public Class inventoryList
             lblAvailableServices.Text = $"Services possible: {availableServices}"
             lblAvailableServices.Font = New Font("Segoe UI", 8, FontStyle.Bold)
             lblAvailableServices.ForeColor = If(availableServices > 10, Color.Green, If(availableServices > 5, Color.Orange, Color.Red))
-            lblAvailableServices.Location = New Point(480, 8)
+            lblAvailableServices.Location = New Point(580, 8)
             lblAvailableServices.AutoSize = True
             panel.Controls.Add(lblAvailableServices)
         End If

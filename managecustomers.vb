@@ -82,7 +82,7 @@ Public Class manageCustomers
 
     Private Function CreateCustomerCard(userId As String, firstName As String, lastName As String, username As String, email As String, phone As String, dateOfBirth As DateTime?, totalTransactions As Integer, completedTransactions As Integer, pendingTransactions As Integer, cancelledTransactions As Integer) As Panel
         Dim card As New Panel()
-        card.Size = New Size(550, 180)
+        card.Size = New Size(pnlTotalClientsCard.Width - 30, 180)
         card.BorderStyle = BorderStyle.FixedSingle
         card.BackColor = Color.White
         card.Margin = New Padding(5)
@@ -91,7 +91,7 @@ Public Class manageCustomers
         Dim lblName As New Label()
         lblName.Text = $"{firstName} {lastName}"
         lblName.Font = New Font("Segoe UI", 12, FontStyle.Bold)
-        lblName.ForeColor = Color.DarkBlue
+        lblName.ForeColor = Color.FromArgb(77, 0, 18)
         lblName.Location = New Point(15, 10)
         lblName.Size = New Size(300, 25)
         card.Controls.Add(lblName)
@@ -110,7 +110,7 @@ Public Class manageCustomers
         lblUserId.Text = $"ID: {userId}"
         lblUserId.Font = New Font("Segoe UI", 9, FontStyle.Bold)
         lblUserId.ForeColor = Color.DarkGreen
-        lblUserId.Location = New Point(380, 10)
+        lblUserId.Location = New Point(450, 10)
         lblUserId.AutoSize = True
         card.Controls.Add(lblUserId)
 
@@ -144,7 +144,7 @@ Public Class manageCustomers
         lblTotalTransactions.Text = $"Total Appointments: {totalTransactions}"
         lblTotalTransactions.Font = New Font("Segoe UI", 9, FontStyle.Bold)
         lblTotalTransactions.ForeColor = Color.Blue
-        lblTotalTransactions.Location = New Point(300, 60)
+        lblTotalTransactions.Location = New Point(450, 60)
         lblTotalTransactions.Size = New Size(180, 20)
         card.Controls.Add(lblTotalTransactions)
 
@@ -153,7 +153,7 @@ Public Class manageCustomers
         lblCompleted.Text = $"✅ Completed: {completedTransactions}"
         lblCompleted.Font = New Font("Segoe UI", 8)
         lblCompleted.ForeColor = Color.Green
-        lblCompleted.Location = New Point(300, 80)
+        lblCompleted.Location = New Point(450, 80)
         lblCompleted.Size = New Size(120, 18)
         card.Controls.Add(lblCompleted)
 
@@ -162,7 +162,7 @@ Public Class manageCustomers
         lblPending.Text = $"⏳ Pending: {pendingTransactions}"
         lblPending.Font = New Font("Segoe UI", 8)
         lblPending.ForeColor = Color.Orange
-        lblPending.Location = New Point(300, 98)
+        lblPending.Location = New Point(450, 98)
         lblPending.Size = New Size(120, 18)
         card.Controls.Add(lblPending)
 
@@ -171,7 +171,7 @@ Public Class manageCustomers
         lblCancelled.Text = $"❌ Cancelled: {cancelledTransactions}"
         lblCancelled.Font = New Font("Segoe UI", 8)
         lblCancelled.ForeColor = Color.Red
-        lblCancelled.Location = New Point(300, 116)
+        lblCancelled.Location = New Point(450, 116)
         lblCancelled.Size = New Size(120, 18)
         card.Controls.Add(lblCancelled)
 
@@ -191,7 +191,7 @@ Public Class manageCustomers
         btnDelete.ForeColor = Color.White
         btnDelete.BackColor = Color.FromArgb(77, 0, 18)
         btnDelete.Size = New Size(80, 35)
-        btnDelete.Location = New Point(450, 85) ' Right middle position
+        btnDelete.Location = New Point(pnlTotalClientsCard.Width - 160, 85) ' Right middle position
         btnDelete.FlatStyle = FlatStyle.Flat
         btnDelete.FlatAppearance.BorderSize = 0
         btnDelete.Cursor = Cursors.Hand

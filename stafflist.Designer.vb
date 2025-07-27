@@ -22,7 +22,7 @@ Partial Class stafflist
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvStaff = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -39,16 +39,16 @@ Partial Class stafflist
         '
         Me.dgvStaff.BackgroundColor = System.Drawing.Color.White
         Me.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvStaff.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvStaff.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgvStaff.GridColor = System.Drawing.Color.LightGray
-        Me.dgvStaff.Location = New System.Drawing.Point(74, 101)
+        Me.dgvStaff.Location = New System.Drawing.Point(74, 137)
         Me.dgvStaff.Name = "dgvStaff"
         Me.dgvStaff.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgvStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -60,7 +60,7 @@ Partial Class stafflist
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 64)
+        Me.Panel2.Location = New System.Drawing.Point(0, 96)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(684, 10)
         Me.Panel2.TabIndex = 129
@@ -72,7 +72,7 @@ Partial Class stafflist
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(684, 64)
+        Me.Panel1.Size = New System.Drawing.Size(684, 96)
         Me.Panel1.TabIndex = 128
         '
         'Label1
@@ -81,7 +81,7 @@ Partial Class stafflist
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(200, 9)
+        Me.Label1.Location = New System.Drawing.Point(217, 24)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(311, 47)
         Me.Label1.TabIndex = 8
@@ -95,7 +95,7 @@ Partial Class stafflist
         Me.deleteStaffbtn.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.removeStaff
         Me.deleteStaffbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.deleteStaffbtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.deleteStaffbtn.Location = New System.Drawing.Point(145, 461)
+        Me.deleteStaffbtn.Location = New System.Drawing.Point(145, 497)
         Me.deleteStaffbtn.Name = "deleteStaffbtn"
         Me.deleteStaffbtn.Size = New System.Drawing.Size(184, 32)
         Me.deleteStaffbtn.TabIndex = 131
@@ -109,7 +109,7 @@ Partial Class stafflist
         Me.addStaffbtn.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.addadminstaff
         Me.addStaffbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.addStaffbtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.addStaffbtn.Location = New System.Drawing.Point(351, 461)
+        Me.addStaffbtn.Location = New System.Drawing.Point(351, 497)
         Me.addStaffbtn.Name = "addStaffbtn"
         Me.addStaffbtn.Size = New System.Drawing.Size(180, 32)
         Me.addStaffbtn.TabIndex = 130

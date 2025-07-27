@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class salesReport
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,71 +20,34 @@ Partial Class salesReport
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.fororganization = New System.Windows.Forms.Panel()
-        Me.todaysRevenueLbl = New System.Windows.Forms.Label()
-        Me.lblRevenue = New System.Windows.Forms.Label()
         Me.lblBookingsTitle = New System.Windows.Forms.Label()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.pnlDailyOverview = New System.Windows.Forms.Panel()
         Me.grpFilters = New System.Windows.Forms.GroupBox()
-        Me.grpResults = New System.Windows.Forms.GroupBox()
-        Me.grpProfit = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DateTimePickerTo = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePickerFrom = New System.Windows.Forms.DateTimePicker()
         Me.btnGenerate = New System.Windows.Forms.Button()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.lvwReport = New System.Windows.Forms.ListView()
-        Me.txtNetProfit = New System.Windows.Forms.TextBox()
-        Me.fororganization.SuspendLayout()
+        Me.cmbCategServ = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.grpResults = New System.Windows.Forms.GroupBox()
+        Me.listViewSummaryofreport = New System.Windows.Forms.ListView()
+        Me.grpProfit = New System.Windows.Forms.GroupBox()
+        Me.panelNetProfit = New System.Windows.Forms.Panel()
         Me.pnlDailyOverview.SuspendLayout()
         Me.grpFilters.SuspendLayout()
         Me.grpResults.SuspendLayout()
         Me.grpProfit.SuspendLayout()
         Me.SuspendLayout()
         '
-        'fororganization
-        '
-        Me.fororganization.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.fororganization.Controls.Add(Me.todaysRevenueLbl)
-        Me.fororganization.Controls.Add(Me.lblRevenue)
-        Me.fororganization.Dock = System.Windows.Forms.DockStyle.Top
-        Me.fororganization.Location = New System.Drawing.Point(0, 83)
-        Me.fororganization.Name = "fororganization"
-        Me.fororganization.Size = New System.Drawing.Size(684, 26)
-        Me.fororganization.TabIndex = 20
-        '
-        'todaysRevenueLbl
-        '
-        Me.todaysRevenueLbl.AutoSize = True
-        Me.todaysRevenueLbl.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.todaysRevenueLbl.ForeColor = System.Drawing.Color.White
-        Me.todaysRevenueLbl.Location = New System.Drawing.Point(538, -9)
-        Me.todaysRevenueLbl.Name = "todaysRevenueLbl"
-        Me.todaysRevenueLbl.Size = New System.Drawing.Size(105, 32)
-        Me.todaysRevenueLbl.TabIndex = 18
-        Me.todaysRevenueLbl.Text = "000,000"
-        '
-        'lblRevenue
-        '
-        Me.lblRevenue.AutoSize = True
-        Me.lblRevenue.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRevenue.ForeColor = System.Drawing.Color.White
-        Me.lblRevenue.Location = New System.Drawing.Point(59, -9)
-        Me.lblRevenue.Name = "lblRevenue"
-        Me.lblRevenue.Size = New System.Drawing.Size(128, 32)
-        Me.lblRevenue.TabIndex = 16
-        Me.lblRevenue.Text = "REVENUE:"
-        '
         'lblBookingsTitle
         '
         Me.lblBookingsTitle.AutoSize = True
         Me.lblBookingsTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBookingsTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblBookingsTitle.Location = New System.Drawing.Point(6, 16)
+        Me.lblBookingsTitle.Location = New System.Drawing.Point(40, 35)
         Me.lblBookingsTitle.Name = "lblBookingsTitle"
         Me.lblBookingsTitle.Size = New System.Drawing.Size(59, 21)
         Me.lblBookingsTitle.TabIndex = 21
@@ -96,7 +59,7 @@ Partial Class salesReport
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(151, 9)
+        Me.lblTitle.Location = New System.Drawing.Point(208, 9)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(360, 65)
         Me.lblTitle.TabIndex = 7
@@ -113,109 +76,118 @@ Partial Class salesReport
         '
         'grpFilters
         '
-        Me.grpFilters.Controls.Add(Me.DateTimePicker2)
-        Me.grpFilters.Controls.Add(Me.DateTimePicker1)
+        Me.grpFilters.Controls.Add(Me.DateTimePickerTo)
+        Me.grpFilters.Controls.Add(Me.DateTimePickerFrom)
         Me.grpFilters.Controls.Add(Me.btnGenerate)
-        Me.grpFilters.Controls.Add(Me.ComboBox1)
+        Me.grpFilters.Controls.Add(Me.cmbCategServ)
         Me.grpFilters.Controls.Add(Me.Label2)
         Me.grpFilters.Controls.Add(Me.Label1)
         Me.grpFilters.Controls.Add(Me.lblBookingsTitle)
-        Me.grpFilters.Location = New System.Drawing.Point(12, 115)
+        Me.grpFilters.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpFilters.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.grpFilters.Location = New System.Drawing.Point(12, 108)
         Me.grpFilters.Name = "grpFilters"
         Me.grpFilters.Size = New System.Drawing.Size(660, 126)
         Me.grpFilters.TabIndex = 25
         Me.grpFilters.TabStop = False
         Me.grpFilters.Text = "Report Filters"
         '
-        'grpResults
+        'DateTimePickerTo
         '
-        Me.grpResults.Controls.Add(Me.lvwReport)
-        Me.grpResults.Location = New System.Drawing.Point(12, 258)
-        Me.grpResults.Name = "grpResults"
-        Me.grpResults.Size = New System.Drawing.Size(645, 135)
-        Me.grpResults.TabIndex = 26
-        Me.grpResults.TabStop = False
-        Me.grpResults.Text = "Report Results"
+        Me.DateTimePickerTo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePickerTo.Location = New System.Drawing.Point(105, 69)
+        Me.DateTimePickerTo.Name = "DateTimePickerTo"
+        Me.DateTimePickerTo.Size = New System.Drawing.Size(215, 25)
+        Me.DateTimePickerTo.TabIndex = 27
         '
-        'grpProfit
+        'DateTimePickerFrom
         '
-        Me.grpProfit.Controls.Add(Me.txtNetProfit)
-        Me.grpProfit.Location = New System.Drawing.Point(12, 411)
-        Me.grpProfit.Name = "grpProfit"
-        Me.grpProfit.Size = New System.Drawing.Size(645, 127)
-        Me.grpProfit.TabIndex = 26
-        Me.grpProfit.TabStop = False
-        Me.grpProfit.Text = "Net Profit"
+        Me.DateTimePickerFrom.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePickerFrom.Location = New System.Drawing.Point(105, 38)
+        Me.DateTimePickerFrom.Name = "DateTimePickerFrom"
+        Me.DateTimePickerFrom.Size = New System.Drawing.Size(215, 25)
+        Me.DateTimePickerFrom.TabIndex = 26
         '
-        'Label1
+        'btnGenerate
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(6, 49)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(34, 21)
-        Me.Label1.TabIndex = 22
-        Me.Label1.Text = "TO:"
+        Me.btnGenerate.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGenerate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.btnGenerate.Location = New System.Drawing.Point(350, 68)
+        Me.btnGenerate.Name = "btnGenerate"
+        Me.btnGenerate.Size = New System.Drawing.Size(236, 28)
+        Me.btnGenerate.TabIndex = 25
+        Me.btnGenerate.Text = "GENERATE  SALES REPORT"
+        Me.btnGenerate.UseVisualStyleBackColor = True
+        '
+        'cmbCategServ
+        '
+        Me.cmbCategServ.FormattingEnabled = True
+        Me.cmbCategServ.Location = New System.Drawing.Point(409, 38)
+        Me.cmbCategServ.Name = "cmbCategServ"
+        Me.cmbCategServ.Size = New System.Drawing.Size(177, 25)
+        Me.cmbCategServ.TabIndex = 24
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(6, 82)
+        Me.Label2.Location = New System.Drawing.Point(346, 35)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(52, 21)
         Me.Label2.TabIndex = 23
         Me.Label2.Text = "TYPE:"
         '
-        'ComboBox1
+        'Label1
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(69, 85)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(148, 21)
-        Me.ComboBox1.TabIndex = 24
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(40, 68)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(34, 21)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "TO:"
         '
-        'btnGenerate
+        'grpResults
         '
-        Me.btnGenerate.Location = New System.Drawing.Point(482, 82)
-        Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(149, 29)
-        Me.btnGenerate.TabIndex = 25
-        Me.btnGenerate.Text = "GENERATE REPORT"
-        Me.btnGenerate.UseVisualStyleBackColor = True
+        Me.grpResults.Controls.Add(Me.listViewSummaryofreport)
+        Me.grpResults.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpResults.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.grpResults.Location = New System.Drawing.Point(12, 255)
+        Me.grpResults.Name = "grpResults"
+        Me.grpResults.Size = New System.Drawing.Size(645, 135)
+        Me.grpResults.TabIndex = 26
+        Me.grpResults.TabStop = False
+        Me.grpResults.Text = "Summary of Report Results"
         '
-        'DateTimePicker1
+        'listViewSummaryofreport
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(71, 19)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(185, 20)
-        Me.DateTimePicker1.TabIndex = 26
+        Me.listViewSummaryofreport.HideSelection = False
+        Me.listViewSummaryofreport.Location = New System.Drawing.Point(44, 19)
+        Me.listViewSummaryofreport.Name = "listViewSummaryofreport"
+        Me.listViewSummaryofreport.Size = New System.Drawing.Size(542, 110)
+        Me.listViewSummaryofreport.TabIndex = 0
+        Me.listViewSummaryofreport.UseCompatibleStateImageBehavior = False
         '
-        'DateTimePicker2
+        'grpProfit
         '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(71, 50)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(185, 20)
-        Me.DateTimePicker2.TabIndex = 27
+        Me.grpProfit.Controls.Add(Me.panelNetProfit)
+        Me.grpProfit.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpProfit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.grpProfit.Location = New System.Drawing.Point(12, 407)
+        Me.grpProfit.Name = "grpProfit"
+        Me.grpProfit.Size = New System.Drawing.Size(645, 127)
+        Me.grpProfit.TabIndex = 26
+        Me.grpProfit.TabStop = False
+        Me.grpProfit.Text = "Net Profit"
         '
-        'lvwReport
+        'panelNetProfit
         '
-        Me.lvwReport.HideSelection = False
-        Me.lvwReport.Location = New System.Drawing.Point(10, 19)
-        Me.lvwReport.Name = "lvwReport"
-        Me.lvwReport.Size = New System.Drawing.Size(621, 110)
-        Me.lvwReport.TabIndex = 0
-        Me.lvwReport.UseCompatibleStateImageBehavior = False
-        '
-        'txtNetProfit
-        '
-        Me.txtNetProfit.Location = New System.Drawing.Point(370, 55)
-        Me.txtNetProfit.Name = "txtNetProfit"
-        Me.txtNetProfit.ReadOnly = True
-        Me.txtNetProfit.Size = New System.Drawing.Size(199, 20)
-        Me.txtNetProfit.TabIndex = 0
+        Me.panelNetProfit.Location = New System.Drawing.Point(140, 21)
+        Me.panelNetProfit.Name = "panelNetProfit"
+        Me.panelNetProfit.Size = New System.Drawing.Size(360, 100)
+        Me.panelNetProfit.TabIndex = 0
         '
         'salesReport
         '
@@ -226,40 +198,32 @@ Partial Class salesReport
         Me.Controls.Add(Me.grpResults)
         Me.Controls.Add(Me.grpProfit)
         Me.Controls.Add(Me.grpFilters)
-        Me.Controls.Add(Me.fororganization)
         Me.Controls.Add(Me.pnlDailyOverview)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "salesReport"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "salesReport"
-        Me.fororganization.ResumeLayout(False)
-        Me.fororganization.PerformLayout()
         Me.pnlDailyOverview.ResumeLayout(False)
         Me.pnlDailyOverview.PerformLayout()
         Me.grpFilters.ResumeLayout(False)
         Me.grpFilters.PerformLayout()
         Me.grpResults.ResumeLayout(False)
         Me.grpProfit.ResumeLayout(False)
-        Me.grpProfit.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents fororganization As Panel
-    Friend WithEvents todaysRevenueLbl As Label
-    Friend WithEvents lblRevenue As Label
     Friend WithEvents lblBookingsTitle As Label
     Friend WithEvents lblTitle As Label
     Friend WithEvents pnlDailyOverview As Panel
     Friend WithEvents grpFilters As GroupBox
     Friend WithEvents grpResults As GroupBox
     Friend WithEvents grpProfit As GroupBox
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents DateTimePickerTo As DateTimePicker
+    Friend WithEvents DateTimePickerFrom As DateTimePicker
     Friend WithEvents btnGenerate As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmbCategServ As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents lvwReport As ListView
-    Friend WithEvents txtNetProfit As TextBox
+    Friend WithEvents listViewSummaryofreport As ListView
+    Friend WithEvents panelNetProfit As Panel
 End Class

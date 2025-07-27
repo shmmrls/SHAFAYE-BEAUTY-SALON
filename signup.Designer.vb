@@ -54,6 +54,7 @@ Partial Class signup
         '
         Me.signinpage.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.signinpage.BackColor = System.Drawing.Color.Transparent
+        Me.signinpage.Cursor = System.Windows.Forms.Cursors.Hand
         Me.signinpage.Location = New System.Drawing.Point(645, 35)
         Me.signinpage.Name = "signinpage"
         Me.signinpage.Size = New System.Drawing.Size(238, 52)
