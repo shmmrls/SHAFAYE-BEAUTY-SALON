@@ -1,6 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.IO
 
+'FOR SEARCH SERVICES
+'Allow search access to services for clients by name or by category.
 Public Class servicelist
     Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
     Public sql As String
@@ -73,7 +75,6 @@ Public Class servicelist
                     flowServices.Controls.Add(categoryLabel)
                 End If
 
-                ' Row-style layout
                 Dim rowPanel As New Panel With {
                 .Height = 60,
                 .Width = flowServices.Width - 40,
@@ -82,7 +83,6 @@ Public Class servicelist
                 .Padding = New Padding(5)
             }
 
-                ' Service image
                 Dim serviceImage As Image = Nothing
                 Dim possibleExtensions = {".png", ".jpg", ".jpeg", ".bmp"}
 
@@ -95,7 +95,6 @@ Public Class servicelist
                 Next
 
                 If serviceImage Is Nothing Then
-                    ' Optional: fallback image if not found
                     serviceImage = My.Resources.logo_shafaye '
                 End If
 
@@ -108,7 +107,6 @@ Public Class servicelist
             }
                 rowPanel.Controls.Add(picService)
 
-                ' Service name
                 Dim lblName As New Label With {
                 .Text = serviceName,
                 .Font = New Font("Segoe UI", 10, FontStyle.Bold),
@@ -117,7 +115,6 @@ Public Class servicelist
             }
                 rowPanel.Controls.Add(lblName)
 
-                ' Price
                 Dim lblPrice As New Label With {
                 .Text = price,
                 .Font = New Font("Segoe UI", 10),
@@ -127,7 +124,6 @@ Public Class servicelist
             }
                 rowPanel.Controls.Add(lblPrice)
 
-                ' Availability label
                 Dim lblAvail As New Label With {
                 .Text = If(isAvailable, "Available", "Not Available"),
                 .ForeColor = If(isAvailable, Color.ForestGreen, Color.DarkRed),

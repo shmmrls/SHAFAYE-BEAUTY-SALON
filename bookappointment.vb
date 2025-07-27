@@ -1,5 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 
+'FOR APPOINTMENT BOOKING  (BOOK SERVICE APPOINTMENT)
+'Clients can Select a service (up To 3), choose an available Date And time, And submit a booking request.
+'Staff are auto-assigned based On availability.
 Public Class bookappointment
     Private userID As Integer
     Dim conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")

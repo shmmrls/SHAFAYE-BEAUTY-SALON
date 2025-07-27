@@ -1,5 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
+'FOR CUSTOMER INQUIRY FORM & FAQ SUGGESTION SYSTEM – Allows logged-in users to send their questions or concerns
+'(saved to a message table), and automatically logs each inquiry as a suggested FAQ entry for future staff review.
 Public Class CustomerSupport
     Private userID As Integer
     Dim conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
@@ -51,7 +53,6 @@ Public Class CustomerSupport
         Try
             conn.Open()
 
-            ' Insert into contact_messages table
             Dim query As String = "
             INSERT INTO contact_messages (user_id, subject, message) 
             VALUES (@userID, @subject, @message)"
@@ -61,7 +62,6 @@ Public Class CustomerSupport
             cmd.Parameters.AddWithValue("@message", messagetxtbox.Text.Trim())
             cmd.ExecuteNonQuery()
 
-            ' Insert into faq table with question = message, answer = NULL, is_invisible = 0
             Dim faqQuery As String = "
             INSERT INTO faq (question, answer, is_invisible) 
             VALUES (@question, NULL, 0)"

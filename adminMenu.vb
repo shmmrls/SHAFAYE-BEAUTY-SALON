@@ -1,8 +1,9 @@
 ﻿
 
 Public Class adminMenu
+    'FOR ROLE-BASED ACCESS CONTROL 
+    'Admin/Staff will have special access to manage the system based on their roles.
 
-    ' FOR SHOWING AND HIDING MENUS
     Sub customizeDesign()
         panelAdmin.Visible = False
         panelAdminProf.Visible = False
@@ -85,7 +86,6 @@ Public Class adminMenu
     End Sub
 
 
-    ' ADMIN DASHBOARD IMPROVE NALANG DESIGN
     Private Sub adminDashboard_Click(sender As Object, e As EventArgs) Handles adminDashboard.Click
         showSubmenu(panelAdmin)
     End Sub
@@ -109,7 +109,7 @@ Public Class adminMenu
 
 
 
-    ' APPOINTMENT MANAGEMENT OK NA 
+
     Private Sub appointmentManagement_Click(sender As Object, e As EventArgs) Handles appointmentManagement.Click
         showSubmenu(panelAppointment)
     End Sub
@@ -129,7 +129,6 @@ Public Class adminMenu
 
 
 
-    ' SERVICES OK NA
     Private Sub services_Click(sender As Object, e As EventArgs) Handles services.Click
         showSubmenu(panelService)
     End Sub
@@ -157,7 +156,6 @@ Public Class adminMenu
 
 
 
-    ' STAFF OK NA
     Private Sub staff_Click(sender As Object, e As EventArgs) Handles staff.Click
         showSubmenu(panelStaff)
     End Sub
@@ -182,7 +180,6 @@ Public Class adminMenu
 
 
 
-    ' FINANCE
 
     Private Sub finance_Click(sender As Object, e As EventArgs) Handles finance.Click
         showSubmenu(panelFinancial)
@@ -202,7 +199,6 @@ Public Class adminMenu
 
 
 
-    ' INVENTORY IMPROVE
     Private Sub inventory_Click(sender As Object, e As EventArgs) Handles inventory.Click
         showSubmenu(panelInventory)
     End Sub
@@ -230,7 +226,6 @@ Public Class adminMenu
 
 
 
-    'PAYMENTS
     Private Sub payments_Click(sender As Object, e As EventArgs) Handles payments.Click
         showSubmenu(panelPayment)
     End Sub
@@ -250,7 +245,6 @@ Public Class adminMenu
 
 
 
-    'SUPPORT
     Private Sub support_Click(sender As Object, e As EventArgs) Handles support.Click
         showSubmenu(panelCustomerSupport)
     End Sub
@@ -274,7 +268,6 @@ Public Class adminMenu
 
 
 
-    'PROFILE AND SETTINGS  OK NA
     Private Sub adminProfile_Click(sender As Object, e As EventArgs) Handles adminProfile.Click
         showSubmenu(panelAdminProf)
     End Sub
@@ -288,7 +281,6 @@ Public Class adminMenu
         OpenChildForm(New adminControl())
     End Sub
 
-    'logout OK NA
     Private Sub logout_Click(sender As Object, e As EventArgs) Handles logout.Click
         hideSubmenu()
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)

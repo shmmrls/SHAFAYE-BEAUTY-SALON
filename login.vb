@@ -2,13 +2,14 @@
 Imports System.Security.Cryptography
 Imports System.Text
 
+'FOR ACCOUNT MANAGEMENT (ONE TIME REGISTRATION & LOGIN ACCESS)
+'Clients can register providing details such as full name, username and password.
 
 Public Class login
     Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
     Public sql As String
     Public dbcomm As MySqlCommand
 
-    'password hashing
     Private Function HashPassword(password As String) As String
         Dim sha As SHA256 = SHA256.Create()
         Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
@@ -48,7 +49,6 @@ Public Class login
         Try
             conn.Open()
 
-            ' Also get the user_id now
             Dim sql As String = "SELECT user_id, role FROM user_register WHERE username = @username AND password = @password"
             dbcomm = New MySqlCommand(sql, conn)
             dbcomm.Parameters.AddWithValue("@username", username)

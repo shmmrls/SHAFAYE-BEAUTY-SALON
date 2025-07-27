@@ -18,7 +18,6 @@ Public Class viewallbookings
                               "JOIN services s ON aps.service_id = s.service_id " &
                               "JOIN user_register u ON a.user_id = u.user_id "
 
-        ' Apply filters
         If statusFilter <> "All" Then baseQuery &= " AND a.status = @status"
         If dateFilter <> "All" Then baseQuery &= " AND a.appointment_date = @date"
         If staffFilter <> "All" Then
@@ -30,20 +29,17 @@ Public Class viewallbookings
         End If
         If timeFilter <> "All" Then baseQuery &= " AND a.appointment_time = @time"
 
-        ' Simplified GROUP BY - only group by appointment_id since it's unique
         baseQuery &= " GROUP BY a.appointment_id"
 
-        ' Add order by clause based on selection
         If orderBy = "Recent to Oldest" Then
             baseQuery &= " ORDER BY a.appointment_date DESC, a.appointment_time DESC"
-        Else ' Default: "Oldest to Recent"
+        Else
             baseQuery &= " ORDER BY a.appointment_date ASC, a.appointment_time ASC"
         End If
 
         Using conn As New MySqlConnection("server=localhost;user=root;password=;database=final_shafaye_salon")
             Using cmd As New MySqlCommand(baseQuery, conn)
 
-                ' Add parameters based on filters
                 If statusFilter <> "All" Then
                     cmd.Parameters.AddWithValue("@status", statusFilter)
                 End If
@@ -66,7 +62,6 @@ Public Class viewallbookings
                 Try
                     conn.Open()
 
-                    ' Debug: Show the query being executed
                     Console.WriteLine("Executing query: " & baseQuery)
 
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
@@ -78,22 +73,18 @@ Public Class viewallbookings
 
                             Dim card As New AppointmentCard()
 
-                            ' Format the appointment date and time
                             Dim appointmentDate As String = ""
                             Dim appointmentTime As String = ""
 
-                            ' Get date
                             If Not IsDBNull(reader("appointment_date")) Then
                                 Dim dateValue As Date = Convert.ToDateTime(reader("appointment_date"))
                                 appointmentDate = dateValue.ToString("yyyy-MM-dd")
                             End If
 
-                            ' Get time
                             If Not IsDBNull(reader("appointment_time")) Then
                                 appointmentTime = reader("appointment_time").ToString()
                             End If
 
-                            ' Get assigned staff for this appointment
                             Dim assignedStaff As String = GetAssignedStaff(Convert.ToInt32(reader("appointment_id")))
 
                             card.SetData(reader("service_names").ToString(),
@@ -104,7 +95,6 @@ Public Class viewallbookings
                             flowAppointments.Controls.Add(card)
                         End While
 
-                        ' Debug: Show total count
                         Console.WriteLine($"Total appointments loaded: {appointmentCount}")
                         If appointmentCount = 0 Then
                             MessageBox.Show("No appointments found matching the current filters.")
@@ -157,12 +147,10 @@ Public Class viewallbookings
     End Sub
 
     Private Sub PopulateFilters()
-        ' Initialize status filter
         cmbStatus.Items.Clear()
         cmbStatus.Items.AddRange(New String() {"All", "Pending", "Approved", "Completed", "Cancelled"})
         cmbStatus.SelectedIndex = 0
 
-        ' Initialize order by filter
         cmborderby.Items.Clear()
         cmborderby.Items.AddRange(New String() {"Oldest to Recent", "Recent to Oldest"})
         cmborderby.SelectedIndex = 0
@@ -171,16 +159,12 @@ Public Class viewallbookings
             Try
                 conn.Open()
 
-                ' Populate Staff filter
                 PopulateStaffFilter(conn)
 
-                ' Populate Date filter
                 PopulateDateFilter(conn)
 
-                ' Populate Time filter
                 PopulateTimeFilter(conn)
 
-                ' Set default selections
                 cmbStaff.SelectedIndex = 0
                 cmbDate.SelectedIndex = 0
                 cmbTime.SelectedIndex = 0

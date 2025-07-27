@@ -1,6 +1,9 @@
 ﻿Imports System.IO
 Imports MySql.Data.MySqlClient
 
+'FOR SERVCE LISTING
+'Admin can create, add, update, and delete products.
+
 Public Class addservices
 
     Dim conn As New MySqlConnection("server=localhost;user=root;password=;database=final_shafaye_salon;")
@@ -40,7 +43,6 @@ Public Class addservices
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        ' Validate all required fields
         If String.IsNullOrWhiteSpace(txtServiceName.Text) OrElse
            String.IsNullOrWhiteSpace(txtPrice.Text) OrElse
            categoryComboBox.SelectedItem Is Nothing OrElse
@@ -53,7 +55,6 @@ Public Class addservices
             Return
         End If
 
-        ' Save image to Resources folder with extension (e.g., .png)
         Dim imageNameOnly As String = txtImageName.Text.Trim()
         Dim imageFullPath As String = OpenFileDialog1.FileName
         Dim extension As String = Path.GetExtension(imageFullPath)
@@ -71,7 +72,6 @@ Public Class addservices
             Return
         End Try
 
-        ' Get selected category_id
         Dim selectedCategory As ComboBoxItem = TryCast(categoryComboBox.SelectedItem, ComboBoxItem)
         If selectedCategory Is Nothing Then
             MessageBox.Show("Please select a category.")
@@ -79,7 +79,6 @@ Public Class addservices
         End If
         Dim category_id As Integer = selectedCategory.Value
 
-        ' Insert service into database
         Try
             conn.Open()
             Dim insertServiceCmd As New MySqlCommand("INSERT INTO services (name, description, price, category_id, is_available, image_name) VALUES (@name, @desc, @price, @cat, @avail, @img)", conn)
@@ -91,25 +90,23 @@ Public Class addservices
             insertServiceCmd.Parameters.AddWithValue("@img", imageNameOnly)
             insertServiceCmd.ExecuteNonQuery()
 
-            ' >>> Get the last inserted service_id
             Dim serviceId As Integer = CInt(New MySqlCommand("SELECT LAST_INSERT_ID()", conn).ExecuteScalar())
 
-            ' >>> Determine role(s) to assign
             Dim roleToAssign As New List(Of String)
             Dim serviceNameLower As String = txtServiceName.Text.ToLower()
 
             Select Case category_id
-                Case 1 ' Massage Services
+                Case 1
                     roleToAssign.Add("Massage Therapist")
-                Case 2 ' Nail Services
+                Case 2
                     roleToAssign.Add("Nail Technician")
-                Case 3 ' Facial and Skin Care
+                Case 3
                     roleToAssign.Add("Facial Specialist")
-                Case 4 ' Waxing and Threading
+                Case 4
                     roleToAssign.Add("Waxing Specialist")
-                Case 5 ' Lashes and Brows
+                Case 5
                     roleToAssign.Add("Threading Specialist")
-                Case 6 ' Hair Services
+                Case 6
                     If serviceNameLower.Contains("color") Then
                         roleToAssign.Add("Hair Colorist")
                     ElseIf serviceNameLower.Contains("rebond") Then
@@ -121,11 +118,10 @@ Public Class addservices
                     Else
                         roleToAssign.Add("Hair Stylist")
                     End If
-                Case 7 ' Spa Packages
+                Case 7
                     roleToAssign.Add("All-Around Spa Therapist")
             End Select
 
-            ' >>> Insert roles into service_staff_roles table
             For Each role As String In roleToAssign
                 Dim roleCmd As New MySqlCommand("INSERT INTO service_staff_roles (service_id, role_name) VALUES (@service_id, @role_name)", conn)
                 roleCmd.Parameters.AddWithValue("@service_id", serviceId)

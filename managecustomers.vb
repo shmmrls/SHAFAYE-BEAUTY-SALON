@@ -1,6 +1,8 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 
+'FOR CUSTOMER SUPPORT 
+'Enable customers to send messages/concerns and allow admin/staff to view and respond.
 Public Class manageCustomers
     Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
 
@@ -16,7 +18,6 @@ Public Class manageCustomers
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' Query to get all clients with their transaction count
                 Dim query As String = "
                     SELECT 
                         ur.user_id,
@@ -63,7 +64,6 @@ Public Class manageCustomers
                     End Using
                 End Using
 
-                ' Show message if no customers found
                 If pnlTotalClientsCard.Controls.Count = 0 Then
                     Dim noCustomersLabel As New Label()
                     noCustomersLabel.Text = "No customers found in the system"
@@ -87,7 +87,6 @@ Public Class manageCustomers
         card.BackColor = Color.White
         card.Margin = New Padding(5)
 
-        ' Customer Name (Top Left)
         Dim lblName As New Label()
         lblName.Text = $"{firstName} {lastName}"
         lblName.Font = New Font("Segoe UI", 12, FontStyle.Bold)
@@ -96,7 +95,6 @@ Public Class manageCustomers
         lblName.Size = New Size(300, 25)
         card.Controls.Add(lblName)
 
-        ' Username (Below Name)
         Dim lblUsername As New Label()
         lblUsername.Text = $"@{username}"
         lblUsername.Font = New Font("Segoe UI", 9, FontStyle.Italic)
@@ -105,7 +103,6 @@ Public Class manageCustomers
         lblUsername.AutoSize = True
         card.Controls.Add(lblUsername)
 
-        ' Customer ID (Top Right, before delete button)
         Dim lblUserId As New Label()
         lblUserId.Text = $"ID: {userId}"
         lblUserId.Font = New Font("Segoe UI", 9, FontStyle.Bold)
@@ -114,7 +111,6 @@ Public Class manageCustomers
         lblUserId.AutoSize = True
         card.Controls.Add(lblUserId)
 
-        ' Email (Left Column)
         Dim lblEmail As New Label()
         lblEmail.Text = $"📧 {email}"
         lblEmail.Font = New Font("Segoe UI", 9)
@@ -122,7 +118,6 @@ Public Class manageCustomers
         lblEmail.Size = New Size(280, 20)
         card.Controls.Add(lblEmail)
 
-        ' Phone (Left Column)
         Dim lblPhone As New Label()
         lblPhone.Text = $"📱 {phone}"
         lblPhone.Font = New Font("Segoe UI", 9)
@@ -130,7 +125,6 @@ Public Class manageCustomers
         lblPhone.Size = New Size(200, 20)
         card.Controls.Add(lblPhone)
 
-        ' Date of Birth (Left Column)
         Dim lblDOB As New Label()
         Dim dobText As String = If(dateOfBirth.HasValue, dateOfBirth.Value.ToString("MMM dd, yyyy"), "N/A")
         lblDOB.Text = $"🎂 {dobText}"
@@ -139,7 +133,6 @@ Public Class manageCustomers
         lblDOB.Size = New Size(200, 20)
         card.Controls.Add(lblDOB)
 
-        ' Transaction Summary (Right Column - Top)
         Dim lblTotalTransactions As New Label()
         lblTotalTransactions.Text = $"Total Appointments: {totalTransactions}"
         lblTotalTransactions.Font = New Font("Segoe UI", 9, FontStyle.Bold)
@@ -148,7 +141,6 @@ Public Class manageCustomers
         lblTotalTransactions.Size = New Size(180, 20)
         card.Controls.Add(lblTotalTransactions)
 
-        ' Completed Transactions
         Dim lblCompleted As New Label()
         lblCompleted.Text = $"✅ Completed: {completedTransactions}"
         lblCompleted.Font = New Font("Segoe UI", 8)
@@ -157,7 +149,6 @@ Public Class manageCustomers
         lblCompleted.Size = New Size(120, 18)
         card.Controls.Add(lblCompleted)
 
-        ' Pending Transactions
         Dim lblPending As New Label()
         lblPending.Text = $"⏳ Pending: {pendingTransactions}"
         lblPending.Font = New Font("Segoe UI", 8)
@@ -166,7 +157,6 @@ Public Class manageCustomers
         lblPending.Size = New Size(120, 18)
         card.Controls.Add(lblPending)
 
-        ' Cancelled Transactions
         Dim lblCancelled As New Label()
         lblCancelled.Text = $"❌ Cancelled: {cancelledTransactions}"
         lblCancelled.Font = New Font("Segoe UI", 8)
@@ -175,7 +165,6 @@ Public Class manageCustomers
         lblCancelled.Size = New Size(120, 18)
         card.Controls.Add(lblCancelled)
 
-        ' Customer Status (Bottom Left)
         Dim lblStatus As New Label()
         lblStatus.Text = "ACTIVE CUSTOMER"
         lblStatus.Font = New Font("Segoe UI", 8, FontStyle.Bold)
@@ -184,24 +173,21 @@ Public Class manageCustomers
         lblStatus.AutoSize = True
         card.Controls.Add(lblStatus)
 
-        ' Delete Button (Right Middle)
         Dim btnDelete As New Button()
         btnDelete.Text = "DELETE"
         btnDelete.Font = New Font("Segoe UI", 9, FontStyle.Bold)
         btnDelete.ForeColor = Color.White
         btnDelete.BackColor = Color.FromArgb(77, 0, 18)
         btnDelete.Size = New Size(80, 35)
-        btnDelete.Location = New Point(pnlTotalClientsCard.Width - 160, 85) ' Right middle position
+        btnDelete.Location = New Point(pnlTotalClientsCard.Width - 160, 85)
         btnDelete.FlatStyle = FlatStyle.Flat
         btnDelete.FlatAppearance.BorderSize = 0
         btnDelete.Cursor = Cursors.Hand
 
-        ' Add click event for delete button
         AddHandler btnDelete.Click, Sub(sender, e) DeleteCustomer(userId, $"{firstName} {lastName}")
 
         card.Controls.Add(btnDelete)
 
-        ' Add hover effect for the card
         AddHandler card.MouseEnter, Sub(sender, e) card.BackColor = Color.FromArgb(248, 249, 250)
         AddHandler card.MouseLeave, Sub(sender, e) card.BackColor = Color.White
 
@@ -210,7 +196,6 @@ Public Class manageCustomers
 
     Private Sub DeleteCustomer(userId As String, customerName As String)
         Try
-            ' Confirm deletion
             Dim result As DialogResult = MessageBox.Show(
                 $"Are you sure you want to delete customer '{customerName}' and ALL their records from the system?" & vbNewLine & vbNewLine &
                 "This action will permanently remove:" & vbNewLine &
@@ -229,70 +214,57 @@ Public Class manageCustomers
                 Using connection As New MySqlConnection(connectionString)
                     connection.Open()
 
-                    ' Start transaction for data integrity
                     Using transaction As MySqlTransaction = connection.BeginTransaction()
                         Try
-                            ' Delete in proper order to respect foreign key constraints
 
-                            ' 1. Delete reviews (references appointments and staff)
                             Dim deleteReviews As String = "DELETE FROM reviews WHERE appointment_id IN (SELECT appointment_id FROM appointments WHERE user_id = @userId)"
                             Using cmd As New MySqlCommand(deleteReviews, connection, transaction)
                                 cmd.Parameters.AddWithValue("@userId", userId)
                                 cmd.ExecuteNonQuery()
                             End Using
 
-                            ' 2. Delete payments (references appointments)
                             Dim deletePayments As String = "DELETE FROM payments WHERE appointment_id IN (SELECT appointment_id FROM appointments WHERE user_id = @userId)"
                             Using cmd As New MySqlCommand(deletePayments, connection, transaction)
                                 cmd.Parameters.AddWithValue("@userId", userId)
                                 cmd.ExecuteNonQuery()
                             End Using
 
-                            ' 3. Delete appointment_services (references appointments)
                             Dim deleteAppointmentServices As String = "DELETE FROM appointment_services WHERE appointment_id IN (SELECT appointment_id FROM appointments WHERE user_id = @userId)"
                             Using cmd As New MySqlCommand(deleteAppointmentServices, connection, transaction)
                                 cmd.Parameters.AddWithValue("@userId", userId)
                                 cmd.ExecuteNonQuery()
                             End Using
 
-                            ' 4. Delete appointments
                             Dim deleteAppointments As String = "DELETE FROM appointments WHERE user_id = @userId"
                             Using cmd As New MySqlCommand(deleteAppointments, connection, transaction)
                                 cmd.Parameters.AddWithValue("@userId", userId)
                                 cmd.ExecuteNonQuery()
                             End Using
-
-                            ' 5. Delete contact messages
                             Dim deleteMessages As String = "DELETE FROM contact_messages WHERE user_id = @userId"
                             Using cmd As New MySqlCommand(deleteMessages, connection, transaction)
                                 cmd.Parameters.AddWithValue("@userId", userId)
                                 cmd.ExecuteNonQuery()
                             End Using
 
-                            ' 6. Delete user profile
                             Dim deleteProfile As String = "DELETE FROM user_profiles WHERE user_id = @userId"
                             Using cmd As New MySqlCommand(deleteProfile, connection, transaction)
                                 cmd.Parameters.AddWithValue("@userId", userId)
                                 cmd.ExecuteNonQuery()
                             End Using
 
-                            ' 7. Finally, delete user account
                             Dim deleteUser As String = "DELETE FROM user_register WHERE user_id = @userId"
                             Using cmd As New MySqlCommand(deleteUser, connection, transaction)
                                 cmd.Parameters.AddWithValue("@userId", userId)
                                 cmd.ExecuteNonQuery()
                             End Using
 
-                            ' Commit transaction
                             transaction.Commit()
 
                             MessageBox.Show($"Customer '{customerName}' and all their records have been successfully deleted from the system.", "Customer Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                            ' Refresh the customer list
                             LoadAllCustomers()
 
                         Catch ex As Exception
-                            ' Rollback transaction on error
                             transaction.Rollback()
                             MessageBox.Show($"Error deleting customer: {ex.Message}", "Deletion Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End Try

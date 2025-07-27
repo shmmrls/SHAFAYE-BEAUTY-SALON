@@ -2,6 +2,8 @@
 Imports System.Security.Cryptography
 Imports System.Text
 
+'FOR USER REGISTRATION
+'Allow users To register an account With validation, secure password storage, And profile creation.
 Public Class signup
 
     Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
@@ -9,9 +11,7 @@ Public Class signup
     Public dbcomm As MySqlCommand
 
 
-    '========== PASSWORD ============
 
-    'password hashing
     Private Function HashPassword(password As String) As String
         Dim sha As SHA256 = SHA256.Create()
         Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
@@ -25,7 +25,6 @@ Public Class signup
         Return sb.ToString()
     End Function
 
-    'password condition
     Private Function IsPasswordStrong(pw As String) As Boolean
         Dim hasUpper As Boolean = pw.Any(AddressOf Char.IsUpper)
         Dim hasLower As Boolean = pw.Any(AddressOf Char.IsLower)
@@ -34,7 +33,7 @@ Public Class signup
         Return pw.Length >= 8 AndAlso hasUpper AndAlso hasLower AndAlso hasNumber AndAlso hasSymbol
     End Function
 
-    'password enter
+
 
     Private Sub firstnametxt_KeyDown(sender As Object, e As KeyEventArgs) Handles firstnametxt.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -70,7 +69,6 @@ Public Class signup
         End If
     End Sub
 
-    'main sign up button
     Private Sub signupbtn_Click(sender As Object, e As EventArgs) Handles signupbtn.Click
         Dim firstName As String = firstnametxt.Text.Trim()
         Dim lastName As String = lastnametxt.Text.Trim()
@@ -146,7 +144,6 @@ Public Class signup
     End Sub
 
 
-    'sign up button visuals
     Private Sub signupbtn_MouseEnter(sender As Object, e As EventArgs) Handles signupbtn.MouseEnter
         signupbtn.BackgroundImage = My.Resources.signupbutton1_0
         signupbtn.BackgroundImageLayout = ImageLayout.Zoom
@@ -157,7 +154,6 @@ Public Class signup
         signupbtn.BackgroundImageLayout = ImageLayout.Zoom
     End Sub
 
-    'password verification
     Private Sub passtxt_Enter(sender As Object, e As EventArgs) Handles passtxt.Enter
         passwordPopupPanel.Visible = True
         UpdatePasswordPopup()
@@ -205,7 +201,6 @@ Public Class signup
     End Sub
 
 
-    'next form/page
     Private Sub signinpage_Click(sender As Object, e As EventArgs) Handles signinpage.Click
         login.Show()
         Me.Hide()
@@ -225,7 +220,6 @@ Public Class signup
         confirmpasstx.UseSystemPasswordChar = False
     End Sub
 
-    'clear txtboxes
     Private Sub clear_Click(sender As Object, e As EventArgs) Handles clear.Click
         firstnametxt.Clear()
         lastnametxt.Clear()
@@ -234,7 +228,6 @@ Public Class signup
         confirmpasstx.Clear()
     End Sub
 
-    'show password
     Dim isPasswordVisible As Boolean = False
     Private Sub showpassword_Click(sender As Object, e As EventArgs) Handles showpassword.Click
         If isPasswordVisible Then

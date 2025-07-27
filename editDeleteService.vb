@@ -1,6 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.IO
 
+'FOR SERVICE LISTING
+'Description: Admin can create, add, update, And delete products.
 Public Class editDeleteService
     Dim conn As New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
 
@@ -106,7 +108,6 @@ Public Class editDeleteService
                 Next
 
                 If serviceImage Is Nothing Then
-                    ' Optional: fallback image if not found
                     serviceImage = My.Resources.logo_shafaye '
                 End If
 

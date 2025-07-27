@@ -2,11 +2,12 @@
 Imports System.Drawing
 Imports System.Windows.Forms
 
+'FOR CUSTOMER SUPPORT
+'Allow admin/staff to view, sort, and delete customer reviews of services and staff.
 Public Class moderateReviews
     Private conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
 
     Private Sub moderateReviews_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Populate combo box options
         cmbSortByRating.Items.AddRange(New String() {"Highest", "Lowest"})
         cmbSortByDate.Items.AddRange(New String() {"Newest", "Oldest"})
         cmbSortByRating.SelectedIndex = 0
@@ -67,7 +68,6 @@ Public Class moderateReviews
                             reviewPanel.BorderStyle = BorderStyle.FixedSingle
                             reviewPanel.BackColor = Color.White
                             reviewPanel.Margin = New Padding(5)
-                            ' reviewPanel.AutoSize = True
 
                             Dim lblCustomerInfo As New Label()
                             lblCustomerInfo.AutoSize = False

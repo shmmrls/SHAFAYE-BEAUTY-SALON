@@ -1,6 +1,8 @@
 ﻿Public Class homepage
 
-
+    'FOR PUBLIC HOMEPAGE ACCESS
+    'Non-logged-in users can view general features Like services, reviews, And FAQs,
+    'And are prompted to log in Or sign up to book appointments.
     Private currentForm As Form = Nothing
 
     Private Sub OpenChildForm(childForm As Form)
@@ -14,7 +16,7 @@
             .FormBorderStyle = FormBorderStyle.None
             .Dock = DockStyle.Fill
             .StartPosition = FormStartPosition.Manual
-            .Bounds = panelChildForm.ClientRectangle ' ← Ensures exact fit
+            .Bounds = panelChildForm.ClientRectangle
         End With
 
         panelChildForm.Controls.Clear()

@@ -2,6 +2,8 @@
 Imports System.Drawing
 Imports System.Windows.Forms
 
+'Create section that shows and reads common questions about services, scheduling, and policies.
+
 Public Class faqManagement
     Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
     Private selectedFaqId As Integer = 0
@@ -22,7 +24,6 @@ Public Class faqManagement
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' Load existing FAQ questions
                 Dim faqQuery As String = "SELECT faq_id, question FROM faq ORDER BY faq_id DESC"
                 Using command As New MySqlCommand(faqQuery, connection)
                     Using reader As MySqlDataReader = command.ExecuteReader()
@@ -36,7 +37,6 @@ Public Class faqManagement
                     End Using
                 End Using
 
-                ' Load customer messages
                 Dim messageQuery As String = "SELECT message_id, subject, message FROM contact_messages ORDER BY sent_at DESC"
                 Using messageCommand As New MySqlCommand(messageQuery, connection)
                     Using messageReader As MySqlDataReader = messageCommand.ExecuteReader()
@@ -110,14 +110,12 @@ Public Class faqManagement
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' Check if question already exists
                 Dim checkQuery As String = "SELECT faq_id FROM faq WHERE question = @question"
                 Using checkCommand As New MySqlCommand(checkQuery, connection)
                     checkCommand.Parameters.AddWithValue("@question", cmbQuestions.Text.Trim())
                     Dim existingId As Object = checkCommand.ExecuteScalar()
 
                     If existingId IsNot Nothing Then
-                        ' Update existing FAQ
                         Dim updateQuery As String = "UPDATE faq SET answer = @answer WHERE faq_id = @faqId"
                         Using updateCommand As New MySqlCommand(updateQuery, connection)
                             updateCommand.Parameters.AddWithValue("@answer", rtbAnswer.Text.Trim())
@@ -127,7 +125,6 @@ Public Class faqManagement
                         MessageBox.Show("FAQ updated successfully!", "Success",
                                       MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        ' Insert new FAQ (with is_visible = 1 by default)
                         Dim insertQuery As String = "INSERT INTO faq (question, answer, is_visible) VALUES (@question, @answer, 1)"
                         Using insertCommand As New MySqlCommand(insertQuery, connection)
                             insertCommand.Parameters.AddWithValue("@question", cmbQuestions.Text.Trim())
@@ -140,11 +137,9 @@ Public Class faqManagement
                 End Using
             End Using
 
-            ' Refresh the lists
             LoadQuestions()
             LoadFaqList()
 
-            ' Clear the form
             cmbQuestions.Text = ""
             rtbAnswer.Clear()
             selectedFaqId = 0
@@ -181,11 +176,9 @@ Public Class faqManagement
                             MessageBox.Show("FAQ deleted successfully!", "Success",
                                           MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                            ' Refresh the lists
                             LoadQuestions()
                             LoadFaqList()
 
-                            ' Clear the form
                             cmbQuestions.Text = ""
                             rtbAnswer.Clear()
                             selectedFaqId = 0
@@ -214,7 +207,6 @@ Public Class faqManagement
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' Find the FAQ by question text
                 Dim findQuery As String = "SELECT faq_id, is_visible FROM faq WHERE question = @question"
                 Using findCommand As New MySqlCommand(findQuery, connection)
                     findCommand.Parameters.AddWithValue("@question", cmbQuestions.Text.Trim())
@@ -224,7 +216,6 @@ Public Class faqManagement
                             Dim currentStatus As Boolean = Convert.ToBoolean(reader("is_visible"))
                             reader.Close()
 
-                            ' Toggle the visibility
                             Dim toggleQuery As String = "UPDATE faq SET is_visible = @newStatus WHERE faq_id = @faqId"
                             Using toggleCommand As New MySqlCommand(toggleQuery, connection)
                                 toggleCommand.Parameters.AddWithValue("@newStatus", Not currentStatus)
@@ -268,7 +259,6 @@ Public Class faqManagement
                 End Using
             End Using
 
-            ' Auto scroll to bottom
             flpFaqList.VerticalScroll.Value = flpFaqList.VerticalScroll.Maximum
             flpFaqList.PerformLayout()
 
@@ -338,7 +328,6 @@ Public Class faqManagement
             Dim clickedControl As Control = DirectCast(sender, Control)
             Dim faqId As String = ""
 
-            ' Get the FAQ ID from the clicked control or its parent
             If clickedControl.Tag IsNot Nothing Then
                 faqId = clickedControl.Tag.ToString()
             ElseIf clickedControl.Parent IsNot Nothing AndAlso clickedControl.Parent.Tag IsNot Nothing Then
@@ -348,7 +337,6 @@ Public Class faqManagement
             If Not String.IsNullOrEmpty(faqId) Then
                 selectedFaqId = Convert.ToInt32(faqId)
 
-                ' Load the selected FAQ into the form
                 Using connection As New MySqlConnection(connectionString)
                     connection.Open()
                     Dim query As String = "SELECT question, answer FROM faq WHERE faq_id = @faqId"
@@ -364,13 +352,11 @@ Public Class faqManagement
                     End Using
                 End Using
 
-                ' Highlight selected card
                 For Each ctrl As Control In flpFaqList.Controls
                     If TypeOf ctrl Is Panel Then
                         If ctrl.Tag?.ToString() = faqId Then
-                            ctrl.BackColor = Color.FromArgb(200, 220, 255) ' Light blue for selection
+                            ctrl.BackColor = Color.FromArgb(200, 220, 255)
                         Else
-                            ' Reset to original color based on visibility
                             Using connection As New MySqlConnection(connectionString)
                                 connection.Open()
                                 Dim visQuery As String = "SELECT IFNULL(is_visible, 1) as is_visible FROM faq WHERE faq_id = @id"
@@ -391,11 +377,10 @@ Public Class faqManagement
         End Try
     End Sub
 
-    ' Helper class for ComboBox items
     Public Class QuestionItem
         Public Property Text As String
         Public Property Id As Integer
-        Public Property Type As String ' "FAQ" or "MESSAGE"
+        Public Property Type As String
         Public Property OriginalMessage As String
 
         Public Overrides Function ToString() As String

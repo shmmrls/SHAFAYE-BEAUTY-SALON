@@ -1,6 +1,9 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 
+'FOR INVENTORY MANAGEMENT
+'Create inventory records and track internal-use supplies (e.g., wax, shampoo, facial cream) including stock levels and
+'usage frequency."
 Public Class inventoryList
     Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
 
@@ -9,16 +12,14 @@ Public Class inventoryList
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-        ' Real-time search as user types
         If txtSearch.Text.Trim().Length >= 1 Then
             SearchInventory(txtSearch.Text.Trim())
         Else
-            LoadInventoryByServices() ' Show all when search is empty
+            LoadInventoryByServices()
         End If
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        ' Official search button functionality
         If txtSearch.Text.Trim().Length > 0 Then
             SearchInventory(txtSearch.Text.Trim())
         Else
@@ -36,7 +37,6 @@ Public Class inventoryList
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' First, get all services that have inventory items assigned
                 Dim servicesQuery As String = "
                     SELECT DISTINCT 
                         s.service_id,
@@ -68,7 +68,6 @@ Public Class inventoryList
                         servicesReader.Close()
 
                         If servicesData.Count = 0 Then
-                            ' Show message if no inventory items found
                             Dim noInventoryLabel As New Label()
                             noInventoryLabel.Text = "No inventory items found in the system." & vbNewLine & vbNewLine & "Items need to be added to the inventory table and linked to services through inventory_usage table."
                             noInventoryLabel.ForeColor = Color.Gray
@@ -79,13 +78,10 @@ Public Class inventoryList
                             Return
                         End If
 
-                        ' For each service, create a service header and list its inventory items
                         For Each serviceData In servicesData
-                            ' Create service header panel
                             Dim servicePanel As Panel = CreateServiceHeaderPanel(serviceData)
                             flpInventoryList.Controls.Add(servicePanel)
 
-                            ' Get inventory items for this service
                             Dim inventoryQuery As String = "
                                 SELECT 
                                     i.item_id,
@@ -118,7 +114,6 @@ Public Class inventoryList
                                 End Using
                             End Using
 
-                            ' Add spacing between services
                             Dim spacer As New Panel()
                             spacer.Size = New Size(flpInventoryList.Width - 50, 10)
                             spacer.BackColor = Color.Transparent
@@ -143,7 +138,6 @@ Public Class inventoryList
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' Search query for items and services
                 Dim searchQuery As String = "
                     SELECT DISTINCT 
                         s.service_id,
@@ -179,7 +173,6 @@ Public Class inventoryList
                             foundResults = True
                             Dim serviceId As String = reader("service_id").ToString()
 
-                            ' Create service header if this is a new service
                             If serviceId <> currentServiceId Then
                                 currentServiceId = serviceId
 
@@ -195,7 +188,6 @@ Public Class inventoryList
                                 flpInventoryList.Controls.Add(servicePanel)
                             End If
 
-                            ' Create inventory item panel
                             Dim itemPanel As Panel = CreateInventoryItemPanel(
                                 reader("item_id").ToString(),
                                 reader("item_name").ToString(),
@@ -229,10 +221,9 @@ Public Class inventoryList
         Dim panel As New Panel()
         panel.Size = New Size(flpInventoryList.Width - 50, 80)
         panel.BorderStyle = BorderStyle.None
-        panel.BackColor = Color.FromArgb(77, 0, 18) ' Blue header
+        panel.BackColor = Color.FromArgb(77, 0, 18)
         panel.Margin = New Padding(5, 10, 5, 5)
 
-        ' Service Name
         Dim lblServiceName As New Label()
         lblServiceName.Text = serviceData.ServiceName.ToUpper()
         lblServiceName.Font = New Font("Segoe UI", 12, FontStyle.Bold)
@@ -241,7 +232,6 @@ Public Class inventoryList
         lblServiceName.Size = New Size(400, 25)
         panel.Controls.Add(lblServiceName)
 
-        ' Service Category
         Dim lblCategory As New Label()
         lblCategory.Text = $"Category: {serviceData.CategoryName}"
         lblCategory.Font = New Font("Segoe UI", 9)
@@ -250,7 +240,6 @@ Public Class inventoryList
         lblCategory.AutoSize = True
         panel.Controls.Add(lblCategory)
 
-        ' Service Price
         Dim lblPrice As New Label()
         lblPrice.Text = $"₱{serviceData.Price:N2}"
         lblPrice.Font = New Font("Segoe UI", 10, FontStyle.Bold)
@@ -259,7 +248,6 @@ Public Class inventoryList
         lblPrice.AutoSize = True
         panel.Controls.Add(lblPrice)
 
-        ' Service Description
         If Not String.IsNullOrEmpty(serviceData.Description) Then
             Dim lblDescription As New Label()
             lblDescription.Text = serviceData.Description
@@ -280,21 +268,19 @@ Public Class inventoryList
         panel.BackColor = Color.White
         panel.Margin = New Padding(25, 2, 5, 2)
 
-        ' Stock status color
         Dim stockColor As Color = Color.Green
         Dim stockStatus As String = "In Stock"
 
         If quantity <= 0 Then
             stockColor = Color.Red
             stockStatus = "Out of Stock"
-            panel.BackColor = Color.FromArgb(255, 245, 245) ' Light red background
+            panel.BackColor = Color.FromArgb(255, 245, 245)
         ElseIf reorderLevel > 0 AndAlso quantity <= reorderLevel Then
             stockColor = Color.Orange
             stockStatus = "Low Stock"
-            panel.BackColor = Color.FromArgb(255, 248, 220) ' Light yellow background
+            panel.BackColor = Color.FromArgb(255, 248, 220)
         End If
 
-        ' Item Name
         Dim lblItemName As New Label()
         lblItemName.Text = itemName
         lblItemName.Font = New Font("Segoe UI", 10, FontStyle.Bold)
@@ -303,7 +289,6 @@ Public Class inventoryList
         lblItemName.Size = New Size(200, 20)
         panel.Controls.Add(lblItemName)
 
-        ' Item ID
         Dim lblItemId As New Label()
         lblItemId.Text = $"ID: {itemId}"
         lblItemId.Font = New Font("Segoe UI", 8, FontStyle.Italic)
@@ -312,7 +297,6 @@ Public Class inventoryList
         lblItemId.AutoSize = True
         panel.Controls.Add(lblItemId)
 
-        ' Quantity
         Dim lblQuantity As New Label()
         lblQuantity.Text = $"Stock: {quantity} {unit}"
         lblQuantity.Font = New Font("Segoe UI", 9, FontStyle.Bold)
@@ -321,7 +305,6 @@ Public Class inventoryList
         lblQuantity.AutoSize = True
         panel.Controls.Add(lblQuantity)
 
-        ' Stock Status
         Dim lblStockStatus As New Label()
         lblStockStatus.Text = stockStatus
         lblStockStatus.Font = New Font("Segoe UI", 8, FontStyle.Bold)
@@ -330,7 +313,6 @@ Public Class inventoryList
         lblStockStatus.AutoSize = True
         panel.Controls.Add(lblStockStatus)
 
-        ' Quantity Used per Service
         Dim lblQuantityUsed As New Label()
         lblQuantityUsed.Text = $"Used per service: {quantityUsed} {unit}"
         lblQuantityUsed.Font = New Font("Segoe UI", 8)
@@ -339,7 +321,6 @@ Public Class inventoryList
         lblQuantityUsed.AutoSize = True
         panel.Controls.Add(lblQuantityUsed)
 
-        ' Reorder Level
         If reorderLevel > 0 Then
             Dim lblReorderLevel As New Label()
             lblReorderLevel.Text = $"Reorder at: {reorderLevel} {unit}"
@@ -350,7 +331,6 @@ Public Class inventoryList
             panel.Controls.Add(lblReorderLevel)
         End If
 
-        ' Available Services (calculated)
         If quantityUsed > 0 Then
             Dim availableServices As Integer = Math.Floor(quantity / quantityUsed)
             Dim lblAvailableServices As New Label()
@@ -362,7 +342,6 @@ Public Class inventoryList
             panel.Controls.Add(lblAvailableServices)
         End If
 
-        ' Add hover effect
         AddHandler panel.MouseEnter, Sub(sender, e)
                                          If panel.BackColor = Color.White Then
                                              panel.BackColor = Color.FromArgb(248, 249, 250)

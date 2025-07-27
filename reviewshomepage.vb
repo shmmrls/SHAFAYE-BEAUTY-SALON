@@ -1,5 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
+'for feedback and reviews
 Public Class reviewshomepage
     Dim conn As New MySqlConnection("server=localhost;user=root;password=;database=final_shafaye_salon;")
 

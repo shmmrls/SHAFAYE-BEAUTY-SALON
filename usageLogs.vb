@@ -46,7 +46,6 @@ Public Class usageLogs
                             panel.BorderStyle = BorderStyle.FixedSingle
                             panel.BackColor = Color.White
 
-                            ' Item Name Label
                             Dim lblItemName As New Label()
                             lblItemName.Text = reader("item_name").ToString()
                             lblItemName.Font = New System.Drawing.Font("Segoe UI", 10, FontStyle.Bold)
@@ -54,7 +53,6 @@ Public Class usageLogs
                             lblItemName.Size = New Size(300, 20)
                             panel.Controls.Add(lblItemName)
 
-                            ' Usage Info
                             Dim totalUsed As String = If(IsDBNull(reader("total_used")), "0", reader("total_used").ToString())
                             Dim lblUsage As New Label()
                             If totalUsed = "0" Then
@@ -68,13 +66,11 @@ Public Class usageLogs
                             lblUsage.Size = New Size(200, 20)
                             panel.Controls.Add(lblUsage)
 
-                            ' Current Quantity
                             Dim lblQuantity As New Label()
                             lblQuantity.Text = "Current Stock: " & reader("current_quantity").ToString() & " " & reader("unit").ToString()
                             lblQuantity.Location = New Point(10, 45)
                             lblQuantity.Size = New Size(200, 20)
 
-                            ' Set color based on stock level
                             Dim statusColor As String = reader("status_color").ToString()
                             Select Case statusColor
                                 Case "red"
@@ -87,7 +83,6 @@ Public Class usageLogs
 
                             panel.Controls.Add(lblQuantity)
 
-                            ' Reorder Level Info
                             Dim lblReorder As New Label()
                             lblReorder.Text = "Reorder Level: " & reader("reorder_level").ToString()
                             lblReorder.Location = New Point(350, 25)
@@ -95,7 +90,6 @@ Public Class usageLogs
                             lblReorder.ForeColor = Color.Gray
                             panel.Controls.Add(lblReorder)
 
-                            ' Status Indicator
                             Dim lblStatus As New Label()
                             Select Case statusColor
                                 Case "red"
@@ -149,25 +143,21 @@ Public Class usageLogs
 
         document.Open()
 
-        ' Title
         Dim titleFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD)
         Dim title As New Paragraph("SHAFAYE SALON - INVENTORY USAGE LOG", titleFont)
         title.Alignment = Element.ALIGN_CENTER
         title.SpacingAfter = 10
         document.Add(title)
 
-        ' Date
         Dim headerFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10)
         Dim dateInfo As New Paragraph("Generated on: " & DateTime.Now.ToString("MMMM dd, yyyy hh:mm tt"), headerFont)
         dateInfo.SpacingAfter = 15
         document.Add(dateInfo)
 
-        ' Table
         Dim table As New PdfPTable(5)
         table.WidthPercentage = 100
         table.SetWidths(New Single() {3, 1.5, 1.5, 1.5, 1.5})
 
-        ' Table Headers
         Dim headerCellFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.BOLD)
         Dim headers() As String = {"Item Name", "Total Used", "Current Stock", "Reorder Level", "Status"}
 
@@ -179,7 +169,6 @@ Public Class usageLogs
             table.AddCell(cell)
         Next
 
-        ' Table Data
         Using connection As New MySqlConnection(connectionString)
             connection.Open()
 
@@ -205,21 +194,17 @@ Public Class usageLogs
                     Dim cellFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 9)
 
                     While reader.Read()
-                        ' Item Name
                         table.AddCell(New PdfPCell(New Phrase(reader("item_name").ToString(), cellFont)) With {.Padding = 5})
 
-                        ' Total Used
                         Dim totalUsed As String = If(IsDBNull(reader("total_used")), "0", reader("total_used").ToString())
                         Dim usageText As String = If(totalUsed = "0", "Not yet used", totalUsed & " " & reader("unit").ToString())
                         table.AddCell(New PdfPCell(New Phrase(usageText, cellFont)) With {.Padding = 5, .HorizontalAlignment = Element.ALIGN_CENTER})
 
-                        ' Current Stock
                         table.AddCell(New PdfPCell(New Phrase(reader("current_quantity").ToString() & " " & reader("unit").ToString(), cellFont)) With {.Padding = 5, .HorizontalAlignment = Element.ALIGN_CENTER})
 
-                        ' Reorder Level
                         table.AddCell(New PdfPCell(New Phrase(reader("reorder_level").ToString(), cellFont)) With {.Padding = 5, .HorizontalAlignment = Element.ALIGN_CENTER})
 
-                        ' Status
+
                         Dim statusCell As New PdfPCell(New Phrase(reader("status_text").ToString(), cellFont))
                         statusCell.Padding = 5
                         statusCell.HorizontalAlignment = Element.ALIGN_CENTER
@@ -241,7 +226,6 @@ Public Class usageLogs
 
         document.Add(table)
 
-        ' Footer
         Dim footer As New Paragraph(vbNewLine & "Report generated by Shafaye Salon Management System", New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.ITALIC))
         footer.Alignment = Element.ALIGN_CENTER
         document.Add(footer)

@@ -4,7 +4,9 @@ Imports Mysqlx
 Imports System.Security.Cryptography
 Imports System.Text
 
-
+'FOR ACCOUNT MANAGEMENT 
+'Clients may update their personal information (e.g., contact number), review their transaction history,
+'and change their password
 Public Class profile
 
     Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
@@ -15,7 +17,6 @@ Public Class profile
 
 
 
-    'password hashing
     Private Function HashPassword(password As String) As String
         Dim sha As SHA256 = SHA256.Create()
         Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
@@ -27,7 +28,6 @@ Public Class profile
         Return sb.ToString()
     End Function
 
-    'password condition
     Private Function IsPasswordStrong(pw As String) As Boolean
         Dim hasUpper As Boolean = pw.Any(AddressOf Char.IsUpper)
         Dim hasLower As Boolean = pw.Any(AddressOf Char.IsLower)
@@ -272,7 +272,6 @@ Public Class profile
                 cmd1.ExecuteNonQuery()
             End Using
 
-            ' Update user_profiles
             Using cmd2 As New MySqlCommand("UPDATE user_profiles SET email = @Email, phone = @Phone, date_of_birth = @DOB WHERE user_id = @UserId", conn)
                 cmd2.Parameters.AddWithValue("@Email", email)
                 cmd2.Parameters.AddWithValue("@Phone", phone)
@@ -281,11 +280,9 @@ Public Class profile
                 cmd2.ExecuteNonQuery()
             End Using
 
-            ' Update session value (if username was changed)
             LoggedInUsername = username
 
             MsgBox("Profile updated successfully.")
-            ' proff.Visible = False
 
         Catch ex As Exception
             MsgBox("An error occurred: " & ex.Message)
@@ -298,7 +295,6 @@ Public Class profile
         Me.Text = ""
 
         LoadUserProfile()
-        'untxt.Text = LoggedInUsername
     End Sub
 
     Public Sub showpassword_MouseEnter(sender As Object, e As EventArgs) Handles showpassword.MouseEnter

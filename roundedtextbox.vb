@@ -35,7 +35,7 @@ Public Class RoundedTextBox
             If TypeOf ctrl Is Panel Then
                 For Each innerCtrl As Control In ctrl.Controls
                     If TypeOf innerCtrl Is TextBox Then
-                        CType(innerCtrl, TextBox).ReadOnly = True ' or .Enabled = False
+                        CType(innerCtrl, TextBox).ReadOnly = True
                     End If
                 Next
             End If

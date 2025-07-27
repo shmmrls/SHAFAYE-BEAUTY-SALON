@@ -1,6 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Drawing
 Imports System.Windows.Forms
+'FOR CUSTOMER SUPPORT → INQUIRY MANAGEMENT
+'Admin can view, read, And delete customer messages submitted through the contact form.
+
 
 Public Class customerInquiries
     Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
@@ -38,7 +41,6 @@ Public Class customerInquiries
     End Sub
 
     Private Sub CreateMessageCard(parentPanel As Panel, reader As MySqlDataReader, yPos As Integer)
-        ' Main card panel
         Dim cardPanel As New Panel()
         cardPanel.Size = New Size(pnlMessagesContainer.Width - 30, 100)
         cardPanel.Location = New Point(10, yPos)
@@ -47,10 +49,8 @@ Public Class customerInquiries
         cardPanel.Cursor = Cursors.Hand
         cardPanel.Tag = reader("message_id").ToString()
 
-        ' Add click event to show message details
         AddHandler cardPanel.Click, AddressOf CardPanel_Click
 
-        ' Customer name (Anonymous)
         Dim lblCustomer As New Label()
         lblCustomer.Text = "Customer: Anonymous"
         lblCustomer.Font = New Font("Arial", 9, FontStyle.Bold)
@@ -60,7 +60,6 @@ Public Class customerInquiries
         AddHandler lblCustomer.Click, AddressOf CardPanel_Click
         cardPanel.Controls.Add(lblCustomer)
 
-        ' Subject
         Dim lblSubject As New Label()
         lblSubject.Text = "Subject: " & reader("subject").ToString()
         lblSubject.Font = New Font("Arial", 9, FontStyle.Bold)
@@ -70,7 +69,6 @@ Public Class customerInquiries
         AddHandler lblSubject.Click, AddressOf CardPanel_Click
         cardPanel.Controls.Add(lblSubject)
 
-        ' Message preview (first 80 characters)
         Dim messageText As String = reader("message").ToString()
         Dim messagePreview As String = If(messageText.Length > 80,
                                         messageText.Substring(0, 80) & "...",
@@ -84,7 +82,6 @@ Public Class customerInquiries
         AddHandler lblMessage.Click, AddressOf CardPanel_Click
         cardPanel.Controls.Add(lblMessage)
 
-        ' Date sent
         Dim lblDate As New Label()
         lblDate.Text = "Sent: " & Convert.ToDateTime(reader("sent_at")).ToString("MMM dd, yyyy hh:mm tt")
         lblDate.Font = New Font("Arial", 8)
@@ -94,7 +91,6 @@ Public Class customerInquiries
         AddHandler lblDate.Click, AddressOf CardPanel_Click
         cardPanel.Controls.Add(lblDate)
 
-        ' Delete button
         Dim btnDelete As New Button()
         btnDelete.Text = "Delete"
         btnDelete.Size = New Size(60, 25)
@@ -116,7 +112,6 @@ Public Class customerInquiries
             Dim clickedControl As Control = DirectCast(sender, Control)
             Dim messageId As String = ""
 
-            ' Get the message ID from the clicked control or its parent
             If clickedControl.Tag IsNot Nothing Then
                 messageId = clickedControl.Tag.ToString()
             ElseIf clickedControl.Parent IsNot Nothing AndAlso clickedControl.Parent.Tag IsNot Nothing Then
@@ -155,7 +150,6 @@ Public Class customerInquiries
                 End Using
             End Using
 
-            ' Highlight the selected card
             Dim pnlMessagesContainer As Panel = Me.Controls("pnlMessagesContainer")
             For Each ctrl As Control In pnlMessagesContainer.Controls
                 If TypeOf ctrl Is Panel Then
@@ -195,9 +189,8 @@ Public Class customerInquiries
                         If rowsAffected > 0 Then
                             MessageBox.Show("Message deleted successfully!", "Success",
                                           MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            LoadCustomerInquiries() ' Refresh the list
+                            LoadCustomerInquiries()
 
-                            ' Clear message details if the deleted message was selected
                             If selectedMessageId = messageId Then
                                 Dim txtMessageDetails As TextBox = Me.Controls("txtMessageDetails")
                                 txtMessageDetails.Clear()

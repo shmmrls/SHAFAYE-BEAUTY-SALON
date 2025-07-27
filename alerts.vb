@@ -1,8 +1,10 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 
+'FOR SUPPLY INVENTORY TRACKING AND INVENTORY MANAGEMENT
+'Create inventory records and track internal-use supplies (e.g., wax, shampoo, facial cream) including stock levels
+'and usage frequency."
 Public Class alerts
-    ' Database connection string
     Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
 
     Private Sub alerts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -16,7 +18,6 @@ Public Class alerts
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' Query to get low stock items with usage statistics
                 Dim query As String = "
                     SELECT 
                         i.item_id,
@@ -72,26 +73,23 @@ Public Class alerts
     End Sub
 
     Private Sub CreateAlertCard(reader As MySqlDataReader)
-        ' Create main panel for the alert card
         Dim alertPanel As New Panel()
         alertPanel.Size = New Size(flwAlerts.Width - 30, 180)
         alertPanel.BorderStyle = BorderStyle.FixedSingle
         alertPanel.Margin = New Padding(10)
 
-        ' Determine alert level based on stock status
         Dim quantity As Integer = Convert.ToInt32(reader("quantity"))
         Dim reorderLevel As Integer = Convert.ToInt32(reader("reorder_level"))
         Dim stockDifference As Integer = quantity - reorderLevel
 
         If quantity = 0 Then
-            alertPanel.BackColor = Color.FromArgb(248, 215, 218) ' Red - Out of stock
+            alertPanel.BackColor = Color.FromArgb(248, 215, 218)
         ElseIf stockDifference < 0 Then
-            alertPanel.BackColor = Color.FromArgb(255, 243, 205) ' Orange - Critical low
+            alertPanel.BackColor = Color.FromArgb(255, 243, 205)
         Else
-            alertPanel.BackColor = Color.FromArgb(255, 248, 209) ' Yellow - Low stock
+            alertPanel.BackColor = Color.FromArgb(255, 248, 209)
         End If
 
-        ' Alert level indicator
         Dim alertLevelLabel As New Label()
         alertLevelLabel.Location = New Point(10, 5)
         alertLevelLabel.Size = New Size(100, 25)
@@ -112,7 +110,6 @@ Public Class alerts
         alertLevelLabel.TextAlign = ContentAlignment.MiddleCenter
         alertPanel.Controls.Add(alertLevelLabel)
 
-        ' Item name label
         Dim itemNameLabel As New Label()
         itemNameLabel.Location = New Point(120, 5)
         itemNameLabel.Size = New Size(320, 25)
@@ -121,7 +118,6 @@ Public Class alerts
         itemNameLabel.ForeColor = Color.FromArgb(77, 0, 18)
         alertPanel.Controls.Add(itemNameLabel)
 
-        ' Current stock info
         Dim stockLabel As New Label()
         stockLabel.Location = New Point(10, 35)
         stockLabel.Size = New Size(200, 20)
@@ -129,7 +125,6 @@ Public Class alerts
         stockLabel.Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular)
         alertPanel.Controls.Add(stockLabel)
 
-        ' Reorder level info
         Dim reorderLabel As New Label()
         reorderLabel.Location = New Point(220, 35)
         reorderLabel.Size = New Size(200, 20)
@@ -137,7 +132,6 @@ Public Class alerts
         reorderLabel.Font = New Font("Microsoft Sans Serif", 10, FontStyle.Regular)
         alertPanel.Controls.Add(reorderLabel)
 
-        ' Usage statistics
         Dim totalUsed As Integer = If(reader("total_used") Is DBNull.Value, 0, Convert.ToInt32(reader("total_used")))
         Dim usageCount As Integer = If(reader("usage_count") Is DBNull.Value, 0, Convert.ToInt32(reader("usage_count")))
 
@@ -156,7 +150,6 @@ Public Class alerts
         serviceCountLabel.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Regular)
         alertPanel.Controls.Add(serviceCountLabel)
 
-        ' Services using this item
         Dim servicesUsing As String = If(reader("services_using") Is DBNull.Value, "No services", reader("services_using").ToString())
         If servicesUsing.Length > 60 Then
             servicesUsing = servicesUsing.Substring(0, 57) & "..."
@@ -170,7 +163,6 @@ Public Class alerts
         servicesLabel.ForeColor = Color.DarkGreen
         alertPanel.Controls.Add(servicesLabel)
 
-        ' Action needed label
         Dim actionLabel As New Label()
         actionLabel.Location = New Point(10, 145)
         actionLabel.Size = New Size(430, 25)
@@ -187,7 +179,6 @@ Public Class alerts
 
         alertPanel.Controls.Add(actionLabel)
 
-        ' Add the card to the flow layout panel
         flwAlerts.Controls.Add(alertPanel)
     End Sub
 
@@ -195,7 +186,7 @@ Public Class alerts
         Dim noAlertPanel As New Panel()
         noAlertPanel.Size = New Size(flwAlerts.Width - 30, 100)
         noAlertPanel.BorderStyle = BorderStyle.FixedSingle
-        noAlertPanel.BackColor = Color.FromArgb(212, 237, 218) ' Green background
+        noAlertPanel.BackColor = Color.FromArgb(212, 237, 218)
         noAlertPanel.Margin = New Padding(10)
 
         Dim successLabel As New Label()

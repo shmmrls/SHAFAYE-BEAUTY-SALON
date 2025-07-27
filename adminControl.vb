@@ -2,6 +2,9 @@
 Imports System.Security.Cryptography
 Imports System.Text
 
+'FOR ACCOUNT MANAGEMENT
+'Admin/Staff will have special access to manage the system based on their roles.
+
 Public Class adminControl
     Dim conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
 

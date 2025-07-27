@@ -2,6 +2,11 @@
 Imports System.IO
 Imports System.Drawing.Drawing2D
 
+'FOR ADMIN FUNCTIONALITY → MANAGE APPOINTMENT BOOKINGS
+'Admin can view all bookings, update appointment statuses (Pending, Approved, Completed, Cancelled),
+'and view detailed booking information including assigned staff and services.
+
+
 Public Class bookingactions
     Dim conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
 
@@ -48,7 +53,6 @@ Public Class bookingactions
             adapter.Fill(table)
 
             For Each row As DataRow In table.Rows
-                ' Main panel
                 Dim rowPanel As New Panel With {
                     .BackColor = Color.FromArgb(245, 247, 250),
                     .Width = flowBookings.ClientSize.Width,
@@ -61,7 +65,6 @@ Public Class bookingactions
                 rowPanel.Padding = New Padding(0)
                 rowPanel.Region = New Region(New Rectangle(0, 0, rowPanel.Width, rowPanel.Height))
 
-                ' TableLayoutPanel for even distribution
                 Dim tableLayout As New TableLayoutPanel With {
                 .Dock = DockStyle.Fill,
                 .ColumnCount = 2,
@@ -72,7 +75,6 @@ Public Class bookingactions
                 tableLayout.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 35))
                 tableLayout.RowStyles.Add(New RowStyle(SizeType.Percent, 100))
 
-                ' Panel for padding the details
                 Dim detailsPanel As New Panel With {
                 .Dock = DockStyle.Fill,
                 .Padding = New Padding(24, 10, 24, 10),
@@ -81,7 +83,7 @@ Public Class bookingactions
 
                 Dim detailsBox As New RichTextBox With {
                 .ReadOnly = True,
-                .Enabled = False, ' Prevents caret/cursor and selection
+                .Enabled = False,
                 .BorderStyle = BorderStyle.None,
                 .BackColor = Color.White,
                 .Font = New Font("Segoe UI", 12, FontStyle.Regular),
@@ -103,13 +105,11 @@ Public Class bookingactions
 
                 detailsPanel.Controls.Add(detailsBox)
 
-                ' Right panel for actions
                 Dim rightPanel As New Panel With {
                 .Dock = DockStyle.Fill,
                 .BackColor = Color.Transparent
             }
 
-                ' Price label
                 Dim lblPrice As New Label With {
                 .Text = "₱" & Convert.ToDecimal(row("total_price")).ToString("N2"),
                 .Font = New Font("Segoe UI", 12, FontStyle.Bold),
@@ -119,7 +119,6 @@ Public Class bookingactions
             }
                 rightPanel.Controls.Add(lblPrice)
 
-                ' Status ComboBox
                 Dim statusBox As New ComboBox With {
                 .DropDownStyle = ComboBoxStyle.DropDownList,
                 .Font = New Font("Segoe UI", 10),
@@ -131,7 +130,6 @@ Public Class bookingactions
                 statusBox.SelectedItem = row("status").ToString()
                 rightPanel.Controls.Add(statusBox)
 
-                ' Update Button
                 Dim btnUpdate As New Button With {
                 .Text = "UPDATE",
                 .Font = New Font("Segoe UI", 12, FontStyle.Bold),
@@ -151,7 +149,6 @@ Public Class bookingactions
                 AddHandler btnUpdate.Click, AddressOf UpdateStatus_Click
                 rightPanel.Controls.Add(btnUpdate)
 
-                ' Details Button
                 Dim btnDetails As New Button With {
                 .Text = "DETAILS",
                 .Font = New Font("Segoe UI", 12, FontStyle.Bold),
@@ -167,7 +164,6 @@ Public Class bookingactions
                 AddHandler btnDetails.Click, AddressOf ViewDetails_Click
                 rightPanel.Controls.Add(btnDetails)
 
-                ' Add controls to TableLayoutPanel
                 tableLayout.Controls.Add(detailsPanel, 0, 0)
                 tableLayout.Controls.Add(rightPanel, 1, 0)
 
@@ -216,12 +212,9 @@ Public Class bookingactions
         Try
             conn.Open()
 
-
-            ' Start transaction to ensure data consistency
             Dim transaction As MySqlTransaction = conn.BeginTransaction()
 
             Try
-                ' Update appointment status
                 Dim updateQuery As String = "UPDATE appointments SET status = @status WHERE appointment_id = @id"
                 Using cmd As New MySqlCommand(updateQuery, conn, transaction)
                     cmd.Parameters.AddWithValue("@status", newStatus)
@@ -229,16 +222,13 @@ Public Class bookingactions
                     cmd.ExecuteNonQuery()
                 End Using
 
-                ' Handle payment record based on status change
                 Select Case newStatus
                     Case "Approved"
-                        ' Check if payment record already exists
                         Dim checkPaymentQuery As String = "SELECT COUNT(*) FROM payments WHERE appointment_id = @id"
                         Using checkCmd As New MySqlCommand(checkPaymentQuery, conn, transaction)
                             checkCmd.Parameters.AddWithValue("@id", appointmentID)
                             Dim paymentExists As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
 
-                            ' Only insert if payment record doesn't exist
                             If paymentExists = 0 Then
                                 Dim insertPaymentQuery As String = "INSERT INTO payments (appointment_id, payment_date, payment_type, payment_status) VALUES (@id, @date, @type, @status)"
                                 Using insertCmd As New MySqlCommand(insertPaymentQuery, conn, transaction)
@@ -267,7 +257,6 @@ Public Class bookingactions
                         End Using
 
                     Case "Completed"
-                        ' Check if inventory was already deducted
                         Dim deductedQuery As String = "SELECT inventory_deducted FROM appointments WHERE appointment_id = @id"
                         Dim alreadyDeducted As Boolean = False
                         Using deductedCmd As New MySqlCommand(deductedQuery, conn, transaction)
@@ -279,7 +268,6 @@ Public Class bookingactions
                         End Using
 
                         If Not alreadyDeducted Then
-                            ' Deduct inventory for all services used in this appointment
                             Dim serviceQuery As String = "SELECT service_id FROM appointment_services WHERE appointment_id = @id"
                             Using serviceCmd As New MySqlCommand(serviceQuery, conn, transaction)
                                 serviceCmd.Parameters.AddWithValue("@id", appointmentID)
@@ -315,7 +303,6 @@ Public Class bookingactions
                                 End Using
                             End Using
 
-                            ' Update the appointment to mark inventory as deducted
                             Dim markDeductedQuery As String = "UPDATE appointments SET inventory_deducted = 1 WHERE appointment_id = @id"
                             Using markCmd As New MySqlCommand(markDeductedQuery, conn, transaction)
                                 markCmd.Parameters.AddWithValue("@id", appointmentID)
@@ -323,7 +310,6 @@ Public Class bookingactions
                             End Using
                         End If
                 End Select
-                ' Commit transaction
                 transaction.Commit()
 
                 MessageBox.Show("Status updated successfully!" &
@@ -333,7 +319,6 @@ Public Class bookingactions
                 LoadBookings()
 
             Catch ex As Exception
-                ' Rollback transaction on error
                 transaction.Rollback()
                 Throw ex
             End Try

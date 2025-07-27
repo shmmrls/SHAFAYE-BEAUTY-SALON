@@ -2,6 +2,8 @@
 Imports System.Security.Cryptography
 Imports System.Text
 
+'FOR ROLE-BASED ACCESS CONTROL
+'Admin/ Staff will have special access to manage the system based on their roles.
 
 Public Class adminstafflogin
 
@@ -9,7 +11,6 @@ Public Class adminstafflogin
     Public sql As String
     Public dbcomm As MySqlCommand
 
-    'password hashing
     Private Function HashPassword(password As String) As String
         Dim sha As SHA256 = SHA256.Create()
         Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)

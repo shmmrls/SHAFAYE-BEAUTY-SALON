@@ -4,6 +4,10 @@ Imports iTextSharp.text.pdf
 Imports System.IO
 Imports System.Drawing
 
+'FOR SERVICES SALES TRACKING
+'Records completed appointments with details of services provided, prices, and total payment.
+
+
 Public Class salesReport
     Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
 
@@ -11,7 +15,6 @@ Public Class salesReport
         LoadCategories()
         UpdateSalesReport()
 
-        ' Auto update when date range changes
         AddHandler DateTimePickerFrom.ValueChanged, AddressOf DateRangeChanged
         AddHandler DateTimePickerTo.ValueChanged, AddressOf DateRangeChanged
     End Sub
@@ -55,14 +58,12 @@ Public Class salesReport
 
     Private Sub LoadSalesSummary()
         Try
-            ' Clear old data and set details view
             listViewSummaryofreport.Items.Clear()
             listViewSummaryofreport.View = View.Details
             listViewSummaryofreport.FullRowSelect = True
             listViewSummaryofreport.GridLines = True
             listViewSummaryofreport.HideSelection = False
 
-            ' Clear and add columns - NOW INCLUDING CATEGORY
             listViewSummaryofreport.Columns.Clear()
             listViewSummaryofreport.Columns.Add("Service Name")
             listViewSummaryofreport.Columns.Add("Category")
@@ -77,7 +78,6 @@ Public Class salesReport
             Dim totalRevenue As Decimal = 0
             Dim totalAppointments As Integer = 0
 
-            ' UPDATED QUERY TO INCLUDE CATEGORY NAME
             Dim query As String = "
             SELECT 
                 s.name AS service_name,
@@ -106,12 +106,11 @@ Public Class salesReport
                         Dim rowIndex As Integer = 0
                         While reader.Read()
                             Dim item As New ListViewItem(reader("service_name").ToString())
-                            item.SubItems.Add(reader("category_name").ToString()) ' ADD CATEGORY
+                            item.SubItems.Add(reader("category_name").ToString())
                             item.SubItems.Add(reader("times_availed").ToString())
                             item.SubItems.Add("₱" & Convert.ToDecimal(reader("price")).ToString("N2"))
                             item.SubItems.Add("₱" & Convert.ToDecimal(reader("total_revenue")).ToString("N2"))
 
-                            ' Alternate row coloring (optional)
                             If rowIndex Mod 2 = 0 Then
                                 item.BackColor = Color.FromArgb(245, 245, 245)
                             End If
@@ -125,10 +124,8 @@ Public Class salesReport
                 End Using
             End Using
 
-            ' Update Net Profit Panel
             UpdateNetProfitPanel(totalRevenue, totalAppointments)
 
-            ' Auto-fit and distribute columns
             AutoFitListViewColumns()
 
         Catch ex As Exception
@@ -139,12 +136,11 @@ Public Class salesReport
     Private Sub AutoFitListViewColumns()
         Dim totalWidth As Integer = listViewSummaryofreport.ClientSize.Width
         If listViewSummaryofreport.Columns.Count > 0 Then
-            ' Assign proportional widths - UPDATED FOR 5 COLUMNS
-            listViewSummaryofreport.Columns(0).Width = CInt(totalWidth * 0.3) ' Service Name 30%
-            listViewSummaryofreport.Columns(1).Width = CInt(totalWidth * 0.2) ' Category 20%
-            listViewSummaryofreport.Columns(2).Width = CInt(totalWidth * 0.15) ' Times Availed 15%
-            listViewSummaryofreport.Columns(3).Width = CInt(totalWidth * 0.15) ' Price 15%
-            listViewSummaryofreport.Columns(4).Width = CInt(totalWidth * 0.2) ' Total Revenue 20%
+            listViewSummaryofreport.Columns(0).Width = CInt(totalWidth * 0.3)
+            listViewSummaryofreport.Columns(1).Width = CInt(totalWidth * 0.2)
+            listViewSummaryofreport.Columns(2).Width = CInt(totalWidth * 0.15)
+            listViewSummaryofreport.Columns(3).Width = CInt(totalWidth * 0.15)
+            listViewSummaryofreport.Columns(4).Width = CInt(totalWidth * 0.2)
         End If
     End Sub
 
@@ -152,7 +148,6 @@ Public Class salesReport
         AutoFitListViewColumns()
     End Sub
 
-    ' NEW METHOD TO GET DAILY REVENUE DATA
     Private Function GetDailyRevenueData(fromDate As Date, toDate As Date, category As String) As Dictionary(Of Date, Decimal)
         Dim dailyRevenue As New Dictionary(Of Date, Decimal)()
 
@@ -215,9 +210,9 @@ Public Class salesReport
                 Using reader As MySqlDataReader = cmd.ExecuteReader()
                     While reader.Read()
                         Dim item As New ListViewItem(reader("day").ToString())
-                        item.SubItems.Add("") ' No category
-                        item.SubItems.Add("") ' No times availed
-                        item.SubItems.Add("") ' No price
+                        item.SubItems.Add("")
+                        item.SubItems.Add("")
+                        item.SubItems.Add("")
                         item.SubItems.Add("₱" & Convert.ToDecimal(reader("day_revenue")).ToString("N2"))
                         lv.Items.Add(item)
                     End While
@@ -255,7 +250,7 @@ Public Class salesReport
 
     Private Sub AutoResizeListViewColumns()
         For i As Integer = 0 To listViewSummaryofreport.Columns.Count - 1
-            listViewSummaryofreport.Columns(i).Width = -2 ' Auto-size column to content
+            listViewSummaryofreport.Columns(i).Width = -2
         Next
     End Sub
 
@@ -266,11 +261,10 @@ Public Class salesReport
             Dim fileName As String = $"SalesReport_{fromDateStr}_to_{toDateStr}.pdf"
             Dim savePath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName)
 
-            ' Calculate summary values
             Dim totalRevenue As Decimal = 0
             Dim totalAppointments As Integer = 0
             For Each item As ListViewItem In listViewSummaryofreport.Items
-                If item.SubItems.Count = 5 Then ' NOW 5 COLUMNS
+                If item.SubItems.Count = 5 Then
                     totalAppointments += If(IsNumeric(item.SubItems(2).Text), Convert.ToInt32(item.SubItems(2).Text), 0)
                     Dim totalRevText As String = item.SubItems(4).Text.Replace("₱", "").Replace(",", "").Trim()
                     If IsNumeric(totalRevText) Then
@@ -279,7 +273,6 @@ Public Class salesReport
                 End If
             Next
 
-            ' GET DAILY REVENUE DATA
             Dim selectedCategory As String = cmbCategServ.SelectedItem.ToString()
             Dim dailyRevenueData As Dictionary(Of Date, Decimal) = GetDailyRevenueData(DateTimePickerFrom.Value.Date, DateTimePickerTo.Value.Date, selectedCategory)
 
@@ -288,7 +281,6 @@ Public Class salesReport
                 Dim writer = PdfWriter.GetInstance(doc, fs)
                 doc.Open()
 
-                ' Title and Date Range
                 Dim titleFont As iTextSharp.text.Font = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18)
                 Dim subTitleFont As iTextSharp.text.Font = FontFactory.GetFont(FontFactory.HELVETICA, 12)
                 doc.Add(New Paragraph("SHAFAYE SALON'S SALES REPORT", titleFont))
@@ -298,7 +290,6 @@ Public Class salesReport
                 End If
                 doc.Add(New Paragraph(" "))
 
-                ' Summary Section
                 Dim summaryTable As New PdfPTable(1)
                 summaryTable.WidthPercentage = 100
                 summaryTable.SpacingAfter = 15
@@ -315,7 +306,6 @@ Public Class salesReport
 
                 doc.Add(summaryTable)
 
-                ' Service Table - NOW WITH 5 COLUMNS INCLUDING CATEGORY
                 Dim pdfTable As New PdfPTable(5)
                 pdfTable.WidthPercentage = 100
                 pdfTable.SetWidths(New Single() {2.5F, 1.5F, 1.0F, 1.2F, 1.5F})
@@ -339,7 +329,6 @@ Public Class salesReport
                 doc.Add(pdfTable)
                 doc.Add(New Paragraph(" "))
 
-                ' Daily Revenue Summary - FIXED TO USE ACTUAL DATA
                 doc.Add(New Paragraph(" "))
                 Dim dailyHeader As New Paragraph("Daily Revenue Summary", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13))
                 doc.Add(dailyHeader)
@@ -349,11 +338,9 @@ Public Class salesReport
                 dailyTable.SpacingBefore = 10
                 dailyTable.SetWidths(New Single() {3.0F, 2.0F})
 
-                ' Table Headers
                 dailyTable.AddCell(New PdfPCell(New Phrase("Date", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 11))))
                 dailyTable.AddCell(New PdfPCell(New Phrase("Revenue", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 11))))
 
-                ' Add each date in the range with actual revenue data
                 Dim currentDate As Date = DateTimePickerFrom.Value.Date
                 Dim endDate As Date = DateTimePickerTo.Value.Date
                 While currentDate <= endDate
@@ -370,7 +357,6 @@ Public Class salesReport
 
             MessageBox.Show($"PDF Sales Report generated on Desktop: {fileName}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            ' Open the PDF
             Process.Start(savePath)
 
         Catch ex As Exception

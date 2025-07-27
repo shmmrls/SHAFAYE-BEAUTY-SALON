@@ -1,5 +1,7 @@
 ﻿Imports System.Drawing.Drawing2D
 
+'FOR APPOINTMENT BOOKING → REVIEW APPOINTMENT (For Clients)
+'Customers can view upcoming and past appointments.”
 Public Class AppointmentCard
     Public Property BorderRadius As Integer = 20
     Public Property BorderColor As Color = Color.Silver
@@ -11,7 +13,6 @@ Public Class AppointmentCard
         lblTime.Text = "Time: " & appointmentTime
         lblStatus.Text = "Status: " & status
 
-        ' Color for status
         Select Case status.ToLower()
             Case "pending"
                 lblStatus.BackColor = Color.Orange

@@ -3,6 +3,9 @@ Imports Org.BouncyCastle.Asn1.Cmp
 Imports System.Security.Cryptography
 Imports System.Text
 
+'FOR STAFF MANAGEMENT
+'Main admin may create, update, and delete employees, assign their roles within the offered services,
+'and manage their salary.
 Public Class editstaff
     Dim conn As New MySqlConnection("server=localhost;user=root;password=;database=final_shafaye_salon;")
 

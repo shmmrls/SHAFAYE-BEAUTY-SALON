@@ -3,6 +3,9 @@ Imports iTextSharp.text
 Imports iTextSharp.text.pdf
 Imports System.IO
 
+'FOR ADDING EXPENSE RECORD
+'Admins can log expenses such As supply purchases, staff salaries, rent, Or utilities With Date, amount,
+'And description.
 Public Class expenseTracking
     Private connectionString As String = "server=localhost;userid=root;password=;database=final_shafaye_salon;"
 
@@ -10,7 +13,6 @@ Public Class expenseTracking
         LoadExistingExpenses()
     End Sub
 
-    ' Load existing expenses into combobox
     Private Sub LoadExistingExpenses()
         Try
             Using connection As New MySqlConnection(connectionString)
@@ -30,7 +32,6 @@ Public Class expenseTracking
         End Try
     End Sub
 
-    ' Add new expense
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         If String.IsNullOrWhiteSpace(expenseTypetxt.Text) OrElse
            String.IsNullOrWhiteSpace(txtAmount.Text) Then
@@ -56,12 +57,10 @@ Public Class expenseTracking
                     command.ExecuteNonQuery()
                     MessageBox.Show("Expense added successfully!")
 
-                    ' Clear fields
                     expenseTypetxt.Clear()
                     txtDescription.Clear()
                     txtAmount.Clear()
 
-                    ' Refresh combobox
                     LoadExistingExpenses()
                 End Using
             End Using
@@ -70,7 +69,6 @@ Public Class expenseTracking
         End Try
     End Sub
 
-    ' Load selected expense details
     Private Sub cmbExistingExpense_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbExistingExpense.SelectedIndexChanged
         If cmbExistingExpense.SelectedItem IsNot Nothing Then
             Try
@@ -93,7 +91,6 @@ Public Class expenseTracking
         End If
     End Sub
 
-    ' Update existing expense
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         If cmbExistingExpense.SelectedItem Is Nothing OrElse
            String.IsNullOrWhiteSpace(amtTxtNewExpense.Text) Then
@@ -129,33 +126,28 @@ Public Class expenseTracking
         End Try
     End Sub
 
-    ' Generate monthly expense report
     Private Sub btnReportMonth_Click(sender As Object, e As EventArgs) Handles btnReportMonth.Click
         Dim currentMonth = DateTime.Now.ToString("MMMM yyyy")
         Dim fileName = $"ShaFaye_Monthly_Expense_Report_{DateTime.Now:MMM_yyyy}.pdf"
         GenerateExpenseReport(fileName, "Monthly", currentMonth)
     End Sub
 
-    ' Generate annual expense report
     Private Sub btnReportAnnual_Click(sender As Object, e As EventArgs) Handles btnReportAnnual.Click
         Dim currentYear = DateTime.Now.Year.ToString()
         Dim fileName = $"ShaFaye_Annual_Expense_Report_{currentYear}.pdf"
         GenerateExpenseReport(fileName, "Annual", currentYear)
     End Sub
 
-    ' Generate PDF expense report
     Private Sub GenerateExpenseReport(fileName As String, reportType As String, period As String)
         Try
             Dim document As New Document(PageSize.A4, 50, 50, 50, 50)
             Dim writer = PdfWriter.GetInstance(document, New FileStream(fileName, FileMode.Create))
             document.Open()
 
-            ' Header
             Dim titleFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD)
             Dim headerFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12, iTextSharp.text.Font.BOLD)
             Dim normalFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10)
 
-            ' Company Header
             Dim title As New Paragraph("SHAFAYE BEAUTY SALON", titleFont)
             title.Alignment = Element.ALIGN_CENTER
             document.Add(title)
@@ -170,12 +162,10 @@ Public Class expenseTracking
             reportInfo.SpacingAfter = 20
             document.Add(reportInfo)
 
-            ' Create expense table
             Dim table As New PdfPTable(3)
             table.WidthPercentage = 100
             table.SetWidths({40, 40, 20})
 
-            ' Table headers
             Dim headerCell1 As New PdfPCell(New Phrase("Expense Type", headerFont))
             Dim headerCell2 As New PdfPCell(New Phrase("Description", headerFont))
             Dim headerCell3 As New PdfPCell(New Phrase("Amount (₱)", headerFont))
@@ -194,7 +184,6 @@ Public Class expenseTracking
             Dim totalExpenses As Decimal = 0
             Dim multiplier As Integer = If(reportType = "Annual", 12, 1)
 
-            ' Get expenses from database
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
                 Dim query = "SELECT expense_type, description, amount FROM expenses ORDER BY expense_type"
@@ -211,13 +200,11 @@ Public Class expenseTracking
                     End Using
                 End Using
 
-                ' Get total staff salaries
                 Dim salaryQuery = "SELECT SUM(salary) as total_salary FROM staff WHERE status = 'Active'"
                 Using salaryCommand As New MySqlCommand(salaryQuery, connection)
                     Dim totalSalary = Convert.ToDecimal(salaryCommand.ExecuteScalar()) * multiplier
                     totalExpenses += totalSalary
 
-                    ' Add salary row
                     table.AddCell(New PdfPCell(New Phrase("Staff Salaries", normalFont)) With {.Padding = 5})
                     table.AddCell(New PdfPCell(New Phrase("Total salaries for all active staff members", normalFont)) With {.Padding = 5})
                     table.AddCell(New PdfPCell(New Phrase(totalSalary.ToString("N2"), normalFont)) With {.Padding = 5, .HorizontalAlignment = Element.ALIGN_RIGHT})
@@ -226,7 +213,6 @@ Public Class expenseTracking
 
             document.Add(table)
 
-            ' Total row
             Dim totalTable As New PdfPTable(3)
             totalTable.WidthPercentage = 100
             totalTable.SetWidths({40, 40, 20})
@@ -238,7 +224,6 @@ Public Class expenseTracking
 
             document.Add(totalTable)
 
-            ' Footer
             Dim footer As New Paragraph($"This report was generated automatically by ShaFaye Salon Management System.", normalFont)
             footer.Alignment = Element.ALIGN_CENTER
             footer.SpacingBefore = 30
@@ -247,7 +232,6 @@ Public Class expenseTracking
             document.Close()
             MessageBox.Show($"Report generated successfully: {fileName}")
 
-            ' Open the PDF
             Process.Start(fileName)
 
         Catch ex As Exception
@@ -255,7 +239,6 @@ Public Class expenseTracking
         End Try
     End Sub
 
-    ' Delete existing expense(s)
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         If cmbExistingExpense.SelectedItem Is Nothing Then
             MessageBox.Show("Please select an expense to delete.")
@@ -290,12 +273,10 @@ Public Class expenseTracking
                 End Using
             End Using
 
-            ' Clear UI
             cmbExistingExpense.SelectedIndex = -1
             amtTxtNewExpense.Clear()
             descriptionExistingExpense.Clear()
 
-            ' Reload list
             LoadExistingExpenses()
 
         Catch ex As Exception

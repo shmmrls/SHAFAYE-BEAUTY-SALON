@@ -1,5 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
+'for FEEDBACK AND REVIEWS
 Public Class reviews
     Private userID As Integer
     Private conn As MySqlConnection = New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
@@ -46,7 +47,6 @@ Public Class reviews
         End If
     End Sub
 
-    ' Load appointments that are completed and not yet reviewed
     Private Sub LoadAppointments()
         Try
             conn.Open()
@@ -89,7 +89,6 @@ Public Class reviews
         End Try
     End Sub
 
-    ' Submit review for selected appointment/service/staff
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         If cbAppointments.SelectedItem Is Nothing Then
             MessageBox.Show("Please select an appointment.")
@@ -155,8 +154,6 @@ Public Class reviews
             lblRating.Visible = False
         End If
     End Sub
-
-    ' Load all reviews for this user
     Private Sub LoadReviews()
         flowReviews.Controls.Clear()
 
@@ -283,7 +280,6 @@ Public Class reviews
         conn.Close()
     End Sub
 
-    ' Helper class for ComboBox items
     Private Class AppointmentReviewItem
         Public Property Text As String
         Public Property AppointmentID As Integer

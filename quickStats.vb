@@ -1,6 +1,7 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 
+'calculates and displays monthly revenue
 Public Class quickStats
     Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
 
@@ -17,7 +18,6 @@ Public Class quickStats
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' Query to get clients who made appointments this month with transaction count
                 Dim query As String = "
                     SELECT DISTINCT
                         ur.user_id,
@@ -66,10 +66,8 @@ Public Class quickStats
                     End Using
                 End Using
 
-                ' Update clients title
                 lblClientsTitle.Text = $"Total Clients: {clientCount}"
 
-                ' Show message if no clients found
                 If clientCount = 0 Then
                     Dim noClientsLabel As New Label()
                     noClientsLabel.Text = "No clients found for this month"
@@ -94,7 +92,6 @@ Public Class quickStats
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' Query to get monthly revenue from completed appointments
                 Dim revenueQuery As String = "
                     SELECT COALESCE(SUM(s.price), 0) as monthly_revenue
                     FROM appointments a
@@ -110,10 +107,8 @@ Public Class quickStats
                     monthlyRevenue = If(result IsNot Nothing AndAlso Not IsDBNull(result), Convert.ToDecimal(result), 0)
                 End Using
 
-                ' Update monthly revenue label
                 lblMonthlyRevenue.Text = $"Monthly Revenue: ₱{monthlyRevenue:N2}"
 
-                ' Create revenue details card
                 Dim revenueCard As Panel = CreateRevenueCard(monthlyRevenue, connection)
                 pnlRevenueCard.Controls.Add(revenueCard)
             End Using
@@ -131,7 +126,6 @@ Public Class quickStats
         card.BackColor = Color.White
         card.Margin = New Padding(5)
 
-        ' Client Name
         Dim lblName As New Label()
         lblName.Text = $"{firstName} {lastName}"
         lblName.Font = New Font("Segoe UI", 11, FontStyle.Bold)
@@ -140,7 +134,6 @@ Public Class quickStats
         lblName.Size = New Size(250, 25)
         card.Controls.Add(lblName)
 
-        ' Transaction Count
         Dim lblTransactions As New Label()
         lblTransactions.Text = $"Transactions: {totalTransactions}"
         lblTransactions.Font = New Font("Segoe UI", 9, FontStyle.Bold)
@@ -149,7 +142,6 @@ Public Class quickStats
         lblTransactions.AutoSize = True
         card.Controls.Add(lblTransactions)
 
-        ' Email
         Dim lblEmail As New Label()
         lblEmail.Text = $"Email: {email}"
         lblEmail.Font = New Font("Segoe UI", 9)
@@ -157,7 +149,6 @@ Public Class quickStats
         lblEmail.Size = New Size(330, 20)
         card.Controls.Add(lblEmail)
 
-        ' Phone
         Dim lblPhone As New Label()
         lblPhone.Text = $"Phone: {phone}"
         lblPhone.Font = New Font("Segoe UI", 9)
@@ -165,7 +156,6 @@ Public Class quickStats
         lblPhone.Size = New Size(200, 20)
         card.Controls.Add(lblPhone)
 
-        ' Date of Birth
         Dim lblDOB As New Label()
         Dim dobText As String = If(dateOfBirth.HasValue, dateOfBirth.Value.ToString("MMM dd, yyyy"), "N/A")
         lblDOB.Text = $"DOB: {dobText}"
@@ -174,7 +164,6 @@ Public Class quickStats
         lblDOB.Size = New Size(200, 20)
         card.Controls.Add(lblDOB)
 
-        ' User ID
         Dim lblUserId As New Label()
         lblUserId.Text = $"Client ID: {userId}"
         lblUserId.Font = New Font("Segoe UI", 8, FontStyle.Italic)
@@ -183,7 +172,6 @@ Public Class quickStats
         lblUserId.AutoSize = True
         card.Controls.Add(lblUserId)
 
-        ' Client Status
         Dim lblStatus As New Label()
         lblStatus.Text = "ACTIVE CLIENT"
         lblStatus.Font = New Font("Segoe UI", 8, FontStyle.Bold)
@@ -203,7 +191,6 @@ Public Class quickStats
         card.Margin = New Padding(5)
         card.Location = New Point(10, 10)
 
-        ' Revenue Title
         Dim lblTitle As New Label()
         lblTitle.Text = $"{DateTime.Now.ToString("MMMM yyyy")} Revenue Overview"
         lblTitle.Font = New Font("Segoe UI", 12, FontStyle.Bold)
@@ -212,7 +199,6 @@ Public Class quickStats
         lblTitle.AutoSize = True
         card.Controls.Add(lblTitle)
 
-        ' Total Revenue
         Dim lblTotal As New Label()
         lblTotal.Text = $"₱{monthlyRevenue:N2}"
         lblTotal.Font = New Font("Segoe UI", 18, FontStyle.Bold)
@@ -221,9 +207,7 @@ Public Class quickStats
         lblTotal.AutoSize = True
         card.Controls.Add(lblTotal)
 
-        ' Get additional stats
         Try
-            ' Count of completed appointments this month
             Dim completedQuery As String = "
                 SELECT COUNT(DISTINCT a.appointment_id) as completed_count
                 FROM appointments a
@@ -242,7 +226,6 @@ Public Class quickStats
                 card.Controls.Add(lblCompleted)
             End Using
 
-            ' Average revenue per appointment
             If monthlyRevenue > 0 Then
                 Dim avgQuery As String = "
                     SELECT COUNT(DISTINCT a.appointment_id) as total_appointments
@@ -267,10 +250,8 @@ Public Class quickStats
             End If
 
         Catch ex As Exception
-            ' Handle error silently for additional stats
         End Try
 
-        ' Last Updated
         Dim lblUpdated As New Label()
         lblUpdated.Text = $"Last Updated: {DateTime.Now.ToString("MMM dd, yyyy HH:mm")}"
         lblUpdated.Font = New Font("Segoe UI", 8, FontStyle.Italic)
@@ -282,13 +263,11 @@ Public Class quickStats
         Return card
     End Function
 
-    ' Method to refresh all data
     Public Sub RefreshData()
         LoadMonthlyClientData()
         LoadMonthlyRevenueData()
     End Sub
 
-    ' Optional: Add a refresh button click event
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
         RefreshData()
     End Sub

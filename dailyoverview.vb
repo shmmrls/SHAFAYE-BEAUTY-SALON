@@ -1,6 +1,10 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 
+'FOR DASHBOARD (DAILY OVERVIEW OF OPERATIONS)
+'The system shall display the current day’s total revenue and list all pending appointments with their details.
+
+
 Public Class dailyoverview
     Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
 

@@ -1,6 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.IO
 
+'FOR SEARCH SERVICES
+'Allow search access to services for clients by name or by category.
 Public Class servicesforhomepage
     Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
     Public sql As String
@@ -23,7 +25,6 @@ Public Class servicesforhomepage
         Try
             conn.Open()
 
-            ' Updated SQL with image_name
             Dim query As String =
             "SELECT s.name AS service_name, s.description, s.price, s.is_available, sc.name AS category_name, s.image_name " &
             "FROM services s " &

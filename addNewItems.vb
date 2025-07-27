@@ -1,8 +1,10 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 
+'FOR INVENTORY MANAGEMENT
+' Create inventory records and track internal-use supplies (e.g., wax, shampoo, facial cream) including stock levels
+' and usage frequency.
 Public Class addNewItems
-    ' Database connection string
     Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
 
     Private Sub addNewItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -12,7 +14,6 @@ Public Class addNewItems
     End Sub
 
     Private Sub SetupForm()
-        ' Set initial values and properties
         numUpDownQuantity.Minimum = 0
         numUpDownQuantity.Maximum = 999999
         numUpDownQuantity.Value = 0
@@ -77,7 +78,6 @@ Public Class addNewItems
     End Sub
 
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
-        ' Validate input fields
         If String.IsNullOrWhiteSpace(txtName.Text) Then
             MessageBox.Show("Please enter an item name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             txtName.Focus()
@@ -101,7 +101,6 @@ Public Class addNewItems
                 connection.Open()
                 Using transaction As MySqlTransaction = connection.BeginTransaction()
                     Try
-                        ' Check if item name already exists
                         Dim checkQuery As String = "SELECT COUNT(*) FROM inventory WHERE item_name = @itemName"
                         Using checkCommand As New MySqlCommand(checkQuery, connection, transaction)
                             checkCommand.Parameters.AddWithValue("@itemName", txtName.Text.Trim())
@@ -112,7 +111,6 @@ Public Class addNewItems
                             End If
                         End Using
 
-                        ' Insert new item into inventory
                         Dim insertInventoryQuery As String = "INSERT INTO inventory (item_name, quantity, unit, reorder_level) VALUES (@itemName, @quantity, @unit, @reorderLevel)"
                         Dim newItemId As Integer
 
@@ -123,11 +121,9 @@ Public Class addNewItems
                             insertCommand.Parameters.AddWithValue("@reorderLevel", numUpDownReorderLvl.Value)
                             insertCommand.ExecuteNonQuery()
 
-                            ' Get the newly inserted item ID
                             newItemId = Convert.ToInt32(insertCommand.LastInsertedId)
                         End Using
 
-                        ' Insert into inventory_usage table
                         Dim insertUsageQuery As String = "INSERT INTO inventory_usage (service_id, item_id, quantity_used) VALUES (@serviceId, @itemId, @quantityUsed)"
                         Using usageCommand As New MySqlCommand(insertUsageQuery, connection, transaction)
                             usageCommand.Parameters.AddWithValue("@serviceId", cmbService.SelectedValue)
@@ -139,7 +135,6 @@ Public Class addNewItems
                         transaction.Commit()
                         MessageBox.Show("Item added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                        ' Clear form and refresh data
                         ClearAddItemForm()
                         LoadInventoryItems()
 
@@ -171,7 +166,6 @@ Public Class addNewItems
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' Get current quantity
                 Dim getCurrentQuery As String = "SELECT quantity FROM inventory WHERE item_id = @itemId"
                 Dim currentQuantity As Integer = 0
 
@@ -183,7 +177,6 @@ Public Class addNewItems
                     End If
                 End Using
 
-                ' Update quantity
                 Dim newQuantity As Integer = currentQuantity + numUpDownAddStock.Value
                 Dim updateQuery As String = "UPDATE inventory SET quantity = @newQuantity WHERE item_id = @itemId"
 
@@ -195,7 +188,6 @@ Public Class addNewItems
 
                 MessageBox.Show($"Stock updated successfully! New quantity: {newQuantity}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                ' Refresh data and reset form
                 LoadInventoryItems()
                 numUpDownAddStock.Value = 0
                 UpdateCurrentStockLabel()
@@ -241,16 +233,13 @@ Public Class addNewItems
         numUpDownQuantityUsed.Value = 1
     End Sub
 
-    ' Optional: Add validation for text boxes to prevent SQL injection
     Private Sub txtName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtName.KeyPress
-        ' Allow letters, numbers, spaces, and basic punctuation
         If Not (Char.IsLetterOrDigit(e.KeyChar) OrElse e.KeyChar = " "c OrElse e.KeyChar = "-"c OrElse e.KeyChar = "/"c OrElse e.KeyChar = "("c OrElse e.KeyChar = ")"c OrElse Char.IsControl(e.KeyChar)) Then
             e.Handled = True
         End If
     End Sub
 
     Private Sub txtUnit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUnit.KeyPress
-        ' Allow letters, numbers, and basic units (ml, g, pcs, etc.)
         If Not (Char.IsLetterOrDigit(e.KeyChar) OrElse e.KeyChar = " "c OrElse Char.IsControl(e.KeyChar)) Then
             e.Handled = True
         End If

@@ -1,5 +1,6 @@
 ﻿Imports System.Drawing.Drawing2D
 
+'for feedback and reviews
 Public Class ReviewCard
     Public Property BorderRadius As Integer = 25
 
@@ -35,7 +36,7 @@ Public Class ReviewCard
             If TypeOf ctrl Is Panel Then
                 For Each innerCtrl As Control In ctrl.Controls
                     If TypeOf innerCtrl Is TextBox Then
-                        CType(innerCtrl, TextBox).ReadOnly = True ' or .Enabled = False
+                        CType(innerCtrl, TextBox).ReadOnly = True
                     End If
                 Next
             End If

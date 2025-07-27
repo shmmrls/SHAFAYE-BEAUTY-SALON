@@ -1,6 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Drawing
 
+'FOR FINANCIAL MANAGEMENT
+'Allow admin/staff to view, filter, and generate summarized views of payment records based on date and
+'service category
 Public Class paymentRecords
     Private connectionString As String = "server=localhost;userid=root;password=;database=final_shafaye_salon;"
 
@@ -9,7 +12,6 @@ Public Class paymentRecords
         LoadAllPaymentLogs()
     End Sub
 
-    ' Load service categories into combobox
     Private Sub LoadServiceCategories()
         Try
             Using connection As New MySqlConnection(connectionString)
@@ -33,19 +35,17 @@ Public Class paymentRecords
 
             cmbServiceCateg.DisplayMember = "Text"
             cmbServiceCateg.ValueMember = "Value"
-            cmbServiceCateg.SelectedIndex = 0 ' Select "All Categories" by default
+            cmbServiceCateg.SelectedIndex = 0
 
         Catch ex As Exception
             MessageBox.Show("Error loading service categories: " & ex.Message)
         End Try
     End Sub
 
-    ' Load all payment logs
     Private Sub LoadAllPaymentLogs()
         LoadPaymentLogs("", "")
     End Sub
 
-    ' Load payment logs with filters
     Private Sub LoadPaymentLogs(dateFilter As String, categoryFilter As String)
         Try
             panelPaymentLogs.Controls.Clear()
@@ -70,12 +70,10 @@ Public Class paymentRecords
 
 
 
-                ' Add date filter
                 If Not String.IsNullOrEmpty(dateFilter) Then
                     baseQuery += dateFilter
                 End If
 
-                ' Add category filter
                 If Not String.IsNullOrEmpty(categoryFilter) Then
                     baseQuery += categoryFilter
                 End If
@@ -83,7 +81,6 @@ Public Class paymentRecords
                 baseQuery += " GROUP BY p.payment_id ORDER BY p.payment_date DESC, p.payment_id DESC"
 
                 Using command As New MySqlCommand(baseQuery, connection)
-                    ' Add parameters for category filter if needed
                     If Not String.IsNullOrEmpty(categoryFilter) AndAlso cmbServiceCateg.SelectedValue IsNot Nothing Then
                         Dim selectedCategoryId = Convert.ToInt32(cmbServiceCateg.SelectedValue)
                         If selectedCategoryId > 0 Then
@@ -98,11 +95,10 @@ Public Class paymentRecords
 
                         While reader.Read()
                             CreatePaymentLogCard(reader, yPosition)
-                            yPosition += 180 ' Space between cards
+                            yPosition += 180
                             recordCount += 1
                         End While
 
-                        ' Show count label
                         If recordCount = 0 Then
                             Dim noDataLabel As New Label()
                             noDataLabel.Text = "No payment logs found for the selected criteria."
@@ -122,16 +118,13 @@ Public Class paymentRecords
         End Try
     End Sub
 
-    ' Create individual payment log card
     Private Sub CreatePaymentLogCard(reader As MySqlDataReader, yPosition As Integer)
-        ' Main card panel
         Dim cardPanel As New Panel()
         cardPanel.Location = New Point(10, yPosition)
         cardPanel.Size = New Size(panelPaymentLogs.Width - 30, 180)
         cardPanel.BorderStyle = BorderStyle.FixedSingle
         cardPanel.BackColor = Color.White
 
-        ' Payment ID and Date (Header)
         Dim headerLabel As New Label()
         headerLabel.Text = $"Receipt #{reader("payment_id")} - {Convert.ToDateTime(reader("payment_date")):MMM dd, yyyy}"
         headerLabel.Font = New Font("Arial", 12, FontStyle.Bold)
@@ -140,7 +133,6 @@ Public Class paymentRecords
         headerLabel.Size = New Size(400, 25)
         cardPanel.Controls.Add(headerLabel)
 
-        ' Status badge
         Dim statusLabel As New Label()
         statusLabel.Text = reader("payment_status").ToString()
         statusLabel.Font = New Font("Arial", 9, FontStyle.Bold)
@@ -156,7 +148,6 @@ Public Class paymentRecords
         End If
         cardPanel.Controls.Add(statusLabel)
 
-        ' Customer name
         Dim customerLabel As New Label()
         customerLabel.Text = $"Customer: {reader("customer_name")}"
         customerLabel.Font = New Font("Arial", 10, FontStyle.Regular)
@@ -165,7 +156,6 @@ Public Class paymentRecords
         customerLabel.Size = New Size(300, 20)
         cardPanel.Controls.Add(customerLabel)
 
-        ' Payment type
         Dim paymentTypeLabel As New Label()
         paymentTypeLabel.Text = $"Payment Type: {reader("payment_type")}"
         paymentTypeLabel.Font = New Font("Arial", 10, FontStyle.Regular)
@@ -174,7 +164,6 @@ Public Class paymentRecords
         paymentTypeLabel.Size = New Size(150, 20)
         cardPanel.Controls.Add(paymentTypeLabel)
 
-        ' Services
         Dim servicesLabel As New Label()
         servicesLabel.Text = $"Services: {reader("services")}"
         servicesLabel.Font = New Font("Arial", 10, FontStyle.Regular)
@@ -184,7 +173,6 @@ Public Class paymentRecords
         servicesLabel.AutoEllipsis = True
         cardPanel.Controls.Add(servicesLabel)
 
-        ' Categories
         Dim categoriesLabel As New Label()
         categoriesLabel.Text = $"Categories: {reader("categories")}"
         categoriesLabel.Font = New Font("Arial", 10, FontStyle.Italic)
@@ -193,7 +181,6 @@ Public Class paymentRecords
         categoriesLabel.Size = New Size(300, 20)
         cardPanel.Controls.Add(categoriesLabel)
 
-        ' Total amount
         Dim totalAmount As Decimal = If(IsDBNull(reader("total_amount")) OrElse reader("total_amount").ToString() = "", 0D, Convert.ToDecimal(reader("total_amount")))
 
         Dim amountLabel As New Label()
@@ -208,7 +195,6 @@ Public Class paymentRecords
         cardPanel.Controls.Add(amountLabel)
 
 
-        ' Appointment ID
         Dim appointmentLabel As New Label()
         appointmentLabel.Text = $"Appointment ID: {reader("appointment_id")}"
         appointmentLabel.Font = New Font("Arial", 8, FontStyle.Regular)
@@ -220,7 +206,6 @@ Public Class paymentRecords
         panelPaymentLogs.Controls.Add(cardPanel)
     End Sub
 
-    ' Filter by current month
     Private Sub btnMonthly_Click(sender As Object, e As EventArgs) Handles btnMonthly.Click
         Dim currentMonth = DateTime.Now.Month
         Dim currentYear = DateTime.Now.Year
@@ -237,7 +222,6 @@ Public Class paymentRecords
         LoadPaymentLogs(dateFilter, categoryFilter)
     End Sub
 
-    ' Filter by current year
     Private Sub btnAnnually_Click(sender As Object, e As EventArgs) Handles btnAnnually.Click
         Dim currentYear = DateTime.Now.Year
         Dim dateFilter = $" AND YEAR(p.payment_date) = {currentYear} "
@@ -253,14 +237,12 @@ Public Class paymentRecords
         LoadPaymentLogs(dateFilter, categoryFilter)
     End Sub
 
-    ' Refresh all records
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
-        cmbServiceCateg.SelectedIndex = 0 ' Reset to "All Categories"
+        cmbServiceCateg.SelectedIndex = 0
         LoadAllPaymentLogs()
         Me.Text = "Payment Logs - All Records"
     End Sub
 
-    ' Filter by category when selection changes
     Private Sub cmbServiceCateg_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbServiceCateg.SelectedIndexChanged
         If cmbServiceCateg.SelectedValue IsNot Nothing Then
             Dim selectedCategoryId = Convert.ToInt32(cmbServiceCateg.SelectedValue)
@@ -274,7 +256,6 @@ Public Class paymentRecords
         End If
     End Sub
 
-    ' Handle panel resize to adjust card widths
     Private Sub panelPaymentLogs_Resize(sender As Object, e As EventArgs) Handles panelPaymentLogs.Resize
         For Each control As Control In panelPaymentLogs.Controls
             If TypeOf control Is Panel Then

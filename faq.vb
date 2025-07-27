@@ -1,5 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
+'Create section that shows and reads common questions about services, scheduling, and policies.
+
 Public Class faq
     Dim conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
 
@@ -36,7 +38,7 @@ Public Class faq
                     .Width = flowFAQ.Width - 35,
                     .Height = 80,
                     .BorderStyle = BorderStyle.FixedSingle,
-                    .Tag = False ' Collapsed by default
+                    .Tag = False
                 }
 
                 Dim lblQ As New Label With {
@@ -61,11 +63,11 @@ Public Class faq
                 }
 
                 AddHandler lblQ.MouseEnter, Sub()
-                                                lblQ.ForeColor = Color.RoyalBlue ' Change color when hovered
+                                                lblQ.ForeColor = Color.RoyalBlue
                                             End Sub
 
                 AddHandler lblQ.MouseLeave, Sub()
-                                                lblQ.ForeColor = Color.Black ' Return to default
+                                                lblQ.ForeColor = Color.Black
                                             End Sub
 
                 AddHandler lblQ.Click, Sub()

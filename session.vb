@@ -1,6 +1,6 @@
 ﻿Module session
     Public LoggedInUsername As String
-    Public LoggedInUserID As Integer ' Optional if you're using ID too
-    Public LoggedInRole As String ' Optional
+    Public LoggedInUserID As Integer
+    Public LoggedInRole As String
 
 End Module
