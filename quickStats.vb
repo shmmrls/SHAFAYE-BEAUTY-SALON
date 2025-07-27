@@ -93,13 +93,14 @@ Public Class quickStats
                 connection.Open()
 
                 Dim revenueQuery As String = "
-                    SELECT COALESCE(SUM(s.price), 0) as monthly_revenue
+                    SELECT IFNULL(SUM(s.price), 0) as monthly_revenue
                     FROM appointments a
                     INNER JOIN appointment_services aps ON a.appointment_id = aps.appointment_id
                     INNER JOIN services s ON aps.service_id = s.service_id
                     WHERE MONTH(a.appointment_date) = MONTH(CURDATE()) 
                     AND YEAR(a.appointment_date) = YEAR(CURDATE())
                     AND a.status = 'Completed'"
+
 
                 Dim monthlyRevenue As Decimal = 0
                 Using command As New MySqlCommand(revenueQuery, connection)

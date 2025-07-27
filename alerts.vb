@@ -25,9 +25,9 @@ Public Class alerts
                         i.quantity,
                         i.unit,
                         i.reorder_level,
-                        COALESCE(usage_stats.total_used, 0) as total_used,
-                        COALESCE(usage_stats.usage_count, 0) as usage_count,
-                        COALESCE(usage_stats.services_using, '') as services_using
+                        IFNULL(usage_stats.total_used, 0) as total_used,
+                        IFNULL(usage_stats.usage_count, 0) as usage_count,
+                        IFNULL(usage_stats.services_using, '') as services_using
                     FROM inventory i
                     LEFT JOIN (
                         SELECT 
@@ -50,6 +50,7 @@ Public Class alerts
                     ) usage_stats ON i.item_id = usage_stats.item_id
                     WHERE i.quantity <= i.reorder_level
                     ORDER BY (i.quantity - i.reorder_level) ASC, i.item_name"
+
 
                 Using command As New MySqlCommand(query, connection)
                     Using reader As MySqlDataReader = command.ExecuteReader()

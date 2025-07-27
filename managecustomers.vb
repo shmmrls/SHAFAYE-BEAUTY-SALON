@@ -28,9 +28,9 @@ Public Class manageCustomers
                         up.phone,
                         up.date_of_birth,
                         COUNT(a.appointment_id) as total_transactions,
-                        COALESCE(SUM(CASE WHEN a.status = 'Completed' THEN 1 ELSE 0 END), 0) as completed_transactions,
-                        COALESCE(SUM(CASE WHEN a.status = 'Pending' THEN 1 ELSE 0 END), 0) as pending_transactions,
-                        COALESCE(SUM(CASE WHEN a.status = 'Cancelled' THEN 1 ELSE 0 END), 0) as cancelled_transactions
+                        IFNULL(SUM(CASE WHEN a.status = 'Completed' THEN 1 ELSE 0 END), 0) as completed_transactions,
+                        IFNULL(SUM(CASE WHEN a.status = 'Pending' THEN 1 ELSE 0 END), 0) as pending_transactions,
+                        IFNULL(SUM(CASE WHEN a.status = 'Cancelled' THEN 1 ELSE 0 END), 0) as cancelled_transactions
                     FROM user_register ur
                     LEFT JOIN user_profiles up ON ur.user_id = up.user_id
                     LEFT JOIN appointments a ON ur.user_id = a.user_id

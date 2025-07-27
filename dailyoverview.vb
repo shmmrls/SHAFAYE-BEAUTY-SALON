@@ -111,7 +111,7 @@ Public Class dailyoverview
 
     Private Function CreateBookingPanel(appointmentId As String, appointmentTime As String, customerName As String, services As String, totalAmount As Decimal) As Panel
         Dim panel As New Panel()
-        panel.Size = New Size(pnlDailyOverview.Width - 30, 120)
+        panel.Size = New Size(flowBookings.Width - 30, 120)
         panel.BorderStyle = BorderStyle.FixedSingle
         panel.BackColor = Color.White
         panel.Margin = New Padding(5)
@@ -120,7 +120,7 @@ Public Class dailyoverview
         Dim lblAppointmentId As New Label()
         lblAppointmentId.Text = $"Appointment #{appointmentId}"
         lblAppointmentId.Font = New Font("Segoe UI", 9, FontStyle.Bold)
-        lblAppointmentId.ForeColor = Color.DarkBlue
+        lblAppointmentId.ForeColor = Color.FromArgb(77, 0, 18)
         lblAppointmentId.Location = New Point(10, 8)
         lblAppointmentId.AutoSize = True
         panel.Controls.Add(lblAppointmentId)
@@ -164,7 +164,7 @@ Public Class dailyoverview
         lblStatus.Text = "PENDING"
         lblStatus.Font = New Font("Segoe UI", 8, FontStyle.Bold)
         lblStatus.ForeColor = Color.Orange
-        lblStatus.Location = New Point(320, 8)
+        lblStatus.Location = New Point(420, 8)
         lblStatus.AutoSize = True
         panel.Controls.Add(lblStatus)
 

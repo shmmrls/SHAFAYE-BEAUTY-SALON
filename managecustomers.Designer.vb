@@ -51,7 +51,7 @@ Partial Class manageCustomers
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(77, 23)
+        Me.lblTitle.Location = New System.Drawing.Point(132, 23)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(537, 65)
         Me.lblTitle.TabIndex = 7

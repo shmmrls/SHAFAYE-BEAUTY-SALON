@@ -67,7 +67,8 @@ Public Class adminstafflogin
                     adminMenu.Show()
                 ElseIf role = "staff" Then
                     MsgBox("Login successful!", MsgBoxStyle.Information)
-                    MsgBox("staff")
+                    Dim adminMenuForm As New adminMenu()
+                    adminMenuForm.Show()
                 Else
                     MsgBox("This page is for admin or staff only. Please use the client login page.", MsgBoxStyle.Exclamation, "Access Denied")
                     login.Show()

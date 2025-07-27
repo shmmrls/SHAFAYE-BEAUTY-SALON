@@ -353,18 +353,19 @@ Public Class transactionhistory
             Dim services As New List(Of Dictionary(Of String, Object))
 
             Dim query As String = "SELECT a.appointment_id, a.appointment_date, a.appointment_time, a.status, " &
-                                 "CONCAT(u.first_name, ' ', u.last_name) as customer_name, " &
-                                 "COALESCE(up.phone, 'N/A') as phone, COALESCE(up.email, 'N/A') as email, " &
-                                 "s.name as service_name, s.price, " &
-                                 "COALESCE(CONCAT(ur_staff.first_name, ' ', ur_staff.last_name), 'Not assigned') as staff_name " &
-                                 "FROM appointments a " &
-                                 "LEFT JOIN user_register u ON a.user_id = u.user_id " &
-                                 "LEFT JOIN user_profiles up ON a.user_id = up.user_id " &
-                                 "LEFT JOIN appointment_services aps ON a.appointment_id = aps.appointment_id " &
-                                 "LEFT JOIN services s ON aps.service_id = s.service_id " &
-                                 "LEFT JOIN staff st ON aps.staff_id = st.staff_id " &
-                                 "LEFT JOIN user_register ur_staff ON st.user_id = ur_staff.user_id " &
-                                 "WHERE a.appointment_id = @appointmentID"
+                                     "CONCAT(u.first_name, ' ', u.last_name) as customer_name, " &
+                                     "IFNULL(up.phone, 'N/A') as phone, IFNULL(up.email, 'N/A') as email, " &
+                                     "s.name as service_name, s.price, " &
+                                     "IFNULL(CONCAT(ur_staff.first_name, ' ', ur_staff.last_name), 'Not assigned') as staff_name " &
+                                     "FROM appointments a " &
+                                     "LEFT JOIN user_register u ON a.user_id = u.user_id " &
+                                     "LEFT JOIN user_profiles up ON a.user_id = up.user_id " &
+                                     "LEFT JOIN appointment_services aps ON a.appointment_id = aps.appointment_id " &
+                                     "LEFT JOIN services s ON aps.service_id = s.service_id " &
+                                     "LEFT JOIN staff st ON aps.staff_id = st.staff_id " &
+                                     "LEFT JOIN user_register ur_staff ON st.user_id = ur_staff.user_id " &
+                                     "WHERE a.appointment_id = @appointmentID"
+
 
             Using cmd As New MySqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@appointmentID", appointmentID)

@@ -103,9 +103,9 @@ Partial Class dailyoverview
         '
         Me.flowBookings.AutoScroll = True
         Me.flowBookings.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.flowBookings.Location = New System.Drawing.Point(61, 214)
+        Me.flowBookings.Location = New System.Drawing.Point(119, 213)
         Me.flowBookings.Name = "flowBookings"
-        Me.flowBookings.Size = New System.Drawing.Size(578, 259)
+        Me.flowBookings.Size = New System.Drawing.Size(466, 259)
         Me.flowBookings.TabIndex = 18
         Me.flowBookings.WrapContents = False
         '

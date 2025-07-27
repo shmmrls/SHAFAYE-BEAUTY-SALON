@@ -67,11 +67,11 @@ Partial Class profile
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(372, 12)
+        Me.Label1.Location = New System.Drawing.Point(372, 17)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(255, 47)
+        Me.Label1.Size = New System.Drawing.Size(288, 54)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "USER PROFILE"
         '

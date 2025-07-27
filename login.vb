@@ -10,6 +10,7 @@ Public Class login
     Public sql As String
     Public dbcomm As MySqlCommand
 
+
     Private Function HashPassword(password As String) As String
         Dim sha As SHA256 = SHA256.Create()
         Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)

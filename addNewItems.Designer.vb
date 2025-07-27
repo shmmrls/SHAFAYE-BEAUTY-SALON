@@ -65,7 +65,7 @@ Partial Class addNewItems
         Me.pnlDailyOverview.ForeColor = System.Drawing.Color.White
         Me.pnlDailyOverview.Location = New System.Drawing.Point(0, 0)
         Me.pnlDailyOverview.Name = "pnlDailyOverview"
-        Me.pnlDailyOverview.Size = New System.Drawing.Size(684, 62)
+        Me.pnlDailyOverview.Size = New System.Drawing.Size(684, 78)
         Me.pnlDailyOverview.TabIndex = 30
         '
         'lblTitle
@@ -74,7 +74,7 @@ Partial Class addNewItems
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.White
-        Me.lblTitle.Location = New System.Drawing.Point(49, 9)
+        Me.lblTitle.Location = New System.Drawing.Point(98, 18)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(605, 45)
         Me.lblTitle.TabIndex = 7
@@ -83,6 +83,7 @@ Partial Class addNewItems
         '
         'Panel1
         '
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.numUpDownQuantityUsed)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.numUpDownReorderLvl)
@@ -248,6 +249,7 @@ Partial Class addNewItems
         '
         'Panel2
         '
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.numUpDownAddStock)
         Me.Panel2.Controls.Add(Me.btnUpdateStock)
         Me.Panel2.Controls.Add(Me.Label9)

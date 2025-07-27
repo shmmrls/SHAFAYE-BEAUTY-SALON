@@ -44,9 +44,9 @@ Partial Class staffperformance
         'pnlStaffPerformance
         '
         Me.pnlStaffPerformance.AutoScroll = True
-        Me.pnlStaffPerformance.Location = New System.Drawing.Point(52, 108)
+        Me.pnlStaffPerformance.Location = New System.Drawing.Point(114, 108)
         Me.pnlStaffPerformance.Name = "pnlStaffPerformance"
-        Me.pnlStaffPerformance.Size = New System.Drawing.Size(592, 363)
+        Me.pnlStaffPerformance.Size = New System.Drawing.Size(530, 363)
         Me.pnlStaffPerformance.TabIndex = 27
         '
         'pnlDailyOverview

@@ -16,7 +16,7 @@ Public Class staffperformance
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' Query to get all staff with their performance data
+
                 Dim query As String = "
                     SELECT 
                         s.staff_id,
@@ -61,24 +61,24 @@ Public Class staffperformance
                                 If(IsDBNull(reader("services_offered")), "No services assigned", reader("services_offered").ToString())
                             )
 
-                            ' Position cards in a grid layout
+
                             staffCard.Location = New Point(xPosition, yPosition)
                             pnlStaffPerformance.Controls.Add(staffCard)
 
                             cardCount += 1
                             If cardCount Mod cardsPerRow = 0 Then
-                                ' Move to next row
+
                                 xPosition = 10
                                 yPosition += staffCard.Height + 20
                             Else
-                                ' Move to next column
-                                xPosition += staffCard.Width + 15
+
+                                xPosition += staffCard.Width + 46
                             End If
                         End While
                     End Using
                 End Using
 
-                ' Show message if no staff found
+
                 If pnlStaffPerformance.Controls.Count = 0 Then
                     Dim noStaffLabel As New Label()
                     noStaffLabel.Text = "No active staff members found"
@@ -102,16 +102,16 @@ Public Class staffperformance
         card.BackColor = Color.White
         card.Margin = New Padding(5)
 
-        ' Staff Name Header
+
         Dim lblName As New Label()
         lblName.Text = $"{firstName} {lastName}"
         lblName.Font = New Font("Segoe UI", 11, FontStyle.Bold)
-        lblName.ForeColor = Color.DarkBlue
+        lblName.ForeColor = Color.FromArgb(77, 0, 18)
         lblName.Location = New Point(10, 8)
         lblName.Size = New Size(200, 25)
         card.Controls.Add(lblName)
 
-        ' Staff ID
+
         Dim lblStaffId As New Label()
         lblStaffId.Text = $"ID: {staffId}"
         lblStaffId.Font = New Font("Segoe UI", 8, FontStyle.Bold)
@@ -120,7 +120,7 @@ Public Class staffperformance
         lblStaffId.AutoSize = True
         card.Controls.Add(lblStaffId)
 
-        ' Username
+
         Dim lblUsername As New Label()
         lblUsername.Text = $"@{username}"
         lblUsername.Font = New Font("Segoe UI", 8, FontStyle.Italic)
@@ -129,7 +129,7 @@ Public Class staffperformance
         lblUsername.AutoSize = True
         card.Controls.Add(lblUsername)
 
-        ' Position/Role
+
         Dim lblPosition As New Label()
         lblPosition.Text = $"Position: {position}"
         lblPosition.Font = New Font("Segoe UI", 9, FontStyle.Bold)
@@ -138,7 +138,7 @@ Public Class staffperformance
         lblPosition.Size = New Size(250, 20)
         card.Controls.Add(lblPosition)
 
-        ' Salary
+
         Dim lblSalary As New Label()
         lblSalary.Text = $"Salary: ₱{salary:N2}"
         lblSalary.Font = New Font("Segoe UI", 9, FontStyle.Bold)
@@ -147,7 +147,7 @@ Public Class staffperformance
         lblSalary.AutoSize = True
         card.Controls.Add(lblSalary)
 
-        ' Status
+
         Dim lblStatus As New Label()
         lblStatus.Text = status.ToUpper()
         lblStatus.Font = New Font("Segoe UI", 8, FontStyle.Bold)
@@ -156,16 +156,16 @@ Public Class staffperformance
         lblStatus.AutoSize = True
         card.Controls.Add(lblStatus)
 
-        ' Performance Section
+
         Dim lblPerformanceHeader As New Label()
         lblPerformanceHeader.Text = "PERFORMANCE"
         lblPerformanceHeader.Font = New Font("Segoe UI", 8, FontStyle.Bold)
-        lblPerformanceHeader.ForeColor = Color.DarkBlue
+        lblPerformanceHeader.ForeColor = Color.FromArgb(77, 0, 18)
         lblPerformanceHeader.Location = New Point(10, 100)
         lblPerformanceHeader.AutoSize = True
         card.Controls.Add(lblPerformanceHeader)
 
-        ' Average Rating
+
         Dim lblRating As New Label()
         Dim ratingText As String = If(totalReviews > 0, $"⭐ {avgRating:F1}/5.0", "⭐ No ratings yet")
         Dim ratingColor As Color = Color.Gray
@@ -186,7 +186,7 @@ Public Class staffperformance
         lblRating.AutoSize = True
         card.Controls.Add(lblRating)
 
-        ' Total Reviews
+
         Dim lblReviews As New Label()
         lblReviews.Text = $"Reviews: {totalReviews}"
         lblReviews.Font = New Font("Segoe UI", 8)
@@ -194,7 +194,7 @@ Public Class staffperformance
         lblReviews.AutoSize = True
         card.Controls.Add(lblReviews)
 
-        ' Total Appointments
+
         Dim lblAppointments As New Label()
         lblAppointments.Text = $"Appointments: {totalAppointments}"
         lblAppointments.Font = New Font("Segoe UI", 8)
@@ -202,16 +202,16 @@ Public Class staffperformance
         lblAppointments.AutoSize = True
         card.Controls.Add(lblAppointments)
 
-        ' Services Section
+
         Dim lblServicesHeader As New Label()
         lblServicesHeader.Text = "SERVICES OFFERED"
         lblServicesHeader.Font = New Font("Segoe UI", 8, FontStyle.Bold)
-        lblServicesHeader.ForeColor = Color.DarkBlue
+        lblServicesHeader.ForeColor = Color.FromArgb(77, 0, 18)
         lblServicesHeader.Location = New Point(10, 165)
         lblServicesHeader.AutoSize = True
         card.Controls.Add(lblServicesHeader)
 
-        ' Services List
+
         Dim lblServices As New Label()
         lblServices.Text = servicesOffered
         lblServices.Font = New Font("Segoe UI", 8)
@@ -220,7 +220,7 @@ Public Class staffperformance
         lblServices.ForeColor = Color.DarkGreen
         card.Controls.Add(lblServices)
 
-        ' Performance Indicator
+
         Dim lblPerformanceIndicator As New Label()
         Dim performanceText As String = "Performance: "
         Dim performanceColor As Color = Color.Gray
@@ -254,7 +254,7 @@ Public Class staffperformance
         lblPerformanceIndicator.Size = New Size(250, 40)
         card.Controls.Add(lblPerformanceIndicator)
 
-        ' Store staff data in card tag for salary update
+
         card.Tag = New With {
             .StaffId = staffId,
             .FirstName = firstName,
@@ -264,7 +264,7 @@ Public Class staffperformance
             .TotalReviews = totalReviews
         }
 
-        ' Add hover effect
+
         AddHandler card.MouseEnter, Sub(sender, e) card.BackColor = Color.FromArgb(248, 249, 250)
         AddHandler card.MouseLeave, Sub(sender, e) card.BackColor = Color.White
 
@@ -305,10 +305,10 @@ Public Class staffperformance
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
-                ' Start transaction for data integrity
+
                 Using transaction As MySqlTransaction = connection.BeginTransaction()
                     Try
-                        ' Get all staff with their ratings
+
                         Dim query As String = "
                             SELECT 
                                 s.staff_id,
@@ -364,7 +364,7 @@ Public Class staffperformance
 
                                 reader.Close()
 
-                                ' Update salaries
+
                                 For Each staff In staffUpdates
                                     If staff.ChangeType <> "No Change" Then
                                         Dim updateQuery As String = "UPDATE staff SET salary = @newSalary WHERE staff_id = @staffId"
@@ -387,10 +387,10 @@ Public Class staffperformance
                             End Using
                         End Using
 
-                        ' Commit transaction
+
                         transaction.Commit()
 
-                        ' Show success message
+
                         MessageBox.Show(
                             $"✅ Salary Update Completed Successfully!" & vbNewLine & vbNewLine &
                             $"📊 Summary:" & vbNewLine &
@@ -402,11 +402,11 @@ Public Class staffperformance
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information)
 
-                        ' Refresh the staff performance display
+
                         LoadStaffPerformance()
 
                     Catch ex As Exception
-                        ' Rollback transaction on error
+
                         transaction.Rollback()
                         MessageBox.Show($"Error updating salaries: {ex.Message}", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Try

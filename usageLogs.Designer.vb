@@ -35,18 +35,18 @@ Partial Class usageLogs
         Me.pnlDailyOverview.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlDailyOverview.Location = New System.Drawing.Point(0, 0)
         Me.pnlDailyOverview.Name = "pnlDailyOverview"
-        Me.pnlDailyOverview.Size = New System.Drawing.Size(684, 83)
+        Me.pnlDailyOverview.Size = New System.Drawing.Size(684, 98)
         Me.pnlDailyOverview.TabIndex = 30
         '
         'lblTitle
         '
         Me.lblTitle.AutoSize = True
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 40.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(200, 9)
+        Me.lblTitle.Location = New System.Drawing.Point(203, 15)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(318, 65)
+        Me.lblTitle.Size = New System.Drawing.Size(354, 72)
         Me.lblTitle.TabIndex = 7
         Me.lblTitle.Text = "USAGE LOGS"
         '
