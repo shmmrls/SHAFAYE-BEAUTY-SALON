@@ -37,7 +37,7 @@ Public Class viewallbookings
             baseQuery &= " ORDER BY a.appointment_date ASC, a.appointment_time ASC"
         End If
 
-        Using conn As New MySqlConnection("server=localhost;user=root;password=;database=final_shafaye_salon")
+        Using conn As New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=salon_webapp;Password=WebApp2025!;")
             Using cmd As New MySqlCommand(baseQuery, conn)
 
                 If statusFilter <> "All" Then

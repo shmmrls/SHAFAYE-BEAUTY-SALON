@@ -4,7 +4,8 @@ Imports MySql.Data.MySqlClient
 'FOR CUSTOMER SUPPORT 
 'Enable customers to send messages/concerns and allow admin/staff to view and respond.
 Public Class manageCustomers
-    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
+    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;"
+
 
     Private Sub manageCustomers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadAllCustomers()

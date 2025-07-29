@@ -5,7 +5,7 @@ Imports MySql.Data.MySqlClient
 'Create inventory records and track internal-use supplies (e.g., wax, shampoo, facial cream) including stock levels
 'and usage frequency."
 Public Class alerts
-    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
+    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;"
 
     Private Sub alerts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadLowStockAlerts()

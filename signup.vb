@@ -6,7 +6,7 @@ Imports System.Text
 'Allow users To register an account With validation, secure password storage, And profile creation.
 Public Class signup
 
-    Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
+    Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=salon_webapp;Password=WebApp2025!;")
     Public sql As String
     Public dbcomm As MySqlCommand
 
@@ -245,5 +245,10 @@ Public Class signup
 
     Private Sub passwordPopupPanel_Paint(sender As Object, e As PaintEventArgs) Handles passwordPopupPanel.Paint
 
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        homepage.Show()
+        Me.Hide()
     End Sub
 End Class

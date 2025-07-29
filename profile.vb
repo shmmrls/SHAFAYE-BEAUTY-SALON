@@ -9,7 +9,7 @@ Imports System.Text
 'and change their password
 Public Class profile
 
-    Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
+    Dim conn As MySqlConnection = New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_customer;Pwd=CustomerSalon2025!;")
     Public sql As String
     Public sql1 As String
     Public sql2 As String

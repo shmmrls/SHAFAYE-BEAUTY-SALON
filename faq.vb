@@ -3,7 +3,7 @@
 'Create section that shows and reads common questions about services, scheduling, and policies.
 
 Public Class faq
-    Dim conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
+    Dim conn As New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_customer;Pwd=CustomerSalon2025!;")
 
     Private Sub faq_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadFAQsFromDatabase()

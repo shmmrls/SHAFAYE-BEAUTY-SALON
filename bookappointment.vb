@@ -5,7 +5,7 @@
 'Staff are auto-assigned based On availability.
 Public Class bookappointment
     Private userID As Integer
-    Dim conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
+    Dim conn As New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_customer;Pwd=CustomerSalon2025!;")
     Private selectedServiceIDs As New List(Of Integer)
 
     Public Sub New(ByVal userID As Integer)

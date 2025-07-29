@@ -237,7 +237,7 @@ Partial Class bookappointment
         Me.submitBooking.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.confirmbooking
         Me.submitBooking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.submitBooking.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.submitBooking.Location = New System.Drawing.Point(589, 385)
+        Me.submitBooking.Location = New System.Drawing.Point(611, 385)
         Me.submitBooking.Name = "submitBooking"
         Me.submitBooking.Size = New System.Drawing.Size(254, 39)
         Me.submitBooking.TabIndex = 91
@@ -271,7 +271,7 @@ Partial Class bookappointment
         Me.clear.Cursor = System.Windows.Forms.Cursors.Hand
         Me.clear.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clear.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.clear.Location = New System.Drawing.Point(693, 437)
+        Me.clear.Location = New System.Drawing.Point(699, 437)
         Me.clear.Name = "clear"
         Me.clear.Size = New System.Drawing.Size(40, 19)
         Me.clear.TabIndex = 92

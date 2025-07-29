@@ -6,7 +6,7 @@ Imports System.Text
 'Clients can register providing details such as full name, username and password.
 
 Public Class login
-    Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
+    Dim conn As MySqlConnection = New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_webapp;Pwd=WebApp2025!;")
     Public sql As String
     Public dbcomm As MySqlCommand
 
@@ -158,6 +158,13 @@ Public Class login
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
         adminstafflogin.Show()
+        Me.Hide()
+    End Sub
+
+
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        homepage.Show()
         Me.Hide()
     End Sub
 End Class

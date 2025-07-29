@@ -111,9 +111,9 @@ Partial Class servicelist
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(220, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(357, 65)
+        Me.Label1.Size = New System.Drawing.Size(350, 65)
         Me.Label1.TabIndex = 7
-        Me.Label1.Text = "OUR SERVICES"
+        Me.Label1.Text = "SERVICES LIST"
         '
         'Panel1
         '

@@ -2,7 +2,7 @@
 
 'for feedback and reviews
 Public Class reviewshomepage
-    Dim conn As New MySqlConnection("server=localhost;user=root;password=;database=final_shafaye_salon;")
+    Dim conn As New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=salon_webapp;Password=WebApp2025!;")
 
     Private Sub reviewshomepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadServiceFilter()

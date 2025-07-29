@@ -4,7 +4,7 @@ Imports System.IO
 'FOR SEARCH SERVICES
 'Allow search access to services for clients by name or by category.
 Public Class servicelist
-    Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
+    Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=salon_webapp;Password=WebApp2025!;")
     Public sql As String
     Public dbcomm As MySqlCommand
 

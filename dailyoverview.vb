@@ -6,7 +6,7 @@ Imports MySql.Data.MySqlClient
 
 
 Public Class dailyoverview
-    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
+    Private connectionString As String = "Data Source=localhost;Database=final_shafaye_salon;User=salon_webapp;Password=WebApp2025!;"
 
     Private Sub dailyoverview_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UpdateRevenueLabel()

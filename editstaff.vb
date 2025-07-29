@@ -7,7 +7,7 @@ Imports System.Text
 'Main admin may create, update, and delete employees, assign their roles within the offered services,
 'and manage their salary.
 Public Class editstaff
-    Dim conn As New MySqlConnection("server=localhost;user=root;password=;database=final_shafaye_salon;")
+    Dim conn As New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;")
 
     Private Sub addStaffForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmbRole.Items.Add("admin")

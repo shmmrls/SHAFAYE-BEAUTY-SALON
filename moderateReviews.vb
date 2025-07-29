@@ -5,7 +5,7 @@ Imports System.Windows.Forms
 'FOR CUSTOMER SUPPORT
 'Allow admin/staff to view, sort, and delete customer reviews of services and staff.
 Public Class moderateReviews
-    Private conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
+    Private conn As New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;")
 
     Private Sub moderateReviews_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmbSortByRating.Items.AddRange(New String() {"Highest", "Lowest"})

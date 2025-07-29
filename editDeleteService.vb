@@ -4,7 +4,7 @@ Imports System.IO
 'FOR SERVICE LISTING
 'Description: Admin can create, add, update, And delete products.
 Public Class editDeleteService
-    Dim conn As New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=root;Password=;")
+    Dim conn As New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;")
 
     Private selectedServiceID As String = ""
     Private selectedRowPanel As Panel = Nothing

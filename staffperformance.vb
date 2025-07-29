@@ -2,7 +2,7 @@
 Imports MySql.Data.MySqlClient
 
 Public Class staffperformance
-    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
+    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;"
 
     Private Sub staffperformance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadStaffPerformance()
@@ -142,7 +142,7 @@ Public Class staffperformance
         Dim lblSalary As New Label()
         lblSalary.Text = $"Salary: ₱{salary:N2}"
         lblSalary.Font = New Font("Segoe UI", 9, FontStyle.Bold)
-        lblSalary.ForeColor = Color.Blue
+        lblSalary.ForeColor = Color.FromArgb(255, 128, 128)
         lblSalary.Location = New Point(10, 75)
         lblSalary.AutoSize = True
         card.Controls.Add(lblSalary)

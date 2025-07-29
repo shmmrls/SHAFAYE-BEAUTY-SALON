@@ -7,8 +7,7 @@ Imports System.IO
 'Admins can log expenses such As supply purchases, staff salaries, rent, Or utilities With Date, amount,
 'And description.
 Public Class expenseTracking
-    Private connectionString As String = "server=localhost;userid=root;password=;database=final_shafaye_salon;"
-
+    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;"
     Private Sub expenseTracking_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadExistingExpenses()
     End Sub

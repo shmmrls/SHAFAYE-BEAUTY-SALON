@@ -5,7 +5,7 @@ Imports iTextSharp.text.pdf
 Imports System.IO
 
 Public Class usageLogs
-    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
+    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;"
 
     Private Sub usageLogs_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadUsageLogs()

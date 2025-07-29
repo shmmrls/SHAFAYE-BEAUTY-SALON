@@ -9,7 +9,7 @@ Imports System.Drawing
 
 
 Public Class salesReport
-    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
+    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;"
 
     Private Sub salesReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCategories()

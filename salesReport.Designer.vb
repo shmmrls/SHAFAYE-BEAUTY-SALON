@@ -58,7 +58,7 @@ Partial Class salesReport
         Me.lblTitle.AutoSize = True
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.lblTitle.ForeColor = System.Drawing.Color.White
         Me.lblTitle.Location = New System.Drawing.Point(208, 9)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(360, 65)
@@ -67,6 +67,7 @@ Partial Class salesReport
         '
         'pnlDailyOverview
         '
+        Me.pnlDailyOverview.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
         Me.pnlDailyOverview.Controls.Add(Me.lblTitle)
         Me.pnlDailyOverview.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlDailyOverview.Location = New System.Drawing.Point(0, 0)
@@ -180,7 +181,7 @@ Partial Class salesReport
         Me.grpProfit.Size = New System.Drawing.Size(645, 127)
         Me.grpProfit.TabIndex = 26
         Me.grpProfit.TabStop = False
-        Me.grpProfit.Text = "Net Profit"
+        Me.grpProfit.Text = "Gross Profit"
         '
         'panelNetProfit
         '

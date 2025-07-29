@@ -4,8 +4,9 @@ Imports System.Drawing
 'FOR FINANCIAL MANAGEMENT
 'Allow admin/staff to view, filter, and generate summarized views of payment records based on date and
 'service category
+'Added DELETE functionality for admins to remove incorrect or duplicate payment records
 Public Class paymentRecords
-    Private connectionString As String = "server=localhost;userid=root;password=;database=final_shafaye_salon;"
+    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;"
 
     Private Sub genReceipts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadServiceCategories()
@@ -67,9 +68,6 @@ Public Class paymentRecords
                 "JOIN service_categories sc ON s.category_id = sc.category_id " &
                 "WHERE 1=1 "
 
-
-
-
                 If Not String.IsNullOrEmpty(dateFilter) Then
                     baseQuery += dateFilter
                 End If
@@ -85,7 +83,6 @@ Public Class paymentRecords
                         Dim selectedCategoryId = Convert.ToInt32(cmbServiceCateg.SelectedValue)
                         If selectedCategoryId > 0 Then
                             command.Parameters.AddWithValue("@categoryId", selectedCategoryId)
-
                         End If
                     End If
 
@@ -95,7 +92,7 @@ Public Class paymentRecords
 
                         While reader.Read()
                             CreatePaymentLogCard(reader, yPosition)
-                            yPosition += 180
+                            yPosition += 200 ' Increased height to accommodate delete button
                             recordCount += 1
                         End While
 
@@ -121,9 +118,12 @@ Public Class paymentRecords
     Private Sub CreatePaymentLogCard(reader As MySqlDataReader, yPosition As Integer)
         Dim cardPanel As New Panel()
         cardPanel.Location = New Point(10, yPosition)
-        cardPanel.Size = New Size(panelPaymentLogs.Width - 30, 180)
+        cardPanel.Size = New Size(panelPaymentLogs.Width - 30, 200) ' Increased height
         cardPanel.BorderStyle = BorderStyle.FixedSingle
         cardPanel.BackColor = Color.White
+
+
+        cardPanel.Tag = reader("payment_id")
 
         Dim headerLabel As New Label()
         headerLabel.Text = $"Receipt #{reader("payment_id")} - {Convert.ToDateTime(reader("payment_date")):MMM dd, yyyy}"
@@ -194,7 +194,6 @@ Public Class paymentRecords
         amountLabel.BorderStyle = BorderStyle.None
         cardPanel.Controls.Add(amountLabel)
 
-
         Dim appointmentLabel As New Label()
         appointmentLabel.Text = $"Appointment ID: {reader("appointment_id")}"
         appointmentLabel.Font = New Font("Arial", 8, FontStyle.Regular)
@@ -203,7 +202,89 @@ Public Class paymentRecords
         appointmentLabel.Size = New Size(150, 15)
         cardPanel.Controls.Add(appointmentLabel)
 
+
+        Dim deleteButton As New Button()
+        deleteButton.Text = "Delete"
+        deleteButton.Font = New Font("Arial", 9, FontStyle.Bold)
+        deleteButton.BackColor = Color.FromArgb(220, 53, 69)
+        deleteButton.ForeColor = Color.White
+        deleteButton.FlatStyle = FlatStyle.Popup
+        deleteButton.FlatAppearance.BorderSize = 0
+        deleteButton.Location = New Point(cardPanel.Width - 80, 140)
+        deleteButton.Size = New Size(60, 20)
+        deleteButton.Cursor = Cursors.Hand
+        deleteButton.Tag = reader("payment_id")
+        AddHandler deleteButton.Click, AddressOf DeleteButton_Click
+        cardPanel.Controls.Add(deleteButton)
+
         panelPaymentLogs.Controls.Add(cardPanel)
+    End Sub
+
+
+    Private Sub DeleteButton_Click(sender As Object, e As EventArgs)
+        Dim deleteButton As Button = DirectCast(sender, Button)
+        Dim paymentId As Integer = Convert.ToInt32(deleteButton.Tag)
+
+
+        Dim result As DialogResult = MessageBox.Show(
+            $"Are you sure you want to delete payment record #{paymentId}?" & vbNewLine & vbNewLine &
+            "This action cannot be undone and will permanently remove this payment record from the system.",
+            "Confirm Delete Payment Record",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning,
+            MessageBoxDefaultButton.Button2
+        )
+
+        If result = DialogResult.Yes Then
+            DeletePaymentRecord(paymentId)
+        End If
+    End Sub
+
+
+    Private Sub DeletePaymentRecord(paymentId As Integer)
+        Try
+            Using connection As New MySqlConnection(connectionString)
+                connection.Open()
+
+
+                Using transaction = connection.BeginTransaction()
+                    Try
+
+                        Dim deleteQuery = "DELETE FROM payments WHERE payment_id = @paymentId"
+                        Using command As New MySqlCommand(deleteQuery, connection, transaction)
+                            command.Parameters.AddWithValue("@paymentId", paymentId)
+                            Dim rowsAffected = command.ExecuteNonQuery()
+
+                            If rowsAffected > 0 Then
+                                transaction.Commit()
+                                MessageBox.Show($"Payment record #{paymentId} has been successfully deleted.",
+                                              "Delete Successful",
+                                              MessageBoxButtons.OK,
+                                              MessageBoxIcon.Information)
+
+                                ' Refresh the payment logs display
+                                LoadAllPaymentLogs()
+                            Else
+                                transaction.Rollback()
+                                MessageBox.Show("Payment record not found or could not be deleted.",
+                                              "Delete Failed",
+                                              MessageBoxButtons.OK,
+                                              MessageBoxIcon.Error)
+                            End If
+                        End Using
+                    Catch ex As Exception
+                        transaction.Rollback()
+                        Throw ex
+                    End Try
+                End Using
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show($"Error deleting payment record: {ex.Message}",
+                          "Delete Error",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub btnMonthly_Click(sender As Object, e As EventArgs) Handles btnMonthly.Click
@@ -215,7 +296,7 @@ Public Class paymentRecords
         If cmbServiceCateg.SelectedValue IsNot Nothing Then
             Dim selectedCategoryId = Convert.ToInt32(cmbServiceCateg.SelectedValue)
             If selectedCategoryId > 0 Then
-                categoryFilter = " AND sc.category_id = @categoryId "
+                categoryFilter = " AND sc.category_id = " & selectedCategoryId
             End If
         End If
 
@@ -230,7 +311,7 @@ Public Class paymentRecords
         If cmbServiceCateg.SelectedValue IsNot Nothing Then
             Dim selectedCategoryId = Convert.ToInt32(cmbServiceCateg.SelectedValue)
             If selectedCategoryId > 0 Then
-                categoryFilter = " AND sc.category_id = @categoryId "
+                categoryFilter = " AND sc.category_id = " & selectedCategoryId
             End If
         End If
 
@@ -244,22 +325,42 @@ Public Class paymentRecords
     End Sub
 
     Private Sub cmbServiceCateg_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbServiceCateg.SelectedIndexChanged
-        If cmbServiceCateg.SelectedValue IsNot Nothing Then
-            Dim selectedCategoryId = Convert.ToInt32(cmbServiceCateg.SelectedValue)
-            Dim categoryFilter = ""
+        ' Add debug information to see what's happening
+        Try
+            If cmbServiceCateg.SelectedItem IsNot Nothing Then
+                Dim selectedItem = cmbServiceCateg.SelectedItem
+                Dim selectedCategoryId As Integer = 0
 
-            If selectedCategoryId > 0 Then
-                categoryFilter = " AND sc.category_id = @categoryId "
+                ' Get the category ID from the selected item
+                If TypeOf selectedItem Is Object AndAlso selectedItem.GetType().GetProperty("Value") IsNot Nothing Then
+                    selectedCategoryId = Convert.ToInt32(selectedItem.Value)
+                End If
+
+                ' Debug: Show what was selected (remove this line after testing)
+                ' MessageBox.Show($"Selected Category ID: {selectedCategoryId}")
+
+                Dim categoryFilter = ""
+                If selectedCategoryId > 0 Then
+                    categoryFilter = " AND sc.category_id = " & selectedCategoryId
+                End If
+
+                LoadPaymentLogs("", categoryFilter)
             End If
-
-            LoadPaymentLogs("", categoryFilter)
-        End If
+        Catch ex As Exception
+            MessageBox.Show("Error in category selection: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub panelPaymentLogs_Resize(sender As Object, e As EventArgs) Handles panelPaymentLogs.Resize
         For Each control As Control In panelPaymentLogs.Controls
             If TypeOf control Is Panel Then
                 control.Width = panelPaymentLogs.Width - 30
+                ' Reposition delete button when panel resizes
+                For Each childControl As Control In control.Controls
+                    If TypeOf childControl Is Button AndAlso childControl.Text = "Delete" Then
+                        childControl.Location = New Point(control.Width - 80, 160)
+                    End If
+                Next
             End If
         Next
     End Sub

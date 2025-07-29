@@ -29,7 +29,9 @@ Partial Class adminstafflogin
         Me.passtxt = New System.Windows.Forms.TextBox()
         Me.usernametxt = New System.Windows.Forms.TextBox()
         Me.signinbtn = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.signinbtn, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -104,6 +106,17 @@ Partial Class adminstafflogin
         Me.signinbtn.TabIndex = 13
         Me.signinbtn.TabStop = False
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.backbutton
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(54, 50)
+        Me.PictureBox1.TabIndex = 20
+        Me.PictureBox1.TabStop = False
+        '
         'adminstafflogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -111,6 +124,7 @@ Partial Class adminstafflogin
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(948, 593)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.showpassword)
         Me.Controls.Add(Me.clear)
@@ -122,9 +136,9 @@ Partial Class adminstafflogin
         Me.Name = "adminstafflogin"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "adminstafflogin"
         Me.TopMost = True
         CType(Me.signinbtn, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -136,4 +150,5 @@ Partial Class adminstafflogin
     Friend WithEvents passtxt As TextBox
     Friend WithEvents usernametxt As TextBox
     Friend WithEvents signinbtn As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

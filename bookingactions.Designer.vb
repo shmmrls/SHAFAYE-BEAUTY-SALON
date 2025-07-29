@@ -26,6 +26,7 @@ Partial Class bookingactions
         Me.fororganization = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnWalkIn = New System.Windows.Forms.Button()
         Me.fororganization.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -38,13 +39,14 @@ Partial Class bookingactions
         Me.flowBookings.Location = New System.Drawing.Point(36, 11)
         Me.flowBookings.Name = "flowBookings"
         Me.flowBookings.Padding = New System.Windows.Forms.Padding(10)
-        Me.flowBookings.Size = New System.Drawing.Size(623, 454)
+        Me.flowBookings.Size = New System.Drawing.Size(623, 382)
         Me.flowBookings.TabIndex = 15
         Me.flowBookings.WrapContents = False
         '
         'fororganization
         '
         Me.fororganization.BackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.fororganization.Controls.Add(Me.btnWalkIn)
         Me.fororganization.Controls.Add(Me.flowBookings)
         Me.fororganization.Dock = System.Windows.Forms.DockStyle.Top
         Me.fororganization.Location = New System.Drawing.Point(0, 83)
@@ -73,6 +75,17 @@ Partial Class bookingactions
         Me.Panel1.Size = New System.Drawing.Size(684, 83)
         Me.Panel1.TabIndex = 17
         '
+        'btnWalkIn
+        '
+        Me.btnWalkIn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWalkIn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.btnWalkIn.Location = New System.Drawing.Point(248, 410)
+        Me.btnWalkIn.Name = "btnWalkIn"
+        Me.btnWalkIn.Size = New System.Drawing.Size(219, 40)
+        Me.btnWalkIn.TabIndex = 50
+        Me.btnWalkIn.Text = "ADD WALK-IN APPOINTMENT"
+        Me.btnWalkIn.UseVisualStyleBackColor = True
+        '
         'bookingactions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -95,4 +108,5 @@ Partial Class bookingactions
     Friend WithEvents fororganization As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnWalkIn As Button
 End Class

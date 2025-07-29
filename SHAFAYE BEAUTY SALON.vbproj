@@ -47,6 +47,12 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo shafaye.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
@@ -277,12 +283,6 @@
     <Compile Include="login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="lowStockAlerts.Designer.vb">
-      <DependentUpon>lowStockAlerts.vb</DependentUpon>
-    </Compile>
-    <Compile Include="lowStockAlerts.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="managecustomers.Designer.vb">
       <DependentUpon>managecustomers.vb</DependentUpon>
     </Compile>
@@ -327,12 +327,6 @@
       <DependentUpon>quickStats.vb</DependentUpon>
     </Compile>
     <Compile Include="quickStats.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="reminder.Designer.vb">
-      <DependentUpon>reminder.vb</DependentUpon>
-    </Compile>
-    <Compile Include="reminder.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReviewCard.Designer.vb">
@@ -403,6 +397,12 @@
     <Compile Include="stafflist.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="staffMenu.Designer.vb">
+      <DependentUpon>staffMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="staffMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="staffperformance.Designer.vb">
       <DependentUpon>staffperformance.vb</DependentUpon>
     </Compile>
@@ -431,6 +431,12 @@
       <DependentUpon>viewallbookings.vb</DependentUpon>
     </Compile>
     <Compile Include="viewallbookings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WalkInBookingForm.Designer.vb">
+      <DependentUpon>WalkInBookingForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WalkInBookingForm.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -501,9 +507,6 @@
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="lowStockAlerts.resx">
-      <DependentUpon>lowStockAlerts.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="managecustomers.resx">
       <DependentUpon>managecustomers.vb</DependentUpon>
     </EmbeddedResource>
@@ -524,9 +527,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="quickStats.resx">
       <DependentUpon>quickStats.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reminder.resx">
-      <DependentUpon>reminder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReviewCard.resx">
       <DependentUpon>ReviewCard.vb</DependentUpon>
@@ -561,6 +561,9 @@
     <EmbeddedResource Include="stafflist.resx">
       <DependentUpon>stafflist.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="staffMenu.resx">
+      <DependentUpon>staffMenu.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="staffperformance.resx">
       <DependentUpon>staffperformance.vb</DependentUpon>
     </EmbeddedResource>
@@ -576,8 +579,12 @@
     <EmbeddedResource Include="viewallbookings.resx">
       <DependentUpon>viewallbookings.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WalkInBookingForm.resx">
+      <DependentUpon>WalkInBookingForm.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -856,6 +863,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\confirmbooking2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo shafaye.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

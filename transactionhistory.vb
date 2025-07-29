@@ -17,7 +17,7 @@ Public Class transactionhistory
     End Sub
 
     Private Sub InitializeConnection()
-        conn = New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
+        conn = New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_customer;Pwd=CustomerSalon2025!;")
     End Sub
 
     Private Sub transactionhistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load

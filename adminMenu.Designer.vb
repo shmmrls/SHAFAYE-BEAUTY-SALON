@@ -59,6 +59,7 @@ Partial Class adminMenu
         Me.servicelist = New System.Windows.Forms.Button()
         Me.services = New System.Windows.Forms.Button()
         Me.panelAppointment = New System.Windows.Forms.Panel()
+        Me.walkInbookingbtn = New System.Windows.Forms.Button()
         Me.manageCustomersBtn = New System.Windows.Forms.Button()
         Me.bookingActions = New System.Windows.Forms.Button()
         Me.viewAppointments = New System.Windows.Forms.Button()
@@ -141,7 +142,7 @@ Partial Class adminMenu
         Me.panelAdminProf.Controls.Add(Me.adminUpdate)
         Me.panelAdminProf.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelAdminProf.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelAdminProf.Location = New System.Drawing.Point(0, 1817)
+        Me.panelAdminProf.Location = New System.Drawing.Point(0, 1864)
         Me.panelAdminProf.Margin = New System.Windows.Forms.Padding(4)
         Me.panelAdminProf.Name = "panelAdminProf"
         Me.panelAdminProf.Size = New System.Drawing.Size(316, 113)
@@ -186,7 +187,7 @@ Partial Class adminMenu
         Me.adminProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.adminProfile.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.adminProfile.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.adminProfile.Location = New System.Drawing.Point(0, 1762)
+        Me.adminProfile.Location = New System.Drawing.Point(0, 1809)
         Me.adminProfile.Margin = New System.Windows.Forms.Padding(4)
         Me.adminProfile.Name = "adminProfile"
         Me.adminProfile.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -204,7 +205,7 @@ Partial Class adminMenu
         Me.panelCustomerSupport.Controls.Add(Me.customerInquiries)
         Me.panelCustomerSupport.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelCustomerSupport.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelCustomerSupport.Location = New System.Drawing.Point(0, 1606)
+        Me.panelCustomerSupport.Location = New System.Drawing.Point(0, 1653)
         Me.panelCustomerSupport.Margin = New System.Windows.Forms.Padding(4)
         Me.panelCustomerSupport.Name = "panelCustomerSupport"
         Me.panelCustomerSupport.Size = New System.Drawing.Size(316, 156)
@@ -265,7 +266,7 @@ Partial Class adminMenu
         Me.support.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.support.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.support.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.support.Location = New System.Drawing.Point(0, 1551)
+        Me.support.Location = New System.Drawing.Point(0, 1598)
         Me.support.Margin = New System.Windows.Forms.Padding(4)
         Me.support.Name = "support"
         Me.support.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -282,7 +283,7 @@ Partial Class adminMenu
         Me.panelPayment.Controls.Add(Me.paymentRecords)
         Me.panelPayment.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelPayment.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelPayment.Location = New System.Drawing.Point(0, 1445)
+        Me.panelPayment.Location = New System.Drawing.Point(0, 1492)
         Me.panelPayment.Margin = New System.Windows.Forms.Padding(4)
         Me.panelPayment.Name = "panelPayment"
         Me.panelPayment.Size = New System.Drawing.Size(316, 106)
@@ -327,7 +328,7 @@ Partial Class adminMenu
         Me.payments.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.payments.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.payments.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.payments.Location = New System.Drawing.Point(0, 1390)
+        Me.payments.Location = New System.Drawing.Point(0, 1437)
         Me.payments.Margin = New System.Windows.Forms.Padding(4)
         Me.payments.Name = "payments"
         Me.payments.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -346,7 +347,7 @@ Partial Class adminMenu
         Me.panelInventory.Controls.Add(Me.inventoryList)
         Me.panelInventory.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelInventory.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelInventory.Location = New System.Drawing.Point(0, 1179)
+        Me.panelInventory.Location = New System.Drawing.Point(0, 1226)
         Me.panelInventory.Margin = New System.Windows.Forms.Padding(4)
         Me.panelInventory.Name = "panelInventory"
         Me.panelInventory.Size = New System.Drawing.Size(316, 211)
@@ -423,7 +424,7 @@ Partial Class adminMenu
         Me.inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.inventory.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.inventory.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.inventory.Location = New System.Drawing.Point(0, 1124)
+        Me.inventory.Location = New System.Drawing.Point(0, 1171)
         Me.inventory.Margin = New System.Windows.Forms.Padding(4)
         Me.inventory.Name = "inventory"
         Me.inventory.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -440,7 +441,7 @@ Partial Class adminMenu
         Me.panelFinancial.Controls.Add(Me.expenseTrack)
         Me.panelFinancial.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelFinancial.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelFinancial.Location = New System.Drawing.Point(0, 1016)
+        Me.panelFinancial.Location = New System.Drawing.Point(0, 1063)
         Me.panelFinancial.Margin = New System.Windows.Forms.Padding(4)
         Me.panelFinancial.Name = "panelFinancial"
         Me.panelFinancial.Size = New System.Drawing.Size(316, 108)
@@ -485,7 +486,7 @@ Partial Class adminMenu
         Me.finance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.finance.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.finance.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.finance.Location = New System.Drawing.Point(0, 961)
+        Me.finance.Location = New System.Drawing.Point(0, 1008)
         Me.finance.Margin = New System.Windows.Forms.Padding(4)
         Me.finance.Name = "finance"
         Me.finance.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -503,7 +504,7 @@ Partial Class adminMenu
         Me.panelStaff.Controls.Add(Me.stafflist)
         Me.panelStaff.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelStaff.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelStaff.Location = New System.Drawing.Point(0, 802)
+        Me.panelStaff.Location = New System.Drawing.Point(0, 849)
         Me.panelStaff.Margin = New System.Windows.Forms.Padding(4)
         Me.panelStaff.Name = "panelStaff"
         Me.panelStaff.Size = New System.Drawing.Size(316, 159)
@@ -564,7 +565,7 @@ Partial Class adminMenu
         Me.staff.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.staff.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.staff.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.staff.Location = New System.Drawing.Point(0, 747)
+        Me.staff.Location = New System.Drawing.Point(0, 794)
         Me.staff.Margin = New System.Windows.Forms.Padding(4)
         Me.staff.Name = "staff"
         Me.staff.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -582,7 +583,7 @@ Partial Class adminMenu
         Me.panelService.Controls.Add(Me.servicelist)
         Me.panelService.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelService.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.panelService.Location = New System.Drawing.Point(0, 593)
+        Me.panelService.Location = New System.Drawing.Point(0, 640)
         Me.panelService.Margin = New System.Windows.Forms.Padding(4)
         Me.panelService.Name = "panelService"
         Me.panelService.Size = New System.Drawing.Size(316, 154)
@@ -643,7 +644,7 @@ Partial Class adminMenu
         Me.services.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.services.Font = New System.Drawing.Font("Segoe UI Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.services.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.services.Location = New System.Drawing.Point(0, 538)
+        Me.services.Location = New System.Drawing.Point(0, 585)
         Me.services.Margin = New System.Windows.Forms.Padding(4)
         Me.services.Name = "services"
         Me.services.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
@@ -656,6 +657,7 @@ Partial Class adminMenu
         'panelAppointment
         '
         Me.panelAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.panelAppointment.Controls.Add(Me.walkInbookingbtn)
         Me.panelAppointment.Controls.Add(Me.manageCustomersBtn)
         Me.panelAppointment.Controls.Add(Me.bookingActions)
         Me.panelAppointment.Controls.Add(Me.viewAppointments)
@@ -664,8 +666,24 @@ Partial Class adminMenu
         Me.panelAppointment.Location = New System.Drawing.Point(0, 379)
         Me.panelAppointment.Margin = New System.Windows.Forms.Padding(4)
         Me.panelAppointment.Name = "panelAppointment"
-        Me.panelAppointment.Size = New System.Drawing.Size(316, 159)
+        Me.panelAppointment.Size = New System.Drawing.Size(316, 206)
         Me.panelAppointment.TabIndex = 2
+        '
+        'walkInbookingbtn
+        '
+        Me.walkInbookingbtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.walkInbookingbtn.FlatAppearance.BorderSize = 0
+        Me.walkInbookingbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.walkInbookingbtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.walkInbookingbtn.Location = New System.Drawing.Point(0, 147)
+        Me.walkInbookingbtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.walkInbookingbtn.Name = "walkInbookingbtn"
+        Me.walkInbookingbtn.Padding = New System.Windows.Forms.Padding(47, 0, 0, 0)
+        Me.walkInbookingbtn.Size = New System.Drawing.Size(316, 49)
+        Me.walkInbookingbtn.TabIndex = 4
+        Me.walkInbookingbtn.Text = "Add Walk-In Booking"
+        Me.walkInbookingbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.walkInbookingbtn.UseVisualStyleBackColor = True
         '
         'manageCustomersBtn
         '
@@ -819,7 +837,6 @@ Partial Class adminMenu
         Me.Name = "adminMenu"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "adminMenu"
         Me.mainPanel.ResumeLayout(False)
         Me.panelMenu.ResumeLayout(False)
         Me.panelAdminProf.ResumeLayout(False)
@@ -881,4 +898,5 @@ Partial Class adminMenu
     Friend WithEvents panelChildForm As Panel
     Friend WithEvents manageCustomersBtn As Button
     Friend WithEvents alerts As Button
+    Friend WithEvents walkInbookingbtn As Button
 End Class

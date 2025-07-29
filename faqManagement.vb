@@ -5,7 +5,8 @@ Imports System.Windows.Forms
 'Create section that shows and reads common questions about services, scheduling, and policies.
 
 Public Class faqManagement
-    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=root;Pwd=;"
+    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;"
+
     Private selectedFaqId As Integer = 0
 
     Private Sub faqManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load

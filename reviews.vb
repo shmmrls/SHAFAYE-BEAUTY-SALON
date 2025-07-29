@@ -3,7 +3,7 @@
 'for FEEDBACK AND REVIEWS
 Public Class reviews
     Private userID As Integer
-    Private conn As MySqlConnection = New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
+    Private conn As MySqlConnection = New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_customer;Pwd=CustomerSalon2025!;")
 
     Public Sub New(userID As Integer)
         InitializeComponent()

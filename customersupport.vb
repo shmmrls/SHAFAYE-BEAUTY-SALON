@@ -4,7 +4,7 @@
 '(saved to a message table), and automatically logs each inquiry as a suggested FAQ entry for future staff review.
 Public Class CustomerSupport
     Private userID As Integer
-    Dim conn As New MySqlConnection("server=localhost;userid=root;password=;database=final_shafaye_salon")
+    Dim conn As New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_customer;Pwd=CustomerSalon2025!;")
 
     Public Sub New(ByVal userID As Integer)
         InitializeComponent()

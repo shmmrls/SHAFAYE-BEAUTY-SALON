@@ -33,9 +33,11 @@ Partial Class signup
         Me.passwordPopupPanel = New System.Windows.Forms.Panel()
         Me.passwordPopupLabel = New System.Windows.Forms.Label()
         Me.firstnametxt = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.signupbtn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.signinpage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.passwordPopupPanel.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'signupbtn
@@ -64,40 +66,40 @@ Partial Class signup
         'lastnametxt
         '
         Me.lastnametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.lastnametxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lastnametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lastnametxt.Location = New System.Drawing.Point(454, 216)
         Me.lastnametxt.Name = "lastnametxt"
-        Me.lastnametxt.Size = New System.Drawing.Size(421, 15)
+        Me.lastnametxt.Size = New System.Drawing.Size(421, 20)
         Me.lastnametxt.TabIndex = 4
         '
         'usernametxt
         '
         Me.usernametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.usernametxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.usernametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.usernametxt.Location = New System.Drawing.Point(454, 302)
         Me.usernametxt.Name = "usernametxt"
-        Me.usernametxt.Size = New System.Drawing.Size(421, 15)
+        Me.usernametxt.Size = New System.Drawing.Size(421, 20)
         Me.usernametxt.TabIndex = 5
         '
         'passtxt
         '
         Me.passtxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.passtxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.passtxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.passtxt.Location = New System.Drawing.Point(454, 391)
         Me.passtxt.Name = "passtxt"
         Me.passtxt.PasswordChar = Global.Microsoft.VisualBasic.ChrW(10043)
-        Me.passtxt.Size = New System.Drawing.Size(421, 15)
+        Me.passtxt.Size = New System.Drawing.Size(421, 20)
         Me.passtxt.TabIndex = 6
         Me.passtxt.UseSystemPasswordChar = True
         '
         'confirmpasstx
         '
         Me.confirmpasstx.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.confirmpasstx.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.confirmpasstx.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.confirmpasstx.Location = New System.Drawing.Point(454, 478)
         Me.confirmpasstx.Name = "confirmpasstx"
         Me.confirmpasstx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(10043)
-        Me.confirmpasstx.Size = New System.Drawing.Size(421, 15)
+        Me.confirmpasstx.Size = New System.Drawing.Size(421, 20)
         Me.confirmpasstx.TabIndex = 7
         Me.confirmpasstx.UseSystemPasswordChar = True
         '
@@ -152,11 +154,22 @@ Partial Class signup
         'firstnametxt
         '
         Me.firstnametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.firstnametxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.firstnametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.firstnametxt.Location = New System.Drawing.Point(454, 130)
         Me.firstnametxt.Name = "firstnametxt"
-        Me.firstnametxt.Size = New System.Drawing.Size(421, 15)
+        Me.firstnametxt.Size = New System.Drawing.Size(421, 20)
         Me.firstnametxt.TabIndex = 11
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.backbutton
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(54, 50)
+        Me.PictureBox1.TabIndex = 15
+        Me.PictureBox1.TabStop = False
         '
         'signup
         '
@@ -165,6 +178,7 @@ Partial Class signup
         Me.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.sign_u_final
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(948, 593)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.firstnametxt)
         Me.Controls.Add(Me.passwordPopupPanel)
         Me.Controls.Add(Me.showpassword)
@@ -183,6 +197,7 @@ Partial Class signup
         CType(Me.signinpage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.passwordPopupPanel.ResumeLayout(False)
         Me.passwordPopupPanel.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -199,4 +214,5 @@ Partial Class signup
     Friend WithEvents passwordPopupPanel As Panel
     Friend WithEvents passwordPopupLabel As Label
     Friend WithEvents firstnametxt As TextBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

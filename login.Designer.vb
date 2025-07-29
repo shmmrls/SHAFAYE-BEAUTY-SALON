@@ -29,8 +29,10 @@ Partial Class login
         Me.showpassword = New System.Windows.Forms.Label()
         Me.clear = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.signinbtn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.signuppage, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'signinbtn
@@ -116,6 +118,17 @@ Partial Class login
         Me.Label1.Text = "ARE YOU AN ADMIN/STAFF? LOGIN HERE INSTEAD."
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.backbutton
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(54, 50)
+        Me.PictureBox1.TabIndex = 14
+        Me.PictureBox1.TabStop = False
+        '
         'login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -123,6 +136,7 @@ Partial Class login
         Me.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.sign_in_final
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(948, 593)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.showpassword)
         Me.Controls.Add(Me.clear)
@@ -136,6 +150,7 @@ Partial Class login
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         CType(Me.signinbtn, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.signuppage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -147,4 +162,5 @@ Partial Class login
     Friend WithEvents showpassword As Label
     Friend WithEvents clear As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

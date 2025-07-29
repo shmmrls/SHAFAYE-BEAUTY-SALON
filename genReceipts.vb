@@ -8,7 +8,8 @@ Imports System.Drawing
 'Admins can generate a downloadable PDF receipt (admin copy) containing booking details, customer information,
 'availed services, staff, And payment summary For completed appointments.
 Public Class genReceipts
-    Private connectionString As String = "server=localhost;userid=root;password=;database=final_shafaye_salon;"
+    Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;"
+
 
     Private Sub genReceipts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCompletedBookings()

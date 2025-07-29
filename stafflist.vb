@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class stafflist
-    Dim conn As New MySqlConnection("server=localhost;user=root;password=;database=final_shafaye_salon;")
+    Dim conn As New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;")
     Private Sub LoadStaffTable()
         Dim adapter As New MySqlDataAdapter("SELECT s.staff_id, s.user_id, u.first_name, u.last_name, s.position, s.salary, s.status FROM staff s JOIN user_register u ON s.user_id = u.user_id", conn)
         Dim dt As New DataTable()
