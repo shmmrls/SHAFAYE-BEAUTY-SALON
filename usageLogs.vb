@@ -4,6 +4,9 @@ Imports iTextSharp.text
 Imports iTextSharp.text.pdf
 Imports System.IO
 
+'INVENTORY MANAGEMENT
+'Create inventory records and track internal-use supplies (e.g., wax, shampoo, facial cream)
+'including stock levels and usage frequency.
 Public Class usageLogs
     Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;"
 

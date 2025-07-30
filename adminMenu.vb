@@ -1,8 +1,8 @@
 ﻿
-
+'FOR ROLE-BASED ACCESS CONTROL 
+'Admin/Staff will have special access to manage the system based on their roles.
 Public Class adminMenu
-    'FOR ROLE-BASED ACCESS CONTROL 
-    'Admin/Staff will have special access to manage the system based on their roles.
+
 
     Sub customizeDesign()
         panelAdmin.Visible = False

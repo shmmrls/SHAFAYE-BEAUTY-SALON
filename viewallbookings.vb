@@ -1,5 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 
+' APPOINTMENT DASHBOARD (Under “APPOINTMENT BOOKING” → For Admin)
+' Admins can see all bookings (daily/weekly/monthly view), staff assigned per appointment,
+' And manage status (Pending, Approved, Completed, Cancelled).
 Public Class viewallbookings
 
     Private Sub LoadAppointments(Optional statusFilter As String = "All",

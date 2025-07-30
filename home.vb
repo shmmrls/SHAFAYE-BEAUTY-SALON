@@ -1,4 +1,7 @@
 ﻿Public Class home
+    'APPOINTMENT BOOKING
+    'Clients can select services, choose preferred date/time, and will be assigned to a staff
+    'that will handle their needs.
     Public Property LoggedInUserID As Integer
     Private Sub booknow_MouseEnter(sender As Object, e As EventArgs) Handles booknow.MouseEnter
         booknow.BackgroundImage = My.Resources.booknow2

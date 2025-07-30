@@ -66,40 +66,40 @@ Partial Class signup
         'lastnametxt
         '
         Me.lastnametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.lastnametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lastnametxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lastnametxt.Location = New System.Drawing.Point(454, 216)
         Me.lastnametxt.Name = "lastnametxt"
-        Me.lastnametxt.Size = New System.Drawing.Size(421, 20)
+        Me.lastnametxt.Size = New System.Drawing.Size(421, 15)
         Me.lastnametxt.TabIndex = 4
         '
         'usernametxt
         '
         Me.usernametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.usernametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.usernametxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.usernametxt.Location = New System.Drawing.Point(454, 302)
         Me.usernametxt.Name = "usernametxt"
-        Me.usernametxt.Size = New System.Drawing.Size(421, 20)
+        Me.usernametxt.Size = New System.Drawing.Size(421, 15)
         Me.usernametxt.TabIndex = 5
         '
         'passtxt
         '
         Me.passtxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.passtxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.passtxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.passtxt.Location = New System.Drawing.Point(454, 391)
         Me.passtxt.Name = "passtxt"
         Me.passtxt.PasswordChar = Global.Microsoft.VisualBasic.ChrW(10043)
-        Me.passtxt.Size = New System.Drawing.Size(421, 20)
+        Me.passtxt.Size = New System.Drawing.Size(421, 15)
         Me.passtxt.TabIndex = 6
         Me.passtxt.UseSystemPasswordChar = True
         '
         'confirmpasstx
         '
         Me.confirmpasstx.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.confirmpasstx.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.confirmpasstx.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.confirmpasstx.Location = New System.Drawing.Point(454, 478)
         Me.confirmpasstx.Name = "confirmpasstx"
         Me.confirmpasstx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(10043)
-        Me.confirmpasstx.Size = New System.Drawing.Size(421, 20)
+        Me.confirmpasstx.Size = New System.Drawing.Size(421, 15)
         Me.confirmpasstx.TabIndex = 7
         Me.confirmpasstx.UseSystemPasswordChar = True
         '
@@ -154,10 +154,10 @@ Partial Class signup
         'firstnametxt
         '
         Me.firstnametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.firstnametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.firstnametxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.firstnametxt.Location = New System.Drawing.Point(454, 130)
         Me.firstnametxt.Name = "firstnametxt"
-        Me.firstnametxt.Size = New System.Drawing.Size(421, 20)
+        Me.firstnametxt.Size = New System.Drawing.Size(421, 15)
         Me.firstnametxt.TabIndex = 11
         '
         'PictureBox1
