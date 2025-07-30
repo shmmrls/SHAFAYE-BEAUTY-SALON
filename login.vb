@@ -69,7 +69,7 @@ Public Class login
                     adminstafflogin.Show()
                     Me.Hide()
                 Else
-                    MsgBox("Login successful!", MsgBoxStyle.Information)
+
                     userMenu.LoggedInUserID = userIDFromLogin
                     userMenu.Show()
                     Me.Hide()

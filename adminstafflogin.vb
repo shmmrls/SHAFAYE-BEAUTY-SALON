@@ -63,10 +63,10 @@ Public Class adminstafflogin
 
 
                 If role = "admin" Then
-                    MsgBox("Login successful!", MsgBoxStyle.Information)
+
                     adminMenu.Show()
                 ElseIf role = "staff" Then
-                    MsgBox("Login successful!", MsgBoxStyle.Information)
+
                     Dim staffMenuForm As New staffMenu()
                     staffMenuForm.Show()
                 Else

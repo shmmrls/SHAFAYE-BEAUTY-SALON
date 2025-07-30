@@ -292,11 +292,18 @@ Public Class genReceipts
 
             document.Close()
 
-            MessageBox.Show($"Admin copy receipt generated successfully!" & vbCrLf & "Saved as: " & fileName & vbCrLf & vbCrLf & "The PDF has been saved to: " & folderPath, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show($"Admin copy receipt generated successfully!" & vbCrLf &
+                "Saved as: " & fileName & vbCrLf & vbCrLf &
+                "The PDF has been saved to: " & folderPath,
+                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            If MessageBox.Show("Would you like to open the receipt?", "Open Receipt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                Process.Start(filePath)
+            If File.Exists(filePath) Then
+                Process.Start(New ProcessStartInfo With {
+                    .FileName = filePath,
+                    .UseShellExecute = True
+                })
             End If
+
 
         Catch ex As Exception
             MessageBox.Show("Error generating admin receipt: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
