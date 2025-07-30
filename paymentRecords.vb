@@ -325,19 +325,17 @@ Public Class paymentRecords
     End Sub
 
     Private Sub cmbServiceCateg_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbServiceCateg.SelectedIndexChanged
-        ' Add debug information to see what's happening
+
         Try
             If cmbServiceCateg.SelectedItem IsNot Nothing Then
                 Dim selectedItem = cmbServiceCateg.SelectedItem
                 Dim selectedCategoryId As Integer = 0
 
-                ' Get the category ID from the selected item
+
                 If TypeOf selectedItem Is Object AndAlso selectedItem.GetType().GetProperty("Value") IsNot Nothing Then
                     selectedCategoryId = Convert.ToInt32(selectedItem.Value)
                 End If
 
-                ' Debug: Show what was selected (remove this line after testing)
-                ' MessageBox.Show($"Selected Category ID: {selectedCategoryId}")
 
                 Dim categoryFilter = ""
                 If selectedCategoryId > 0 Then
@@ -355,7 +353,7 @@ Public Class paymentRecords
         For Each control As Control In panelPaymentLogs.Controls
             If TypeOf control Is Panel Then
                 control.Width = panelPaymentLogs.Width - 30
-                ' Reposition delete button when panel resizes
+
                 For Each childControl As Control In control.Controls
                     If TypeOf childControl Is Button AndAlso childControl.Text = "Delete" Then
                         childControl.Location = New Point(control.Width - 80, 160)

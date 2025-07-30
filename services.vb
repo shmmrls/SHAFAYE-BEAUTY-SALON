@@ -89,7 +89,7 @@ Public Class services
                 Dim possibleExtensions = {".png", ".jpg", ".jpeg", ".bmp"}
 
                 For Each ext In possibleExtensions
-                    Dim imagePath As String = Path.Combine(Application.StartupPath, "Resources", imageName & ext)
+                    Dim imagePath As String = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\..\Resources", imageName & ext))
                     If File.Exists(imagePath) Then
                         serviceImage = Image.FromFile(imagePath)
                         Exit For

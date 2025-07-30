@@ -21,7 +21,7 @@ Public Class transactionhistory
     End Sub
 
     Private Sub transactionhistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Initialize filter combo boxes
+
         InitializeFilterControls()
         LoadAppointments()
         AddHandler cmbStatus.SelectedIndexChanged, AddressOf FilterAppointments
@@ -29,20 +29,20 @@ Public Class transactionhistory
     End Sub
 
     Private Sub InitializeFilterControls()
-        ' Setup Status filter combo box
+
         cmbStatus.Items.Clear()
         cmbStatus.Items.Add("All Status")
         cmbStatus.Items.Add("Pending")
         cmbStatus.Items.Add("Approved")
         cmbStatus.Items.Add("Completed")
         cmbStatus.Items.Add("Cancelled")
-        cmbStatus.SelectedIndex = 0 ' Default to "All Status"
+        cmbStatus.SelectedIndex = 0
 
-        ' Setup Order By combo box
+
         cmborderby.Items.Clear()
         cmborderby.Items.Add("Newest to Oldest")
         cmborderby.Items.Add("Oldest to Newest")
-        cmborderby.SelectedIndex = 0 ' Default to "Newest to Oldest"
+        cmborderby.SelectedIndex = 0
     End Sub
 
     Private Sub LoadAppointments(Optional statusFilter As String = "", Optional orderBy As String = "DESC")
@@ -114,7 +114,7 @@ Public Class transactionhistory
 
                             panel.Controls.Add(lblDetails)
 
-                            ' Print Receipt Button (only for Completed/Approved status)
+
                             If status = "Completed" OrElse status = "Approved" Then
                                 Dim btnPrint As New Button()
                                 btnPrint.Text = "Print Receipt"
@@ -131,7 +131,7 @@ Public Class transactionhistory
                                 panel.Controls.Add(btnPrint)
                             End If
 
-                            ' Cancel Appointment Button (only for Pending status)
+
                             If status = "Pending" Then
                                 Dim btnCancel As New Button()
                                 btnCancel.Text = "Cancel"
@@ -174,30 +174,30 @@ Public Class transactionhistory
 
     Private Sub GeneratePDFReceipt(appointmentID As Integer)
         Try
-            ' Get appointment data
+
             Dim appointmentData = GetAppointmentData(appointmentID)
             If appointmentData Is Nothing Then
                 MessageBox.Show("No appointment data found.")
                 Return
             End If
 
-            ' Create PDF file path
+
             Dim fileName As String = $"SalonReceipt_{appointmentID}_{DateTime.Now:yyyyMMdd_HHmmss}.pdf"
             Dim filePath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName)
 
-            ' Create PDF document
+
             Dim document As New Document(PageSize.A4, 40, 40, 40, 40)
             Dim writer As PdfWriter = PdfWriter.GetInstance(document, New FileStream(filePath, FileMode.Create))
 
             document.Open()
 
-            ' Define fonts
+
             Dim titleFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD)
             Dim headerFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14, iTextSharp.text.Font.BOLD)
             Dim normalFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10)
             Dim boldFont As New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.BOLD)
 
-            ' Header - Salon Name
+
             Dim salonTitle As New Paragraph("SHAFAYE SALON", titleFont)
             salonTitle.Alignment = Element.ALIGN_CENTER
             salonTitle.SpacingAfter = 5
@@ -213,25 +213,25 @@ Public Class transactionhistory
             contact.SpacingAfter = 20
             document.Add(contact)
 
-            ' Add horizontal line
+
             Dim line As New Paragraph("_________________________________________________________________")
             line.Alignment = Element.ALIGN_CENTER
             line.SpacingAfter = 20
             document.Add(line)
 
-            ' Receipt title
+
             Dim receiptTitle As New Paragraph("APPOINTMENT RECEIPT", headerFont)
             receiptTitle.Alignment = Element.ALIGN_CENTER
             receiptTitle.SpacingAfter = 15
             document.Add(receiptTitle)
 
-            ' Receipt info
+
             Dim receiptInfo As New Paragraph($"Receipt Date: {DateTime.Now:MMMM dd, yyyy hh:mm tt}                Receipt #: {appointmentID:D4}", normalFont)
             receiptInfo.Alignment = Element.ALIGN_CENTER
             receiptInfo.SpacingAfter = 20
             document.Add(receiptInfo)
 
-            ' Customer Information Section
+
             Dim customerHeader As New Paragraph("CUSTOMER INFORMATION", headerFont)
             customerHeader.SpacingAfter = 10
             document.Add(customerHeader)
@@ -239,9 +239,9 @@ Public Class transactionhistory
             document.Add(New Paragraph($"Name: {appointmentData("CustomerName")}", normalFont))
             document.Add(New Paragraph($"Phone: {appointmentData("Phone")}", normalFont))
             document.Add(New Paragraph($"Email: {appointmentData("Email")}", normalFont))
-            document.Add(New Paragraph(" ", normalFont)) ' Space
+            document.Add(New Paragraph(" ", normalFont))
 
-            ' Appointment Details Section
+
             Dim appointmentHeader As New Paragraph("APPOINTMENT DETAILS", headerFont)
             appointmentHeader.SpacingAfter = 10
             document.Add(appointmentHeader)
@@ -249,19 +249,19 @@ Public Class transactionhistory
             document.Add(New Paragraph($"Date: {appointmentData("AppointmentDate")}", normalFont))
             document.Add(New Paragraph($"Time: {appointmentData("AppointmentTime")}", normalFont))
             document.Add(New Paragraph($"Status: {appointmentData("Status")}", normalFont))
-            document.Add(New Paragraph(" ", normalFont)) ' Space
+            document.Add(New Paragraph(" ", normalFont))
 
-            ' Services Section
+
             Dim servicesHeader As New Paragraph("SERVICES AVAILED", headerFont)
             servicesHeader.SpacingAfter = 10
             document.Add(servicesHeader)
 
-            ' Create services table
+
             Dim table As New PdfPTable(3)
             table.WidthPercentage = 100
             table.SetWidths({4, 3, 2})
 
-            ' Table headers
+
             Dim serviceCell As New PdfPCell(New Phrase("SERVICE", boldFont))
             serviceCell.HorizontalAlignment = Element.ALIGN_LEFT
             serviceCell.Padding = 8
@@ -280,22 +280,22 @@ Public Class transactionhistory
             priceCell.BackgroundColor = BaseColor.LIGHT_GRAY
             table.AddCell(priceCell)
 
-            ' Add service rows
+
             Dim services As List(Of Dictionary(Of String, Object)) = appointmentData("Services")
             For Each service In services
-                ' Service name
+
                 Dim serviceNameCell As New PdfPCell(New Phrase(service("ServiceName").ToString(), normalFont))
                 serviceNameCell.Padding = 8
                 serviceNameCell.HorizontalAlignment = Element.ALIGN_LEFT
                 table.AddCell(serviceNameCell)
 
-                ' Staff name
+
                 Dim staffNameCell As New PdfPCell(New Phrase(service("StaffName").ToString(), normalFont))
                 staffNameCell.Padding = 8
                 staffNameCell.HorizontalAlignment = Element.ALIGN_LEFT
                 table.AddCell(staffNameCell)
 
-                ' Price
+
                 Dim servicePriceCell As New PdfPCell(New Phrase($"₱{Convert.ToDecimal(service("Price")):N2}", normalFont))
                 servicePriceCell.Padding = 8
                 servicePriceCell.HorizontalAlignment = Element.ALIGN_RIGHT
@@ -305,14 +305,13 @@ Public Class transactionhistory
             document.Add(table)
             document.Add(New Paragraph(" ", normalFont)) ' Space
 
-            ' Total Amount
             Dim totalParagraph As New Paragraph($"TOTAL AMOUNT: ₱{Convert.ToDecimal(appointmentData("TotalAmount")):N2}", headerFont)
             totalParagraph.Alignment = Element.ALIGN_RIGHT
             totalParagraph.SpacingBefore = 10
             totalParagraph.SpacingAfter = 20
             document.Add(totalParagraph)
 
-            ' Footer
+
             Dim footerLine As New Paragraph("_________________________________________________________________")
             footerLine.Alignment = Element.ALIGN_CENTER
             footerLine.SpacingAfter = 10
@@ -336,7 +335,7 @@ Public Class transactionhistory
 
             MessageBox.Show($"Professional PDF receipt generated successfully!" & vbCrLf & "Saved as: " & fileName & vbCrLf & vbCrLf & "The PDF has been saved to your Desktop.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            ' Open the PDF file
+
             If MessageBox.Show("Would you like to open the receipt?", "Open Receipt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 Process.Start(filePath)
             End If
@@ -373,7 +372,7 @@ Public Class transactionhistory
                     Dim totalAmount As Decimal = 0
 
                     While reader.Read()
-                        ' Set basic appointment info (same for all services)
+
                         If appointmentData.Count = 0 Then
                             appointmentData("AppointmentID") = reader("appointment_id")
                             appointmentData("CustomerName") = reader("customer_name").ToString()
@@ -384,7 +383,7 @@ Public Class transactionhistory
                             appointmentData("Status") = reader("status").ToString()
                         End If
 
-                        ' Add service info
+
                         If Not IsDBNull(reader("service_name")) Then
                             Dim serviceData As New Dictionary(Of String, Object)
                             serviceData("ServiceName") = reader("service_name").ToString()
@@ -432,12 +431,12 @@ Public Class transactionhistory
         Dim statusFilter As String = ""
         Dim orderBy As String = "DESC"
 
-        ' Get status filter - only apply filter if not "All Status"
+
         If cmbStatus.SelectedItem IsNot Nothing AndAlso cmbStatus.SelectedItem.ToString() <> "All Status" Then
             statusFilter = cmbStatus.SelectedItem.ToString()
         End If
 
-        ' Get order by preference
+
         If cmborderby.SelectedItem IsNot Nothing Then
             orderBy = If(cmborderby.SelectedItem.ToString() = "Oldest to Newest", "ASC", "DESC")
         End If

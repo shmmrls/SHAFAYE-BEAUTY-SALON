@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -197,12 +197,6 @@
       <DependentUpon>bookingactions.vb</DependentUpon>
     </Compile>
     <Compile Include="bookingactions.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CrystalReportViewerForm.Designer.vb">
-      <DependentUpon>CrystalReportViewerForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="CrystalReportViewerForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="customerInquiries.Designer.vb">

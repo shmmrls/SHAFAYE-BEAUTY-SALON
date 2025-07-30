@@ -62,20 +62,20 @@ Partial Class login
         'usernametxt
         '
         Me.usernametxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.usernametxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.usernametxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.usernametxt.Location = New System.Drawing.Point(441, 270)
         Me.usernametxt.Name = "usernametxt"
-        Me.usernametxt.Size = New System.Drawing.Size(421, 20)
+        Me.usernametxt.Size = New System.Drawing.Size(421, 15)
         Me.usernametxt.TabIndex = 3
         '
         'passtxt
         '
         Me.passtxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.passtxt.Font = New System.Drawing.Font("Poppins Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.passtxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.passtxt.Location = New System.Drawing.Point(441, 364)
         Me.passtxt.Name = "passtxt"
         Me.passtxt.PasswordChar = Global.Microsoft.VisualBasic.ChrW(10043)
-        Me.passtxt.Size = New System.Drawing.Size(421, 20)
+        Me.passtxt.Size = New System.Drawing.Size(421, 15)
         Me.passtxt.TabIndex = 4
         '
         'showpassword
@@ -83,11 +83,11 @@ Partial Class login
         Me.showpassword.AutoSize = True
         Me.showpassword.BackColor = System.Drawing.Color.Transparent
         Me.showpassword.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.showpassword.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.showpassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.showpassword.ForeColor = System.Drawing.Color.White
         Me.showpassword.Location = New System.Drawing.Point(834, 565)
         Me.showpassword.Name = "showpassword"
-        Me.showpassword.Size = New System.Drawing.Size(102, 19)
+        Me.showpassword.Size = New System.Drawing.Size(107, 13)
         Me.showpassword.TabIndex = 11
         Me.showpassword.Text = "SHOW PASSWORD"
         '
@@ -96,11 +96,11 @@ Partial Class login
         Me.clear.AutoSize = True
         Me.clear.BackColor = System.Drawing.Color.Transparent
         Me.clear.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.clear.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clear.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clear.ForeColor = System.Drawing.Color.White
         Me.clear.Location = New System.Drawing.Point(334, 565)
         Me.clear.Name = "clear"
-        Me.clear.Size = New System.Drawing.Size(40, 19)
+        Me.clear.Size = New System.Drawing.Size(42, 13)
         Me.clear.TabIndex = 10
         Me.clear.Text = "CLEAR"
         '
@@ -109,11 +109,11 @@ Partial Class login
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label1.Font = New System.Drawing.Font("Poppins Light", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(502, 565)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(250, 19)
+        Me.Label1.Size = New System.Drawing.Size(277, 13)
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "ARE YOU AN ADMIN/STAFF? LOGIN HERE INSTEAD."
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -123,6 +123,7 @@ Partial Class login
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.backbutton
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(54, 50)

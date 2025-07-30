@@ -172,59 +172,74 @@ Public Class bookappointment
         Dim selectedDate As Date = appointmentDate.Value.Date
         Dim selectedTime As String = cmbtimeslot.SelectedItem.ToString()
 
-        Dim duplicateQuery As String = "SELECT COUNT(*) FROM appointments WHERE user_id = @uid AND appointment_date = @date AND appointment_time = @time"
-        Dim cmdCheck As New MySqlCommand(duplicateQuery, conn)
-        cmdCheck.Parameters.AddWithValue("@uid", userID)
-        cmdCheck.Parameters.AddWithValue("@date", selectedDate)
-        cmdCheck.Parameters.AddWithValue("@time", selectedTime)
-        conn.Open()
-        Dim existing As Integer = Convert.ToInt32(cmdCheck.ExecuteScalar())
-        conn.Close()
-        If existing > 0 Then
-            MsgBox("You already have an appointment at this time.", MsgBoxStyle.Exclamation)
-            Exit Sub
-        End If
+        Try
+            conn.Open()
+            Dim transaction As MySqlTransaction = conn.BeginTransaction()
 
-        conn.Open()
-        Dim cmdApp As New MySqlCommand("INSERT INTO appointments (user_id, appointment_date, appointment_time) VALUES (@user, @date, @time)", conn)
-        cmdApp.Parameters.AddWithValue("@user", userID)
-        cmdApp.Parameters.AddWithValue("@date", selectedDate)
-        cmdApp.Parameters.AddWithValue("@time", selectedTime)
-        cmdApp.ExecuteNonQuery()
-        Dim appId As Integer = cmdApp.LastInsertedId
+            Dim duplicateQuery As String = "SELECT COUNT(*) FROM appointments WHERE user_id = @uid AND appointment_date = @date AND appointment_time = @time"
+            Dim cmdCheck As New MySqlCommand(duplicateQuery, conn, transaction)
+            cmdCheck.Parameters.AddWithValue("@uid", userID)
+            cmdCheck.Parameters.AddWithValue("@date", selectedDate)
+            cmdCheck.Parameters.AddWithValue("@time", selectedTime)
 
-        For Each svcId In selectedServiceIDs
-            Dim staffId As Integer = GetStaffForService(svcId, selectedDate)
-            If staffId = -1 Then
-                MsgBox("No available staff for service ID: " & svcId, MsgBoxStyle.Critical)
-                conn.Close()
+            Dim existing As Integer = Convert.ToInt32(cmdCheck.ExecuteScalar())
+            If existing > 0 Then
+                MsgBox("You already have an appointment at this time.", MsgBoxStyle.Exclamation)
+                transaction.Rollback()
                 Exit Sub
             End If
 
-            Dim cmdSvc As New MySqlCommand("INSERT INTO appointment_services (appointment_id, service_id, staff_id) VALUES (@aid, @sid, @staff)", conn)
-            cmdSvc.Parameters.AddWithValue("@aid", appId)
-            cmdSvc.Parameters.AddWithValue("@sid", svcId)
-            cmdSvc.Parameters.AddWithValue("@staff", staffId)
-            cmdSvc.ExecuteNonQuery()
-        Next
+            Dim cmdApp As New MySqlCommand("INSERT INTO appointments (user_id, appointment_date, appointment_time) VALUES (@user, @date, @time)", conn, transaction)
+            cmdApp.Parameters.AddWithValue("@user", userID)
+            cmdApp.Parameters.AddWithValue("@date", selectedDate)
+            cmdApp.Parameters.AddWithValue("@time", selectedTime)
+            cmdApp.ExecuteNonQuery()
+            Dim appId As Integer = cmdApp.LastInsertedId
 
-        conn.Close()
-        MsgBox("Appointment booked successfully!", MsgBoxStyle.Information)
-        selectedServiceIDs.Clear()
-        lstselected.Items.Clear()
+            For Each svcId In selectedServiceIDs
+                Dim staffId As Integer = GetStaffForService(svcId, selectedDate, transaction)
+                If staffId = -1 Then
+                    MsgBox("No available staff for service ID: " & svcId, MsgBoxStyle.Critical)
+                    transaction.Rollback()
+                    Exit Sub
+                End If
+
+                Dim cmdSvc As New MySqlCommand("INSERT INTO appointment_services (appointment_id, service_id, staff_id) VALUES (@aid, @sid, @staff)", conn, transaction)
+                cmdSvc.Parameters.AddWithValue("@aid", appId)
+                cmdSvc.Parameters.AddWithValue("@sid", svcId)
+                cmdSvc.Parameters.AddWithValue("@staff", staffId)
+                cmdSvc.ExecuteNonQuery()
+            Next
+
+            transaction.Commit()
+            MsgBox("Appointment booked successfully!", MsgBoxStyle.Information)
+            selectedServiceIDs.Clear()
+            lstselected.Items.Clear()
+
+        Catch ex As Exception
+            MsgBox("An error occurred while booking the appointment: " & ex.Message)
+            Try
+                If conn.State = ConnectionState.Open Then
+                    conn.BeginTransaction().Rollback()
+                End If
+            Catch rollbackEx As Exception
+                MsgBox("Rollback failed: " & rollbackEx.Message)
+            End Try
+        Finally
+            conn.Close()
+        End Try
     End Sub
-
-    Private Function GetStaffForService(serviceId As Integer, selectedDate As Date) As Integer
+    Private Function GetStaffForService(serviceId As Integer, selectedDate As Date, transaction As MySqlTransaction) As Integer
         Dim staffId As Integer = -1
         Dim query As String = "SELECT s.staff_id FROM staff s " &
-                              "JOIN service_staff_roles sr ON sr.role_name = s.position " &
-                              "WHERE sr.service_id = @sid AND s.staff_id NOT IN (" &
-                              "SELECT a.staff_id FROM appointment_services a " &
-                              "JOIN appointments ap ON ap.appointment_id = a.appointment_id " &
-                              "WHERE ap.appointment_date = @date " &
-                              "GROUP BY a.staff_id HAVING COUNT(*) >= 10) " &
-                              "LIMIT 1"
-        Dim cmd As New MySqlCommand(query, conn)
+                          "JOIN service_staff_roles sr ON sr.role_name = s.position " &
+                          "WHERE sr.service_id = @sid AND s.staff_id NOT IN (" &
+                          "SELECT a.staff_id FROM appointment_services a " &
+                          "JOIN appointments ap ON ap.appointment_id = a.appointment_id " &
+                          "WHERE ap.appointment_date = @date " &
+                          "GROUP BY a.staff_id HAVING COUNT(*) >= 10) " &
+                          "LIMIT 1"
+        Dim cmd As New MySqlCommand(query, conn, transaction)
         cmd.Parameters.AddWithValue("@sid", serviceId)
         cmd.Parameters.AddWithValue("@date", selectedDate)
 
@@ -235,7 +250,6 @@ Public Class bookappointment
         reader.Close()
         Return staffId
     End Function
-
     Private Sub submitBooking_MouseEnter(sender As Object, e As EventArgs) Handles submitBooking.MouseEnter
         submitBooking.BackgroundImage = My.Resources.confirmbooking2
         submitBooking.BackgroundImageLayout = ImageLayout.Zoom

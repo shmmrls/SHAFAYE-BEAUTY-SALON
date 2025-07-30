@@ -58,7 +58,8 @@ Public Class addservices
         Dim imageNameOnly As String = txtImageName.Text.Trim()
         Dim imageFullPath As String = OpenFileDialog1.FileName
         Dim extension As String = Path.GetExtension(imageFullPath)
-        Dim resourcesPath As String = Path.Combine(Application.StartupPath, "Resources")
+        Dim resourcesPath As String = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\..\Resources"))
+
 
         If Not Directory.Exists(resourcesPath) Then
             Directory.CreateDirectory(resourcesPath)

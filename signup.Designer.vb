@@ -189,6 +189,7 @@ Partial Class signup
         Me.Controls.Add(Me.lastnametxt)
         Me.Controls.Add(Me.signinpage)
         Me.Controls.Add(Me.signupbtn)
+        Me.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "signup"

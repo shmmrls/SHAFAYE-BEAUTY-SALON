@@ -120,7 +120,8 @@ Public Class reviews
 
             cmd.ExecuteNonQuery()
             MessageBox.Show("Review submitted successfully!")
-            Me.Close()
+            Me.Controls.Clear()
+            InitializeComponent()
         Catch ex As Exception
             MessageBox.Show("Error submitting review: " & ex.Message)
         Finally

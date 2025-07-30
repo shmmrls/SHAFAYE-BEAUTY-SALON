@@ -9,11 +9,10 @@ Public Class WalkInBookingForm
         LoadClients()
         LoadServices()
 
-        ' Set default date and time to current
+
         dtpDate.Value = DateTime.Today
         dtpTime.Value = DateTime.Now
 
-        ' Show info message
         lblClientInfo.Text = "Note: Only registered clients in the system can book walk-in appointments."
         lblClientInfo.ForeColor = Color.FromArgb(180, 0, 0)
     End Sub
@@ -82,7 +81,7 @@ Public Class WalkInBookingForm
     End Sub
 
     Private Sub clbServices_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles clbServices.ItemCheck
-        ' Use BeginInvoke to handle the event after the check state has changed
+
         Me.BeginInvoke(New Action(AddressOf UpdateSelectedServices))
     End Sub
 
@@ -105,14 +104,13 @@ Public Class WalkInBookingForm
     End Sub
 
     Private Sub btnNewClient_Click(sender As Object, e As EventArgs) Handles btnNewClient.Click
-        ' You can implement a new client registration form here
+
         MessageBox.Show("Please register the new client first in the user management system.", "New Client Registration", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        ' After registering, reload clients
-        ' LoadClients()
+
     End Sub
 
     Private Sub btnBook_Click(sender As Object, e As EventArgs) Handles btnBook.Click
-        ' Validation
+
         If cboClient.SelectedItem Is Nothing Then
             MessageBox.Show("Please select a client.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
@@ -123,7 +121,7 @@ Public Class WalkInBookingForm
             Return
         End If
 
-        ' Confirm booking
+
         Dim totalPrice As Decimal = selectedServices.Sum(Function(id) servicePrices(id))
         Dim clientName As String = cboClient.SelectedItem.Text
         Dim serviceCount As Integer = selectedServices.Count
@@ -155,7 +153,7 @@ Public Class WalkInBookingForm
                 Dim appointmentDate As Date = dtpDate.Value.Date
                 Dim appointmentTime As String = dtpTime.Value.ToString("hh:mm tt")
 
-                ' 1. Insert appointment (already completed)
+
                 Dim insertAppointmentQuery As String = "INSERT INTO appointments (user_id, appointment_date, appointment_time, status, created_at, inventory_deducted) VALUES (@userId, @date, @time, 'Completed', @created, 1)"
                 Dim appointmentId As Integer
 
@@ -168,7 +166,7 @@ Public Class WalkInBookingForm
                     appointmentId = Convert.ToInt32(cmd.LastInsertedId)
                 End Using
 
-                ' 2. Insert appointment services with auto-assigned staff
+
                 For Each serviceId As Integer In selectedServices
                     Dim staffId As Integer = GetAvailableStaff(serviceId, appointmentDate, appointmentTime, transaction)
 
@@ -181,7 +179,7 @@ Public Class WalkInBookingForm
                     End Using
                 Next
 
-                ' 3. Create payment record
+
                 Dim insertPaymentQuery As String = "INSERT INTO payments (appointment_id, payment_date, payment_type, payment_status) VALUES (@appointmentId, @date, 'Cash', 'Paid')"
                 Using cmd As New MySqlCommand(insertPaymentQuery, conn, transaction)
                     cmd.Parameters.AddWithValue("@appointmentId", appointmentId)
@@ -189,7 +187,7 @@ Public Class WalkInBookingForm
                     cmd.ExecuteNonQuery()
                 End Using
 
-                ' 4. Deduct inventory
+
                 DeductInventory(selectedServices, transaction)
 
                 transaction.Commit()
@@ -214,7 +212,7 @@ Public Class WalkInBookingForm
     End Sub
 
     Private Function GetAvailableStaff(serviceId As Integer, appointmentDate As Date, appointmentTime As String, transaction As MySqlTransaction) As Integer
-        ' Get staff roles for this service
+
         Dim roleQuery As String = "SELECT DISTINCT role_name FROM service_staff_roles WHERE service_id = @serviceId"
         Dim availableRoles As New List(Of String)
 
@@ -227,7 +225,7 @@ Public Class WalkInBookingForm
             End Using
         End Using
 
-        ' Find available staff for these roles
+
         For Each role As String In availableRoles
             Dim staffQuery As String = "
                 SELECT s.staff_id 
@@ -257,12 +255,12 @@ Public Class WalkInBookingForm
             End Using
         Next
 
-        ' If no available staff found, get the first staff member for any of the roles
+
         Dim fallbackQuery As String = "SELECT s.staff_id FROM staff s WHERE s.position = @role AND s.status = 'Active' LIMIT 1"
         Using cmd As New MySqlCommand(fallbackQuery, conn, transaction)
             cmd.Parameters.AddWithValue("@role", availableRoles.FirstOrDefault())
             Dim result = cmd.ExecuteScalar()
-            Return If(result IsNot Nothing, Convert.ToInt32(result), 1) ' Default to staff_id 1 if none found
+            Return If(result IsNot Nothing, Convert.ToInt32(result), 1)
         End Using
     End Function
 
