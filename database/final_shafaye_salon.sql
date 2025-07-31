@@ -1,13 +1,13 @@
--- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
 --
--- Host: localhost    Database: final_shafaye_salon
+-- Host: 127.0.0.1    Database: final_shafaye_salon
 -- ------------------------------------------------------
--- Server version	10.4.32-MariaDB
+-- Server version	5.5.5-10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `appointment_services`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `appointment_services` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `appointment_id` int(11) NOT NULL,
@@ -53,7 +53,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `appointments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `appointments` (
   `appointment_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -84,7 +84,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `contact_messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `contact_messages` (
   `message_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
@@ -113,7 +113,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `expenses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `expenses` (
   `expense_id` int(11) NOT NULL AUTO_INCREMENT,
   `expense_type` varchar(50) DEFAULT NULL,
@@ -139,7 +139,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `faq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `faq` (
   `faq_id` int(11) NOT NULL AUTO_INCREMENT,
   `question` text DEFAULT NULL,
@@ -155,7 +155,7 @@ CREATE TABLE `faq` (
 
 LOCK TABLES `faq` WRITE;
 /*!40000 ALTER TABLE `faq` DISABLE KEYS */;
-INSERT INTO `faq` VALUES (1,'What services does Shafaye Salon offer?','Shafaye Salon offers haircuts, hair coloring, nail care, facials, waxing, and other beauty treatments. You can view the full list when booking an appointment.',1),(2,'How can I book an appointment?','Simply log in to your account, go to the \"Book Appointment\" tab, select your preferred services, and confirm your schedule.',1),(3,'Can I choose my preferred stylist?','Currently, stylists are auto-assigned based on availability. Each staff member can handle up to 10 clients per day to ensure quality service.',1),(4,'What happens if I cancel my appointment?','You can cancel your appointment at least 1 day before the scheduled date. Repeated last-minute cancellations may affect future bookings.',1),(5,'How many services can I book at once?','You may select up to 3 different services per appointment to ensure proper time allocation and service quality.',1),(6,'Is walk-in allowed at Shafaye Salon?','While we accept walk-ins when available, we recommend booking online to secure your preferred time and services.',1),(7,'Where is Shafaye Salon located?','You can find our location and contact information in the \"About Us\" section of the website or app.',1),(8,'Do I need to create a profile before booking?','Yes, you need to complete your user profile before booking to ensure we have your contact and preference details.',1),(9,'Can I book services for a friend using my account?','For security and proper tracking, we recommend that each client books through their own account.',1),(10,'How do I leave a review after my appointment?','Go to your transaction history, select the completed appointment, and click \"Leave a Review.\"',1),(11,'Can I see my past appointments?','Yes, your past appointments are shown in the Transaction History tab, including details like services, staff, and status.',1),(12,'How do I contact Shafaye Salon?','You can reach us through the Contact Us page, message us on Facebook, or call the number listed in our footer.',1),(13,'What if no staff is available for my selected time?','If no staff is available, the system will ask you to choose a different time or date when booking.',1),(14,'Can I upload a reference photo for hair or nail services?','At the moment, the upload feature is not available. However, you can show your reference photo in person during your visit.',1),(15,'Can I reschedule my appointment?','Rescheduling is not allowed. If you can’t make it, please cancel and book a new appointment.',1),(16,'Will I receive a confirmation for my appointment?','All appointments are reviewed and confirmed manually on-site. You will not receive an automatic confirmation.',1);
+INSERT INTO `faq` VALUES (1,'What services does Shafaye Salon offer?','Shafaye Salon offers haircuts, hair coloring, nail care, facials, waxing, and other beauty treatments. You can view the full list when booking an appointment.',1),(2,'How can I book an appointment?','Simply log in to your account, go to the \"Book Appointment\" tab, select your preferred services, and confirm your schedule.',1),(3,'Can I choose my preferred stylist?','Currently, stylists are auto-assigned based on availability. Each staff member can handle up to 10 clients per day to ensure quality service.',1),(4,'What happens if I cancel my appointment?','You can cancel your appointment at least 1 day before the scheduled date. Repeated last-minute cancellations may affect future bookings.',1),(5,'How many services can I book at once?','You may select up to 3 different services per appointment to ensure proper time allocation and service quality.',1),(6,'Is walk-in allowed at Shafaye Salon?','While we accept walk-ins when available, we recommend booking online to secure your preferred time and services.',1),(7,'Where is Shafaye Salon located?','You can find our location and contact information in the homepage of the website or app before logging in/signing up.',1),(8,'Do I need to create a profile before booking?','Yes, you need to complete your user profile before booking to ensure we have your contact and preference details.',1),(9,'Can I book services for a friend using my account?','For security and proper tracking, we recommend that each client books through their own account.',1),(10,'How do I leave a review after my appointment?','Go to your transaction history, select the completed appointment, and click \"Leave a Review.\"',1),(11,'Can I see my past appointments?','Yes, your past appointments are shown in the Transaction History tab, including details like services, staff, and status.',1),(12,'How do I contact Shafaye Salon?','You can reach us through the Contact Us page, message us on Facebook, or call the number listed in our footer.',1),(13,'What if no staff is available for my selected time?','If no staff is available, the system will ask you to choose a different time or date when booking.',1),(14,'Can I upload a reference photo for hair or nail services?','At the moment, the upload feature is not available. However, you can show your reference photo in person during your visit.',1),(15,'Can I reschedule my appointment?','Rescheduling is not allowed. If you can’t make it, please cancel and book a new appointment.',1),(16,'Will I receive a confirmation for my appointment?','All appointments are reviewed and confirmed manually on-site. You will not receive an automatic confirmation.',1);
 /*!40000 ALTER TABLE `faq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +165,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `inventory`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `inventory` (
   `item_id` int(11) NOT NULL AUTO_INCREMENT,
   `item_name` varchar(100) NOT NULL,
@@ -192,7 +192,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `inventory_usage`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `inventory_usage` (
   `usage_id` int(11) NOT NULL AUTO_INCREMENT,
   `service_id` int(11) NOT NULL,
@@ -222,7 +222,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `payments` (
   `payment_id` int(11) NOT NULL AUTO_INCREMENT,
   `appointment_id` int(11) NOT NULL,
@@ -251,7 +251,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `reviews`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reviews` (
   `review_id` int(11) NOT NULL AUTO_INCREMENT,
   `appointment_id` int(11) NOT NULL,
@@ -284,7 +284,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `service_categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `service_categories` (
   `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -308,7 +308,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `service_staff_roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `service_staff_roles` (
   `id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL,
@@ -332,7 +332,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `services`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `services` (
   `service_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
@@ -363,7 +363,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `staff`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `staff` (
   `staff_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -392,7 +392,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user_profiles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_profiles` (
   `user_id` int(11) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
@@ -419,7 +419,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user_register`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_register` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
@@ -451,7 +451,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-30 22:00:46
+-- Dump completed on 2025-08-01  1:49:34
 
 -- 1. CREATE ADMIN USER
 CREATE USER IF NOT EXISTS 'salon_admin'@'localhost' IDENTIFIED BY 'AdminSalon2025!';
@@ -495,3 +495,4 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON final_shafaye_salon.* TO 'salon_webapp'@
 
 -- FINALIZE
 FLUSH PRIVILEGES;
+
