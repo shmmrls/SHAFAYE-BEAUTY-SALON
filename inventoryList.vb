@@ -1,6 +1,10 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 
+' mp4 Any/Other CRUD functions  
+' READ: Load inventory items by service  
+' READ: Search inventory by keyword  
+
 'FOR INVENTORY MANAGEMENT
 'Create inventory records and track internal-use supplies (e.g., wax, shampoo, facial cream) including stock levels and
 'usage frequency."

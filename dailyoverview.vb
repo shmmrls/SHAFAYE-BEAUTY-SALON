@@ -1,6 +1,9 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 
+' mp5 Compute total income of the shop  
+'READ: Revenue for today (based on completed appointments) is computed using SQL aggregate functions.  
+
 'FOR DASHBOARD (DAILY OVERVIEW OF OPERATIONS)
 'The system shall display the current day’s total revenue and list all pending appointments with their details.
 

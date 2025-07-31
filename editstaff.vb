@@ -3,6 +3,11 @@ Imports Org.BouncyCastle.Asn1.Cmp
 Imports System.Security.Cryptography
 Imports System.Text
 
+' mp4 Any/Other CRUD functions
+' CREATE: Add new staff/admin with hashed default password.
+' READ: Load and display staff details in DataGridView.
+' UPDATE: Edit staff/admin name, position, salary, status.
+
 'FOR STAFF MANAGEMENT
 'Main admin may create, update, and delete employees, assign their roles within the offered services,
 'and manage their salary.

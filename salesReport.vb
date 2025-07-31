@@ -4,6 +4,11 @@ Imports iTextSharp.text.pdf
 Imports System.IO
 Imports System.Drawing
 
+' mp5 Compute total income of the shop
+' READ: Computes total revenue and service sales within a date range and category filter.
+' Displays summary of completed appointments and total sales.
+' Generates detailed PDF report including daily revenue breakdown.
+
 'FOR SERVICES SALES TRACKING
 'Records completed appointments with details of services provided, prices, and total payment.
 

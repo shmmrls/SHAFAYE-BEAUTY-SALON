@@ -2,6 +2,10 @@
 Imports System.Drawing
 Imports System.Windows.Forms
 
+' mp4 Any/Other CRUD functions  
+' READ: Load and filter reviews by keyword, rating, and date  
+' DELETE: Remove customer reviews from database  
+
 'FOR CUSTOMER SUPPORT
 'Allow admin/staff to view, sort, and delete customer reviews of services and staff.
 Public Class moderateReviews

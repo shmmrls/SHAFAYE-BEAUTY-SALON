@@ -2,6 +2,9 @@
 Imports System.Security.Cryptography
 Imports System.Text
 
+' mp4 Any/Other CRUD functions  
+' CREATE: Register new users  
+
 'FOR USER REGISTRATION
 'Allow users To register an account With validation, secure password storage, And profile creation.
 Public Class signup

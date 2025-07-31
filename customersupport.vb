@@ -1,5 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 
+' mp4 Any/Other CRUD functions  
+' CREATE: Allows users to submit a support message (inserts into `contact_messages`)  
+' CREATE: Automatically logs the same message as a suggested FAQ entry (inserts into `faq` with NULL answer)  
+
 'FOR CUSTOMER INQUIRY FORM & FAQ SUGGESTION SYSTEM – Allows logged-in users to send their questions or concerns
 '(saved to a message table), and automatically logs each inquiry as a suggested FAQ entry for future staff review.
 Public Class CustomerSupport

@@ -4,6 +4,9 @@ Imports iTextSharp.text
 Imports iTextSharp.text.pdf
 Imports System.IO
 
+' mp4 Any/Other CRUD functions  
+'READ: Load inventory usage and stock levels
+
 'INVENTORY MANAGEMENT
 'Create inventory records and track internal-use supplies (e.g., wax, shampoo, facial cream)
 'including stock levels and usage frequency.

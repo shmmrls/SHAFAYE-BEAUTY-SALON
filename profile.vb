@@ -4,6 +4,15 @@ Imports Mysqlx
 Imports System.Security.Cryptography
 Imports System.Text
 
+
+
+' mp2 Customer CRUD functions  
+' READ: Load personal profile details on form load  
+' UPDATE: Update personal information (name, username, contact info, DOB)  
+
+' mp4 Any/Other CRUD functions  
+' UPDATE: Change password with validation and hashing  
+
 'FOR ACCOUNT MANAGEMENT 
 'Clients may update their personal information (e.g., contact number), review their transaction history,
 'and change their password

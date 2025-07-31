@@ -1,6 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.IO
 
+' mp1 Product/Service CRUD functions
+' READ: Search, filter, and display services with sorting.
+
 'FOR SEARCH SERVICES
 'Allow search access to services for clients by name or by category.
 Public Class servicelist

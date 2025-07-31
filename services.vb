@@ -1,6 +1,14 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.IO
 
+' mp1 Product/Service CRUD functions  
+'READ: Search services by name and category with filters and sorting  
+
+' mp4 Any/Other CRUD functions
+'READ: Search services by name or category.
+'Filter by category and availability.
+'Sort by price or alphabetically.
+
 'FOR SEARCH SERVICES
 'Allow search access to services for clients by name or by category.
 Public Class services

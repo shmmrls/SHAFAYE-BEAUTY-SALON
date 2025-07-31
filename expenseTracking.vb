@@ -3,6 +3,14 @@ Imports iTextSharp.text
 Imports iTextSharp.text.pdf
 Imports System.IO
 
+' mp3 Expenses CRUD functions
+' CREATE: Add new expense type with amount & description.
+' READ: Load existing expenses & display in combo box.
+' UPDATE: Modify selected expense's amount & description.
+' DELETE: Remove all records of selected expense type.
+
+' mp4 Any/Other CRUD functions
+
 'FOR ADDING EXPENSE RECORD
 'Admins can log expenses such As supply purchases, staff salaries, rent, Or utilities With Date, amount,
 'And description.

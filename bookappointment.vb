@@ -1,8 +1,17 @@
 ﻿Imports MySql.Data.MySqlClient
 
-'FOR APPOINTMENT BOOKING  (BOOK SERVICE APPOINTMENT)
-'Clients can Select a service (up To 3), choose an available Date And time, And submit a booking request.
-'Staff are auto-assigned based On availability.
+' mp1 Product/Service CRUD functions
+'READ: Loads available service categories and services for booking.
+
+' mp2 Customer CRUD functions
+'READ: Retrieves logged-in customer profile information (first name, last name, email).
+
+' mp4 Any/Other CRUD functions
+'CREATE: Inserts new appointment records into the `appointments` table.
+'CREATE: Links selected services and auto-assigned staff in `appointment_services`.
+
+
+
 Public Class bookappointment
     Private userID As Integer
     Dim conn As New MySqlConnection("Server=localhost;Database=final_shafaye_salon;Uid=salon_customer;Pwd=CustomerSalon2025!;")

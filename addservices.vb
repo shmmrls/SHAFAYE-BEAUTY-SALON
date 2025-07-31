@@ -1,6 +1,13 @@
 ﻿Imports System.IO
 Imports MySql.Data.MySqlClient
 
+' mp1 Product/Service CRUD functions
+'CREATE: Add new service with name, price, description, availability, image, and category.
+'READ: Loads categories from service_categories table.
+'UPDATE: focused on insert.
+
+' mp4 Any/Other CRUD functions
+
 'FOR SERVCE LISTING
 'Admin can create, add, update, and delete products.
 

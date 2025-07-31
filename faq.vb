@@ -1,5 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 
+' mp4 Any/Other CRUD functions
+' READ: Loads FAQ entries from database with live search and toggle answers.
+
 'Create section that shows and reads common questions about services, scheduling, and policies.
 
 Public Class faq
