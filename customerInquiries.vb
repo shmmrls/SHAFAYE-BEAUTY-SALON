@@ -1,6 +1,11 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Drawing
 Imports System.Windows.Forms
+
+' mp4 Any/Other CRUD functions  
+'READ: Loads all customer messages from `contact_messages`.  
+'DELETE: Admin can delete a specific message by clicking "Delete" button.  
+
 'FOR CUSTOMER SUPPORT → INQUIRY MANAGEMENT
 'Admin can view, read, And delete customer messages submitted through the contact form.
 

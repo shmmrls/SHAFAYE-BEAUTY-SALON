@@ -1,6 +1,11 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 
+' mp4 Any/Other CRUD functions
+' READ: Load low-stock inventory items
+' Show usage frequency and service linkage
+' Alert cards for LOW, CRITICAL, or OUT OF STOCK
+
 'FOR SUPPLY INVENTORY TRACKING AND INVENTORY MANAGEMENT
 'Create inventory records and track internal-use supplies (e.g., wax, shampoo, facial cream) including stock levels
 'and usage frequency."

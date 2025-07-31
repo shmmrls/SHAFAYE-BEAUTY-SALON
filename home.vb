@@ -1,4 +1,8 @@
 ﻿Public Class home
+
+    ' mp4 Any/Other CRUD functions
+    '  READ/NAVIGATE: Opens booking form with passed UserID.
+
     'APPOINTMENT BOOKING
     'Clients can select services, choose preferred date/time, and will be assigned to a staff
     'that will handle their needs.

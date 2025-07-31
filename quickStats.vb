@@ -1,6 +1,16 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 
+' mp2 Customer CRUD functions  
+' READ: Load and display clients with appointments for current month  
+
+' mp4 Any/Other CRUD functions  
+' READ: Count completed appointments  
+' READ: Display average revenue per appointment  
+
+' mp5 Compute total income of the shop (with date range)  
+' READ: Compute and display revenue for current month only  
+
 'calculates and displays monthly revenue
 Public Class quickStats
     Private connectionString As String = "Server=localhost;Database=final_shafaye_salon;Uid=salon_admin;Pwd=AdminSalon2025!;"

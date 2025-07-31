@@ -4,6 +4,13 @@ Imports iTextSharp.text.pdf
 Imports System.IO
 Imports System.Drawing
 
+' mp4 Any/Other CRUD functions
+' READ: Appointment, services, and customer data.
+
+' Term Test Laboratory - transaction CRUD with receipt (crystal report)
+' Transaction history loaded.
+' Receipt generation for completed bookings.
+
 'FOR GENERATING RECEIPT FOR COMPLETED APPOINTMENTS
 'Admins can generate a downloadable PDF receipt (admin copy) containing booking details, customer information,
 'availed services, staff, And payment summary For completed appointments.

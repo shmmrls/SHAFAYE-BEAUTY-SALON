@@ -1,6 +1,13 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.IO
 
+
+' mp1 Product/Service CRUD functions
+' CREATE: Redirects to addservices() for adding new service.
+' READ: Load and display services with filters and sorting.
+' UPDATE: Edit and update selected service details.
+' DELETE: Remove selected service from database.
+
 'FOR SERVICE LISTING
 'Description: Admin can create, add, update, And delete products.
 Public Class editDeleteService

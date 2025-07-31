@@ -2,6 +2,12 @@
 Imports System.Drawing
 Imports System.Windows.Forms
 
+' mp4 Any/Other CRUD functions
+' CREATE: Add new FAQ with answer & visibility = 1.
+' READ: Load FAQ list & messages from customers.
+' UPDATE: Edit FAQ answers and visibility toggle.
+' DELETE: Remove specific FAQ by ID.
+
 'Create section that shows and reads common questions about services, scheduling, and policies.
 
 Public Class faqManagement

@@ -2,6 +2,10 @@
 Imports System.Security.Cryptography
 Imports System.Text
 
+' mp4 Any/Other CRUD functions  
+' CREATE: Register new user  
+' READ: Login by reading user credentials  
+
 'FOR ACCOUNT MANAGEMENT (ONE TIME REGISTRATION & LOGIN ACCESS)
 'Clients can register providing details such as full name, username and password.
 

@@ -1,6 +1,13 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Drawing
 
+' mp4 Any/Other CRUD functions  
+' READ: Load and filter payment logs by date and category  
+' DELETE: Remove payment records from the database  
+
+' mp5 Compute total income of the shop (with date range)  
+' READ: Filter payments by month and year to summarize income  
+
 'FOR FINANCIAL MANAGEMENT
 'Allow admin/staff to view, filter, and generate summarized views of payment records based on date and
 'service category

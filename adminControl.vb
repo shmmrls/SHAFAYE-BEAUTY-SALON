@@ -2,6 +2,11 @@
 Imports System.Security.Cryptography
 Imports System.Text
 
+' mp4 Any/Other CRUD functions
+'READ: `LoadAdmins()` displays all admins.
+'UPDATE: Admin profile fields and passwords can be updated securely.
+'DELETE: Admin accounts can be removed.
+
 'FOR ACCOUNT MANAGEMENT
 'Admin/Staff will have special access to manage the system based on their roles.
 

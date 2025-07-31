@@ -1,5 +1,8 @@
 ﻿Imports System.Drawing.Drawing2D
 
+' mp4 Any/Other CRUD functions  
+' READ (UI): Render review data (service, staff, ratings, comment)  
+
 'for feedback and reviews
 Public Class ReviewCard
     Public Property BorderRadius As Integer = 25

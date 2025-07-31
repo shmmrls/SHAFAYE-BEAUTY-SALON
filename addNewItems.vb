@@ -1,6 +1,11 @@
 ﻿Imports System.w
 Imports MySql.Data.MySqlClient
 
+'mp4 Any/Other CRUD functions
+'CREATE: Add new item to inventory.
+'READ: Load services and inventory items.
+'UPDATE: Add stock to existing items.
+
 'FOR INVENTORY MANAGEMENT
 ' Create inventory records and track internal-use supplies (e.g., wax, shampoo, facial cream) including stock levels
 ' and usage frequency.

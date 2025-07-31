@@ -1,5 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
 
+' mp4 Any/Other CRUD functions  
+' READ: Load and display all appointments  
+' FILTER: Filter by status, date, staff, and time  
+' SORT: Oldest to Recent / Recent to Oldest  
+
 ' APPOINTMENT DASHBOARD (Under “APPOINTMENT BOOKING” → For Admin)
 ' Admins can see all bookings (daily/weekly/monthly view), staff assigned per appointment,
 ' And manage status (Pending, Approved, Completed, Cancelled).

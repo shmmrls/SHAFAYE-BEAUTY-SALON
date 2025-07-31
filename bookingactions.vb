@@ -2,6 +2,20 @@
 Imports System.IO
 Imports System.Drawing.Drawing2D
 
+' mp1 Product/Service CRUD functions  
+'READ: Services and assigned staff per appointment are retrieved for display.  
+
+' mp2 Customer CRUD functions  
+'READ: Client name and info are loaded for each appointment.  
+
+' mp4 Any/Other CRUD functions  
+'CREATE: Creates payment record automatically when status is updated to "Approved".  
+'READ: Loads all appointment records.  
+'UPDATE: Allows admin to change appointment status (Pending, Approved, Completed, Cancelled).  
+'UPDATE: Auto deducts inventory items when status is changed to Completed.
+'DELETE: Deletes payment record if appointment is Cancelled or set back to Pending.  
+
+
 'FOR ADMIN FUNCTIONALITY → MANAGE APPOINTMENT BOOKINGS
 'Admin can view all bookings, update appointment statuses (Pending, Approved, Completed, Cancelled),
 'and view detailed booking information including assigned staff and services.

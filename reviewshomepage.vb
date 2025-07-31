@@ -1,5 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 
+' mp4 Any/Other CRUD functions  
+'READ: Load and filter reviews by service and sort order  
+
 'for feedback and reviews
 Public Class reviewshomepage
     Dim conn As New MySqlConnection("Data Source=localhost;Database=final_shafaye_salon;User=salon_webapp;Password=WebApp2025!;")

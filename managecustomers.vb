@@ -1,6 +1,14 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 
+' mp2 Customer CRUD functions  
+' READ: Load all customer profiles and appointment summary  
+' DELETE: Delete customer account and all related records (appointments, reviews, messages, etc.)
+
+' mp4 Any/Other CRUD functions  
+' READ: Load email, phone, and message history from profiles/messages  
+' DELETE: Delete contact messages  
+
 'FOR CUSTOMER SUPPORT 
 'Enable customers to send messages/concerns and allow admin/staff to view and respond.
 Public Class manageCustomers

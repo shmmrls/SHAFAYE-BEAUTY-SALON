@@ -1,4 +1,24 @@
 ﻿
+' mp1 Product/Service CRUD functions
+' Access to servicelist (READ)
+' AddServices (CREATE)
+' EditDeleteService (UPDATE/DELETE)
+
+' mp2 Customer CRUD functions
+' ManageCustomers form access 
+
+' mp3 Expenses CRUD functions
+' Access to expenseTracking form 
+
+' mp4 Any/Other CRUD functions
+' inventoryList, addNewItems, usageLogs, alerts 
+
+' mp5 Compute total income of the shop
+' Access to salesReport form (income computation & report generation)
+
+' Term Test Laboratory (transaction CRUD with receipt)
+' Access to paymentRecords, genReceipts forms (transaction management & receipt generation)
+
 'FOR ROLE-BASED ACCESS CONTROL 
 'Admin/Staff will have special access to manage the system based on their roles.
 Public Class adminMenu
