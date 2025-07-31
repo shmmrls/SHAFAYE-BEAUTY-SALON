@@ -118,11 +118,11 @@ Public Class adminstafflogin
     Private Sub showpassword_Click(sender As Object, e As EventArgs) Handles showpassword.Click
         If isPasswordVisible Then
             passtxt.PasswordChar = "✻"c
-            showpassword.Text = "Show Password"
+            showpassword.Text = "SHOW PASSWORD"
             isPasswordVisible = False
         Else
             passtxt.PasswordChar = ControlChars.NullChar
-            showpassword.Text = "Hide Password"
+            showpassword.Text = "HIDE PASSWORD"
             isPasswordVisible = True
         End If
     End Sub
