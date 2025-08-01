@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2025 at 05:09 AM
+-- Generation Time: Aug 01, 2025 at 05:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -731,6 +731,12 @@ ALTER TABLE `service_categories`
   ADD PRIMARY KEY (`category_id`);
 
 --
+-- Indexes for table `service_staff_roles`
+--
+ALTER TABLE `service_staff_roles`
+  ADD KEY `fk_service_staff_roles_service` (`service_id`);
+
+--
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
@@ -881,6 +887,12 @@ ALTER TABLE `reviews`
 --
 ALTER TABLE `services`
   ADD CONSTRAINT `services_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `service_categories` (`category_id`);
+
+--
+-- Constraints for table `service_staff_roles`
+--
+ALTER TABLE `service_staff_roles`
+  ADD CONSTRAINT `fk_service_staff_roles_service` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`);
 
 --
 -- Constraints for table `staff`
