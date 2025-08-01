@@ -34,6 +34,7 @@ Partial Class home
         Me.booknow.BackColor = System.Drawing.Color.Transparent
         Me.booknow.BackgroundImage = Global.SHAFAYE_BEAUTY_SALON.My.Resources.Resources.book_now
         Me.booknow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.booknow.Cursor = System.Windows.Forms.Cursors.Hand
         Me.booknow.Location = New System.Drawing.Point(269, 245)
         Me.booknow.Margin = New System.Windows.Forms.Padding(0)
         Me.booknow.Name = "booknow"

@@ -90,6 +90,7 @@ Partial Class login
         Me.showpassword.Size = New System.Drawing.Size(107, 13)
         Me.showpassword.TabIndex = 11
         Me.showpassword.Text = "SHOW PASSWORD"
+        Me.showpassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'clear
         '
