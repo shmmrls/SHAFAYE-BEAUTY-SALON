@@ -94,7 +94,7 @@
         If result = DialogResult.Yes Then
             Me.Hide()
             homepage.Show()
-            MsgBox("You have successfully logged out.", MsgBoxStyle.Information, "Logout Successful")
+
         End If
     End Sub
 
