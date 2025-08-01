@@ -312,7 +312,9 @@ DROP TABLE IF EXISTS `service_staff_roles`;
 CREATE TABLE `service_staff_roles` (
   `id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL,
-  `role_name` varchar(100) NOT NULL
+  `role_name` varchar(100) NOT NULL,
+  KEY `fk_service_staff_roles_service` (`service_id`),
+  CONSTRAINT `fk_service_staff_roles_service` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -451,7 +453,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-01  1:49:34
+-- Dump completed on 2025-08-01  9:03:19
+
 
 -- 1. CREATE ADMIN USER
 CREATE USER IF NOT EXISTS 'salon_admin'@'localhost' IDENTIFIED BY 'AdminSalon2025!';
